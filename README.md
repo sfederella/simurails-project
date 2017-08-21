@@ -1,2 +1,2 @@
-# simurails-project
-SimuRails - Simulador de Trazas Ferroviarias
+# SimuRails
+Simulador de Trazas Ferroviarias
