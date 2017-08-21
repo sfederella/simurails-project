@@ -1,0 +1,10 @@
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\bin\Debug\SimuRails.exe.config
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\obj\Debug\SimuRails.csprojResolveAssemblyReference.cache
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\obj\Debug\SimuRails.Properties.Resources.resources
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\obj\Debug\SimuRails.csproj.GenerateResource.Cache
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\bin\Debug\SimuRails.exe
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\bin\Debug\SimuRails.pdb
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\bin\Debug\MaterialSkin.dll
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\obj\Debug\SimuRails.exe
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\obj\Debug\SimuRails.pdb
+C:\Users\Santi\UTN\Proyecto Final\simurails-project\SimuRails\obj\Debug\SimuRails.MainForm.resources
