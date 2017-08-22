@@ -128,7 +128,7 @@
             this.tabCompartir.Location = new System.Drawing.Point(4, 22);
             this.tabCompartir.Name = "tabCompartir";
             this.tabCompartir.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCompartir.Size = new System.Drawing.Size(1091, 417);
+            this.tabCompartir.Size = new System.Drawing.Size(1091, 418);
             this.tabCompartir.TabIndex = 1;
             this.tabCompartir.Text = "Compartir";
             this.tabCompartir.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             // 
             this.tabTrazas.Location = new System.Drawing.Point(4, 22);
             this.tabTrazas.Name = "tabTrazas";
-            this.tabTrazas.Size = new System.Drawing.Size(1091, 417);
+            this.tabTrazas.Size = new System.Drawing.Size(1091, 418);
             this.tabTrazas.TabIndex = 2;
             this.tabTrazas.Text = "Trazas";
             this.tabTrazas.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             // 
             this.tabServicios.Location = new System.Drawing.Point(4, 22);
             this.tabServicios.Name = "tabServicios";
-            this.tabServicios.Size = new System.Drawing.Size(1091, 417);
+            this.tabServicios.Size = new System.Drawing.Size(1091, 418);
             this.tabServicios.TabIndex = 3;
             this.tabServicios.Text = "Servicios";
             this.tabServicios.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@
             // 
             this.tabFormaciones.Location = new System.Drawing.Point(4, 22);
             this.tabFormaciones.Name = "tabFormaciones";
-            this.tabFormaciones.Size = new System.Drawing.Size(1091, 417);
+            this.tabFormaciones.Size = new System.Drawing.Size(1091, 418);
             this.tabFormaciones.TabIndex = 4;
             this.tabFormaciones.Text = "Formaciones";
             this.tabFormaciones.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             // 
             this.tabCoches.Location = new System.Drawing.Point(4, 22);
             this.tabCoches.Name = "tabCoches";
-            this.tabCoches.Size = new System.Drawing.Size(1091, 417);
+            this.tabCoches.Size = new System.Drawing.Size(1091, 418);
             this.tabCoches.TabIndex = 5;
             this.tabCoches.Text = "Coches";
             this.tabCoches.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             // 
             this.tabEstaciones.Location = new System.Drawing.Point(4, 22);
             this.tabEstaciones.Name = "tabEstaciones";
-            this.tabEstaciones.Size = new System.Drawing.Size(1091, 417);
+            this.tabEstaciones.Size = new System.Drawing.Size(1091, 418);
             this.tabEstaciones.TabIndex = 6;
             this.tabEstaciones.Text = "Estaciones";
             this.tabEstaciones.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             // 
             this.tabIncidentes.Location = new System.Drawing.Point(4, 22);
             this.tabIncidentes.Name = "tabIncidentes";
-            this.tabIncidentes.Size = new System.Drawing.Size(1091, 417);
+            this.tabIncidentes.Size = new System.Drawing.Size(1091, 418);
             this.tabIncidentes.TabIndex = 7;
             this.tabIncidentes.Text = "Incidentes";
             this.tabIncidentes.UseVisualStyleBackColor = true;
@@ -193,10 +193,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialTabSelector1.BaseTabControl = null;
             this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Location = new System.Drawing.Point(1, 64);
+            this.materialTabSelector1.Location = new System.Drawing.Point(-3, 64);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1091, 38);
+            this.materialTabSelector1.Size = new System.Drawing.Size(1099, 38);
             this.materialTabSelector1.TabIndex = 3;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 

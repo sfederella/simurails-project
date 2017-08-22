@@ -24,7 +24,6 @@ C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\T
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\Tests.dll
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\Tests.pdb
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\Iesi.Collections.dll
-C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\NHibernate.dll
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\SimuRails.exe
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\Tests\bin\Debug\System.Data.SQLite.dll

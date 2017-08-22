@@ -29,34 +29,33 @@
         private void InitializeComponent()
         {
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialRaisedButton3 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // materialRaisedButton1
             // 
-            this.materialRaisedButton1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.materialRaisedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(598, 299);
+            this.materialRaisedButton1.Location = new System.Drawing.Point(677, 310);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(200, 52);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(121, 41);
             this.materialRaisedButton1.TabIndex = 0;
-            this.materialRaisedButton1.Text = "materialRaisedButton1";
+            this.materialRaisedButton1.Text = "Hecho";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             // 
-            // materialRaisedButton3
+            // label1
             // 
-            this.materialRaisedButton3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.materialRaisedButton3.Depth = 0;
-            this.materialRaisedButton3.Location = new System.Drawing.Point(386, 299);
-            this.materialRaisedButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRaisedButton3.Name = "materialRaisedButton3";
-            this.materialRaisedButton3.Primary = true;
-            this.materialRaisedButton3.Size = new System.Drawing.Size(206, 52);
-            this.materialRaisedButton3.TabIndex = 2;
-            this.materialRaisedButton3.Text = "materialRaisedButton3";
-            this.materialRaisedButton3.UseVisualStyleBackColor = true;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(52, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(698, 77);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Bienvenido a SimuRails";
             // 
             // SimulacionForm
             // 
@@ -65,17 +64,18 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(811, 363);
             this.ControlBox = false;
-            this.Controls.Add(this.materialRaisedButton3);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.materialRaisedButton1);
             this.Name = "SimulacionForm";
             this.Text = "SimulacionForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
-        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton3;
+        private System.Windows.Forms.Label label1;
     }
 }

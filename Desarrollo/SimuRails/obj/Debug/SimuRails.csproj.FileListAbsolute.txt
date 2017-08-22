@@ -32,6 +32,5 @@ C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Deb
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.xml
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.exe
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.pdb
-C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csprojResolveAssemblyReference.cache
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.SimulacionForm.resources
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.MainForm.resources
