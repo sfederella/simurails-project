@@ -9,6 +9,7 @@ namespace SimuRails.Models
         
         public void ejecutarSimulacion(){
             
+            // A partir del tiempo t, la traza le devuelve la instancia de formacion que tiene el horario de salida mas proximo.
             Formacion formacion = Traza.getProximaFormacion(t);
             
             int t = formacion.getHoraSalida();
@@ -25,6 +26,8 @@ namespace SimuRails.Models
                 while (estacionActual != formacion.getEstacionDestino()){
                     
                     //Obtengo el camino a recorrer hasta la próxima estación.
+                    //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
+                    //en el sentido desde estacionActual -> formacion.getEstacionDestino()
                     Tramo relacionActual = servicio.getTramo(estacionActual, formacion.getEstacionDestino());
 
                     //Busco la siguiente estación en el recorrido.
@@ -37,11 +40,14 @@ namespace SimuRails.Models
                 }
                 
                 // Calcular ingreso de pasajeros en estación Cabecera Final del recorrido.
+                // Cambiar el sentido de circulacion de la formacion formacion.invertirSentido();
                 
                 //Calculo Tramo de vuelta
                 while (estacionActual != servicio.Desde){
                     
                     //Obtengo el camino a recorrer hasta la próxima estación.
+                    //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
+                    //en el sentido desde estacionActual -> formacion.getEstacionDestino()
                     Tramo relacionActual = servicio.getTramo(estacionActual, formacion.getEstacionDestino());
 
                     //Busco la siguiente estación en el recorrido.
