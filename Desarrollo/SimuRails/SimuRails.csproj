@@ -37,6 +37,11 @@
   <ItemGroup>
     <Compile Include="DB\NHibernateHelper.cs" />
     <Compile Include="Mappings\TrazaCM.cs" />
+    <Compile Include="Models\Estacion.cs" />
+    <Compile Include="Models\Formacion.cs" />
+    <Compile Include="Models\Servicio.cs" />
+    <Compile Include="Models\TiempoComprometido.cs" />
+    <Compile Include="Models\Tramo.cs" />
     <Compile Include="Models\Traza.cs" />
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>

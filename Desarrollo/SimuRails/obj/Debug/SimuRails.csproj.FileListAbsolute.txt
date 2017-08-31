@@ -34,3 +34,22 @@ C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Deb
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.pdb
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.SimulacionForm.resources
 C:\Users\Santi\UTN\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.MainForm.resources
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.exe.config
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.exe
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.pdb
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\DB\hibernate.cfg.xml
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.exe
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.pdb
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\Iesi.Collections.dll
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\MaterialSkin.dll
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\NHibernate.dll
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.dll
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\Iesi.Collections.xml
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\NHibernate.xml
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.xml
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csprojResolveAssemblyReference.cache
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.MainForm.resources
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Properties.Resources.resources
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.SimulacionForm.resources
+C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csproj.GenerateResource.Cache
