@@ -85,6 +85,13 @@ namespace SimuRails.DB
             var mapper = new ModelMapper();
             //Add the person mapping to the model mapper
             mapper.AddMappings(new List<System.Type> { typeof(TrazaCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(IncidenteCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(EstacionCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(RelacionCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(ServicioCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(SimulacionCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(FormacionCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(CocheCM) });
             //Create and return a HbmMapping of the model mapping in code
             return mapper.CompileMappingForAllExplicitlyAddedEntities();
         }

@@ -9,16 +9,16 @@ namespace SimuRails.Models
     
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
-        public HashSet<Servicio> Servicios { get; set; }
+        public virtual HashSet<Servicio> Servicios { get; set; }
 
         //Todo optimizar para usar una lista con punteros o un array ordenado.
-        public Formacion getProximaFormacion(int t)
+        public virtual Formacion getProximaFormacion(int t)
         {
             int minHoraSalida = int.MaxValue;
             Formacion formacionMinHoraSalida = null;
             foreach (Servicio servicio in Servicios)
             {
-                Formacion formacion = servicio.getProximaFormacion(t);
+                Formacion formacion = servicio.GetProximaFormacion(t);
                 if (formacion.HoraSalida < minHoraSalida)
                 {
                     formacionMinHoraSalida = formacion;

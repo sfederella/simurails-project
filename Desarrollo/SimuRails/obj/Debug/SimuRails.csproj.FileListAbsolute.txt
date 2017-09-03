@@ -53,3 +53,28 @@ C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\
 C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Properties.Resources.resources
 C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.SimulacionForm.resources
 C:\Users\Rama\Desktop\Proyecto\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csproj.GenerateResource.Cache
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.exe.config
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.exe
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.pdb
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\DB\hibernate.cfg.xml
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.exe
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.pdb
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\Iesi.Collections.dll
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\MaterialSkin.dll
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\mscorlib.dll
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\NHibernate.dll
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.dll
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\Iesi.Collections.xml
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\NHibernate.xml
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.xml
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\es\mscorlib.resources.dll
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\normidna.nlp
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\normnfc.nlp
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\normnfd.nlp
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\normnfkc.nlp
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\bin\Debug\normnfkd.nlp
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.MainForm.resources
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Properties.Resources.resources
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.SimulacionForm.resources
+C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csproj.GenerateResource.Cache

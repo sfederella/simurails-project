@@ -5,18 +5,21 @@ namespace SimuRails.Models
 {
     public class Servicio
     {
-        public Estacion Desde { get; set; }
+        public Servicio() { }
 
-        public HashSet<Formacion> Formaciones { get; set; }
+        public virtual int Id { get; protected set; }
+        public virtual string Nombre { get; set; }
 
-        public Tramo getTramo(Estacion estacionActual, Estacion estacion)
+        public virtual Estacion Desde { get; set; }
+        public virtual HashSet<Formacion> Formaciones { get; set; }
+
+        public virtual Tramo GetTramo(Estacion estacionActual, Estacion estacion)
         {
             //TODO Implementar
             throw new NotImplementedException();
         }
-
         //Todo optimizar para usar una lista con punteros o un array ordenado.
-        public Formacion getProximaFormacion(int t)
+        public virtual Formacion GetProximaFormacion(int t)
         {
             int minHoraSalida = int.MaxValue;
             Formacion formacionMinHoraSalida = null;

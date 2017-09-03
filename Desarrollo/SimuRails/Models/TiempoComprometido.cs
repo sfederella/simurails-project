@@ -44,7 +44,7 @@ namespace SimuRails.Models
                     //Obtengo el camino a recorrer hasta la próxima estación.
                     //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
                     //en el sentido desde estacionActual -> formacion.getEstacionDestino()
-                    Tramo relacionActual = servicio.getTramo(estacionActual, formacion.EstacionDestino);
+                    Tramo relacionActual = servicio.GetTramo(estacionActual, formacion.EstacionDestino);
 
                     //Busco la siguiente estación en el recorrido.
                     Estacion siguienteEstacion = relacionActual.Estacion1;
@@ -65,7 +65,7 @@ namespace SimuRails.Models
                     //Obtengo el camino a recorrer hasta la próxima estación.
                     //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
                     //en el sentido desde estacionActual -> formacion.getEstacionDestino()
-                    Tramo relacionActual = servicio.getTramo(estacionActual, formacion.EstacionDestino);
+                    Tramo relacionActual = servicio.GetTramo(estacionActual, formacion.EstacionDestino);
 
                     //Busco la siguiente estación en el recorrido.
                     Estacion siguienteEstacion = relacionActual.Estacion;
