@@ -30,51 +30,33 @@ namespace SimuRails.Models
 
             while (t < TiempoFinal)
             {
+                int tiempoDeLaFormacion = t;
 
                 Servicio servicio = formacion.Servicio;
 
                 Estacion estacionActual = formacion.EstacionActual;
 
                 // Calcular ingreso de pasajeros en estación Cabecera Inicial del recorrido.
+                tiempoDeLaFormacion = formacion.inicioRecorrido(t);
 
-                //Calculo Tramo de ida
+                //Calculo Tramo de ida y vuelta
                 while (estacionActual != formacion.EstacionDestino)
                 {
 
                     //Obtengo el camino a recorrer hasta la próxima estación.
                     //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
                     //en el sentido desde estacionActual -> formacion.getEstacionDestino()
-                    Tramo relacionActual = servicio.GetTramo(estacionActual, formacion.EstacionDestino);
-
-                    //Busco la siguiente estación en el recorrido.
-                    Estacion siguienteEstacion = relacionActual.Estacion1;
-
+                    Tramo tramo = servicio.GetTramo(estacionActual, formacion.EstacionDestino);
+                    
                     //Realizo todos los calculos de entre estacion 1 y estacion 2
+                    tiempoDeLaFormacion = formacion.arriboEstacion(tramo, tiempoDeLaFormacion);
 
-                    //Actualizo el nodo que será el inicial en la siguiente iteracion.
-                    estacionActual = siguienteEstacion;
                 }
+
+                tiempoDeLaFormacion = formacion.finRecorrido(tiempoDeLaFormacion);
 
                 // Calcular ingreso de pasajeros en estación Cabecera Final del recorrido.
                 // Cambiar el sentido de circulacion de la formacion formacion.invertirSentido();
-
-                //Calculo Tramo de vuelta
-                while (estacionActual != servicio.Desde)
-                {
-
-                    //Obtengo el camino a recorrer hasta la próxima estación.
-                    //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
-                    //en el sentido desde estacionActual -> formacion.getEstacionDestino()
-                    Tramo relacionActual = servicio.GetTramo(estacionActual, formacion.EstacionDestino);
-
-                    //Busco la siguiente estación en el recorrido.
-                    Estacion siguienteEstacion = relacionActual.Estacion;
-
-                    //Realizo todos los calculos de entre estacion 1 y estacion 2
-
-                    //Actualizo el nodo que será el inicial en la siguiente iteracion.
-                    estacionActual = siguienteEstacion;
-                }
 
                 formacion = Traza.getProximaFormacion(t);
 
@@ -85,4 +67,5 @@ namespace SimuRails.Models
         }
 
     }
+
 }
