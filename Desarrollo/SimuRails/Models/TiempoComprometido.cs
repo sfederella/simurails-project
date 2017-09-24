@@ -8,14 +8,13 @@ namespace SimuRails.Models
 {
     public class TiempoComprometido
     {
-        private Traza Traza { get; set; }
-
-        private int TiempoFinal { get; set; }
+        private Traza traza;
+        private int tiempoFinal;
 
         public TiempoComprometido(Traza traza, int tiempoFinal)
         {
-            this.Traza = traza;
-            this.TiempoFinal = tiempoFinal;
+            this.traza = traza;
+            this.tiempoFinal = tiempoFinal;
         }
 
         public void ejecutarSimulacion()
@@ -24,11 +23,11 @@ namespace SimuRails.Models
             int t = 0;
 
             // A partir del tiempo t, la traza le devuelve la instancia de formacion que tiene el horario de salida mas proximo.
-            Formacion formacion = Traza.getProximaFormacion(t);
+            Formacion formacion = traza.GetProximaFormacion(t);
 
             t = formacion.HoraSalida;
 
-            while (t < TiempoFinal)
+            while (t < tiempoFinal)
             {
                 int tiempoDeLaFormacion = t;
 
@@ -58,7 +57,7 @@ namespace SimuRails.Models
                 // Calcular ingreso de pasajeros en estación Cabecera Final del recorrido.
                 // Cambiar el sentido de circulacion de la formacion formacion.invertirSentido();
 
-                formacion = Traza.getProximaFormacion(t);
+                formacion = traza.GetProximaFormacion(t);
 
                 t = formacion.HoraSalida;
 
