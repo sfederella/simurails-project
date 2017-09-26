@@ -1,6 +1,6 @@
 ﻿namespace SimuRails.Views
 {
-    partial class SimulacionForm
+    partial class LandingInfo
     {
         /// <summary>
         /// Required designer variable.

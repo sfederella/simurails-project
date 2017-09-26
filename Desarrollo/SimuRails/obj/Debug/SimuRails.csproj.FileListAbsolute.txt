@@ -78,3 +78,25 @@ C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\ob
 C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Properties.Resources.resources
 C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.SimulacionForm.resources
 C:\Users\ramiro\Desktop\Proyecto Final\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csproj.GenerateResource.Cache
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\DB\hibernate.cfg.xml
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.exe.config
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.exe
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\SimuRails.pdb
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\Iesi.Collections.dll
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\MaterialSkin.dll
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\NHibernate.dll
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.dll
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\Iesi.Collections.xml
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\NHibernate.xml
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.xml
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.Components.RenglonDeTraza.resources
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.MainForm.resources
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Properties.Resources.resources
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.LandingInfo.resources
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.Views.Simulacion.resources
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csproj.GenerateResource.Cache
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.csproj.CoreCompileInputs.cache
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.exe
+C:\Users\tenpines\simurails-project\Desarrollo\SimuRails\obj\Debug\SimuRails.pdb

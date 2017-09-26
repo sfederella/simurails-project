@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SimuRails.Views
 {
-    public partial class SimulacionForm : Form
+    public partial class LandingInfo : Form
     {
-        public SimulacionForm()
+        public LandingInfo()
         {
             InitializeComponent();
         }

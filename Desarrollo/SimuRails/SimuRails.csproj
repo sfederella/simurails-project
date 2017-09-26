@@ -54,6 +54,12 @@
     <Compile Include="Models\TiempoComprometido.cs" />
     <Compile Include="Models\Tramo.cs" />
     <Compile Include="Models\Traza.cs" />
+    <Compile Include="Views\Components\RenglonDeTraza.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeTraza.Designer.cs">
+      <DependentUpon>RenglonDeTraza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,12 +68,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\SimulacionForm.cs">
+    <Compile Include="Views\LandingInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\SimulacionForm.Designer.cs">
-      <DependentUpon>SimulacionForm.cs</DependentUpon>
+    <Compile Include="Views\LandingInfo.Designer.cs">
+      <DependentUpon>LandingInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Simulacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Simulacion.Designer.cs">
+      <DependentUpon>Simulacion.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\Components\RenglonDeTraza.resx">
+      <DependentUpon>RenglonDeTraza.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,8 +95,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\SimulacionForm.resx">
-      <DependentUpon>SimulacionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\LandingInfo.resx">
+      <DependentUpon>LandingInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Simulacion.resx">
+      <DependentUpon>Simulacion.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -20,7 +20,7 @@ namespace SimuRails.Views
         private void MainForm_Load(object sender, System.EventArgs e)
         {
             // Embeber formularios en los tabs respectivos
-            embedForm(new SimulacionForm(), tabSimulacion);
+            embedForm(new Simulacion(), tabSimulacion);
         }
         
         private void embedForm(Form form, TabPage tabPage)
