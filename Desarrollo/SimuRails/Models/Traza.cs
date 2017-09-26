@@ -14,16 +14,23 @@ namespace SimuRails.Models
         //Todo optimizar para usar una lista con punteros o un array ordenado.
         public Formacion GetProximaFormacion(int t)
         {
-            int minHoraSalida = int.MaxValue;
             Formacion formacionMinHoraSalida = null;
             foreach (Servicio servicio in Servicios)
             {
                 Formacion formacion = servicio.GetProximaFormacion(t);
-                if (formacion.HoraSalida < minHoraSalida)
+                if (formacionMinHoraSalida != null)
+                {
+                    if (formacion.HoraSalida < formacionMinHoraSalida.HoraSalida)
+                    {
+                        formacionMinHoraSalida = formacion;
+                    }
+                } else
                 {
                     formacionMinHoraSalida = formacion;
                 }
             }
+
+            formacionMinHoraSalida.Servicio.MarcarProgramacion(formacionMinHoraSalida);
 
             return formacionMinHoraSalida;
         }

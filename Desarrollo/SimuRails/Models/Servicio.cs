@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static SimuRails.Models.Formacion;
 
 namespace SimuRails.Models
 {
@@ -13,8 +14,9 @@ namespace SimuRails.Models
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        public virtual HashSet<Formacion> Formaciones { get; set; }
-        public virtual SortedSet<int> Programacion { get; set; }
+        public virtual List<Formacion> Formaciones { get; set; }
+        public virtual SortedDictionary<int,bool> ProgramacionIda { get; set; }
+        public virtual SortedDictionary<int,bool> ProgramacionVuelta { get; set; }
 
         public virtual Tramo GetTramo(Estacion estacionActual, Estacion estacionDestino)
         {
@@ -69,21 +71,58 @@ namespace SimuRails.Models
 
         }
 
-        //TODO optimizar para usar una lista con punteros o un array ordenado.
+        public void MarcarProgramacion(Formacion formacion)
+        {
+            if(formacion.SentidoActual == Sentido.IDA)
+            {
+                ProgramacionIda[formacion.HoraSalida] = true;
+            }
+            else if (formacion.SentidoActual == Sentido.VUELTA)
+            {
+                ProgramacionVuelta[formacion.HoraSalida] = true;
+            }
+        }
+
+        public void LimpiarProgramaciones()
+        {
+            foreach (KeyValuePair<int,bool> salida in ProgramacionIda)
+            {
+                ProgramacionIda[salida.Key] = false;
+            }
+            foreach (KeyValuePair<int, bool> salida in ProgramacionVuelta)
+            {
+                ProgramacionVuelta[salida.Key] = false;
+            }
+        }
+
+
         public virtual Formacion GetProximaFormacion(int t)
         {
-            int minHoraSalida = int.MaxValue;
-            Formacion formacionMinHoraSalida = null;
-            // Obtengo la proxima programación disponible
-            int proxSalidaProgramada = Programacion.Where(x => x > t).First();
+            Formacion formacionMinHoraSalida = Formaciones[0];
             foreach (Formacion formacion in Formaciones)
             {
-                if (formacion.HoraSalida < minHoraSalida && formacion.HoraSalida > t)
+                if (formacion.HoraSalida < formacionMinHoraSalida.HoraSalida)
                 {
                     formacionMinHoraSalida = formacion;
                 }
             }
 
+            int minHoraProgramada = 0;
+
+            // Si ya no hay más programaciones en el día y un tren está disponible para salir, sale.
+            if (formacionMinHoraSalida.SentidoActual == Sentido.IDA)
+            {
+                minHoraProgramada = ProgramacionIda.FirstOrDefault(x => !x.Value).Key;
+            }
+            else if (formacionMinHoraSalida.SentidoActual == Sentido.VUELTA)
+            {
+                minHoraProgramada = ProgramacionVuelta.FirstOrDefault(x => !x.Value).Key;
+            }
+
+            if (minHoraProgramada > formacionMinHoraSalida.HoraSalida)
+            {
+                formacionMinHoraSalida.HoraSalida = minHoraProgramada;
+            }
 
             return formacionMinHoraSalida;
         }
