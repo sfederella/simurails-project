@@ -15,7 +15,13 @@ namespace SimuRails.Models
         public virtual Servicio Servicio { get; set; }
         public virtual Estacion EstacionActual { get; set; }
         public virtual Estacion EstacionDestino { get; set; }
-        public virtual bool SentidoIda { get; set; }
+
+        public enum Sentido
+        {
+            IDA,
+            VUELTA
+        }
+        public virtual Sentido SentidoActual { get; set; }
 
         private bool vacio;
 
@@ -27,7 +33,7 @@ namespace SimuRails.Models
             this.Pasajeros = 0;
             this.EstacionActual = servicio.Desde;
             this.EstacionDestino = servicio.Hasta;
-            this.SentidoIda = true;
+            this.SentidoActual = Sentido.IDA;
             this.Servicio = servicio;
         }
 
@@ -53,13 +59,13 @@ namespace SimuRails.Models
 
             tiempoAtencion = tramo.EstacionDestino.getTiempoAtencion(pasajerosAscendidos);
                         
-            if (this.EstacionActual.getTiempoComprometido(this.SentidoIda) < t){
-                this.EstacionActual.setTiempoComprometido(this.SentidoIda, t + tiempoAtencion);
+            if (this.EstacionActual.getTiempoComprometido(SentidoActual) < t){
+                this.EstacionActual.setTiempoComprometido(SentidoActual, t + tiempoAtencion);
             }else{
-                this.EstacionActual.addTiempoComprometido(this.SentidoIda, tiempoAtencion);
+                this.EstacionActual.addTiempoComprometido(SentidoActual, tiempoAtencion);
             }
 
-            return this.EstacionActual.getTiempoComprometido(this.SentidoIda);
+            return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
         public int arriboEstacion(Tramo tramo, int t)
@@ -93,10 +99,10 @@ namespace SimuRails.Models
 
             this.Pasajeros += (pasajerosAscendidos - pasajerosDescendidos);
 
-            if (this.EstacionActual.getTiempoComprometido(this.SentidoIda) < t + tiempoDeViaje){
-                this.EstacionActual.setTiempoComprometido(this.SentidoIda, t + tiempoDeViaje + tiempoAtencion);
+            if (this.EstacionActual.getTiempoComprometido(SentidoActual) < t + tiempoDeViaje){
+                this.EstacionActual.setTiempoComprometido(SentidoActual, t + tiempoDeViaje + tiempoAtencion);
             }else{
-                this.EstacionActual.addTiempoComprometido(this.SentidoIda, tiempoAtencion);
+                this.EstacionActual.addTiempoComprometido(SentidoActual, tiempoAtencion);
             }
 
             if (tramo.EstacionDestino.Nombre == this.Servicio.Hasta.Nombre)
@@ -104,7 +110,7 @@ namespace SimuRails.Models
                 this.invertirSentido();
             }
 
-            return tramo.EstacionDestino.getTiempoComprometido(this.SentidoIda);
+            return tramo.EstacionDestino.getTiempoComprometido(SentidoActual);
         }
         
         public int finRecorrido(int t)
@@ -124,21 +130,23 @@ namespace SimuRails.Models
 
             tiempoAtencion = tramo.EstacionDestino.getTiempoAtencion(pasajerosDescendidos);
 
-            this.EstacionActual.setTiempoComprometido(this.SentidoIda, t + tiempoAtencion);
+            this.EstacionActual.setTiempoComprometido(SentidoActual, t + tiempoAtencion);
 
-            return this.EstacionActual.getTiempoComprometido(this.SentidoIda);
+            return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
         public void invertirSentido()
         {
-            if (SentidoIda)
+            if (SentidoActual == Sentido.IDA)
             {
                 this.EstacionDestino = this.Servicio.Desde;
-            }else
+                this.SentidoActual = Sentido.VUELTA;
+            }
+            else
             {
                 this.EstacionDestino = this.Servicio.Hasta;
+                this.SentidoActual = Sentido.VUELTA;
             }
-            this.SentidoIda = !this.SentidoIda;
         }
     }
 
