@@ -14,7 +14,7 @@ namespace SimuRails.Models
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        public virtual List<Formacion> Formaciones { get; set; }
+        public virtual HashSet<Formacion> Formaciones { get; set; }
         public virtual SortedDictionary<int,bool> ProgramacionIda { get; set; }
         public virtual SortedDictionary<int,bool> ProgramacionVuelta { get; set; }
 
@@ -98,10 +98,17 @@ namespace SimuRails.Models
 
         public virtual Formacion GetProximaFormacion(int t)
         {
-            Formacion formacionMinHoraSalida = Formaciones[0];
+            Formacion formacionMinHoraSalida = null;
             foreach (Formacion formacion in Formaciones)
             {
-                if (formacion.HoraSalida < formacionMinHoraSalida.HoraSalida)
+                if (formacionMinHoraSalida != null)
+                {
+                    if (formacion.HoraSalida < formacionMinHoraSalida.HoraSalida)
+                    {
+                        formacionMinHoraSalida = formacion;
+                    }
+                }
+                else
                 {
                     formacionMinHoraSalida = formacion;
                 }

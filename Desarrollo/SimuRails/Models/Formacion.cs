@@ -59,13 +59,13 @@ namespace SimuRails.Models
 
             tiempoAtencion = tramo.EstacionDestino.getTiempoAtencion(pasajerosAscendidos);
                         
-            if (this.EstacionActual.getTiempoComprometido(this.SentidoActual) < t){
-                this.EstacionActual.setTiempoComprometido(this.SentidoActual, t + tiempoAtencion);
+            if (this.EstacionActual.getTiempoComprometido(SentidoActual) < t){
+                this.EstacionActual.setTiempoComprometido(SentidoActual, t + tiempoAtencion);
             }else{
-                this.EstacionActual.addTiempoComprometido(this.SentidoActual, tiempoAtencion);
+                this.EstacionActual.addTiempoComprometido(SentidoActual, tiempoAtencion);
             }
 
-            return this.EstacionActual.getTiempoComprometido(this.SentidoActual);
+            return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
         public int arriboEstacion(Tramo tramo, int t)
@@ -99,10 +99,10 @@ namespace SimuRails.Models
 
             this.Pasajeros += (pasajerosAscendidos - pasajerosDescendidos);
 
-            if (this.EstacionActual.getTiempoComprometido(this.SentidoActual) < t + tiempoDeViaje){
-                this.EstacionActual.setTiempoComprometido(this.SentidoActual, t + tiempoDeViaje + tiempoAtencion);
+            if (this.EstacionActual.getTiempoComprometido(SentidoActual) < t + tiempoDeViaje){
+                this.EstacionActual.setTiempoComprometido(SentidoActual, t + tiempoDeViaje + tiempoAtencion);
             }else{
-                this.EstacionActual.addTiempoComprometido(this.SentidoActual, tiempoAtencion);
+                this.EstacionActual.addTiempoComprometido(SentidoActual, tiempoAtencion);
             }
 
             if (tramo.EstacionDestino.Nombre == this.Servicio.Hasta.Nombre)
@@ -110,7 +110,7 @@ namespace SimuRails.Models
                 this.invertirSentido();
             }
 
-            return tramo.EstacionDestino.getTiempoComprometido(this.SentidoActual);
+            return tramo.EstacionDestino.getTiempoComprometido(SentidoActual);
         }
         
         public int finRecorrido(int t)
@@ -130,9 +130,9 @@ namespace SimuRails.Models
 
             tiempoAtencion = tramo.EstacionDestino.getTiempoAtencion(pasajerosDescendidos);
 
-            this.EstacionActual.setTiempoComprometido(this.SentidoActual, t + tiempoAtencion);
+            this.EstacionActual.setTiempoComprometido(SentidoActual, t + tiempoAtencion);
 
-            return this.EstacionActual.getTiempoComprometido(this.SentidoActual);
+            return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
         public void invertirSentido()
