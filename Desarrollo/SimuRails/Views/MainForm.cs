@@ -21,6 +21,8 @@ namespace SimuRails.Views
         {
             // Embeber formularios en los tabs respectivos
             embedForm(new Simulacion(), tabSimulacion);
+            embedForm(new ServiciosListForm(), tabServicios);
+            embedForm(new SpinnerForm(), tabCoches);
         }
         
         private void embedForm(Form form, TabPage tabPage)

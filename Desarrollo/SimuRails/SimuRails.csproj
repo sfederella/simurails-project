@@ -54,6 +54,12 @@
     <Compile Include="Models\TiempoComprometido.cs" />
     <Compile Include="Models\Tramo.cs" />
     <Compile Include="Models\Traza.cs" />
+    <Compile Include="Views\Components\RenglonDeServicio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeServicio.Designer.cs">
+      <DependentUpon>RenglonDeServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\RenglonDeTraza.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -74,12 +80,27 @@
     <Compile Include="Views\LandingInfo.Designer.cs">
       <DependentUpon>LandingInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ServiciosListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ServiciosListForm.Designer.cs">
+      <DependentUpon>ServiciosListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Simulacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Simulacion.Designer.cs">
       <DependentUpon>Simulacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SpinnerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SpinnerForm.Designer.cs">
+      <DependentUpon>SpinnerForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\Components\RenglonDeServicio.resx">
+      <DependentUpon>RenglonDeServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeTraza.resx">
       <DependentUpon>RenglonDeTraza.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,8 +119,14 @@
     <EmbeddedResource Include="Views\LandingInfo.resx">
       <DependentUpon>LandingInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ServiciosListForm.resx">
+      <DependentUpon>ServiciosListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Simulacion.resx">
       <DependentUpon>Simulacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpinnerForm.resx">
+      <DependentUpon>SpinnerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
