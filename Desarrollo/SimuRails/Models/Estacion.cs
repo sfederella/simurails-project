@@ -5,9 +5,12 @@ namespace SimuRails.Models
 {
     public class Estacion
     {
-        public Estacion() {
+        public Estacion()
+        {
             this.TiempoComprometidoSentidoVuelta = 0;
             this.TiempoComprometidoSentidoIda = 0;
+            Incidentes = new List<Incidente>();
+            Relaciones = new List<Relacion>();
         }
 
 
@@ -16,48 +19,53 @@ namespace SimuRails.Models
         public virtual int PersonasEsperandoMax { get; set; }
         public virtual int PersonasEsperandoMin { get; set; }
         public virtual string TipoFDP { get; set; } //TODO: Acá no sé de qué tipo es. Quizá se pueda hacer un enum
+
+        public virtual IList<Incidente> Incidentes { get; set; }
+        public virtual IList<Relacion> Relaciones { get; set; }
+
         public virtual int TiempoComprometidoSentidoIda { get; set; }
         public virtual int TiempoComprometidoSentidoVuelta { get; set; }
 
         //TODO: Implementar en funcion de la FDP
-        public int pasajerosDescendidos(Estacion e, int t)
+        public virtual int pasajerosDescendidos(Estacion e, int t)
         {
             throw new NotImplementedException();
         }
 
         //TODO: Implementar en funcion de la FDP
-        public int pasajerosAscendidos(Estacion e, int t)
+        public virtual int pasajerosAscendidos(Estacion e, int t)
         {
             throw new NotImplementedException();
         }
 
-        public int getTiempoAtencion(int p)
+        public virtual int getTiempoAtencion(int p)
         {
             throw new NotImplementedException();
         }
 
-        public List<Incidente> getIncidentes()
+        public virtual List<Incidente> getIncidentes()
         {
             throw new NotImplementedException();
         }
 
-        public int getTiempoComprometido(Formacion.Sentido sentido)
+        public virtual int getTiempoComprometido(Formacion.Sentido sentido)
         {
             return sentido == Formacion.Sentido.IDA ? TiempoComprometidoSentidoIda : TiempoComprometidoSentidoVuelta;
         }
 
-        public void setTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
+        public virtual void setTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
         {
             if (sentido == Formacion.Sentido.IDA)
             {
                 TiempoComprometidoSentidoIda = tiempoComprometido;
-            }else
+            }
+            else
             {
                 TiempoComprometidoSentidoVuelta = tiempoComprometido;
             }
         }
 
-        public void addTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
+        public virtual void addTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
         {
             if (sentido == Formacion.Sentido.IDA)
             {
@@ -69,5 +77,4 @@ namespace SimuRails.Models
             }
         }
     }
-
 }

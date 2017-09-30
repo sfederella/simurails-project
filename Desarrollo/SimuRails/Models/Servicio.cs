@@ -70,7 +70,7 @@ namespace SimuRails.Models
 
         }
 
-        public void MarcarProgramacion(Formacion formacion)
+        public virtual void MarcarProgramacion(Formacion formacion)
         {
             if (formacion.SentidoActual == Formacion.Sentido.IDA)
             {
@@ -82,7 +82,7 @@ namespace SimuRails.Models
             }
         }
 
-        public void LimpiarProgramaciones()
+        public virtual void LimpiarProgramaciones()
         {
             foreach (KeyValuePair<int,bool> salida in ProgramacionIda)
             {

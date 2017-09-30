@@ -287,7 +287,7 @@ namespace Tests.DBTests
             }
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void RelacionEntreFormacionYCochesCorrecta()
         {
             using (var session = NHibernateHelper.OpenSession())
@@ -314,6 +314,60 @@ namespace Tests.DBTests
                 Assert.IsNotNull(formacionDB);
                 Assert.IsTrue(formacionDB.Coches.Count() == 2);
                 Assert.AreEqual(formacion.Coches.First(), unCoche);
+            }
+        }
+
+        [TestMethod]
+        public void RelacionEstacionIncidente()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unIncidente = ObtenerIncidenteDePrueba();
+                var otroIncidente = ObtenerIncidenteDePrueba();
+                var unaEstacion = ObtenerEstacionDePrueba();
+
+                unaEstacion.Incidentes.Add(unIncidente);
+                unaEstacion.Incidentes.Add(otroIncidente);
+
+                session.SaveOrUpdate(unIncidente);
+                session.SaveOrUpdate(otroIncidente);
+                session.Flush();
+
+                session.SaveOrUpdate(unaEstacion);
+
+                var estacionDB = session.Query<Estacion>().Where(x => x.Nombre == unaEstacion.Nombre).FirstOrDefault();
+
+                Assert.IsNotNull(estacionDB);
+
+                Assert.IsTrue(estacionDB.Incidentes.Count == 2);
+            }
+        }
+
+        [TestMethod]
+        public void RelacionEstacionRelaciones()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unaRelacion = ObtenerRelacionDePrueba();
+                var otraRelacion = ObtenerRelacionDePrueba();
+                var unaEstacion = ObtenerEstacionDePrueba();
+
+                unaEstacion.Relaciones.Add(unaRelacion);
+                unaEstacion.Relaciones.Add(otraRelacion);
+
+                session.SaveOrUpdate(unaRelacion);
+                session.SaveOrUpdate(otraRelacion);
+                session.Flush();
+
+                session.SaveOrUpdate(unaEstacion);
+
+                var estacionDB = session.Query<Estacion>().Where(x => x.Nombre == unaEstacion.Nombre).FirstOrDefault();
+
+                Assert.IsNotNull(estacionDB);
+
+                Assert.IsTrue(estacionDB.Relaciones.Count == 2);
             }
         }
 
@@ -378,6 +432,69 @@ namespace Tests.DBTests
             {
                 Nombre = "nombre de formacion",
             };
+        }
+
+        private static Estacion ObtenerEstacionDePrueba()
+        {
+            var estacion = new Estacion()
+            {
+                Nombre = "nombre de estacion",
+                PersonasEsperandoMax = 300,
+                PersonasEsperandoMin = 20,
+                TipoFDP = "tipo de fdp"
+            };
+            return estacion;
+        }
+
+        private static Incidente ObtenerIncidenteDePrueba()
+        {
+            var incidente = new Incidente()
+            {
+                Nombre = "Incidente",
+                Descripcion = "Descripcion de incidente",
+                ProbabilidadDeOcurrencia = 10.45,
+                TiempoDemora = 100
+            };
+            return incidente;
+        }
+
+        private static Relacion ObtenerRelacionDePrueba()
+        {
+            var relacion = new Relacion()
+            {
+                Distancia = 1000,
+                VelocidadPromedio = 300,
+                TiempoViaje = 20
+            };
+            return relacion;
+        }
+
+        private static Servicio ObtenerServicioDePrueba()
+        {
+            var servicio = new Servicio()
+            {
+                Nombre = "nombre de servicio"
+            };
+            return servicio;
+        }
+
+        private static Traza ObtenerTrazaDePrueba()
+        {
+            var traza = new Traza()
+            {
+                Nombre = "Traza"
+            };
+            return traza;
+        }
+
+        private static Simulacion ObtenerSimulacionDePrueba()
+        {
+            var simulacion = new Simulacion()
+            {
+                Nombre = "nombre de simulacion",
+                FrecuenciaDeSalida = 7
+            };
+            return simulacion;
         }
     }
 }

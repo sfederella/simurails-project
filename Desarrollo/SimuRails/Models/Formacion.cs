@@ -37,7 +37,7 @@ namespace SimuRails.Models
             this.Servicio = servicio;
         }
 
-        public int inicioRecorrido(int t)
+        public virtual int inicioRecorrido(int t)
         {
 
             int tiempoAtencion = 0;
@@ -68,7 +68,7 @@ namespace SimuRails.Models
             return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
-        public int arriboEstacion(Tramo tramo, int t)
+        public virtual int arriboEstacion(Tramo tramo, int t)
         {
 
             int pasajerosDescendidos = 0;
@@ -112,8 +112,8 @@ namespace SimuRails.Models
 
             return tramo.EstacionDestino.getTiempoComprometido(SentidoActual);
         }
-        
-        public int finRecorrido(int t)
+
+        public virtual int finRecorrido(int t)
         {
 
             int tiempoAtencion = 0;
@@ -135,7 +135,7 @@ namespace SimuRails.Models
             return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
-        public void invertirSentido()
+        public virtual void invertirSentido()
         {
             if (SentidoActual == Sentido.IDA)
             {
