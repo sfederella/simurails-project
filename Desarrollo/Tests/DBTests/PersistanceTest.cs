@@ -287,35 +287,47 @@ namespace Tests.DBTests
             }
         }
 
-        //[TestMethod]
-        public void RelacionEntreFormacionYCochesCorrecta()
+        [TestMethod]
+        public void CRUDCoche()
         {
             using (var session = NHibernateHelper.OpenSession())
             using (var transaction = session.BeginTransaction())
             {
-                var formacion = ObtenerFormacionDePrueba();
-                var unCoche = ObtenerCocheDePrueba();
-                var otroCoche = ObtenerCocheDePrueba();
+                var coche = ObtenerCocheDePrueba();
 
-                session.SaveOrUpdate(unCoche);
-                session.SaveOrUpdate(otroCoche);
-                session.Flush();
-                
-                formacion.Coches.Add(unCoche);
-                formacion.Coches.Add(otroCoche);
-
-                session.SaveOrUpdate(formacion);
+                session.SaveOrUpdate(coche);
                 session.Flush();
 
-                var formacionDB = session.Query<Formacion>()
-                   .Where(x => x.Nombre == formacion.Nombre)
+                var cocheDB = session.Query<Coche>()
+                   .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
                    .FirstOrDefault();
 
-                Assert.IsNotNull(formacionDB);
-                Assert.IsTrue(formacionDB.Coches.Count() == 2);
-                Assert.AreEqual(formacion.Coches.First(), unCoche);
+                Assert.IsNotNull(cocheDB);
+
+                cocheDB.Modelo = "otro modelo";
+                cocheDB.MaximoLegalPasajeros = 190;
+                cocheDB.EsLocomotora = true;
+
+                session.SaveOrUpdate(coche);
+                session.Flush();
+
+                cocheDB = session.Query<Coche>()
+                   .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
+                   .FirstOrDefault();
+
+                Assert.AreEqual(cocheDB.Modelo, "otro modelo");
+                Assert.AreEqual(cocheDB.MaximoLegalPasajeros, 190);
+                Assert.AreEqual(cocheDB.EsLocomotora, true);
+
+                session.Delete(cocheDB);
+
+                var existeCoche = session.Query<Coche>()
+                   .Any(x => x.MaximoLegalPasajeros == coche.MaximoLegalPasajeros && x.Modelo == coche.Modelo);
+
+                Assert.IsFalse(existeCoche);
             }
         }
+
 
         [TestMethod]
         public void RelacionEstacionIncidente()
@@ -460,45 +472,60 @@ namespace Tests.DBTests
         }
 
         [TestMethod]
-        public void CRUDCoche()
+        public void RelacionTrazaServicios()
         {
             using (var session = NHibernateHelper.OpenSession())
             using (var transaction = session.BeginTransaction())
             {
-                var coche = ObtenerCocheDePrueba();
+                var unServicio = ObtenerServicioDePrueba();
+                var otroServicioIgual = ObtenerServicioDePrueba();
+                var unaTraza = ObtenerTrazaDePrueba();
 
-                session.SaveOrUpdate(coche);
+                unaTraza.Servicios.Add(unServicio);
+                unaTraza.Servicios.Add(otroServicioIgual);
+
+                session.SaveOrUpdate(unServicio);
+                session.SaveOrUpdate(otroServicioIgual);
                 session.Flush();
 
-                var cocheDB = session.Query<Coche>()
-                   .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
-                   .FirstOrDefault();
+                session.SaveOrUpdate(unaTraza);
 
-                Assert.IsNotNull(cocheDB);
+                var trazaDB = session.Query<Traza>().Where(x => x.Nombre == unaTraza.Nombre).FirstOrDefault();
 
-                cocheDB.Modelo = "otro modelo";
-                cocheDB.MaximoLegalPasajeros = 190;
-                cocheDB.EsLocomotora = true;
+                Assert.IsNotNull(trazaDB);
 
-                session.SaveOrUpdate(coche);
-                session.Flush();
-
-                cocheDB = session.Query<Coche>()
-                   .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
-                   .FirstOrDefault();
-
-                Assert.AreEqual(cocheDB.Modelo, "otro modelo");
-                Assert.AreEqual(cocheDB.MaximoLegalPasajeros, 190);
-                Assert.AreEqual(cocheDB.EsLocomotora, true);
-
-                session.Delete(cocheDB);
-
-                var existeCoche = session.Query<Coche>()
-                   .Any(x => x.MaximoLegalPasajeros == coche.MaximoLegalPasajeros && x.Modelo == coche.Modelo);
-
-                Assert.IsFalse(existeCoche);
+                Assert.IsTrue(trazaDB.Servicios.Count == 2);
             }
         }
+
+        [TestMethod]
+        public void RelacionTrazaSimulaciones()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unaSimluacion = ObtenerSimulacionDePrueba();
+                var otraSimulacion = ObtenerSimulacionDePrueba();
+                var unaTraza = ObtenerTrazaDePrueba();
+
+                unaTraza.Simulaciones.Add(unaSimluacion);
+                unaTraza.Simulaciones.Add(otraSimulacion);
+
+                session.SaveOrUpdate(unaSimluacion);
+                session.SaveOrUpdate(otraSimulacion);
+                session.Flush();
+
+                session.SaveOrUpdate(unaTraza);
+
+                var trazaDB = session.Query<Traza>().Where(x => x.Nombre == unaTraza.Nombre).FirstOrDefault();
+
+                Assert.IsNotNull(trazaDB);
+
+                Assert.IsTrue(trazaDB.Simulaciones.Count == 2);
+            }
+        }
+
+
 
         private Coche ObtenerCocheDePrueba()
         {

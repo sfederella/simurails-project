@@ -65,7 +65,7 @@ namespace Tests.ModelsTests
             formacion3.HoraSalida = 25;
             servicio.Formaciones.Add(formacion3);
 
-            traza.Servicios = new HashSet<Servicio>();
+            traza.Servicios = new List<Servicio>();
             traza.Servicios.Add(servicio);
 
         }
