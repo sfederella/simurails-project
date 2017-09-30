@@ -406,6 +406,60 @@ namespace Tests.DBTests
         }
 
         [TestMethod]
+        public void RelacionServicioFormaciones()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unaFormacion = ObtenerFormacionDePrueba();
+                var otraFormacion = ObtenerFormacionDePrueba();
+                var unServicio = ObtenerServicioDePrueba();
+
+                unServicio.Formaciones.Add(unaFormacion);
+                unServicio.Formaciones.Add(otraFormacion);
+
+                session.SaveOrUpdate(unaFormacion);
+                session.SaveOrUpdate(otraFormacion);
+                session.Flush();
+
+                session.SaveOrUpdate(unServicio);
+
+                var servicioDB = session.Query<Servicio>().Where(x => x.Nombre == unServicio.Nombre).FirstOrDefault();
+
+                Assert.IsNotNull(servicioDB);
+
+                Assert.IsTrue(servicioDB.Formaciones.Count == 2);
+            }
+        }
+
+        [TestMethod]
+        public void RelacionServicioRelaciones()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unaRelacion = ObtenerRelacionDePrueba();
+                var otraRelacion = ObtenerRelacionDePrueba();
+                var unServicio = ObtenerServicioDePrueba();
+
+                unServicio.Relaciones.Add(unaRelacion);
+                unServicio.Relaciones.Add(otraRelacion);
+
+                session.SaveOrUpdate(unaRelacion);
+                session.SaveOrUpdate(otraRelacion);
+                session.Flush();
+
+                session.SaveOrUpdate(unServicio);
+
+                var servicioDB = session.Query<Servicio>().Where(x => x.Nombre == unServicio.Nombre).FirstOrDefault();
+
+                Assert.IsNotNull(servicioDB);
+
+                Assert.IsTrue(servicioDB.Relaciones.Count == 2);
+            }
+        }
+
+        [TestMethod]
         public void CRUDCoche()
         {
             using (var session = NHibernateHelper.OpenSession())
