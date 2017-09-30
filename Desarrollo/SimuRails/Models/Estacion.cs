@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using static SimuRails.Models.Formacion;
 
 namespace SimuRails.Models
 {
@@ -42,14 +41,14 @@ namespace SimuRails.Models
             throw new NotImplementedException();
         }
 
-        public int getTiempoComprometido(Sentido sentido)
+        public int getTiempoComprometido(Formacion.Sentido sentido)
         {
-            return sentido == Sentido.IDA ? TiempoComprometidoSentidoIda : TiempoComprometidoSentidoVuelta;
+            return sentido == Formacion.Sentido.IDA ? TiempoComprometidoSentidoIda : TiempoComprometidoSentidoVuelta;
         }
 
-        public void setTiempoComprometido(Sentido sentido, int tiempoComprometido)
+        public void setTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
         {
-            if (sentido == Sentido.IDA)
+            if (sentido == Formacion.Sentido.IDA)
             {
                 TiempoComprometidoSentidoIda = tiempoComprometido;
             }else
@@ -58,9 +57,9 @@ namespace SimuRails.Models
             }
         }
 
-        public void addTiempoComprometido(Sentido sentido, int tiempoComprometido)
+        public void addTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
         {
-            if (sentido == Sentido.IDA)
+            if (sentido == Formacion.Sentido.IDA)
             {
                 TiempoComprometidoSentidoIda += tiempoComprometido;
             }

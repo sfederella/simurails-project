@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using static SimuRails.Models.Formacion;
 
 namespace SimuRails.Models
 {
@@ -73,11 +72,11 @@ namespace SimuRails.Models
 
         public void MarcarProgramacion(Formacion formacion)
         {
-            if(formacion.SentidoActual == Sentido.IDA)
+            if (formacion.SentidoActual == Formacion.Sentido.IDA)
             {
                 ProgramacionIda[formacion.HoraSalida] = true;
             }
-            else if (formacion.SentidoActual == Sentido.VUELTA)
+            else if (formacion.SentidoActual == Formacion.Sentido.VUELTA)
             {
                 ProgramacionVuelta[formacion.HoraSalida] = true;
             }
@@ -117,11 +116,11 @@ namespace SimuRails.Models
             int minHoraProgramada = 0;
 
             // Si ya no hay más programaciones en el día y un tren está disponible para salir, sale.
-            if (formacionMinHoraSalida.SentidoActual == Sentido.IDA)
+            if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.IDA)
             {
                 minHoraProgramada = ProgramacionIda.FirstOrDefault(x => !x.Value).Key;
             }
-            else if (formacionMinHoraSalida.SentidoActual == Sentido.VUELTA)
+            else if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.VUELTA)
             {
                 minHoraProgramada = ProgramacionVuelta.FirstOrDefault(x => !x.Value).Key;
             }
