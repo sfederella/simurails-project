@@ -372,6 +372,40 @@ namespace Tests.DBTests
         }
 
         [TestMethod]
+        public void RelacionFormacionCoches()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unaFormacion = ObtenerFormacionDePrueba();
+                var unCoche = ObtenerCocheDePrueba();
+                var otroCoche = ObtenerCocheDePrueba();
+
+                var composicionCoche1 = new ComposicionDeCoches(unCoche, 3);
+                var composicionCoche2 = new ComposicionDeCoches(otroCoche, 2);
+
+                unaFormacion.ComposicionesDeCoches.Add(composicionCoche1);
+                unaFormacion.ComposicionesDeCoches.Add(composicionCoche2);
+
+                session.SaveOrUpdate(unCoche);
+                session.SaveOrUpdate(otroCoche);
+                session.SaveOrUpdate(composicionCoche1);
+                session.SaveOrUpdate(composicionCoche2);
+                session.Flush();
+
+                session.SaveOrUpdate(unaFormacion);
+
+                var formacionDB = session.Query<Formacion>().Where(x => x.Nombre == unaFormacion.Nombre).FirstOrDefault();
+
+                Assert.IsNotNull(formacionDB);
+
+                Assert.IsTrue(formacionDB.ComposicionesDeCoches.Count == 2);
+
+                Assert.AreEqual(5, formacionDB.TotalDeCoches());
+            }
+        }
+
+        [TestMethod]
         public void CRUDCoche()
         {
             using (var session = NHibernateHelper.OpenSession())
