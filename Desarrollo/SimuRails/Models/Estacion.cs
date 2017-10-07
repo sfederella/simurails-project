@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static SimuRails.Models.Formacion;
 
 namespace SimuRails.Models
 {
@@ -9,51 +10,76 @@ namespace SimuRails.Models
         {
             this.TiempoComprometidoSentidoVuelta = 0;
             this.TiempoComprometidoSentidoIda = 0;
-            Incidentes = new List<Incidente>();
-            Relaciones = new List<Relacion>();
         }
-
 
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
-        public virtual int PersonasEsperandoMax { get; set; }
-        public virtual int PersonasEsperandoMin { get; set; }
-        public virtual string TipoFDP { get; set; } //TODO: Acá no sé de qué tipo es. Quizá se pueda hacer un enum
-
-        public virtual IList<Incidente> Incidentes { get; set; }
-        public virtual IList<Relacion> Relaciones { get; set; }
-
         public virtual int TiempoComprometidoSentidoIda { get; set; }
         public virtual int TiempoComprometidoSentidoVuelta { get; set; }
 
-        //TODO: Implementar en funcion de la FDP
-        public virtual int pasajerosDescendidos(Estacion e, int t)
+        public virtual int PersonasEsperandoMaxIda { get; set; }
+        public virtual int PersonasEsperandoMinIda { get; set; }
+        public virtual int PersonasDesciendenMaxIda { get; set; }
+        public virtual int PersonasDesciendenMinIda { get; set; }
+
+        public virtual int PersonasEsperandoMaxVuelta { get; set; }
+        public virtual int PersonasEsperandoMinVuelta { get; set; }
+        public virtual int PersonasDesciendenMaxVuelta { get; set; }
+        public virtual int PersonasDesciendenMinVuelta { get; set; }
+
+        public int PasajerosAscendidos(Formacion formacion, int t)
+        {
+            if(formacion.SentidoActual == Sentido.IDA)
+            {
+                return FDP.Normal(PersonasEsperandoMinIda, PersonasEsperandoMaxIda);
+            } 
+            else
+            {
+                return FDP.Normal(PersonasEsperandoMinVuelta, PersonasEsperandoMaxVuelta);
+            }
+        }
+
+        public int PasajerosDescendidos(Formacion formacion, int t)
+        {
+            int pasajerosDescendidos;
+            if (formacion.SentidoActual == Sentido.IDA)
+            {
+                pasajerosDescendidos = FDP.Normal(PersonasDesciendenMinIda, PersonasDesciendenMaxIda);
+            }
+            else
+            {
+                pasajerosDescendidos = FDP.Normal(PersonasDesciendenMinVuelta, PersonasDesciendenMaxVuelta);
+            }
+            if (pasajerosDescendidos > formacion.Pasajeros)
+            {
+                pasajerosDescendidos = formacion.Pasajeros;
+            }
+            return pasajerosDescendidos;
+        }
+
+        public int GetTiempoAtencion(Formacion formacion, int cantidadDePersonas)
+        {
+            // Parámetros en segundos. Retorna minutos.
+            int tiempoPorPersona = 4;
+            int cantPersonasXPuerta = 2;
+            int cantVagones = formacion.Coches.Count;
+            int cantPuertasXVagon = 3;
+            int tiempoAtencionMinimo = 10;
+            return ( (cantidadDePersonas * tiempoPorPersona) / (cantPersonasXPuerta * cantPuertasXVagon * cantVagones) 
+                        + tiempoAtencionMinimo) / 60;
+        }
+
+        public List<Incidente> GetIncidentes()
         {
             throw new NotImplementedException();
         }
 
-        //TODO: Implementar en funcion de la FDP
-        public virtual int pasajerosAscendidos(Estacion e, int t)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual int getTiempoAtencion(int p)
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual List<Incidente> getIncidentes()
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual int getTiempoComprometido(Formacion.Sentido sentido)
+        public int GetTiempoComprometido(Sentido sentido)
         {
             return sentido == Formacion.Sentido.IDA ? TiempoComprometidoSentidoIda : TiempoComprometidoSentidoVuelta;
         }
 
-        public virtual void setTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
+        public void SetTiempoComprometido(Sentido sentido, int tiempoComprometido)
         {
             if (sentido == Formacion.Sentido.IDA)
             {
@@ -65,7 +91,7 @@ namespace SimuRails.Models
             }
         }
 
-        public virtual void addTiempoComprometido(Formacion.Sentido sentido, int tiempoComprometido)
+        public void AddTiempoComprometido(Sentido sentido, int tiempoComprometido)
         {
             if (sentido == Formacion.Sentido.IDA)
             {

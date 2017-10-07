@@ -12,6 +12,13 @@ namespace SimuRails.Models
 
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
-        public virtual int FrecuenciaDeSalida { get; set; }
+        public virtual long Duracion { get; set; }
+        public virtual Traza TrazaSimulada { get; set; }
+        public virtual IMetodoSimulacion Metodo { get; set; }
+
+        public void Ejecutar()
+        {
+            Metodo.EjecutarSimulacion();
+        }
     }
 }
