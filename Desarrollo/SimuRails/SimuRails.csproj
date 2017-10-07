@@ -56,6 +56,36 @@
     <Compile Include="Models\TiempoComprometido.cs" />
     <Compile Include="Models\Tramo.cs" />
     <Compile Include="Models\Traza.cs" />
+    <Compile Include="Views\Abms\CocheAbm\CochesListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\CocheAbm\CochesListForm.Designer.cs">
+      <DependentUpon>CochesListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\CocheAbm\CreateCocheForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\CocheAbm\CreateCocheForm.Designer.cs">
+      <DependentUpon>CreateCocheForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\CocheAbm\EditCocheForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\CocheAbm\EditCocheForm.Designer.cs">
+      <DependentUpon>EditCocheForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\CocheAttrs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\CocheAttrs.Designer.cs">
+      <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeCoche.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeCoche.Designer.cs">
+      <DependentUpon>RenglonDeCoche.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\RenglonDeServicio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -67,6 +97,12 @@
     </Compile>
     <Compile Include="Views\Components\RenglonDeTraza.Designer.cs">
       <DependentUpon>RenglonDeTraza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonListaVacia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonListaVacia.Designer.cs">
+      <DependentUpon>RenglonListaVacia.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
@@ -100,11 +136,29 @@
     <Compile Include="Views\SpinnerForm.Designer.cs">
       <DependentUpon>SpinnerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Abms\CocheAbm\CochesListForm.resx">
+      <DependentUpon>CochesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\CocheAbm\CreateCocheForm.resx">
+      <DependentUpon>CreateCocheForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\CocheAbm\EditCocheForm.resx">
+      <DependentUpon>EditCocheForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\CocheAttrs.resx">
+      <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeCoche.resx">
+      <DependentUpon>RenglonDeCoche.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeServicio.resx">
       <DependentUpon>RenglonDeServicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeTraza.resx">
       <DependentUpon>RenglonDeTraza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonListaVacia.resx">
+      <DependentUpon>RenglonListaVacia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
