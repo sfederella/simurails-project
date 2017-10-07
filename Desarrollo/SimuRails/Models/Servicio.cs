@@ -17,7 +17,8 @@ namespace SimuRails.Models
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        
+        public virtual Estacion EstacionMantenimiento { get; set; }
+
         public virtual IList<Formacion> Formaciones { get; set; }
         
         public virtual SortedDictionary<int,bool> ProgramacionIda { get; set; }

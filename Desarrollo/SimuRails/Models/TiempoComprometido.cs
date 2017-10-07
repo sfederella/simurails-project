@@ -33,14 +33,12 @@ namespace SimuRails.Models
 
                 Servicio servicio = formacion.Servicio;
 
-                // Calcular ingreso de pasajeros en estación Cabecera Inicial del recorrido.
+                // Calcular ingreso de pasajeros en estación Cabecera Inicial o Final del recorrido.
                 tiempoDeLaFormacion = formacion.InicioRecorrido(t);
 
-                //Calculo Tramo de ida y vuelta
+                //Calculo viaje hasta que llegue a destino, ya sea estacion Final o Mantenimiento.
                 while (formacion.EstacionActual != formacion.EstacionDestino)
                 {
-                    // TODO nunca se actualiza la estacion actual?
-
                     //Obtengo el camino a recorrer hasta la próxima estación.
                     //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
                     //en el sentido desde estacionActual -> formacion.getEstacionDestino()
@@ -50,9 +48,6 @@ namespace SimuRails.Models
                     tiempoDeLaFormacion = formacion.ArriboEstacion(tramo, tiempoDeLaFormacion);
 
                 } 
-
-                // TODO Meter adentro de ArriboEstacion 
-                tiempoDeLaFormacion = formacion.FinRecorrido(tiempoDeLaFormacion);
 
                 // Calcular ingreso de pasajeros en estación Cabecera Final del recorrido.
                 // Cambiar el sentido de circulacion de la formacion formacion.invertirSentido();

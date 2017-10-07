@@ -17,9 +17,13 @@ namespace SimuRails.Models
 
         public virtual int HoraSalida { get; set; }
         public virtual int Pasajeros { get; set; }
+        public virtual int DuracionMantenimiento { get; set; }
+        public virtual int KilometrosMantenimiento { get; set; }
         public virtual Servicio Servicio { get; set; }
         public virtual Estacion EstacionActual { get; set; }
         public virtual Estacion EstacionDestino { get; set; }
+
+        public int KilometrosRecorridos { get; set; }
 
         public virtual IList<ComposicionDeCoches> ComposicionesDeCoches { get; set; }
 
@@ -30,13 +34,9 @@ namespace SimuRails.Models
         }
         public virtual Sentido SentidoActual { get; set; }
 
-        private bool vacio;
-
-
         // TODO esto iniciaría todas las formaciones con sentiodo IDA
         public Formacion(Servicio servicio)
         {
-            this.vacio = true;
             this.Pasajeros = 0;
             this.EstacionActual = servicio.Desde;
             this.EstacionDestino = servicio.Hasta;
@@ -48,12 +48,17 @@ namespace SimuRails.Models
         {
 
             int tiempoAtencion = 0;
-
             int pasajerosAscendidos = 0;
+            int tiempoIncidentes = 0;
 
             Tramo tramo = this.Servicio.GetTramo(EstacionActual, SentidoActual);
 
-            if (!vacio)
+            foreach (Incidente incidente in tramo.EstacionDestino.GetIncidentes())
+            {
+                tiempoIncidentes += incidente.TiempoDemora;
+            }
+
+            if (this.Pasajeros > 0)
             {
                 throw new SystemException("El tren no esta vacio al iniciar el recorrido.");
             }
@@ -61,8 +66,6 @@ namespace SimuRails.Models
             pasajerosAscendidos = tramo.EstacionDestino.PasajerosAscendidos(this, t);
 
             this.Pasajeros = pasajerosAscendidos;
-
-            this.vacio = false;
 
             tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, pasajerosAscendidos);
                         
@@ -72,77 +75,86 @@ namespace SimuRails.Models
                 this.EstacionActual.AddTiempoComprometido(SentidoActual, tiempoAtencion);
             }
 
+            //Se setea el tiempo comprometido de la estacion de la que acaba de salir.
+            this.HoraSalida = tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
+
             return this.EstacionActual.GetTiempoComprometido(SentidoActual);
         }
 
-        // TODO agregar mantenimiento
         public int ArriboEstacion(Tramo tramo, int t)
         {
-
             int pasajerosDescendidos = 0;
             int pasajerosAscendidos = 0;
             int distancia = tramo.Distancia;
             int tiempoDeViaje = tramo.TiempoViaje;
             int tiempoAtencion = 0;
-
-            List<Incidente> incidentes = tramo.EstacionDestino.GetIncidentes();
-
-            if (incidentes != null)
+            int tiempoIncidentes = 0;
+            
+            foreach  (Incidente incidente in tramo.EstacionDestino.GetIncidentes())
             {
-                //TODO tiempoDeViaje+=incidentes. lamda suma bla bla;
-
-                //for (Incidente incidente : incidentes )
-
+                tiempoIncidentes += incidente.TiempoDemora;
             }
+            tiempoDeViaje += tiempoIncidentes;
 
-            //Primero se calcula el descenso de pasajeros.
-            if (!vacio)
+            //Primero se calcula el descenso de pasajeros propio de la estacion.
+            if (this.Pasajeros > 0)
             {
                 pasajerosDescendidos = tramo.EstacionDestino.PasajerosDescendidos(this, t);
             }
 
-            pasajerosAscendidos = tramo.EstacionDestino.PasajerosAscendidos(this, t);
-
-            tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, pasajerosAscendidos + pasajerosDescendidos);
-
-            this.Pasajeros += (pasajerosAscendidos - pasajerosDescendidos);
-
-            if (this.EstacionActual.GetTiempoComprometido(SentidoActual) < t + tiempoDeViaje){
-                this.EstacionActual.SetTiempoComprometido(SentidoActual, t + tiempoDeViaje + tiempoAtencion);
-            }else{
-                this.EstacionActual.AddTiempoComprometido(SentidoActual, tiempoAtencion);
-            }
-
-            if (tramo.EstacionDestino.Nombre == this.Servicio.Hasta.Nombre)
+            //Esto nos dice si la estacion llego a donde queria llegar
+            if (!tramo.EstacionDestino.Equals(this.EstacionDestino))
             {
-                this.InvertirSentido();
+                if (this.RequiereMantenimiento() && tramo.EstacionDestino.Equals(this.Servicio.EstacionMantenimiento))
+                {
+                    //Actualizo el destino para que frene en la clase TiempoComprometido .
+                    this.EstacionDestino = this.Servicio.EstacionMantenimiento;
+
+                    // Si ya esta en la estacion de mantenimiento no sube nadie y queda ahí                   
+                    tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, this.Pasajeros);
+
+                    //Esto no se que tan copado esta para las estadisticas, tecnicamente bajaron todos, pero xq los obligaron jaja
+                    pasajerosDescendidos = this.Pasajeros;
+
+                    this.Pasajeros = 0;
+
+                    //Se setea el tiempo comprometido de la estacion a la que acaba de llegar, y por ser estacion Destino, 
+                    // el tren esta disponible para salir a la misma hora que termina el TC en la estacion + lo que dure el mantenimiento
+                    this.HoraSalida = tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion) + this.DuracionMantenimiento ;
+
+                }
+                else {
+
+                    pasajerosAscendidos = tramo.EstacionDestino.PasajerosAscendidos(this, t);
+
+                    tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, pasajerosAscendidos + pasajerosDescendidos);
+
+                    this.Pasajeros += (pasajerosAscendidos - pasajerosDescendidos);
+
+                    //Se setea el tiempo comprometido de la estacion a la que acaba de llegar.
+                    tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion);
+
+                }                              
+                                
             }
-            
+            else {
+                pasajerosDescendidos = this.Pasajeros;
+
+                this.Pasajeros = 0;
+
+                tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, pasajerosDescendidos);
+
+                //Se setea el tiempo comprometido de la estacion a la que acaba de llegar, y por ser estacion Destino, 
+                // el tren esta disponible para salir a la misma hora que termina el TC en la estacion
+                this.HoraSalida = tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion);
+
+                this.InvertirSentido();                
+
+            }
+            //Sin importar que, la formacion ya llego a Destino.
             this.EstacionActual = tramo.EstacionDestino;
 
             return tramo.EstacionDestino.GetTiempoComprometido(SentidoActual);
-        }
-
-        public int FinRecorrido(int t)
-        {
-
-            int tiempoAtencion = 0;
-
-            int pasajerosDescendidos = 0;
-
-            Tramo tramo = this.Servicio.GetTramo(EstacionActual, SentidoActual);
-
-            pasajerosDescendidos = this.Pasajeros;
-
-            this.Pasajeros = 0;
-
-            this.vacio = true;
-
-            tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, pasajerosDescendidos);
-
-            this.EstacionActual.SetTiempoComprometido(SentidoActual, t + tiempoAtencion);
-
-            return this.EstacionActual.GetTiempoComprometido(SentidoActual);
         }
 
         public void InvertirSentido()
@@ -163,6 +175,11 @@ namespace SimuRails.Models
         public virtual int TotalDeCoches()
         {
             return ComposicionesDeCoches.Sum(x => x.VecesRepetido);
+        }
+                
+        public virtual Boolean RequiereMantenimiento()
+        {
+            return this.KilometrosRecorridos > this.KilometrosMantenimiento;
         }
     }
 

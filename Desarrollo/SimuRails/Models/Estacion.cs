@@ -17,6 +17,8 @@ namespace SimuRails.Models
         public virtual int TiempoComprometidoSentidoIda { get; set; }
         public virtual int TiempoComprometidoSentidoVuelta { get; set; }
 
+        public virtual IList<Incidente> Incidentes { get; set; }
+
         public virtual int PersonasEsperandoMaxIda { get; set; }
         public virtual int PersonasEsperandoMinIda { get; set; }
         public virtual int PersonasDesciendenMaxIda { get; set; }
@@ -69,14 +71,39 @@ namespace SimuRails.Models
                         + tiempoAtencionMinimo) / 60;
         }
 
+        //Debe devolver una lista con incidentes. en casa de que no se produzcan, una lista vacía.
         public List<Incidente> GetIncidentes()
         {
-            throw new NotImplementedException();
+            List<Incidente> lista = new List<Incidente>();
+
+            foreach(Incidente incidente in this.Incidentes)
+            {
+                if (incidente.ProbabilidadDeOcurrencia >= new Random().NextDouble() * (100 - 0) + 0)
+                {
+                    lista.Add(incidente);
+                }
+            }
+
+            return lista;
         }
 
         public int GetTiempoComprometido(Sentido sentido)
         {
             return sentido == Formacion.Sentido.IDA ? TiempoComprometidoSentidoIda : TiempoComprometidoSentidoVuelta;
+        }
+
+        public int SetTiempoComprometido(Sentido sentido, int t, int tiempoDeViaje, int tiempoAtencion)
+        {
+            if (this.GetTiempoComprometido(sentido) < t + tiempoDeViaje)
+            {
+                this.SetTiempoComprometido(sentido, t + tiempoDeViaje + tiempoAtencion);
+                return t + tiempoDeViaje + tiempoAtencion;
+            }
+            else
+            {
+                this.AddTiempoComprometido(sentido, tiempoAtencion);
+                return this.GetTiempoComprometido(sentido);
+            }
         }
 
         public void SetTiempoComprometido(Sentido sentido, int tiempoComprometido)
@@ -102,5 +129,11 @@ namespace SimuRails.Models
                 TiempoComprometidoSentidoVuelta += tiempoComprometido;
             }
         }
+
+        public virtual bool Equals(Estacion estacion)
+        {
+            return Id == estacion.Id;
+        }
+
     }
 }
