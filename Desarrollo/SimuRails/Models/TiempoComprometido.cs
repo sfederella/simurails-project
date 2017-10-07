@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace SimuRails.Models
 {
-    public class TiempoComprometido
+    public class TiempoComprometido : IMetodoSimulacion
     {
         private Traza traza;
-        private int tiempoFinal;
+        private long tiempoFinal;
 
-        public TiempoComprometido(Traza traza, int tiempoFinal)
+        public TiempoComprometido(Traza traza, long tiempoFinal)
         {
             this.traza = traza;
             this.tiempoFinal = tiempoFinal;
         }
 
-        public void ejecutarSimulacion()
+        public void EjecutarSimulacion()
         {
 
             int t = 0;
@@ -33,26 +33,26 @@ namespace SimuRails.Models
 
                 Servicio servicio = formacion.Servicio;
 
-                Estacion estacionActual = formacion.EstacionActual;
-
                 // Calcular ingreso de pasajeros en estación Cabecera Inicial del recorrido.
-                tiempoDeLaFormacion = formacion.inicioRecorrido(t);
+                tiempoDeLaFormacion = formacion.InicioRecorrido(t);
 
                 //Calculo Tramo de ida y vuelta
-                while (estacionActual != formacion.EstacionDestino)
+                while (formacion.EstacionActual != formacion.EstacionDestino)
                 {
+                    // TODO nunca se actualiza la estacion actual?
 
                     //Obtengo el camino a recorrer hasta la próxima estación.
                     //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
                     //en el sentido desde estacionActual -> formacion.getEstacionDestino()
-                    Tramo tramo = servicio.GetTramo(estacionActual, formacion.EstacionDestino);
+                    Tramo tramo = servicio.GetTramo(formacion.EstacionActual, formacion.SentidoActual);
                     
                     //Realizo todos los calculos de entre estacion 1 y estacion 2
-                    tiempoDeLaFormacion = formacion.arriboEstacion(tramo, tiempoDeLaFormacion);
+                    tiempoDeLaFormacion = formacion.ArriboEstacion(tramo, tiempoDeLaFormacion);
 
-                }
+                } 
 
-                tiempoDeLaFormacion = formacion.finRecorrido(tiempoDeLaFormacion);
+                // TODO Meter adentro de ArriboEstacion 
+                tiempoDeLaFormacion = formacion.FinRecorrido(tiempoDeLaFormacion);
 
                 // Calcular ingreso de pasajeros en estación Cabecera Final del recorrido.
                 // Cambiar el sentido de circulacion de la formacion formacion.invertirSentido();

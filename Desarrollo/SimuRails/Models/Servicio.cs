@@ -17,58 +17,28 @@ namespace SimuRails.Models
         public virtual HashSet<Formacion> Formaciones { get; set; }
         public virtual SortedDictionary<int,bool> ProgramacionIda { get; set; }
         public virtual SortedDictionary<int,bool> ProgramacionVuelta { get; set; }
+        public virtual List<Tramo> Tramos { get; set; }
 
-        public virtual Tramo GetTramo(Estacion estacionActual, Estacion estacionDestino)
+        public virtual Tramo GetTramo(Estacion estacionActual, Sentido sentido)
         {
-            //TODO Implementar
-            //throw new NotImplementedException();
-
-            Tramo tramo = new Tramo();
-
-            if (estacionDestino.Nombre == "MORENO")
+            Tramo proximoTramo;
+            if (sentido == Sentido.IDA)
             {
-                if (estacionActual.Nombre == "ONCE")
-                {
-                    tramo.EstacionOrigen = estacionActual;
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionDestino = liniers;
-                }
-                else
-                {
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionOrigen = liniers;
-                    tramo.EstacionDestino = estacionDestino;
-                }
-            }else if (estacionDestino.Nombre =="ONCE")
-            {
-                if (estacionActual.Nombre == "MORENO")
-                {
-                    tramo.EstacionOrigen = estacionActual;
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionDestino = liniers;
-                }
-                else
-                {
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionOrigen = liniers;
-                    tramo.EstacionDestino = estacionDestino;
-                }
+                proximoTramo = Tramos.First(x => x.EstacionOrigen == estacionActual);
             }
-
-            return tramo;
-
+            else
+            {
+                proximoTramo = Tramos.First(x => x.EstacionDestino == estacionActual);
+                Tramo tramoInvertido = new Tramo
+                {
+                    Distancia = proximoTramo.Distancia,
+                    TiempoViaje = proximoTramo.TiempoViaje,
+                    EstacionOrigen = proximoTramo.EstacionDestino,
+                    EstacionDestino = proximoTramo.EstacionOrigen
+                };
+                proximoTramo = tramoInvertido;
+            }
+            return proximoTramo;
         }
 
         public void MarcarProgramacion(Formacion formacion)
@@ -77,7 +47,7 @@ namespace SimuRails.Models
             {
                 ProgramacionIda[formacion.HoraSalida] = true;
             }
-            else if (formacion.SentidoActual == Sentido.VUELTA)
+            else
             {
                 ProgramacionVuelta[formacion.HoraSalida] = true;
             }
@@ -121,7 +91,7 @@ namespace SimuRails.Models
             {
                 minHoraProgramada = ProgramacionIda.FirstOrDefault(x => !x.Value).Key;
             }
-            else if (formacionMinHoraSalida.SentidoActual == Sentido.VUELTA)
+            else
             {
                 minHoraProgramada = ProgramacionVuelta.FirstOrDefault(x => !x.Value).Key;
             }

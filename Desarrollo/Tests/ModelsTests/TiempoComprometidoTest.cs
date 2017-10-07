@@ -14,14 +14,14 @@ namespace Tests.ModelsTests
         Traza traza;
         
         [TestMethod]
-        public void ejecutarSimulacion()
+        public void EjecutarSimulacion()
         {
             int tiempoFinal = 1000;
 
             init();
 
             System.Diagnostics.Debug.WriteLine("########### Iniciando test de tiempo comprometido ###########");
-            new TiempoComprometido(traza, tiempoFinal).ejecutarSimulacion();
+            new TiempoComprometido(traza, tiempoFinal).EjecutarSimulacion();
             System.Diagnostics.Debug.WriteLine("########### Fin test de tiempo comprometido ###########");
             Assert.IsTrue(false);
         }

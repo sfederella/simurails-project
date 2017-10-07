@@ -46,8 +46,10 @@
     <Compile Include="Mappings\TrazaCM.cs" />
     <Compile Include="Models\Coche.cs" />
     <Compile Include="Models\Estacion.cs" />
+    <Compile Include="Models\FDP.cs" />
     <Compile Include="Models\Formacion.cs" />
     <Compile Include="Models\Incidente.cs" />
+    <Compile Include="Models\IMetodoSimulacion.cs" />
     <Compile Include="Models\Relacion.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\Simulacion.cs" />
@@ -158,6 +160,9 @@
     <Reference Include="MaterialSkin">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Meta.Numerics, Version=3.1.0.0, Culture=neutral, PublicKeyToken=67d25c65a6631347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Meta.Numerics.3.1.0\lib\Meta.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
