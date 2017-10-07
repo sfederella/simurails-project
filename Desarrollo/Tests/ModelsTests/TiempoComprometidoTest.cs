@@ -51,7 +51,7 @@ namespace Tests.ModelsTests
             Servicio servicio = new Servicio();
             servicio.Desde = once;
             servicio.Hasta = moreno;
-            servicio.Formaciones = new HashSet<Formacion>();
+            servicio.Formaciones = new List<Formacion>();
 
             Formacion formacion1 = new Formacion(servicio);
             formacion1.HoraSalida = 5;
@@ -65,7 +65,7 @@ namespace Tests.ModelsTests
             formacion3.HoraSalida = 25;
             servicio.Formaciones.Add(formacion3);
 
-            traza.Servicios = new HashSet<Servicio>();
+            traza.Servicios = new List<Servicio>();
             traza.Servicios.Add(servicio);
 
         }

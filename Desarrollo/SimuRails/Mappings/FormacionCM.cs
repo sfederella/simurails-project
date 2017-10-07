@@ -11,20 +11,14 @@ namespace SimuRails.Mappings
             Id(x => x.Id, m => m.Generator(Generators.Identity));
 
             Property(x => x.Nombre);
-            
-            //TODO: En realidad no se va a poder hacer así de forma automática porque veo que
-            //en el modelo pusieron atributos dentro de las clases de muchos a muchos (alta paja)
-            //Entonces voy a tener que crear todas las tablas de muchos a muchos aparte y hacer todas las relaciones
-            //muchos a muchos a manopla.
 
-            Bag(x => x.Coches, collectionMapping =>
+            Bag(x => x.ComposicionesDeCoches, collectionMapping =>
             {
-                collectionMapping.Table("FormacionesXCoches");
-                collectionMapping.Key(k => k.Column("FormacionId"));
-                collectionMapping.Cascade(Cascade.None);
-                collectionMapping.Inverse(true);
+                collectionMapping.Table("ComposicionDeCoches");
+                collectionMapping.Cascade(Cascade.All);
+                collectionMapping.Key(k => k.Column("ComposicionDeCochesId"));
             },
-            map => map.ManyToMany(c => c.Column("CocheId")));
+            map => map.OneToMany());
         }
     }
 }

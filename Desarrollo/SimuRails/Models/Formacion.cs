@@ -1,10 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SimuRails.Models
 {
     public class Formacion
     {
+        public Formacion()
+        {
+            ComposicionesDeCoches = new List<ComposicionDeCoches>();
+        }
 
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
@@ -16,6 +21,8 @@ namespace SimuRails.Models
         public virtual Estacion EstacionActual { get; set; }
         public virtual Estacion EstacionDestino { get; set; }
 
+        public virtual IList<ComposicionDeCoches> ComposicionesDeCoches { get; set; }
+
         public enum Sentido
         {
             IDA,
@@ -24,8 +31,6 @@ namespace SimuRails.Models
         public virtual Sentido SentidoActual { get; set; }
 
         private bool vacio;
-
-        public Formacion() { }
 
         public Formacion(Servicio servicio)
         {
@@ -37,7 +42,7 @@ namespace SimuRails.Models
             this.Servicio = servicio;
         }
 
-        public int inicioRecorrido(int t)
+        public virtual int inicioRecorrido(int t)
         {
 
             int tiempoAtencion = 0;
@@ -68,7 +73,7 @@ namespace SimuRails.Models
             return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
-        public int arriboEstacion(Tramo tramo, int t)
+        public virtual int arriboEstacion(Tramo tramo, int t)
         {
 
             int pasajerosDescendidos = 0;
@@ -112,8 +117,8 @@ namespace SimuRails.Models
 
             return tramo.EstacionDestino.getTiempoComprometido(SentidoActual);
         }
-        
-        public int finRecorrido(int t)
+
+        public virtual int finRecorrido(int t)
         {
 
             int tiempoAtencion = 0;
@@ -135,7 +140,7 @@ namespace SimuRails.Models
             return this.EstacionActual.getTiempoComprometido(SentidoActual);
         }
 
-        public void invertirSentido()
+        public virtual void invertirSentido()
         {
             if (SentidoActual == Sentido.IDA)
             {
@@ -147,6 +152,12 @@ namespace SimuRails.Models
                 this.EstacionDestino = this.Servicio.Hasta;
                 this.SentidoActual = Sentido.VUELTA;
             }
+        }
+
+        //Ejemplo de lo que es esta clase. Aca saca el total de coches que tiene la formacion por ejemplo
+        public virtual int TotalDeCoches()
+        {
+            return ComposicionesDeCoches.Sum(x => x.VecesRepetido);
         }
     }
 
