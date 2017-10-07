@@ -12,9 +12,18 @@ namespace SimuRails.Views
 {
     public partial class SpinnerForm : Form
     {
-        public SpinnerForm()
+        private Simulacion simulacionForm;
+
+        public SpinnerForm(Simulacion simulacionForm)
         {
             InitializeComponent();
+            this.simulacionForm = simulacionForm;
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            simulacionForm.Visible = true;
         }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.materialRadioButton1 = new MaterialSkin.Controls.MaterialRadioButton();
+            this.radioButton = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
@@ -46,21 +46,22 @@
             this.materialDivider1.TabIndex = 7;
             this.materialDivider1.Text = "materialDivider1";
             // 
-            // materialRadioButton1
+            // radioButton
             // 
-            this.materialRadioButton1.AutoSize = true;
-            this.materialRadioButton1.Depth = 0;
-            this.materialRadioButton1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialRadioButton1.Location = new System.Drawing.Point(19, 15);
-            this.materialRadioButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialRadioButton1.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialRadioButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialRadioButton1.Name = "materialRadioButton1";
-            this.materialRadioButton1.Ripple = true;
-            this.materialRadioButton1.Size = new System.Drawing.Size(25, 30);
-            this.materialRadioButton1.TabIndex = 8;
-            this.materialRadioButton1.TabStop = true;
-            this.materialRadioButton1.UseVisualStyleBackColor = true;
+            this.radioButton.AutoSize = true;
+            this.radioButton.Depth = 0;
+            this.radioButton.Font = new System.Drawing.Font("Roboto", 10F);
+            this.radioButton.Location = new System.Drawing.Point(19, 15);
+            this.radioButton.Margin = new System.Windows.Forms.Padding(0);
+            this.radioButton.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.radioButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.radioButton.Name = "radioButton";
+            this.radioButton.Ripple = true;
+            this.radioButton.Size = new System.Drawing.Size(25, 30);
+            this.radioButton.TabIndex = 8;
+            this.radioButton.TabStop = true;
+            this.radioButton.UseVisualStyleBackColor = true;
+            this.radioButton.CheckedChanged += new System.EventHandler(this.materialRadioButton1_CheckedChanged);
             // 
             // materialLabel1
             // 
@@ -93,7 +94,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.materialRadioButton1);
+            this.Controls.Add(this.radioButton);
             this.Controls.Add(this.materialDivider1);
             this.Name = "RenglonDeTraza";
             this.Size = new System.Drawing.Size(880, 48);
@@ -105,7 +106,7 @@
         #endregion
 
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
-        private MaterialSkin.Controls.MaterialRadioButton materialRadioButton1;
+        private MaterialSkin.Controls.MaterialRadioButton radioButton;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
     }

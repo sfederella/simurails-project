@@ -16,9 +16,16 @@ namespace SimuRails.Views
 {
     public partial class Simulacion : Form
     {
-        public Simulacion()
+        private MainForm mainForm;
+        private TabPage tabPage;
+        private List<RenglonDeTraza> renglonesDeTraza;
+
+        public Simulacion(MainForm mainForm, TabPage tabPage)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
+            this.tabPage = tabPage;
+            renglonesDeTraza = new List<RenglonDeTraza>();
         }
 
         private void Simulacion_Load(object sender, EventArgs e)
@@ -37,10 +44,21 @@ namespace SimuRails.Views
             for (int i = 0; i < trazas.Count; i++)
             {
                 var renglon = this.renglonDe(trazas.ElementAt(i), i);
-                
+                renglon.Selected += Renglon_Selected;
+                renglonesDeTraza.Add(renglon);
             }
 
                 
+        }
+
+        void Renglon_Selected(object sender, EventArgs args)  // the Handler (reacts)
+        {
+            renglonesDeTraza.ForEach(renglon =>
+            {
+                if(!renglon.Equals(sender)) {
+                    renglon.deseleccionar();
+                }
+            });
         }
 
         private RenglonDeTraza renglonDe(Traza traza, Int32 indice)
@@ -51,6 +69,12 @@ namespace SimuRails.Views
             renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
             this.listPanel.Controls.Add(renglon);
             return renglon;
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            this.mainForm.embedForm(new SpinnerForm(this), tabPage);
+            this.Visible = false;
         }
     }
 }

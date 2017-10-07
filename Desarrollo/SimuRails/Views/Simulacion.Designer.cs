@@ -35,8 +35,8 @@
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.listPanel = new System.Windows.Forms.Panel();
-            this.seleccion = new MaterialSkin.Controls.MaterialLabel();
             this.nombre = new MaterialSkin.Controls.MaterialLabel();
+            this.seleccion = new MaterialSkin.Controls.MaterialLabel();
             this.guardarButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.cargarButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.listPanel.SuspendLayout();
@@ -112,6 +112,7 @@
             this.materialRaisedButton1.TabIndex = 4;
             this.materialRaisedButton1.Text = "Simular";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
             // materialFlatButton1
             // 
@@ -134,26 +135,13 @@
             this.listPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listPanel.AutoSize = true;
+            this.listPanel.AutoScroll = true;
             this.listPanel.Controls.Add(this.nombre);
             this.listPanel.Controls.Add(this.seleccion);
             this.listPanel.Location = new System.Drawing.Point(96, 92);
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(837, 241);
             this.listPanel.TabIndex = 11;
-            // 
-            // seleccion
-            // 
-            this.seleccion.AutoSize = true;
-            this.seleccion.Depth = 0;
-            this.seleccion.Font = new System.Drawing.Font("Roboto", 11F);
-            this.seleccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.seleccion.Location = new System.Drawing.Point(14, 0);
-            this.seleccion.MouseState = MaterialSkin.MouseState.HOVER;
-            this.seleccion.Name = "seleccion";
-            this.seleccion.Size = new System.Drawing.Size(75, 19);
-            this.seleccion.TabIndex = 10;
-            this.seleccion.Text = "Selección";
             // 
             // nombre
             // 
@@ -167,6 +155,19 @@
             this.nombre.Size = new System.Drawing.Size(46, 19);
             this.nombre.TabIndex = 11;
             this.nombre.Text = "Traza";
+            // 
+            // seleccion
+            // 
+            this.seleccion.AutoSize = true;
+            this.seleccion.Depth = 0;
+            this.seleccion.Font = new System.Drawing.Font("Roboto", 11F);
+            this.seleccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.seleccion.Location = new System.Drawing.Point(14, 0);
+            this.seleccion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.seleccion.Name = "seleccion";
+            this.seleccion.Size = new System.Drawing.Size(75, 19);
+            this.seleccion.TabIndex = 10;
+            this.seleccion.Text = "Selección";
             // 
             // guardarButton
             // 
