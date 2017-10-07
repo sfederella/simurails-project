@@ -1,20 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using static SimuRails.Models.Formacion;
 
 namespace SimuRails.Models
 {
     public class Servicio
     {
-        public Servicio() { }
+        public Servicio() 
+        {
+            Relaciones = new List<Relacion>();
+            Formaciones = new List<Formacion>();
+        }
 
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        public virtual HashSet<Formacion> Formaciones { get; set; }
+        
+        public virtual IList<Formacion> Formaciones { get; set; }
+        public virtual IList<Relacion> Relaciones { get; set; }
+        
         public virtual SortedDictionary<int,bool> ProgramacionIda { get; set; }
         public virtual SortedDictionary<int,bool> ProgramacionVuelta { get; set; }
 
@@ -71,19 +77,19 @@ namespace SimuRails.Models
 
         }
 
-        public void MarcarProgramacion(Formacion formacion)
+        public virtual void MarcarProgramacion(Formacion formacion)
         {
-            if(formacion.SentidoActual == Sentido.IDA)
+            if (formacion.SentidoActual == Formacion.Sentido.IDA)
             {
                 ProgramacionIda[formacion.HoraSalida] = true;
             }
-            else if (formacion.SentidoActual == Sentido.VUELTA)
+            else if (formacion.SentidoActual == Formacion.Sentido.VUELTA)
             {
                 ProgramacionVuelta[formacion.HoraSalida] = true;
             }
         }
 
-        public void LimpiarProgramaciones()
+        public virtual void LimpiarProgramaciones()
         {
             foreach (KeyValuePair<int,bool> salida in ProgramacionIda)
             {
@@ -117,11 +123,11 @@ namespace SimuRails.Models
             int minHoraProgramada = 0;
 
             // Si ya no hay más programaciones en el día y un tren está disponible para salir, sale.
-            if (formacionMinHoraSalida.SentidoActual == Sentido.IDA)
+            if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.IDA)
             {
                 minHoraProgramada = ProgramacionIda.FirstOrDefault(x => !x.Value).Key;
             }
-            else if (formacionMinHoraSalida.SentidoActual == Sentido.VUELTA)
+            else if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.VUELTA)
             {
                 minHoraProgramada = ProgramacionVuelta.FirstOrDefault(x => !x.Value).Key;
             }

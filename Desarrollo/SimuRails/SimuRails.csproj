@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="DB\NHibernateHelper.cs" />
     <Compile Include="Mappings\CocheCM.cs" />
+    <Compile Include="Mappings\ComposicionDeCochesCM.cs" />
     <Compile Include="Mappings\EstacionCM.cs" />
     <Compile Include="Mappings\FormacionCM.cs" />
     <Compile Include="Mappings\IncidenteCM.cs" />
@@ -45,6 +46,7 @@
     <Compile Include="Mappings\SimulacionCM.cs" />
     <Compile Include="Mappings\TrazaCM.cs" />
     <Compile Include="Models\Coche.cs" />
+    <Compile Include="Models\ComposicionDeCoches.cs" />
     <Compile Include="Models\Estacion.cs" />
     <Compile Include="Models\Formacion.cs" />
     <Compile Include="Models\Incidente.cs" />

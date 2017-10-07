@@ -92,6 +92,7 @@ namespace SimuRails.DB
             mapper.AddMappings(new List<System.Type> { typeof(SimulacionCM) });
             mapper.AddMappings(new List<System.Type> { typeof(FormacionCM) });
             mapper.AddMappings(new List<System.Type> { typeof(CocheCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(ComposicionDeCochesCM) });
             //Create and return a HbmMapping of the model mapping in code
             return mapper.CompileMappingForAllExplicitlyAddedEntities();
         }
