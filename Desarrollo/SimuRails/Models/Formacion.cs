@@ -13,7 +13,7 @@ namespace SimuRails.Models
 
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
-        public virtual IList<Coche> Coches { get; set; }
+        public virtual Dictionary<Coche, int> TiposCoche { get; set; }
 
         public virtual int HoraSalida { get; set; }
         public virtual int Pasajeros { get; set; }

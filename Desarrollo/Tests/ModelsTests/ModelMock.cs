@@ -276,17 +276,19 @@ namespace Tests.ModelsTests
                 ["Form. Elec. Mitre"] = new Formacion()
                 {
                     Nombre = "Form. Elec. Mitre",
-                    Coches = new List<Coche>
+                    TiposCoche = new Dictionary<Coche,int>()
                     {
-
+                        [Coches["Loc. General Motors-EMD G22"]] = 1,
+                        [Coches["Loc. General Motors-EMD G22"]] = 5
                     }
                 },
                 ["Form. Diesel Mitre"] = new Formacion()
                 {
                     Nombre = "Form. Diesel Mitre",
-                    Coches = new List<Coche>
+                    TiposCoche = new Dictionary<Coche, int>()
                     {
-
+                        [Coches["Loc. General Motors-EMD E80"]] = 1,
+                        [Coches["Coche General Motors-EMD E83"]] = 5
                     }
                 }
             };
