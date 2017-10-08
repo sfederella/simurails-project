@@ -7,22 +7,22 @@ namespace SimuRails.Models
 {
     public class Servicio
     {
-        public Servicio() 
+        public Servicio()
         {
             Formaciones = new List<Formacion>();
         }
 
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
+        public virtual SortedDictionary<int, bool> ProgramacionIda { get; set; }
+        public virtual SortedDictionary<int, bool> ProgramacionVuelta { get; set; }
+        public virtual List<Tramo> Tramos { get; set; }
+        public virtual Dictionary<Formacion, int> TiposFormacion { get; set; }
+        public virtual int PorcentajeFormacionesInicio { get; set; }
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        
         public virtual IList<Formacion> Formaciones { get; set; }
-        
-        public virtual SortedDictionary<int,bool> ProgramacionIda { get; set; }
-        public virtual SortedDictionary<int,bool> ProgramacionVuelta { get; set; }
-        public virtual List<Tramo> Tramos { get; set; }
 
         public virtual Tramo GetTramo(Estacion estacionActual, Sentido sentido)
         {
