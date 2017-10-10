@@ -45,11 +45,13 @@ namespace SimuRails.Models
                     {
                         formacion.SentidoActual = Sentido.IDA;
                         formacion.EstacionActual = Desde;
+                        formacion.EstacionDestino = Hasta;
                     } 
                     else
                     {
                         formacion.SentidoActual = Sentido.VUELTA;
                         formacion.EstacionActual = Hasta;
+                        formacion.EstacionDestino = Desde;
                     }
                 }
             }
