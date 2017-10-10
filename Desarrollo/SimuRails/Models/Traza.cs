@@ -15,7 +15,14 @@ namespace SimuRails.Models
 
         public virtual IList<Servicio> Servicios { get; set; } //Ahora mapeo todas las relaciones como BAG (no lista en realidad) Si se necesita, se mapea distinto (es mas complejo)
 
-        //Todo optimizar para usar una lista con punteros o un array ordenado.
+        public void Inicializar()
+        {
+            foreach (Servicio servicio in Servicios)
+            {
+                servicio.Inicializar();
+            }
+        }
+
         public virtual Formacion GetProximaFormacion(int t)
         {
             Formacion formacionMinHoraSalida = null;

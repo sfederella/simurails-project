@@ -14,9 +14,7 @@ namespace SimuRails.Models
 
         public virtual int Id { get; protected set; }
         public virtual string Nombre { get; set; }
-        public virtual int TiempoComprometidoSentidoIda { get; set; }
-        public virtual int TiempoComprometidoSentidoVuelta { get; set; }
-
+        public virtual bool EsEstacionDeMantenimiento { get; set; }
         public virtual IList<Incidente> Incidentes { get; set; }
 
         public virtual int PersonasEsperandoMaxIda { get; set; }
@@ -28,6 +26,9 @@ namespace SimuRails.Models
         public virtual int PersonasEsperandoMinVuelta { get; set; }
         public virtual int PersonasDesciendenMaxVuelta { get; set; }
         public virtual int PersonasDesciendenMinVuelta { get; set; }
+
+        public virtual int TiempoComprometidoSentidoIda { get; set; }
+        public virtual int TiempoComprometidoSentidoVuelta { get; set; }
 
         public int PasajerosAscendidos(Formacion formacion, int t)
         {

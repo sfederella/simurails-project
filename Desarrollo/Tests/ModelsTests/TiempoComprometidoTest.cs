@@ -22,11 +22,18 @@ namespace Tests.ModelsTests
         [TestMethod]
         public void EjecutarSimulacion()
         {
-            int tiempoFinal = 1000;
+            Simulacion simulacion = new Simulacion()
+            {
+                Nombre = "Simulacion Test",
+                Duracion = 10000,
+                Metodo = new TiempoComprometido(),
+                TrazaSimulada = traza
+            };
 
             System.Diagnostics.Debug.WriteLine("########### Iniciando test de tiempo comprometido ###########");
-            new TiempoComprometido(traza, tiempoFinal).EjecutarSimulacion();
+            simulacion.Ejecutar();
             System.Diagnostics.Debug.WriteLine("########### Fin test de tiempo comprometido ###########");
+
             Assert.IsTrue(false);
         }
 

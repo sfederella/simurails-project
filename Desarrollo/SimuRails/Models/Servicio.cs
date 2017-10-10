@@ -22,9 +22,39 @@ namespace SimuRails.Models
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        public virtual Estacion EstacionMantenimiento { get; set; }
 
         public virtual IList<Formacion> Formaciones { get; set; }
+
+        public void Inicializar()
+        {
+            Desde = Tramos[0].EstacionOrigen;
+            Hasta = Tramos[Tramos.Count - 1].EstacionDestino;
+            foreach (KeyValuePair<Formacion,int> kvp in TiposFormacion)
+            {
+                for (int i = 0; i < kvp.Value; i++)
+                {
+                    Formacion tipoFormacion = kvp.Key;
+                    Formacion formacion = new Formacion()
+                    {
+                        Nombre = tipoFormacion.Nombre,
+                        TiposCoche = tipoFormacion.TiposCoche
+                    };
+
+                    int r = FDP.Rand(0, 100);
+                    if (r < PorcentajeFormacionesInicio)
+                    {
+                        formacion.SentidoActual = Sentido.IDA;
+                        formacion.EstacionActual = Desde;
+                    } 
+                    else
+                    {
+                        formacion.SentidoActual = Sentido.VUELTA;
+                        formacion.EstacionActual = Hasta;
+                    }
+                }
+            }
+            
+        }
 
         public virtual Tramo GetTramo(Estacion estacionActual, Sentido sentido)
         {

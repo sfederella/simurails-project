@@ -105,10 +105,10 @@ namespace SimuRails.Models
             //Esto nos dice si la estacion llego a donde queria llegar
             if (!tramo.EstacionDestino.Equals(this.EstacionDestino))
             {
-                if (this.RequiereMantenimiento() && tramo.EstacionDestino.Equals(this.Servicio.EstacionMantenimiento))
+                if (this.RequiereMantenimiento() && tramo.EstacionDestino.EsEstacionDeMantenimiento)
                 {
                     //Actualizo el destino para que frene en la clase TiempoComprometido .
-                    this.EstacionDestino = this.Servicio.EstacionMantenimiento;
+                    this.EstacionDestino = tramo.EstacionDestino;
 
                     // Si ya esta en la estacion de mantenimiento no sube nadie y queda ahí                   
                     tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, this.Pasajeros);

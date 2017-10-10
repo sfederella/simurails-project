@@ -8,6 +8,6 @@ namespace SimuRails.Models
 {
     public interface IMetodoSimulacion
     {
-        void EjecutarSimulacion();
+        void EjecutarSimulacion(Traza traza, long tiempoFinal);
     }
 }

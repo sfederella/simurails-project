@@ -18,7 +18,7 @@ namespace SimuRails.Models
 
         public void Ejecutar()
         {
-            Metodo.EjecutarSimulacion();
+            Metodo.EjecutarSimulacion(TrazaSimulada,Duracion);
         }
     }
 }

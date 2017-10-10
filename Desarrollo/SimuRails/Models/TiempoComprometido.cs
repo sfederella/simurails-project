@@ -8,17 +8,18 @@ namespace SimuRails.Models
 {
     public class TiempoComprometido : IMetodoSimulacion
     {
-        private Traza traza;
-        private long tiempoFinal;
+        private Traza Traza;
+        private long TiempoFinal;
 
-        public TiempoComprometido(Traza traza, long tiempoFinal)
-        {
-            this.traza = traza;
-            this.tiempoFinal = tiempoFinal;
-        }
+        public TiempoComprometido() { }
 
-        public void EjecutarSimulacion()
+        public void EjecutarSimulacion(Traza traza, long tiempoFinal)
         {
+            Traza = traza;
+            TiempoFinal = tiempoFinal;
+
+            // Inicializa la traza configurando y creando los objetos dinámicos que no se traen de la base
+            Traza.Inicializar();
 
             int t = 0;
 

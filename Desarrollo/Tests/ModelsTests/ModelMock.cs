@@ -360,7 +360,8 @@ namespace Tests.ModelsTests
                     PersonasDesciendenMaxVuelta = 40,
                     PersonasDesciendenMinVuelta = 5,
                     PersonasEsperandoMaxVuelta = 40,
-                    PersonasEsperandoMinVuelta = 5
+                    PersonasEsperandoMinVuelta = 5,
+                    EsEstacionDeMantenimiento = true
                 },
 
                 ["Escobar"] = new Estacion()
@@ -464,7 +465,8 @@ namespace Tests.ModelsTests
                     PersonasDesciendenMaxVuelta = 70,
                     PersonasDesciendenMinVuelta = 5,
                     PersonasEsperandoMaxVuelta = 10,
-                    PersonasEsperandoMinVuelta = 0
+                    PersonasEsperandoMinVuelta = 0,
+                    EsEstacionDeMantenimiento = true
                 },
 
                 ["El Talar"] = new Estacion()
