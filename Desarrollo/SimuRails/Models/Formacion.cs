@@ -80,6 +80,10 @@ namespace SimuRails.Models
             //Se setea el tiempo comprometido de la estacion de la que acaba de salir.
             this.HoraSalida = tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
 
+            System.Diagnostics.Debug.WriteLine("########### Formacion : " + this.Nombre + " inició recorrido en estacion: " + tramo.EstacionDestino.Nombre + " ###########");
+            System.Diagnostics.Debug.WriteLine("########### Cantidad de pasajeros Ascendidos " + pasajerosAscendidos + ". Pasajeros totales: " + this.Pasajeros + "###########");
+
+
             return this.EstacionActual.GetTiempoComprometido(SentidoActual);
         }
 
