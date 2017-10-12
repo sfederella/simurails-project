@@ -87,7 +87,7 @@ namespace SimuRails.DB
             mapper.AddMappings(new List<System.Type> { typeof(TrazaCM) });
             mapper.AddMappings(new List<System.Type> { typeof(IncidenteCM) });
             mapper.AddMappings(new List<System.Type> { typeof(EstacionCM) });
-            mapper.AddMappings(new List<System.Type> { typeof(RelacionCM) });
+            mapper.AddMappings(new List<System.Type> { typeof(TramoCM) });
             mapper.AddMappings(new List<System.Type> { typeof(ServicioCM) });
             mapper.AddMappings(new List<System.Type> { typeof(SimulacionCM) });
             mapper.AddMappings(new List<System.Type> { typeof(FormacionCM) });

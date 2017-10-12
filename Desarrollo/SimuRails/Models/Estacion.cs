@@ -65,7 +65,7 @@ namespace SimuRails.Models
             // Parámetros en segundos. Retorna minutos.
             int tiempoPorPersona = 4;
             int cantPersonasXPuerta = 2;
-            int cantVagones = formacion.Coches.Count;
+            int cantVagones = formacion.TiposCoche.Count; // FIXME
             int cantPuertasXVagon = 3;
             int tiempoAtencionMinimo = 10;
             return ( (cantidadDePersonas * tiempoPorPersona) / (cantPersonasXPuerta * cantPuertasXVagon * cantVagones) 

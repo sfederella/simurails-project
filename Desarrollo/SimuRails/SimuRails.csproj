@@ -41,7 +41,7 @@
     <Compile Include="Mappings\EstacionCM.cs" />
     <Compile Include="Mappings\FormacionCM.cs" />
     <Compile Include="Mappings\IncidenteCM.cs" />
-    <Compile Include="Mappings\RelacionCM.cs" />
+    <Compile Include="Mappings\TramoCM.cs" />
     <Compile Include="Mappings\ServicioCM.cs" />
     <Compile Include="Mappings\SimulacionCM.cs" />
     <Compile Include="Mappings\TrazaCM.cs" />
