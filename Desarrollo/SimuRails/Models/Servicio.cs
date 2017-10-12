@@ -37,6 +37,7 @@ namespace SimuRails.Models
                     Formacion formacion = new Formacion()
                     {
                         Nombre = tipoFormacion.Nombre,
+                        Servicio = this,
                         TiposCoche = tipoFormacion.TiposCoche
                     };
 
@@ -53,6 +54,7 @@ namespace SimuRails.Models
                         formacion.EstacionActual = Hasta;
                         formacion.EstacionDestino = Desde;
                     }
+                    Formaciones.Add(formacion);
                 }
             }
             
