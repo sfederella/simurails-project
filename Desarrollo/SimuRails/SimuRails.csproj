@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DB\NHibernateHelper.cs" />
+    <Compile Include="DB\Repositorio.cs" />
     <Compile Include="Mappings\CocheCM.cs" />
     <Compile Include="Mappings\ComposicionDeCochesCM.cs" />
     <Compile Include="Mappings\EstacionCM.cs" />

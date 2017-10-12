@@ -1,4 +1,5 @@
-﻿using SimuRails.Models;
+﻿using SimuRails.DB;
+using SimuRails.Models;
 using SimuRails.Views.Components;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,8 @@ namespace SimuRails.Views.Abms
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private List<Coche> coches = new List<Coche>();
-        private List<RenglonDeCoche> renglones = new List<RenglonDeCoche>();
+        private Repositorio repositorioCoche= new Repositorio();
+        private List<Control> renglones = new List<Control>();
 
         public CochesListForm(MainForm mainForm, TabPage tabPage)
         {
@@ -28,27 +29,6 @@ namespace SimuRails.Views.Abms
 
         private void CochesListForm_Load(object sender, EventArgs e)
         {
-            var coche1 = new Coche();
-            coche1.Id = 1;
-            coche1.Modelo = "Unidad múltiple eléctrica CSR";
-            coche1.TipoDeConsumo = "Diesel";
-            coche1.MaximoLegalPasajeros = 60;
-            coche1.CapacidadMaximaPasajeros = 80;
-            coche1.ConsumoMovimiento = 50;
-            coche1.ConsumoParado = 20;
-            coche1.EsLocomotora = false;
-            coches.Add(coche1);
-            var coche2 = new Coche();
-            coche2.Id = 2;
-            coche2.Modelo = "Mitsubishi";
-            coche2.TipoDeConsumo = "Electrico";
-            coche2.MaximoLegalPasajeros = 65;
-            coche2.CapacidadMaximaPasajeros = 84;
-            coche2.ConsumoMovimiento = 50;
-            coche2.ConsumoParado = 20;
-            coche2.EsLocomotora = false;
-            coches.Add(coche2);
-
             this.dibujarRenglones();
         }
 
@@ -59,7 +39,7 @@ namespace SimuRails.Views.Abms
 
         public void addCoche(Coche coche)
         {
-            coches.Add(coche);
+            repositorioCoche.Guardar(coche);
             this.dibujarRenglones();
         }
 
@@ -76,17 +56,20 @@ namespace SimuRails.Views.Abms
             renglon.Width = this.listPanel.Width;
             renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
             this.listPanel.Controls.Add(renglon);
+            renglones.Add(renglon);
         }
 
         private void onCocheRemove(int id)
         {
             Coche coche = this.findCoche(id);
-            coches.Remove(coche);
+            repositorioCoche.Eliminar(coche);
             this.dibujarRenglones();
         }
 
         private void dibujarRenglones()
         {
+            var coches = repositorioCoche.Listar<Coche>();
+
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
             for (int i = 0; i < coches.Count; i++)
             {
@@ -99,7 +82,7 @@ namespace SimuRails.Views.Abms
             }
         }
 
-        private void removeRenglon(RenglonDeCoche unRenglon)
+        private void removeRenglon(Control unRenglon)
         {
             this.Controls.Remove(unRenglon);
             unRenglon.Dispose();
@@ -108,13 +91,13 @@ namespace SimuRails.Views.Abms
         public void OnCocheEdit(int cocheId)
         {
             Coche coche = findCoche(cocheId);
-            this.mainForm.embedForm(new EditCocheForm(this, coche), tabPage);
+            this.mainForm.embedForm(new EditCocheForm(this, repositorioCoche, coche), tabPage);
             this.Visible = false;
         }
 
         private Coche findCoche(int cocheId)
         {
-            return this.coches.Find(unCoche => unCoche.Id.Equals(cocheId));
+            return repositorioCoche.Obtener<Coche>(cocheId);
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
