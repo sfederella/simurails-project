@@ -20,13 +20,13 @@ namespace SimuRails.Mappings
             },
             map => map.ManyToMany(c => c.Column("ServicioId")));
 
-            Bag(x => x.Simulaciones, collectionMapping =>
+            /*Bag(x => x.Simulaciones, collectionMapping =>
             {
                 collectionMapping.Table("Simulacion");
                 collectionMapping.Cascade(Cascade.None);
                 collectionMapping.Key(k => k.Column("TrazaId"));
             },
-            map => map.OneToMany());
+            map => map.OneToMany());*/
         }
     }
 }

@@ -45,7 +45,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="DBTests\PersistanceTest.cs" />
     <Compile Include="ModelsTests\ModelMock.cs" />
     <Compile Include="ModelsTests\TiempoComprometidoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +59,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DBTests\" />
     <Folder Include="ViewsTests\" />
   </ItemGroup>
   <ItemGroup>

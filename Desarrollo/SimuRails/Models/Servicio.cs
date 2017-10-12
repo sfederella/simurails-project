@@ -37,8 +37,10 @@ namespace SimuRails.Models
                     Formacion formacion = new Formacion()
                     {
                         Nombre = tipoFormacion.Nombre,
-                        TiposCoche = tipoFormacion.TiposCoche
+                        TiposCoche = tipoFormacion.TiposCoche,
                     };
+
+                    formacion.Servicio = this;
 
                     int r = FDP.Rand(0, 100);
                     if (r < PorcentajeFormacionesInicio)
@@ -53,6 +55,8 @@ namespace SimuRails.Models
                         formacion.EstacionActual = Hasta;
                         formacion.EstacionDestino = Desde;
                     }
+
+                    Formaciones.Add(formacion);
                 }
             }
             

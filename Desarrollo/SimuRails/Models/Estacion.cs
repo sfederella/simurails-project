@@ -65,7 +65,13 @@ namespace SimuRails.Models
             // Parámetros en segundos. Retorna minutos.
             int tiempoPorPersona = 4;
             int cantPersonasXPuerta = 2;
-            int cantVagones = formacion.Coches.Count;
+            int cantVagones = 0;
+
+            foreach (KeyValuePair<Coche, int> entry in formacion.TiposCoche)
+            {
+                cantVagones += entry.Value;
+            }
+
             int cantPuertasXVagon = 3;
             int tiempoAtencionMinimo = 10;
             return ( (cantidadDePersonas * tiempoPorPersona) / (cantPersonasXPuerta * cantPuertasXVagon * cantVagones) 
@@ -76,6 +82,8 @@ namespace SimuRails.Models
         public List<Incidente> GetIncidentes()
         {
             List<Incidente> lista = new List<Incidente>();
+
+            if (this.Incidentes == null) return lista;
 
             foreach(Incidente incidente in this.Incidentes)
             {
@@ -133,7 +141,7 @@ namespace SimuRails.Models
 
         public virtual bool Equals(Estacion estacion)
         {
-            return Id == estacion.Id;
+            return Nombre.Equals(estacion.Nombre);
         }
 
     }

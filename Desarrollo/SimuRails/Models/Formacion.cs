@@ -9,6 +9,7 @@ namespace SimuRails.Models
         public Formacion()
         {
             ComposicionesDeCoches = new List<ComposicionDeCoches>();
+            InvertirSentidoFlag = false;
         }
 
         public virtual int Id { get; protected set; }
@@ -24,6 +25,7 @@ namespace SimuRails.Models
         public virtual Estacion EstacionDestino { get; set; }
 
         public int KilometrosRecorridos { get; set; }
+        public Boolean InvertirSentidoFlag { get; set; }
 
         public virtual IList<ComposicionDeCoches> ComposicionesDeCoches { get; set; }
 
@@ -148,10 +150,13 @@ namespace SimuRails.Models
                 // el tren esta disponible para salir a la misma hora que termina el TC en la estacion
                 this.HoraSalida = tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion);
 
-                this.InvertirSentido();                
+                this.InvertirSentidoFlag = true;                
 
             }
             //Sin importar que, la formacion ya llego a Destino.
+            System.Diagnostics.Debug.WriteLine("########### Formacion : "+ this.Nombre + " arribó a estacion: " + tramo.EstacionDestino.Nombre +" ###########");
+            System.Diagnostics.Debug.WriteLine("########### Cantidad de pasajeros Ascendidos " + pasajerosAscendidos + ". Cantidad de pasajeros Descendidos: "+ pasajerosDescendidos+". Pasajeros totales: "+this.Pasajeros +"###########");
+
             this.EstacionActual = tramo.EstacionDestino;
 
             return tramo.EstacionDestino.GetTiempoComprometido(SentidoActual);
@@ -169,6 +174,8 @@ namespace SimuRails.Models
                 this.EstacionDestino = this.Servicio.Hasta;
                 this.SentidoActual = Sentido.IDA;
             }
+
+            this.InvertirSentidoFlag = false;
         }
 
         //Ejemplo de lo que es esta clase. Aca saca el total de coches que tiene la formacion por ejemplo
