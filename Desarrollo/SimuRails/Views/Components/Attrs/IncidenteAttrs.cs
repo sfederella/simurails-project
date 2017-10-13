@@ -16,23 +16,23 @@ namespace SimuRails.Views.Components.Attrs
         public IncidenteAttrs(Incidente incidente)
         {
             InitializeComponent();
-            this.nombreField.Text = incidente.Nombre;
-            this.descripcionField.Text = incidente.Descripcion;
-            this.probabilidadField.Text = incidente.ProbabilidadDeOcurrencia.ToString();
-            this.demoraField.Text = incidente.TiempoDemora.ToString();
+            if (incidente.Nombre != "") { this.nombreField.Text = incidente.Nombre; }
+            if (incidente.Descripcion != "") { this.descripcionField.Text = incidente.Descripcion; }
+            if (incidente.ProbabilidadDeOcurrencia != 0) { this.probabilidadField.Text = incidente.ProbabilidadDeOcurrencia.ToString(); }
+            if (incidente.TiempoDemora != 0) { this.demoraField.Text = incidente.TiempoDemora.ToString(); }
         }
 
-        private void IncidenteAttrs_Load(object sender, EventArgs e)
+        public bool applyTo(Incidente incidente)
         {
-
-        }
-
-        public void applyTo(Incidente incidente)
-        {
-            incidente.Nombre = this.nombreField.Text;
-            incidente.Descripcion = this.descripcionField.Text;
-            incidente.ProbabilidadDeOcurrencia = double.Parse(this.probabilidadField.Text);
-            incidente.TiempoDemora = int.Parse(this.demoraField.Text);
+            if (this.nombreField.Text != "") { incidente.Nombre = this.nombreField.Text; } else { MessageBox.Show("Se debe completar un nombre que identifique al Incidente."); return false; }
+            if (this.descripcionField.Text != "") { incidente.Descripcion = this.descripcionField.Text; }
+            double aux = 0;
+            double.TryParse(this.probabilidadField.Text, out aux);
+            incidente.ProbabilidadDeOcurrencia = aux;
+            int aux2 = 0;
+            int.TryParse(this.demoraField.Text, out aux2);
+            incidente.TiempoDemora = aux2;
+            return true;
         }
     }
 }

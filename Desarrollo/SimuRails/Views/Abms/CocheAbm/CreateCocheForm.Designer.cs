@@ -73,7 +73,6 @@
             this.label1.Size = new System.Drawing.Size(86, 27);
             this.label1.TabIndex = 23;
             this.label1.Text = "Coches";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // CreateCocheForm
             // 

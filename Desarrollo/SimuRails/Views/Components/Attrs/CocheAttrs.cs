@@ -17,29 +17,31 @@ namespace SimuRails.Views.Components
         public CocheAttrs(Coche coche)
         {
             InitializeComponent();
-            this.modeloField.Text = coche.Modelo;
+            if (coche.Modelo != "") { this.modeloField.Text = coche.Modelo; }
             this.locomotoraCheck.Checked = coche.EsLocomotora;
-            this.consumoCombo.SelectedItem = coche.TipoDeConsumo;
-            this.consumoAndandoField.Text = coche.ConsumoMovimiento.ToString();
-            this.consumoParadoField.Text = coche.ConsumoParado.ToString();
-            this.capacidadLegalField.Text = coche.MaximoLegalPasajeros.ToString();
-            this.capacidadTotalField.Text = coche.CapacidadMaximaPasajeros.ToString();
-        }
+            if (coche.TipoDeConsumo != "") { this.consumoCombo.SelectedItem = coche.TipoDeConsumo; }
+            if (coche.ConsumoMovimiento != 0) { this.consumoAndandoField.Text = coche.ConsumoMovimiento.ToString(); }
+            if (coche.ConsumoParado != 0) { this.consumoParadoField.Text = coche.ConsumoParado.ToString(); }
+            if (coche.MaximoLegalPasajeros != 0) { this.capacidadLegalField.Text = coche.MaximoLegalPasajeros.ToString(); }
+            if (coche.CapacidadMaximaPasajeros != 0) { this.capacidadTotalField.Text = coche.CapacidadMaximaPasajeros.ToString(); }
+            }
 
-        private void CocheAttrs_Load(object sender, EventArgs e)
+        public bool applyTo(Coche coche)
         {
 
-        }
-
-        public void applyTo(Coche coche)
-        {
-            coche.Modelo = this.modeloField.Text;
+            if (this.modeloField.Text != "") { coche.Modelo = this.modeloField.Text; } else { MessageBox.Show("Se debe completar un modelo que identifique al Coche."); return false; }
             coche.EsLocomotora = this.locomotoraCheck.Checked;
-            coche.TipoDeConsumo = this.consumoCombo.SelectedItem.ToString();
-            coche.ConsumoMovimiento = int.Parse(this.consumoAndandoField.Text);
-            coche.ConsumoParado = int.Parse(this.consumoParadoField.Text);
-            coche.MaximoLegalPasajeros = int.Parse(this.capacidadLegalField.Text);
-            coche.CapacidadMaximaPasajeros = int.Parse(this.capacidadTotalField.Text);
+            if (this.consumoCombo.SelectedItem != null) { coche.TipoDeConsumo = this.consumoCombo.SelectedItem.ToString(); }
+            int aux = 0;
+            int.TryParse(this.consumoAndandoField.Text, out aux);
+            coche.ConsumoMovimiento = aux;
+            int.TryParse(this.consumoParadoField.Text, out aux);
+            coche.ConsumoParado = aux;
+            int.TryParse(this.capacidadLegalField.Text, out aux);
+            coche.MaximoLegalPasajeros = aux;
+            int.TryParse(this.capacidadTotalField.Text, out aux);
+            coche.CapacidadMaximaPasajeros = aux;
+            return true;
         }
     }
 }

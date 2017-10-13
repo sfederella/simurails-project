@@ -66,7 +66,7 @@
             this.locomotoraCheck.AutoSize = true;
             this.locomotoraCheck.Depth = 0;
             this.locomotoraCheck.Font = new System.Drawing.Font("Roboto", 10F);
-            this.locomotoraCheck.Location = new System.Drawing.Point(325, 35);
+            this.locomotoraCheck.Location = new System.Drawing.Point(346, 35);
             this.locomotoraCheck.Margin = new System.Windows.Forms.Padding(0);
             this.locomotoraCheck.MouseLocation = new System.Drawing.Point(-1, -1);
             this.locomotoraCheck.MouseState = MaterialSkin.MouseState.HOVER;
@@ -282,7 +282,6 @@
             this.Controls.Add(this.modeloField);
             this.Name = "CocheAttrs";
             this.Size = new System.Drawing.Size(791, 291);
-            this.Load += new System.EventHandler(this.CocheAttrs_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

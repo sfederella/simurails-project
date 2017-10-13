@@ -48,14 +48,11 @@ namespace SimuRails.Views.Abms
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            this.attrs.applyTo(coche);
-            listForm.addCoche(coche);
-            this.cerrar();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            if (this.attrs.applyTo(coche))
+            {
+                listForm.addCoche(coche);
+                this.cerrar();
+            }          
         }
     }
 }

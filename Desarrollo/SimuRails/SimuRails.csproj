@@ -75,6 +75,18 @@
     <Compile Include="Views\Abms\CocheAbm\EditCocheForm.Designer.cs">
       <DependentUpon>EditCocheForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Abms\EstacionAbm\CreateEstacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\EstacionAbm\CreateEstacionForm.Designer.cs">
+      <DependentUpon>CreateEstacionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\EstacionAbm\EditEstacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\EstacionAbm\EditEstacionForm.Designer.cs">
+      <DependentUpon>EditEstacionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Abms\IncidenteAbm\CreateIncidenteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,11 +99,23 @@
     <Compile Include="Views\Abms\IncidenteAbm\EditIncidenteForm.Designer.cs">
       <DependentUpon>EditIncidenteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Abms\EstacionAbm\EstacionesListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\EstacionAbm\EstacionesListForm.Designer.cs">
+      <DependentUpon>EstacionesListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Abms\IncidenteAbm\IncidentesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Abms\IncidenteAbm\IncidentesListForm.Designer.cs">
       <DependentUpon>IncidentesListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\Attrs\EstacionAttrs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\Attrs\EstacionAttrs.Designer.cs">
+      <DependentUpon>EstacionAttrs.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\Attrs\IncidenteAttrs.cs">
       <SubType>UserControl</SubType>
@@ -104,6 +128,12 @@
     </Compile>
     <Compile Include="Views\Components\Attrs\CocheAttrs.Designer.cs">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeEstacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeEstacion.Designer.cs">
+      <DependentUpon>RenglonDeEstacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\RenglonDeCoche.cs">
       <SubType>UserControl</SubType>
@@ -176,20 +206,35 @@
     <EmbeddedResource Include="Views\Abms\CocheAbm\EditCocheForm.resx">
       <DependentUpon>EditCocheForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\EstacionAbm\CreateEstacionForm.resx">
+      <DependentUpon>CreateEstacionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\EstacionAbm\EditEstacionForm.resx">
+      <DependentUpon>EditEstacionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Abms\IncidenteAbm\CreateIncidenteForm.resx">
       <DependentUpon>CreateIncidenteForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Abms\IncidenteAbm\EditIncidenteForm.resx">
       <DependentUpon>EditIncidenteForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\EstacionAbm\EstacionesListForm.resx">
+      <DependentUpon>EstacionesListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Abms\IncidenteAbm\IncidentesListForm.resx">
       <DependentUpon>IncidentesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\Attrs\EstacionAttrs.resx">
+      <DependentUpon>EstacionAttrs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\Attrs\IncidenteAttrs.resx">
       <DependentUpon>IncidenteAttrs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\Attrs\CocheAttrs.resx">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeEstacion.resx">
+      <DependentUpon>RenglonDeEstacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeCoche.resx">
       <DependentUpon>RenglonDeCoche.cs</DependentUpon>

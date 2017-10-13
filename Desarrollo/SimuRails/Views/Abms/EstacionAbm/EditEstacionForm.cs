@@ -2,31 +2,24 @@
 using SimuRails.Models;
 using SimuRails.Views.Components.Attrs;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SimuRails.Views.Abms.IncidenteAbm
+namespace SimuRails.Views.Abms.EstacionAbm
 {
-    public partial class EditIncidenteForm : Form
+    public partial class EditEstacionForm : Form
     {
-        private IncidentesListForm listForm;
-        private IncidenteAttrs attrs;
-        private Incidente incidente;
-        private Repositorio repositorioIncidente;
+        private EstacionesListForm listForm;
+        private EstacionAttrs attrs;
+        private Estacion estacion;
+        private Repositorio repositorioEstacion;
 
-        public EditIncidenteForm(IncidentesListForm listForm, Repositorio repositorioIncidente, Incidente incidente)
+        public EditEstacionForm(EstacionesListForm listForm, Repositorio repositorioEstacion, Estacion estacion)
         {
             InitializeComponent();
             this.listForm = listForm;
-            this.attrs = new IncidenteAttrs(incidente);
-            this.incidente = incidente;
-            this.repositorioIncidente = repositorioIncidente;
+            this.attrs = new EstacionAttrs(estacion);
+            this.estacion = estacion;
+            this.repositorioEstacion = repositorioEstacion;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -42,16 +35,15 @@ namespace SimuRails.Views.Abms.IncidenteAbm
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            if (this.attrs.applyTo(incidente))
+            if(this.attrs.applyTo(estacion))
             {
-                repositorioIncidente.Actualizar(incidente);
+                repositorioEstacion.Actualizar(estacion);
                 listForm.updateList();
                 this.cerrar();
             }
-
         }
 
-        private void EditIncidenteForm_Load(object sender, EventArgs e)
+        private void EditEstacionForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(this.attrs);
             this.attrs.Width = 970;

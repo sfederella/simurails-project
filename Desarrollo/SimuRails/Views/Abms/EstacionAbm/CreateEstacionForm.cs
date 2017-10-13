@@ -3,23 +3,23 @@ using SimuRails.Views.Components.Attrs;
 using System;
 using System.Windows.Forms;
 
-namespace SimuRails.Views.Abms.IncidenteAbm
+namespace SimuRails.Views.Abms.EstacionAbm
 {
-    public partial class CreateIncidenteForm : Form
+    public partial class CreateEstacionForm : Form
     {
-        private IncidentesListForm listForm;
-        private IncidenteAttrs attrs;
-        private Incidente incidente;
+        private EstacionesListForm listForm;
+        private EstacionAttrs attrs;
+        private Estacion estacion;
 
-        public CreateIncidenteForm(IncidentesListForm listForm, Incidente incidente)
+        public CreateEstacionForm(EstacionesListForm listForm, Estacion estacion)
         {
             InitializeComponent();
-            this.attrs = new IncidenteAttrs(incidente);
-            this.incidente = incidente;
+            this.attrs = new EstacionAttrs(estacion);
+            this.estacion = estacion;
             this.listForm = listForm;
         }
 
-        private void CreateIncidenteForm_Load(object sender, EventArgs e)
+        private void CreateEstacionForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(this.attrs);
             this.attrs.Width = 970;
@@ -39,18 +39,14 @@ namespace SimuRails.Views.Abms.IncidenteAbm
             listForm.Visible = true;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            if (this.attrs.applyTo(incidente))
+            if(this.attrs.applyTo(estacion))
             {
-                 listForm.addIncidente(incidente);
+                listForm.addEstacion(estacion);
                 this.cerrar();
             }
+
         }
     }
 }

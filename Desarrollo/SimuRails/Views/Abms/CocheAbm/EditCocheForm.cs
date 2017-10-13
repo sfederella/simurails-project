@@ -51,10 +51,12 @@ namespace SimuRails.Views.Abms
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            this.attrs.applyTo(coche);
-            repositorioCoche.Actualizar(coche);
-            listForm.updateList();
-            this.cerrar();
+            if (this.attrs.applyTo(coche))
+            {
+                repositorioCoche.Actualizar(coche);
+                listForm.updateList();
+                this.cerrar();
+            }      
         }
     }
 }

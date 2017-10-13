@@ -63,9 +63,9 @@
             this.materialLabel4.Location = new System.Drawing.Point(320, 225);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(62, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(135, 19);
             this.materialLabel4.TabIndex = 34;
-            this.materialLabel4.Text = "Demora";
+            this.materialLabel4.Text = "Tiempo de demora";
             // 
             // materialLabel3
             // 
@@ -76,9 +76,9 @@
             this.materialLabel3.Location = new System.Drawing.Point(29, 225);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(92, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(187, 19);
             this.materialLabel3.TabIndex = 33;
-            this.materialLabel3.Text = "Probabilidad";
+            this.materialLabel3.Text = "Probabilidad de ocurrencia";
             // 
             // materialLabel1
             // 
@@ -98,7 +98,7 @@
             this.demoraField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.demoraField.Depth = 0;
             this.demoraField.Hint = "en segundos";
-            this.demoraField.Location = new System.Drawing.Point(324, 247);
+            this.demoraField.Location = new System.Drawing.Point(324, 252);
             this.demoraField.MouseState = MaterialSkin.MouseState.HOVER;
             this.demoraField.Name = "demoraField";
             this.demoraField.PasswordChar = '\0';
@@ -113,7 +113,7 @@
             // 
             this.probabilidadField.Depth = 0;
             this.probabilidadField.Hint = "%";
-            this.probabilidadField.Location = new System.Drawing.Point(33, 247);
+            this.probabilidadField.Location = new System.Drawing.Point(33, 251);
             this.probabilidadField.MouseState = MaterialSkin.MouseState.HOVER;
             this.probabilidadField.Name = "probabilidadField";
             this.probabilidadField.PasswordChar = '\0';
