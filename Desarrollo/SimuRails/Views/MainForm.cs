@@ -2,6 +2,7 @@
 using MaterialSkin.Controls;
 using SimuRails.Views;
 using SimuRails.Views.Abms;
+using SimuRails.Views.Abms.IncidenteAbm;
 using System.Windows.Forms;
 
 namespace SimuRails.Views
@@ -24,6 +25,7 @@ namespace SimuRails.Views
             embedForm(new Simulacion(this, tabSimulacion), tabSimulacion);
             embedForm(new ServiciosListForm(), tabServicios);
             embedForm(new CochesListForm(this, tabCoches), tabCoches);
+            embedForm(new IncidentesListForm(this, tabIncidentes), tabIncidentes);
         }
         
         public void embedForm(Form form, TabPage tabPage)

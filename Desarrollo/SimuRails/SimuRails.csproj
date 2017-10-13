@@ -75,10 +75,34 @@
     <Compile Include="Views\Abms\CocheAbm\EditCocheForm.Designer.cs">
       <DependentUpon>EditCocheForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Components\CocheAttrs.cs">
+    <Compile Include="Views\Abms\IncidenteAbm\CreateIncidenteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\IncidenteAbm\CreateIncidenteForm.Designer.cs">
+      <DependentUpon>CreateIncidenteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\IncidenteAbm\EditIncidenteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\IncidenteAbm\EditIncidenteForm.Designer.cs">
+      <DependentUpon>EditIncidenteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\IncidenteAbm\IncidentesListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\IncidenteAbm\IncidentesListForm.Designer.cs">
+      <DependentUpon>IncidentesListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\Attrs\IncidenteAttrs.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Components\CocheAttrs.Designer.cs">
+    <Compile Include="Views\Components\Attrs\IncidenteAttrs.Designer.cs">
+      <DependentUpon>IncidenteAttrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\Attrs\CocheAttrs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\Attrs\CocheAttrs.Designer.cs">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\RenglonDeCoche.cs">
@@ -86,6 +110,12 @@
     </Compile>
     <Compile Include="Views\Components\RenglonDeCoche.Designer.cs">
       <DependentUpon>RenglonDeCoche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeIncidente.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeIncidente.Designer.cs">
+      <DependentUpon>RenglonDeIncidente.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\RenglonDeServicio.cs">
       <SubType>UserControl</SubType>
@@ -146,11 +176,26 @@
     <EmbeddedResource Include="Views\Abms\CocheAbm\EditCocheForm.resx">
       <DependentUpon>EditCocheForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Components\CocheAttrs.resx">
+    <EmbeddedResource Include="Views\Abms\IncidenteAbm\CreateIncidenteForm.resx">
+      <DependentUpon>CreateIncidenteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\IncidenteAbm\EditIncidenteForm.resx">
+      <DependentUpon>EditIncidenteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\IncidenteAbm\IncidentesListForm.resx">
+      <DependentUpon>IncidentesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\Attrs\IncidenteAttrs.resx">
+      <DependentUpon>IncidenteAttrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\Attrs\CocheAttrs.resx">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeCoche.resx">
       <DependentUpon>RenglonDeCoche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeIncidente.resx">
+      <DependentUpon>RenglonDeIncidente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeServicio.resx">
       <DependentUpon>RenglonDeServicio.cs</DependentUpon>

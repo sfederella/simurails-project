@@ -11,7 +11,7 @@ using SimuRails.Models;
 
 namespace SimuRails.Views.Components
 {
-    public partial class RenglonDeCoche : UserControl
+    public partial class RenglonDeIncidente : UserControl
     {
         private int id;
         public delegate void Del(int id);
@@ -20,20 +20,20 @@ namespace SimuRails.Views.Components
 
         public int Id { get => id; }
 
-        public RenglonDeCoche(Coche coche, Del handleEdit, Del handleRemove)
+        public RenglonDeIncidente(Incidente incidente, Del handleEdit, Del handleRemove)
         {
             InitializeComponent();
-            this.modeloLbl.Text = coche.Modelo;
-            this.capacidadLegalLbl.Text = coche.MaximoLegalPasajeros.ToString();
-            this.capacidadTotalLbl.Text = coche.CapacidadMaximaPasajeros.ToString();
-            this.id = coche.Id;
+            this.nombreLbl.Text = incidente.Nombre;
+            this.probabilidadLbl.Text = incidente.ProbabilidadDeOcurrencia.ToString();
+            this.demoraLbl.Text = incidente.TiempoDemora.ToString();
+            this.id = incidente.Id;
             this.handleEdit = handleEdit;
             this.handleRemove = handleRemove;
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
         {
-            if(this.handleEdit != null)
+            if (this.handleEdit != null)
             {
                 handleEdit(id);
             }

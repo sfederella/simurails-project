@@ -11,23 +11,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SimuRails.Views.Abms
+namespace SimuRails.Views.Abms.IncidenteAbm
 {
-    public partial class CochesListForm : Form
+    public partial class IncidentesListForm : Form
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private Repositorio repositorioCoche= new Repositorio();
+        private Repositorio repositorioIncidente = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
-        public CochesListForm(MainForm mainForm, TabPage tabPage)
+        public IncidentesListForm()
+        {
+            InitializeComponent();
+        }
+
+        public IncidentesListForm(MainForm mainForm, TabPage tabPage)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             this.tabPage = tabPage;
         }
 
-        private void CochesListForm_Load(object sender, EventArgs e)
+        private void IncidentesListForm_Load_1(object sender, EventArgs e)
         {
             this.dibujarRenglones();
         }
@@ -37,15 +42,15 @@ namespace SimuRails.Views.Abms
             this.dibujarRenglones();
         }
 
-        public void addCoche(Coche coche)
+        public void addIncidente(Incidente incidente)
         {
-            repositorioCoche.Guardar(coche);
+            repositorioIncidente.Guardar(incidente);
             this.dibujarRenglones();
         }
 
-        private RenglonDeCoche renglonDe(Coche coche, int indice)
+        private RenglonDeIncidente renglonDe(Incidente incidente, int indice)
         {
-            var renglon = new RenglonDeCoche(coche, this.OnCocheEdit, this.onCocheRemove);
+            var renglon = new RenglonDeIncidente(incidente, this.OnIncidenteEdit, this.onIncidenteRemove);
             this.incluirEnLista(indice, renglon);
             return renglon;
         }
@@ -59,24 +64,24 @@ namespace SimuRails.Views.Abms
             renglones.Add(renglon);
         }
 
-        private void onCocheRemove(int id)
+        private void onIncidenteRemove(int id)
         {
-            Coche coche = this.findCoche(id);
-            repositorioCoche.Eliminar(coche);
+            Incidente incidente = this.findIncidente(id);
+            repositorioIncidente.Eliminar(incidente);
             this.dibujarRenglones();
         }
 
         private void dibujarRenglones()
         {
-            var coches = repositorioCoche.Listar<Coche>();
+            var incidentes = repositorioIncidente.Listar<Incidente>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
-            for (int i = 0; i < coches.Count; i++)
+            for (int i = 0; i < incidentes.Count; i++)
             {
-                renglones.Add(this.renglonDe(coches.ElementAt(i), i));
+                renglones.Add(this.renglonDe(incidentes.ElementAt(i), i));
 
             }
-            if(coches.Count == 0)
+            if (incidentes.Count == 0)
             {
                 this.incluirEnLista(0, new RenglonListaVacia());
             }
@@ -88,23 +93,22 @@ namespace SimuRails.Views.Abms
             unRenglon.Dispose();
         }
 
-        public void OnCocheEdit(int cocheId)
+        public void OnIncidenteEdit(int incidenteId)
         {
-            Coche coche = findCoche(cocheId);
-            this.mainForm.embedForm(new EditCocheForm(this, repositorioCoche, coche), tabPage);
+            Incidente incidente = findIncidente(incidenteId);
+            this.mainForm.embedForm(new EditIncidenteForm(this, repositorioIncidente, incidente), tabPage);
             this.Visible = false;
         }
 
-        private Coche findCoche(int cocheId)
+        private Incidente findIncidente(int incidenteId)
         {
-            return repositorioCoche.Obtener<Coche>(cocheId);
+            return repositorioIncidente.Obtener<Incidente>(incidenteId);
         }
-
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            Coche coche = new Coche();
-            this.mainForm.embedForm(new CreateCocheForm(this, coche), tabPage);
+            Incidente incidente = new Incidente();
+            this.mainForm.embedForm(new CreateIncidenteForm(this, incidente), tabPage);
             this.Visible = false;
         }
     }

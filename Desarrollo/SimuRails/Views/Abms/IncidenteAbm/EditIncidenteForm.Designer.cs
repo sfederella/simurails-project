@@ -1,6 +1,6 @@
-﻿namespace SimuRails.Views.Abms
+﻿namespace SimuRails.Views.Abms.IncidenteAbm
 {
-    partial class CreateCocheForm
+    partial class EditIncidenteForm
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(750, 409);
+            this.materialFlatButton1.Location = new System.Drawing.Point(729, 391);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -54,13 +54,13 @@
             // 
             this.materialRaisedButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialRaisedButton2.Depth = 0;
-            this.materialRaisedButton2.Location = new System.Drawing.Point(850, 412);
+            this.materialRaisedButton2.Location = new System.Drawing.Point(829, 394);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
             this.materialRaisedButton2.Primary = true;
             this.materialRaisedButton2.Size = new System.Drawing.Size(105, 30);
             this.materialRaisedButton2.TabIndex = 24;
-            this.materialRaisedButton2.Text = "Crear";
+            this.materialRaisedButton2.Text = "Guardar";
             this.materialRaisedButton2.UseVisualStyleBackColor = true;
             this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
             // 
@@ -68,25 +68,24 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 21);
+            this.label1.Location = new System.Drawing.Point(27, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 27);
+            this.label1.Size = new System.Drawing.Size(114, 27);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Coches";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "Incidentes";
             // 
-            // CreateCocheForm
+            // EditIncidenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(967, 454);
+            this.ClientSize = new System.Drawing.Size(960, 441);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.label1);
-            this.Name = "CreateCocheForm";
-            this.Text = "CreateCocheForm";
-            this.Load += new System.EventHandler(this.CreateCocheForm_Load);
+            this.Name = "EditIncidenteForm";
+            this.Text = "EditIncidenteForm";
+            this.Load += new System.EventHandler(this.EditIncidenteForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

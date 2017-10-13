@@ -1,5 +1,5 @@
 ﻿using SimuRails.Models;
-using SimuRails.Views.Components;
+using SimuRails.Views.Components.Attrs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,23 +10,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SimuRails.Views.Abms
+namespace SimuRails.Views.Abms.IncidenteAbm
 {
-    public partial class CreateCocheForm : Form
+    public partial class CreateIncidenteForm : Form
     {
-        private CochesListForm listForm;
-        private CocheAttrs attrs;
-        private Coche coche;
+        private IncidentesListForm listForm;
+        private IncidenteAttrs attrs;
+        private Incidente incidente;
 
-        public CreateCocheForm(CochesListForm listForm, Coche coche)
+        public CreateIncidenteForm(IncidentesListForm listForm, Incidente incidente)
         {
             InitializeComponent();
-            this.attrs = new CocheAttrs(coche);
-            this.coche = coche;
+            this.attrs = new IncidenteAttrs(incidente);
+            this.incidente = incidente;
             this.listForm = listForm;
         }
 
-        private void CreateCocheForm_Load(object sender, EventArgs e)
+        private void CreateIncidenteForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(this.attrs);
             this.attrs.Width = 970;
@@ -46,16 +46,16 @@ namespace SimuRails.Views.Abms
             listForm.Visible = true;
         }
 
-        private void materialRaisedButton2_Click(object sender, EventArgs e)
-        {
-            this.attrs.applyTo(coche);
-            listForm.addCoche(coche);
-            this.cerrar();
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            this.attrs.applyTo(incidente);
+            listForm.addIncidente(incidente);
+            this.cerrar();
         }
     }
 }

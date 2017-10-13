@@ -48,6 +48,7 @@
             this.capacidadTotalLbl.Size = new System.Drawing.Size(108, 19);
             this.capacidadTotalLbl.TabIndex = 25;
             this.capacidadTotalLbl.Text = "materialLabel4";
+            this.capacidadTotalLbl.Click += new System.EventHandler(this.capacidadTotalLbl_Click);
             // 
             // capacidadLegalLbl
             // 
@@ -61,6 +62,7 @@
             this.capacidadLegalLbl.Size = new System.Drawing.Size(108, 19);
             this.capacidadLegalLbl.TabIndex = 24;
             this.capacidadLegalLbl.Text = "materialLabel3";
+            this.capacidadLegalLbl.Click += new System.EventHandler(this.capacidadLegalLbl_Click);
             // 
             // modeloLbl
             // 
@@ -74,6 +76,7 @@
             this.modeloLbl.Size = new System.Drawing.Size(108, 19);
             this.modeloLbl.TabIndex = 22;
             this.modeloLbl.Text = "materialLabel1";
+            this.modeloLbl.Click += new System.EventHandler(this.modeloLbl_Click);
             // 
             // materialDivider1
             // 
@@ -87,6 +90,7 @@
             this.materialDivider1.Size = new System.Drawing.Size(885, 2);
             this.materialDivider1.TabIndex = 21;
             this.materialDivider1.Text = "materialDivider1";
+            this.materialDivider1.Click += new System.EventHandler(this.materialDivider1_Click);
             // 
             // materialFlatButton2
             // 
