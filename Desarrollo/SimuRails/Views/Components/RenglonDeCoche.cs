@@ -18,7 +18,7 @@ namespace SimuRails.Views.Components
         private Del handleEdit;
         private Del handleRemove;
 
-        public int Id { get => id; }
+        public int Id { get; set; }
 
         public RenglonDeCoche(Coche coche, Del handleEdit, Del handleRemove)
         {

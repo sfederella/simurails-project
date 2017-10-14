@@ -12,7 +12,7 @@ namespace SimuRails.Models
             Formaciones = new List<Formacion>();
         }
 
-        public virtual int Id { get; protected set; }
+        public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
         public virtual SortedDictionary<int, bool> ProgramacionIda { get; set; }
         public virtual SortedDictionary<int, bool> ProgramacionVuelta { get; set; }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using static SimuRails.Models.Formacion;
 
 namespace SimuRails.Models
@@ -12,7 +13,7 @@ namespace SimuRails.Models
             this.TiempoComprometidoSentidoIda = 0;
         }
 
-        public virtual int Id { get; protected set; }
+        public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
         public virtual bool EsEstacionDeMantenimiento { get; set; }
         public virtual IList<Incidente> Incidentes { get; set; }
@@ -65,7 +66,8 @@ namespace SimuRails.Models
             // Parámetros en segundos. Retorna minutos.
             int tiempoPorPersona = 4;
             int cantPersonasXPuerta = 2;
-            int cantVagones = formacion.TiposCoche.Count; // FIXME
+            int cantVagones = formacion.TiposCoche.Values.Sum();
+
             int cantPuertasXVagon = 3;
             int tiempoAtencionMinimo = 10;
             return ( (cantidadDePersonas * tiempoPorPersona) / (cantPersonasXPuerta * cantPuertasXVagon * cantVagones) 
@@ -76,6 +78,8 @@ namespace SimuRails.Models
         public List<Incidente> GetIncidentes()
         {
             List<Incidente> lista = new List<Incidente>();
+
+            if (this.Incidentes == null) return lista;
 
             foreach(Incidente incidente in this.Incidentes)
             {
@@ -133,7 +137,7 @@ namespace SimuRails.Models
 
         public virtual bool Equals(Estacion estacion)
         {
-            return Id == estacion.Id;
+            return Nombre.Equals(estacion.Nombre);
         }
 
     }

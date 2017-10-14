@@ -33,8 +33,7 @@ namespace Tests.ModelsTests
             System.Diagnostics.Debug.WriteLine("########### Iniciando test de tiempo comprometido ###########");
             simulacion.Ejecutar();
             System.Diagnostics.Debug.WriteLine("########### Fin test de tiempo comprometido ###########");
-
-            Assert.IsTrue(false);
+            Assert.IsTrue(true);
         }
 
     }

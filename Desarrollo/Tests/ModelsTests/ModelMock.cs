@@ -23,16 +23,19 @@ namespace Tests.ModelsTests
 
             Traza = new Traza()
             {
+                Id = 100,
                 Nombre = "Mitre",
                 Servicios = new List<Servicio>()
                 {
                     new Servicio()
                     {
+                        Id = 201,
                         Nombre = "Villa Ballester - Zarate",
                         Tramos = new List<Tramo>
                         {
                             new Tramo()
                             {
+                                Id = 301,
                                 EstacionOrigen = Estaciones["Villa Ballester"],
                                 EstacionDestino = Estaciones["Bancalari"],
                                 Distancia = 9,
@@ -40,6 +43,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 302,
                                 EstacionOrigen = Estaciones["Bancalari"],
                                 EstacionDestino = Estaciones["Pacheco"],
                                 Distancia = 3,
@@ -47,6 +51,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 303,
                                 EstacionOrigen = Estaciones["Pacheco"],
                                 EstacionDestino = Estaciones["Benavidez"],
                                 Distancia = 8,
@@ -54,6 +59,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 304,
                                 EstacionOrigen = Estaciones["Benavidez"],
                                 EstacionDestino = Estaciones["Maschwitz"],
                                 Distancia = 5,
@@ -61,6 +67,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 305,
                                 EstacionOrigen = Estaciones["Maschwitz"],
                                 EstacionDestino = Estaciones["Escobar"],
                                 Distancia = 7,
@@ -68,6 +75,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 306,
                                 EstacionOrigen = Estaciones["Escobar"],
                                 EstacionDestino = Estaciones["Río Luján"],
                                 Distancia = 19,
@@ -75,6 +83,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 307,
                                 EstacionOrigen = Estaciones["Río Luján"],
                                 EstacionDestino = Estaciones["Otamendi"],
                                 Distancia = 6,
@@ -82,6 +91,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 308,
                                 EstacionOrigen = Estaciones["Otamendi"],
                                 EstacionDestino = Estaciones["Campana"],
                                 Distancia = 10,
@@ -89,6 +99,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 309,
                                 EstacionOrigen = Estaciones["Campana"],
                                 EstacionDestino = Estaciones["Km. 83"],
                                 Distancia = 2,
@@ -96,6 +107,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 310,
                                 EstacionOrigen = Estaciones["Km. 83"],
                                 EstacionDestino = Estaciones["Zárate"],
                                 Distancia = 10,
@@ -123,11 +135,13 @@ namespace Tests.ModelsTests
 
                     new Servicio()
                     {
+                        Id = 202,
                         Nombre = "Victoria - Capilla del Señor",
                         Tramos = new List<Tramo>
                         {
                             new Tramo()
                             {
+                                Id = 311,
                                 EstacionOrigen = Estaciones["Victoria"],
                                 EstacionDestino = Estaciones["Schweitzer"],
                                 Distancia = 4,
@@ -135,6 +149,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 312,
                                 EstacionOrigen = Estaciones["Schweitzer"],
                                 EstacionDestino = Estaciones["El Talar"],
                                 Distancia = 7,
@@ -142,6 +157,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 313,
                                 EstacionOrigen = Estaciones["El Talar"],
                                 EstacionDestino = Estaciones["López Camelo"],
                                 Distancia = 3,
@@ -149,6 +165,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 314,
                                 EstacionOrigen = Estaciones["López Camelo"],
                                 EstacionDestino = Estaciones["Garín"],
                                 Distancia = 6,
@@ -156,6 +173,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 315,
                                 EstacionOrigen = Estaciones["Garín"],
                                 EstacionDestino = Estaciones["Maq. Savio"],
                                 Distancia = 4,
@@ -163,6 +181,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 316,
                                 EstacionOrigen = Estaciones["Maq. Savio"],
                                 EstacionDestino = Estaciones["Matheu"],
                                 Distancia = 6,
@@ -170,6 +189,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 317,
                                 EstacionOrigen = Estaciones["Matheu"],
                                 EstacionDestino = Estaciones["Zelaya"],
                                 Distancia = 4,
@@ -177,6 +197,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 318,
                                 EstacionOrigen = Estaciones["Zelaya"],
                                 EstacionDestino = Estaciones["Los Cardales"],
                                 Distancia = 12,
@@ -184,6 +205,7 @@ namespace Tests.ModelsTests
                             },
                             new Tramo()
                             {
+                                Id = 319,
                                 EstacionOrigen = Estaciones["Los Cardales"],
                                 EstacionDestino = Estaciones["Capilla del Señor"],
                                 Distancia = 11,
@@ -230,6 +252,7 @@ namespace Tests.ModelsTests
             {
                 ["Loc. General Motors-EMD G22"] = new Coche()
                 {
+                    Id = 601,
                     Modelo = "Loc. General Motors-EMD G22",
                     EsLocomotora = true,
                     TipoDeConsumo = "Electrico", //TODO cambiar a enum
@@ -241,6 +264,7 @@ namespace Tests.ModelsTests
                 },
                 ["Coche General Motors-EMD G10"] = new Coche()
                 {
+                    Id = 602,
                     Modelo = "Coche General Motors-EMD G10",
                     EsLocomotora = false,
                     CantidadAsientos = 60,
@@ -249,6 +273,7 @@ namespace Tests.ModelsTests
                 },
                 ["Loc. General Motors-EMD E80"] = new Coche()
                 {
+                    Id = 603,
                     Modelo = "Loc. General Motors-EMD E80",
                     EsLocomotora = true,
                     TipoDeConsumo = "Diesel", //TODO cambiar a enum
@@ -260,6 +285,7 @@ namespace Tests.ModelsTests
                 },
                 ["Coche General Motors-EMD E83"] = new Coche()
                 {
+                    Id = 604,
                     Modelo = "Coche General Motors-EMD E83",
                     EsLocomotora = false,
                     CantidadAsientos = 60,
@@ -275,6 +301,7 @@ namespace Tests.ModelsTests
             {
                 ["Form. Elec. Mitre"] = new Formacion()
                 {
+                    Id = 501,
                     Nombre = "Form. Elec. Mitre",
                     TiposCoche = new Dictionary<Coche,int>()
                     {
@@ -284,6 +311,7 @@ namespace Tests.ModelsTests
                 },
                 ["Form. Diesel Mitre"] = new Formacion()
                 {
+                    Id = 502,
                     Nombre = "Form. Diesel Mitre",
                     TiposCoche = new Dictionary<Coche, int>()
                     {
@@ -300,6 +328,7 @@ namespace Tests.ModelsTests
             {
                 ["Villa Ballester"] = new Estacion()
                 {
+                    Id = 401,
                     Nombre = "Villa Ballester",
                     PersonasDesciendenMaxIda = 0,
                     PersonasDesciendenMinIda = 0,
@@ -313,6 +342,7 @@ namespace Tests.ModelsTests
 
                 ["Bancalari"] = new Estacion()
                 {
+                    Id = 402,
                     Nombre = "Bancalari",
                     PersonasDesciendenMaxIda = 10,
                     PersonasDesciendenMinIda = 0,
@@ -326,6 +356,7 @@ namespace Tests.ModelsTests
 
                 ["Pacheco"] = new Estacion()
                 {
+                    Id = 403,
                     Nombre = "Pacheco",
                     PersonasDesciendenMaxIda = 20,
                     PersonasDesciendenMinIda = 0,
@@ -339,6 +370,7 @@ namespace Tests.ModelsTests
 
                 ["Benavidez"] = new Estacion()
                 {
+                    Id = 404,
                     Nombre = "Benavidez",
                     PersonasDesciendenMaxIda = 30,
                     PersonasDesciendenMinIda = 0,
@@ -352,6 +384,7 @@ namespace Tests.ModelsTests
 
                 ["Maschwitz"] = new Estacion()
                 {
+                    Id = 405,
                     Nombre = "Maschwitz",
                     PersonasDesciendenMaxIda = 40,
                     PersonasDesciendenMinIda = 5,
@@ -366,6 +399,7 @@ namespace Tests.ModelsTests
 
                 ["Escobar"] = new Estacion()
                 {
+                    Id = 406,
                     Nombre = "Escobar",
                     PersonasDesciendenMaxIda = 40,
                     PersonasDesciendenMinIda = 5,
@@ -379,6 +413,7 @@ namespace Tests.ModelsTests
 
                 ["Río Luján"] = new Estacion()
                 {
+                    Id = 407,
                     Nombre = "Río Luján",
                     PersonasDesciendenMaxIda = 40,
                     PersonasDesciendenMinIda = 5,
@@ -392,6 +427,7 @@ namespace Tests.ModelsTests
 
                 ["Otamendi"] = new Estacion()
                 {
+                    Id = 408,
                     Nombre = "Otamendi",
                     PersonasDesciendenMaxIda = 50,
                     PersonasDesciendenMinIda = 5,
@@ -405,6 +441,7 @@ namespace Tests.ModelsTests
 
                 ["Campana"] = new Estacion()
                 {
+                    Id = 409,
                     Nombre = "Campana",
                     PersonasDesciendenMaxIda = 60,
                     PersonasDesciendenMinIda = 5,
@@ -418,6 +455,7 @@ namespace Tests.ModelsTests
 
                 ["Km. 83"] = new Estacion()
                 {
+                    Id = 410,
                     Nombre = "Km. 83",
                     PersonasDesciendenMaxIda = 70,
                     PersonasDesciendenMinIda = 5,
@@ -431,6 +469,7 @@ namespace Tests.ModelsTests
 
                 ["Zárate"] = new Estacion()
                 {
+                    Id = 411,
                     Nombre = "Zárate",
                     PersonasDesciendenMaxIda = 80,
                     PersonasDesciendenMinIda = 5,
@@ -444,6 +483,7 @@ namespace Tests.ModelsTests
 
                 ["Victoria"] = new Estacion()
                 {
+                    Id = 412,
                     Nombre = "Victoria",
                     PersonasDesciendenMaxIda = 0,
                     PersonasDesciendenMinIda = 0,
@@ -457,6 +497,7 @@ namespace Tests.ModelsTests
 
                 ["Schweitzer"] = new Estacion()
                 {
+                    Id = 413,
                     Nombre = "Schweitzer",
                     PersonasDesciendenMaxIda = 10,
                     PersonasDesciendenMinIda = 0,
@@ -471,6 +512,7 @@ namespace Tests.ModelsTests
 
                 ["El Talar"] = new Estacion()
                 {
+                    Id = 414,
                     Nombre = "El Talar",
                     PersonasDesciendenMaxIda = 20,
                     PersonasDesciendenMinIda = 0,
@@ -484,6 +526,7 @@ namespace Tests.ModelsTests
 
                 ["López Camelo"] = new Estacion()
                 {
+                    Id = 415,
                     Nombre = "Lopez Camelo",
                     PersonasDesciendenMaxIda = 30,
                     PersonasDesciendenMinIda = 0,
@@ -497,6 +540,7 @@ namespace Tests.ModelsTests
 
                 ["Garín"] = new Estacion()
                 {
+                    Id = 416,
                     Nombre = "Garín",
                     PersonasDesciendenMaxIda = 40,
                     PersonasDesciendenMinIda = 5,
@@ -510,6 +554,7 @@ namespace Tests.ModelsTests
 
                 ["Maq. Savio"] = new Estacion()
                 {
+                    Id = 417,
                     Nombre = "Maq. Savio",
                     PersonasDesciendenMaxIda = 40,
                     PersonasDesciendenMinIda = 5,
@@ -523,6 +568,7 @@ namespace Tests.ModelsTests
 
                 ["Matheu"] = new Estacion()
                 {
+                    Id = 418,
                     Nombre = "Matheu",
                     PersonasDesciendenMaxIda = 50,
                     PersonasDesciendenMinIda = 5,
@@ -536,6 +582,7 @@ namespace Tests.ModelsTests
 
                 ["Zelaya"] = new Estacion()
                 {
+                    Id = 419,
                     Nombre = "Zelaya",
                     PersonasDesciendenMaxIda = 60,
                     PersonasDesciendenMinIda = 5,
@@ -549,6 +596,7 @@ namespace Tests.ModelsTests
 
                 ["Los Cardales"] = new Estacion()
                 {
+                    Id = 420,
                     Nombre = "Los Cardales",
                     PersonasDesciendenMaxIda = 70,
                     PersonasDesciendenMinIda = 5,
@@ -562,6 +610,7 @@ namespace Tests.ModelsTests
 
                 ["Capilla del Señor"] = new Estacion()
                 {
+                    Id = 421,
                     Nombre = "Capilla del Señor",
                     PersonasDesciendenMaxIda = 80,
                     PersonasDesciendenMinIda = 5,
