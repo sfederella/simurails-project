@@ -53,6 +53,7 @@
     <Compile Include="Models\Formacion.cs" />
     <Compile Include="Models\IMetodoSimulacion.cs" />
     <Compile Include="Models\Incidente.cs" />
+    <Compile Include="Models\ResultadoEstacion.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\Simulacion.cs" />
     <Compile Include="Models\TiempoComprometido.cs" />
@@ -314,6 +315,7 @@
       <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.SQLite">

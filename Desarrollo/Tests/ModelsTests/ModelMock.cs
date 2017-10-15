@@ -1,9 +1,6 @@
 ﻿using SimuRails.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Moq;
 
 namespace Tests.ModelsTests
 {
@@ -14,6 +11,23 @@ namespace Tests.ModelsTests
         private Dictionary<string, Coche> Coches;
         private Dictionary<string, Formacion> Formaciones;
         private Dictionary<string, Estacion> Estaciones;
+
+        public void MockResultados()
+        {
+            Mock<ResultadoEstacion> mockResultado = new Mock<ResultadoEstacion>();
+            mockResultado.Setup(x => x.CantFormaciones).Returns(FDP.Rand(0, 100));
+            mockResultado.Setup(x => x.PorcentajeOcupacion).Returns(FDP.Rand(0, 100));
+            mockResultado.Setup(x => x.PorcentajePersonasParadas).Returns(FDP.Rand(0, 100));
+            mockResultado.Setup(x => x.PorcentajeSuperaronMaxCantLegal).Returns(FDP.Rand(0, 100));
+            mockResultado.Setup(x => x.PorcentajeRegularidadAbsoluta).Returns(FDP.Rand(0, 100));
+            mockResultado.Setup(x => x.PorcentajeCumplimientoPrograma).Returns(FDP.Rand(0, 100));
+            mockResultado.Setup(x => x.PorcentajeDemoraPorIncidentes).Returns(FDP.Rand(0, 100));
+
+            foreach (Estacion estacion in Estaciones.Values)
+            {
+                estacion.Resultado = mockResultado.Object;
+            }
+        }
 
         public ModelMock()
         {
@@ -324,6 +338,7 @@ namespace Tests.ModelsTests
 
         private void InitEstaciones()
         {
+           
             Estaciones = new Dictionary<string, Estacion>
             {
                 ["Villa Ballester"] = new Estacion()

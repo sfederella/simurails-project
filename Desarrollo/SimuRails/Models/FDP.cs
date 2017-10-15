@@ -4,7 +4,7 @@ using System;
 
 namespace SimuRails.Models
 {
-    abstract class FDP
+    public abstract class FDP
     {
 
         public static int Rand(int minValue, int maxValue)

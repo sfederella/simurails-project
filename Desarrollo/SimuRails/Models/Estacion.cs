@@ -11,6 +11,7 @@ namespace SimuRails.Models
         {
             this.TiempoComprometidoSentidoVuelta = 0;
             this.TiempoComprometidoSentidoIda = 0;
+            this.Resultado = new ResultadoEstacion();
         }
 
         public virtual int Id { get; set; }
@@ -30,6 +31,7 @@ namespace SimuRails.Models
 
         public virtual int TiempoComprometidoSentidoIda { get; set; }
         public virtual int TiempoComprometidoSentidoVuelta { get; set; }
+        public virtual ResultadoEstacion Resultado { get; set; }
 
         public virtual int PasajerosAscendidos(Formacion formacion, int t)
         {
