@@ -17,8 +17,8 @@ namespace SimuRails.Views.Components
         {
             InitializeComponent();
             this.nombreLbl.Text = estacion.Nombre;
-            this.PerEsperandoMinLbl.Text = estacion.PersonasEsperandoMin.ToString();
-            this.PerEsperandoMaxLbl.Text = estacion.PersonasEsperandoMax.ToString();
+            //this.PerEsperandoMinLbl.Text = estacion.PersonasEsperandoMin.ToString();
+            //this.PerEsperandoMaxLbl.Text = estacion.PersonasEsperandoMax.ToString();
             this.id = estacion.Id;
             this.handleEdit = handleEdit;
             this.handleRemove = handleRemove;

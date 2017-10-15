@@ -18,9 +18,9 @@ namespace SimuRails.Views.Components.Attrs
         {
             InitializeComponent();
             if (estacion.Nombre != "") { this.nombreField.Text = estacion.Nombre; }
-            if (estacion.PersonasEsperandoMin != 0) { this.cantMinimaField.Text = estacion.PersonasEsperandoMin.ToString(); }
-            if (estacion.PersonasEsperandoMax != 0) { this.cantMaximaField.Text = estacion.PersonasEsperandoMax.ToString(); }
-            if (estacion.TipoFDP != "") { this.FDPCombo.SelectedItem = estacion.TipoFDP; }
+            //if (estacion.PersonasEsperandoMin != 0) { this.cantMinimaField.Text = estacion.PersonasEsperandoMin.ToString(); }
+            //if (estacion.PersonasEsperandoMax != 0) { this.cantMaximaField.Text = estacion.PersonasEsperandoMax.ToString(); }
+            //if (estacion.TipoFDP != "") { this.FDPCombo.SelectedItem = estacion.TipoFDP; }
 
             //clbIncidentes.DisplayMember = "Nombre";
             //clbIncidentes.Items.Clear();
@@ -38,10 +38,10 @@ namespace SimuRails.Views.Components.Attrs
             if (this.nombreField.Text != "") { estacion.Nombre = this.nombreField.Text; } else { MessageBox.Show("Se debe completar un nombre que identifique a la Estación."); return false; }
             int aux = 0;
             int.TryParse(this.cantMaximaField.Text, out aux);
-            estacion.PersonasEsperandoMax = aux;
-            int.TryParse(this.cantMinimaField.Text, out aux);
-            estacion.PersonasEsperandoMin = aux;
-            if (this.FDPCombo.SelectedItem != null) { estacion.TipoFDP = this.FDPCombo.SelectedItem.ToString(); }
+            //estacion.PersonasEsperandoMax = aux;
+            //int.TryParse(this.cantMinimaField.Text, out aux);
+            //estacion.PersonasEsperandoMin = aux;
+            //if (this.FDPCombo.SelectedItem != null) { estacion.TipoFDP = this.FDPCombo.SelectedItem.ToString(); }
             //    estacion.Incidentes = new List<Incidente>();
             //    foreach (Incidente i in clbIncidentes.CheckedItems)
             //    {

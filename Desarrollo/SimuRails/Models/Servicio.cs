@@ -1,80 +1,85 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static SimuRails.Models.Formacion;
 
 namespace SimuRails.Models
 {
     public class Servicio
     {
-        public Servicio() 
+        public Servicio()
         {
-            Relaciones = new List<Relacion>();
             Formaciones = new List<Formacion>();
         }
 
-        public virtual int Id { get; protected set; }
+        public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
+        public virtual SortedDictionary<int, bool> ProgramacionIda { get; set; }
+        public virtual SortedDictionary<int, bool> ProgramacionVuelta { get; set; }
+        public virtual List<Tramo> Tramos { get; set; }
+        public virtual Dictionary<Formacion, int> TiposFormacion { get; set; }
+        public virtual int PorcentajeFormacionesInicio { get; set; }
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        
+
         public virtual IList<Formacion> Formaciones { get; set; }
-        public virtual IList<Relacion> Relaciones { get; set; }
-        
-        public virtual SortedDictionary<int,bool> ProgramacionIda { get; set; }
-        public virtual SortedDictionary<int,bool> ProgramacionVuelta { get; set; }
 
-        public virtual Tramo GetTramo(Estacion estacionActual, Estacion estacionDestino)
+        public virtual void Inicializar()
         {
-            //TODO Implementar
-            //throw new NotImplementedException();
-
-            Tramo tramo = new Tramo();
-
-            if (estacionDestino.Nombre == "MORENO")
+            Desde = Tramos[0].EstacionOrigen;
+            Hasta = Tramos[Tramos.Count - 1].EstacionDestino;
+            foreach (KeyValuePair<Formacion,int> kvp in TiposFormacion)
             {
-                if (estacionActual.Nombre == "ONCE")
+                for (int i = 0; i < kvp.Value; i++)
                 {
-                    tramo.EstacionOrigen = estacionActual;
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionDestino = liniers;
-                }
-                else
-                {
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionOrigen = liniers;
-                    tramo.EstacionDestino = estacionDestino;
-                }
-            }else if (estacionDestino.Nombre =="ONCE")
-            {
-                if (estacionActual.Nombre == "MORENO")
-                {
-                    tramo.EstacionOrigen = estacionActual;
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionDestino = liniers;
-                }
-                else
-                {
-                    Estacion liniers = new Estacion();
-                    liniers.Nombre = "LINIERS";
-                    liniers.PersonasEsperandoMax = 200;
-                    liniers.PersonasEsperandoMax = 50;
-                    tramo.EstacionOrigen = liniers;
-                    tramo.EstacionDestino = estacionDestino;
+                    Formacion tipoFormacion = kvp.Key;
+                    Formacion formacion = new Formacion()
+                    {
+                        Nombre = tipoFormacion.Nombre,
+                        Servicio = this,
+                        TiposCoche = tipoFormacion.TiposCoche
+                    };
+
+                    int r = FDP.Rand(0, 100);
+                    if (r < PorcentajeFormacionesInicio)
+                    {
+                        formacion.SentidoActual = Sentido.IDA;
+                        formacion.EstacionActual = Desde;
+                        formacion.EstacionDestino = Hasta;
+                    } 
+                    else
+                    {
+                        formacion.SentidoActual = Sentido.VUELTA;
+                        formacion.EstacionActual = Hasta;
+                        formacion.EstacionDestino = Desde;
+                    }
+                    Formaciones.Add(formacion);
                 }
             }
+            
+        }
 
-            return tramo;
-
+        public virtual Tramo GetTramo(Estacion estacionActual, Sentido sentido)
+        {
+            Tramo proximoTramo;
+            if (sentido == Sentido.IDA)
+            {
+                proximoTramo = Tramos.First(x => x.EstacionOrigen == estacionActual);
+            }
+            else
+            {
+                proximoTramo = Tramos.First(x => x.EstacionDestino == estacionActual);
+                Tramo tramoInvertido = new Tramo
+                {
+                    Distancia = proximoTramo.Distancia,
+                    TiempoViaje = proximoTramo.TiempoViaje,
+                    EstacionOrigen = proximoTramo.EstacionDestino,
+                    EstacionDestino = proximoTramo.EstacionOrigen
+                };
+                proximoTramo = tramoInvertido;
+            }
+            return proximoTramo;
         }
 
         public virtual void MarcarProgramacion(Formacion formacion)
@@ -83,7 +88,7 @@ namespace SimuRails.Models
             {
                 ProgramacionIda[formacion.HoraSalida] = true;
             }
-            else if (formacion.SentidoActual == Formacion.Sentido.VUELTA)
+            else
             {
                 ProgramacionVuelta[formacion.HoraSalida] = true;
             }
@@ -127,7 +132,7 @@ namespace SimuRails.Models
             {
                 minHoraProgramada = ProgramacionIda.FirstOrDefault(x => !x.Value).Key;
             }
-            else if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.VUELTA)
+            else
             {
                 minHoraProgramada = ProgramacionVuelta.FirstOrDefault(x => !x.Value).Key;
             }

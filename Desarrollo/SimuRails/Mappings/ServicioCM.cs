@@ -11,9 +11,9 @@ namespace SimuRails.Mappings
             Id(x => x.Id, m => m.Generator(Generators.Identity));
             Property(x => x.Nombre);
 
-            Bag(x => x.Relaciones, collectionMapping =>
+            Bag(x => x.Tramos, collectionMapping =>
             {
-                collectionMapping.Table("Relacion");
+                collectionMapping.Table("Tramo");
                 collectionMapping.Cascade(Cascade.None);
                 collectionMapping.Key(k => k.Column("ServicioId"));
             },

@@ -2,9 +2,10 @@
 {
     public class Tramo
     {
-        public Estacion EstacionOrigen { get; internal set; }
-        public Estacion EstacionDestino { get; internal set; }
-        public int Distancia { get; internal set; }
-        public int TiempoViaje { get; internal set; }
+        public virtual int Id { get; set; }
+        public virtual Estacion EstacionOrigen { get; set; }
+        public virtual Estacion EstacionDestino { get; set; }
+        public virtual int Distancia { get; set; }
+        public virtual int TiempoViaje { get; set; }
     }
 }

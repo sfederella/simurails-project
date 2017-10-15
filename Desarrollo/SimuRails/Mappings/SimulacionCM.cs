@@ -10,7 +10,6 @@ namespace SimuRails.Mappings
         {
             Id(x => x.Id, m => m.Generator(Generators.Identity));
             Property(x => x.Nombre);
-            Property(x => x.FrecuenciaDeSalida);
         }
     }
 }

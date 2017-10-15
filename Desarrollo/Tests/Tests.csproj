@@ -46,6 +46,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DBTests\PersistanceTest.cs" />
+    <Compile Include="ModelsTests\ModelMock.cs" />
     <Compile Include="ModelsTests\TiempoComprometidoTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -16,6 +16,7 @@ namespace SimuRails.Models
         public virtual string TipoDeConsumo { get; set; } //TODO: Ver si es un enum. <- Si es un enum 
         public virtual int ConsumoMovimiento { get; set; }
         public virtual int ConsumoParado { get; set; }
+        public virtual int CantidadAsientos { get; set; }
         public virtual int MaximoLegalPasajeros { get; set; }
         public virtual int CapacidadMaximaPasajeros { get; set; }
     }
