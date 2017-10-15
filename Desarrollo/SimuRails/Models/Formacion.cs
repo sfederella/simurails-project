@@ -219,7 +219,7 @@ namespace SimuRails.Models
             rdo.AgregarPorcentajeDemoraPorIncidentes(tiempoIncidentes);
         }
 
-        public int GetCantidadAsientos()
+        public virtual int GetCantidadAsientos()
         {
             if (cantidadAsientos == 0)
             {
@@ -234,7 +234,7 @@ namespace SimuRails.Models
             return cantidadAsientos;
         }
 
-        public int GetCapacidadLegal()
+        public virtual int GetCapacidadLegal()
         {
             if (capacidadLegal == 0)
             {
@@ -249,7 +249,7 @@ namespace SimuRails.Models
             return capacidadLegal;
         }
 
-        public int GetCapacidadReal()
+        public virtual int GetCapacidadReal()
         {
             if (capacidadReal == 0)
             {
