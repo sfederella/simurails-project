@@ -11,21 +11,26 @@ namespace SimuRails.Models
             ComposicionesDeCoches = new List<ComposicionDeCoches>();
             InvertirSentidoFlag = false;
         }
-
+        // Persistentes
         public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
         public virtual Dictionary<Coche, int> TiposCoche { get; set; }
+        public virtual int KilometrosMantenimiento { get; set; }
+        public virtual int DuracionMantenimiento { get; set; }
 
+        // No persistentes
         public virtual int HoraSalida { get; set; }
         public virtual int Pasajeros { get; set; }
-        public virtual int DuracionMantenimiento { get; set; }
-        public virtual int KilometrosMantenimiento { get; set; }
         public virtual Servicio Servicio { get; set; }
         public virtual Estacion EstacionActual { get; set; }
         public virtual Estacion EstacionDestino { get; set; }
-
         public virtual int KilometrosRecorridos { get; set; }
         public virtual Boolean InvertirSentidoFlag { get; set; }
+
+        private int cantidadAsientos;
+        private int capacidadLegal;
+        private int capacidadReal;
+        private int tiempoIncidentes;
 
         public virtual IList<ComposicionDeCoches> ComposicionesDeCoches { get; set; }
 
@@ -51,7 +56,7 @@ namespace SimuRails.Models
 
             int tiempoAtencion = 0;
             int pasajerosAscendidos = 0;
-            int tiempoIncidentes = 0;
+            tiempoIncidentes = 0;
 
             Tramo tramo = this.Servicio.GetTramo(EstacionActual, SentidoActual);
 
@@ -83,6 +88,7 @@ namespace SimuRails.Models
             System.Diagnostics.Debug.WriteLine("########### Formacion : " + this.Nombre + " inició recorrido en estacion: " + tramo.EstacionDestino.Nombre + " ###########");
             System.Diagnostics.Debug.WriteLine("########### Cantidad de pasajeros Ascendidos " + pasajerosAscendidos + ". Pasajeros totales: " + this.Pasajeros + "###########");
 
+            CalcularResultados();
 
             return this.EstacionActual.GetTiempoComprometido(SentidoActual);
         }
@@ -94,7 +100,7 @@ namespace SimuRails.Models
             int distancia = tramo.Distancia;
             int tiempoDeViaje = tramo.TiempoViaje;
             int tiempoAtencion = 0;
-            int tiempoIncidentes = 0;
+            tiempoIncidentes = 0;
             
             foreach  (Incidente incidente in tramo.EstacionDestino.GetIncidentes())
             {
@@ -163,6 +169,8 @@ namespace SimuRails.Models
 
             this.EstacionActual = tramo.EstacionDestino;
 
+            CalcularResultados();
+
             return tramo.EstacionDestino.GetTiempoComprometido(SentidoActual);
         }
 
@@ -191,6 +199,69 @@ namespace SimuRails.Models
         public virtual Boolean RequiereMantenimiento()
         {
             return this.KilometrosRecorridos > this.KilometrosMantenimiento;
+        }
+
+        public virtual void CalcularResultados()
+        {
+            ResultadoEstacion rdo = EstacionActual.Resultado;
+            rdo.RegistrarNuevaFormacion();
+
+            double porcentajeOcupacion = Pasajeros * 100 / GetCapacidadReal();
+            rdo.AgregarPorcentajeOcupacion(porcentajeOcupacion);
+
+            double porcentajePersonasParadas = (Pasajeros - GetCantidadAsientos()) * 100 / Pasajeros;
+            rdo.AgregarPorcentajePersonasParadas(porcentajePersonasParadas > 0 ? porcentajePersonasParadas : 0);
+
+            rdo.AgregarPorcentajeSuperaronMaxCantLegal(Pasajeros > GetCapacidadLegal() ? 100 : 0);
+
+            rdo.AgregarPorcentajeRegularidadAbsoluta(tiempoIncidentes > 0 ? 100 : 0);
+
+            rdo.AgregarPorcentajeDemoraPorIncidentes(tiempoIncidentes);
+        }
+
+        public int GetCantidadAsientos()
+        {
+            if (cantidadAsientos == 0)
+            {
+                foreach (KeyValuePair<Coche, int> kvp in TiposCoche)
+                {
+                    for (int i = 0; i < kvp.Value; i++)
+                    {
+                        cantidadAsientos += kvp.Key.CantidadAsientos;
+                    }
+                }
+            }
+            return cantidadAsientos;
+        }
+
+        public int GetCapacidadLegal()
+        {
+            if (capacidadLegal == 0)
+            {
+                foreach (KeyValuePair<Coche,int> kvp in TiposCoche)
+                {
+                    for (int i = 0; i < kvp.Value; i++)
+                    {
+                        capacidadLegal += kvp.Key.MaximoLegalPasajeros;
+                    }
+                }
+            }
+            return capacidadLegal;
+        }
+
+        public int GetCapacidadReal()
+        {
+            if (capacidadReal == 0)
+            {
+                foreach (KeyValuePair<Coche, int> kvp in TiposCoche)
+                {
+                    for (int i = 0; i < kvp.Value; i++)
+                    {
+                        capacidadReal += kvp.Key.CapacidadMaximaPasajeros;
+                    }
+                }
+            }
+            return capacidadReal;
         }
     }
 
