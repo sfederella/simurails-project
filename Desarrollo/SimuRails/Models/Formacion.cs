@@ -26,6 +26,7 @@ namespace SimuRails.Models
         public virtual Estacion EstacionDestino { get; set; }
         public virtual int KilometrosRecorridos { get; set; }
         public virtual Boolean InvertirSentidoFlag { get; set; }
+        public virtual int ProgramacionCorrespondiente { get; set; }
 
         private int cantidadAsientos;
         private int capacidadLegal;

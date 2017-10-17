@@ -25,25 +25,26 @@ namespace SimuRails.Models
 
         public virtual Formacion GetProximaFormacion(int t)
         {
-            Formacion formacionMinHoraSalida = null;
+            Formacion fMin = null;
             foreach (Servicio servicio in Servicios)
             {
                 Formacion formacion = servicio.GetProximaFormacion(t);
-                if (formacionMinHoraSalida != null)
+                if (fMin != null)
                 {
-                    if (formacion.HoraSalida < formacionMinHoraSalida.HoraSalida)
+                    if (formacion.HoraSalida < fMin.HoraSalida)
                     {
-                        formacionMinHoraSalida = formacion;
+                        fMin = formacion;
                     }
-                } else
+                }
+                else
                 {
-                    formacionMinHoraSalida = formacion;
+                    fMin = formacion;
                 }
             }
 
-            formacionMinHoraSalida.Servicio.MarcarProgramacion(formacionMinHoraSalida);
+            fMin.Servicio.MarcarProgramacion(fMin.ProgramacionCorrespondiente,fMin.SentidoActual);
 
-            return formacionMinHoraSalida;
+            return fMin;
         }
     }
 }

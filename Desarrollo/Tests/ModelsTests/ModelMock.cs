@@ -132,7 +132,7 @@ namespace Tests.ModelsTests
                         {
                             [Formaciones["Form. Diesel Mitre"]] = 2,
                         },
-                        PorcentajeFormacionesInicio = 60,
+                        CantidadFormacionesInicio = 1,
                         ProgramacionIda = new SortedDictionary<int,bool>()
                         {
                             [130] = false,
@@ -231,7 +231,7 @@ namespace Tests.ModelsTests
                             [Formaciones["Form. Elec. Mitre"]] = 4,
                             [Formaciones["Form. Diesel Mitre"]] = 3,
                         },
-                        PorcentajeFormacionesInicio = 60,
+                        CantidadFormacionesInicio = 4,
                         ProgramacionIda = new SortedDictionary<int,bool>()
                         {
                             [182] = false,
