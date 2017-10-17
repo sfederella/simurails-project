@@ -18,7 +18,7 @@ namespace SimuRails.Models
         public virtual SortedDictionary<int, bool> ProgramacionVuelta { get; set; }
         public virtual List<Tramo> Tramos { get; set; }
         public virtual Dictionary<Formacion, int> TiposFormacion { get; set; }
-        public virtual int PorcentajeFormacionesInicio { get; set; }
+        public virtual int CantidadFormacionesInicio { get; set; }
 
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
@@ -29,6 +29,8 @@ namespace SimuRails.Models
         {
             Desde = Tramos[0].EstacionOrigen;
             Hasta = Tramos[Tramos.Count - 1].EstacionDestino;
+
+            int count = 0; 
             foreach (KeyValuePair<Formacion,int> kvp in TiposFormacion)
             {
                 for (int i = 0; i < kvp.Value; i++)
@@ -41,8 +43,7 @@ namespace SimuRails.Models
                         TiposCoche = tipoFormacion.TiposCoche
                     };
 
-                    int r = FDP.Rand(0, 100);
-                    if (r < PorcentajeFormacionesInicio)
+                    if (count < CantidadFormacionesInicio)
                     {
                         formacion.SentidoActual = Sentido.IDA;
                         formacion.EstacionActual = Desde;
@@ -55,6 +56,7 @@ namespace SimuRails.Models
                         formacion.EstacionDestino = Desde;
                     }
                     Formaciones.Add(formacion);
+                    count++;
                 }
             }
             
@@ -82,15 +84,21 @@ namespace SimuRails.Models
             return proximoTramo;
         }
 
-        public virtual void MarcarProgramacion(Formacion formacion)
+        public virtual void MarcarProgramacion(int programacion,Sentido sentido)
         {
-            if (formacion.SentidoActual == Formacion.Sentido.IDA)
+            if (sentido == Formacion.Sentido.IDA)
             {
-                ProgramacionIda[formacion.HoraSalida] = true;
+                if (ProgramacionIda.ContainsKey(programacion))
+                {
+                    ProgramacionIda[programacion] = true;
+                }
             }
             else
             {
-                ProgramacionVuelta[formacion.HoraSalida] = true;
+                if (ProgramacionVuelta.ContainsKey(programacion))
+                {
+                    ProgramacionVuelta[programacion] = true;
+                }
             }
         }
 
@@ -127,7 +135,6 @@ namespace SimuRails.Models
 
             int minHoraProgramada = 0;
 
-            // Si ya no hay más programaciones en el día y un tren está disponible para salir, sale.
             if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.IDA)
             {
                 minHoraProgramada = ProgramacionIda.FirstOrDefault(x => !x.Value).Key;
@@ -141,6 +148,8 @@ namespace SimuRails.Models
             {
                 formacionMinHoraSalida.HoraSalida = minHoraProgramada;
             }
+
+            formacionMinHoraSalida.ProgramacionCorrespondiente = minHoraProgramada;
 
             return formacionMinHoraSalida;
         }

@@ -30,6 +30,7 @@ namespace SimuRails.Models
         public virtual Estacion EstacionDestino { get; set; }
         public virtual int KilometrosRecorridos { get; set; }
         public virtual Boolean InvertirSentidoFlag { get; set; }
+        public virtual int ProgramacionCorrespondiente { get; set; }
 
         private int cantidadAsientos;
         private int capacidadLegal;
@@ -223,7 +224,7 @@ namespace SimuRails.Models
             rdo.AgregarPorcentajeDemoraPorIncidentes(tiempoIncidentes);*/
         }
 
-        public int GetCantidadAsientos()
+        public virtual int GetCantidadAsientos()
         {
             if (cantidadAsientos == 0)
             {
@@ -238,7 +239,7 @@ namespace SimuRails.Models
             return cantidadAsientos;
         }
 
-        public int GetCapacidadLegal()
+        public virtual int GetCapacidadLegal()
         {
             if (capacidadLegal == 0)
             {
@@ -253,7 +254,7 @@ namespace SimuRails.Models
             return capacidadLegal;
         }
 
-        public int GetCapacidadReal()
+        public virtual int GetCapacidadReal()
         {
             if (capacidadReal == 0)
             {
