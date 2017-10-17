@@ -114,7 +114,7 @@ namespace SimuRails.Models
             }
         }
 
-
+        // TODO El día hay que reiniciarlo acá me parece
         public virtual Formacion GetProximaFormacion(int t)
         {
             Formacion formacionMinHoraSalida = null;
@@ -144,9 +144,10 @@ namespace SimuRails.Models
                 minHoraProgramada = ProgramacionVuelta.FirstOrDefault(x => !x.Value).Key;
             }
 
-            if (minHoraProgramada > formacionMinHoraSalida.HoraSalida)
+            int acumDias = (t / 1440) * 60;
+            if ((minHoraProgramada + acumDias) > formacionMinHoraSalida.HoraSalida)
             {
-                formacionMinHoraSalida.HoraSalida = minHoraProgramada;
+                formacionMinHoraSalida.HoraSalida = minHoraProgramada + acumDias;
             }
 
             formacionMinHoraSalida.ProgramacionCorrespondiente = minHoraProgramada;
