@@ -114,7 +114,6 @@ namespace SimuRails.Models
             }
         }
 
-        // TODO El día hay que reiniciarlo acá me parece
         public virtual Formacion GetProximaFormacion(int t)
         {
             Formacion formacionMinHoraSalida = null;
@@ -133,26 +132,48 @@ namespace SimuRails.Models
                 }
             }
 
-            int minHoraProgramada = 0;
-
+            int minHoraProgramada;
             if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.IDA)
             {
-                minHoraProgramada = ProgramacionIda.FirstOrDefault(x => !x.Value).Key;
+                minHoraProgramada = GetProximaProgramacion(ProgramacionIda);
             }
             else
             {
-                minHoraProgramada = ProgramacionVuelta.FirstOrDefault(x => !x.Value).Key;
+                minHoraProgramada = GetProximaProgramacion(ProgramacionVuelta);
             }
 
-            int acumDias = (t / 1440) * 60;
+            int acumDias = (t / 1440) * 1440;
             if ((minHoraProgramada + acumDias) > formacionMinHoraSalida.HoraSalida)
             {
                 formacionMinHoraSalida.HoraSalida = minHoraProgramada + acumDias;
             }
 
-            formacionMinHoraSalida.ProgramacionCorrespondiente = minHoraProgramada;
+            formacionMinHoraSalida.ProgramacionCorrespondiente = (minHoraProgramada < 1440) ? minHoraProgramada : minHoraProgramada - 1440;
 
             return formacionMinHoraSalida;
         }
+
+        private int GetProximaProgramacion(SortedDictionary<int, bool> Programacion)
+        {
+            int minHoraProgramada = int.MinValue;
+
+            foreach (KeyValuePair<int, bool> kvp in Programacion)
+            {
+                if (!kvp.Value)
+                {
+                    minHoraProgramada = kvp.Key;
+                    break;
+                }
+            }
+
+            if (minHoraProgramada == int.MinValue)
+            {
+                LimpiarProgramaciones();
+                minHoraProgramada = Programacion.Keys.First() + 1440;
+            }
+
+            return minHoraProgramada;
+        }
+}
     }
 }
