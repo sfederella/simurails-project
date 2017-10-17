@@ -32,6 +32,7 @@ namespace SimuRails.Models
         public virtual int TiempoComprometidoSentidoIda { get; set; }
         public virtual int TiempoComprometidoSentidoVuelta { get; set; }
         public virtual ResultadoEstacion Resultado { get; set; }
+        public virtual bool EsEstacionTerminal { get; set; }
 
         public virtual int PasajerosAscendidos(Formacion formacion, int t)
         {

@@ -92,6 +92,10 @@ namespace SimuRails.Models
                 {
                     ProgramacionIda[programacion] = true;
                 }
+                else
+                {
+                    throw new Exception("Programación Inexistente");
+                }
             }
             else
             {
@@ -99,18 +103,18 @@ namespace SimuRails.Models
                 {
                     ProgramacionVuelta[programacion] = true;
                 }
+                else
+                {
+                    throw new Exception("Programación Inexistente");
+                }
             }
         }
 
-        public virtual void LimpiarProgramaciones()
+        public virtual void LimpiarProgramacion(SortedDictionary<int, bool> Programacion)
         {
-            foreach (KeyValuePair<int,bool> salida in ProgramacionIda)
+            foreach (KeyValuePair<int,bool> salida in Programacion)
             {
-                ProgramacionIda[salida.Key] = false;
-            }
-            foreach (KeyValuePair<int, bool> salida in ProgramacionVuelta)
-            {
-                ProgramacionVuelta[salida.Key] = false;
+                Programacion[salida.Key] = false;
             }
         }
 
@@ -168,12 +172,12 @@ namespace SimuRails.Models
 
             if (minHoraProgramada == int.MinValue)
             {
-                LimpiarProgramaciones();
+                LimpiarProgramacion(Programacion);
                 minHoraProgramada = Programacion.Keys.First() + 1440;
             }
 
             return minHoraProgramada;
         }
-}
+
     }
 }

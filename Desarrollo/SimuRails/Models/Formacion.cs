@@ -31,6 +31,7 @@ namespace SimuRails.Models
         public virtual int KilometrosRecorridos { get; set; }
         public virtual Boolean InvertirSentidoFlag { get; set; }
         public virtual int ProgramacionCorrespondiente { get; set; }
+        public virtual bool PasoPorMantenimiento { get; set; }
 
         private int cantidadAsientos;
         private int capacidadLegal;
@@ -54,6 +55,7 @@ namespace SimuRails.Models
             this.EstacionDestino = servicio.Hasta;
             this.SentidoActual = Sentido.IDA;
             this.Servicio = servicio;
+            this.PasoPorMantenimiento = false;
         }
 
         public virtual int InicioRecorrido(int t)
@@ -70,10 +72,10 @@ namespace SimuRails.Models
                 tiempoIncidentes += incidente.TiempoDemora;
             }
 
-            if (this.Pasajeros > 0)
+            /*if (this.Pasajeros > 0)
             {
                 throw new SystemException("El tren no esta vacio al iniciar el recorrido.");
-            }
+            }*/
 
             pasajerosAscendidos = tramo.EstacionDestino.PasajerosAscendidos(this, t);
 
@@ -117,11 +119,12 @@ namespace SimuRails.Models
             if (this.Pasajeros > 0)
             {
                 pasajerosDescendidos = tramo.EstacionDestino.PasajerosDescendidos(this, t);
-            }
+            }           
 
             //Esto nos dice si la estacion llego a donde queria llegar
             if (!tramo.EstacionDestino.Equals(this.EstacionDestino))
             {
+
                 if (this.RequiereMantenimiento() && tramo.EstacionDestino.EsEstacionDeMantenimiento)
                 {
                     //Actualizo el destino para que frene en la clase TiempoComprometido .
@@ -169,9 +172,14 @@ namespace SimuRails.Models
 
             }
             //Sin importar que, la formacion ya llego a Destino.         
+            if (tramo.EstacionDestino.EsEstacionDeMantenimiento)
+            {
+                this.PasoPorMantenimiento = true;
+                this.HoraSalida = tramo.EstacionDestino.GetTiempoComprometido(SentidoActual);
+            }
 
             this.EstacionActual = tramo.EstacionDestino;
-            if (this.InvertirSentidoFlag)
+            //if (this.InvertirSentidoFlag)
             this.log.Info("# T: " + LogHelper.timeConvert(tramo.EstacionDestino.GetTiempoComprometido(SentidoActual)) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0,20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + pasajerosDescendidos + " | Totales: " + this.Pasajeros);
 
             CalcularResultados();

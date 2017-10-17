@@ -34,7 +34,7 @@ namespace SimuRails.Models
 
             while (t < tiempoFinal)
             {
-                int tiempoDeLaFormacion = t;
+                int tiempoDeLaFormacion;
 
                 Servicio servicio = formacion.Servicio;
 
@@ -46,7 +46,7 @@ namespace SimuRails.Models
                 tiempoDeLaFormacion = formacion.InicioRecorrido(t);
 
                 //Calculo viaje hasta que llegue a destino, ya sea estacion Final o Mantenimiento.
-                while (formacion.EstacionActual != formacion.EstacionDestino)
+                while (formacion.EstacionActual != formacion.EstacionDestino && !formacion.PasoPorMantenimiento)
                 {
                     //Obtengo el camino a recorrer hasta la próxima estación.
                     //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
@@ -57,7 +57,7 @@ namespace SimuRails.Models
                     tiempoDeLaFormacion = formacion.ArriboEstacion(tramo, tiempoDeLaFormacion);
 
                 }
-
+                formacion.PasoPorMantenimiento = false;
                 if (formacion.InvertirSentidoFlag) formacion.InvertirSentido();
 
                 // Calcular ingreso de pasajeros en estación Cabecera Final del recorrido.
