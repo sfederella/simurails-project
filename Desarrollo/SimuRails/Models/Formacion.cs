@@ -1,4 +1,6 @@
-﻿using System;
+﻿using log4net;
+using SimuRails.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,6 +8,8 @@ namespace SimuRails.Models
 {
     public class Formacion
     {
+        private readonly ILog log = LogManager.GetLogger("");
+
         public Formacion()
         {
             ComposicionesDeCoches = new List<ComposicionDeCoches>();
@@ -83,10 +87,10 @@ namespace SimuRails.Models
             }
 
             //Se setea el tiempo comprometido de la estacion de la que acaba de salir.
-            this.HoraSalida = tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
+            //this.HoraSalida = tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
+            tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
 
-            System.Diagnostics.Debug.WriteLine("########### Formacion : " + this.Nombre + " inició recorrido en estacion: " + tramo.EstacionDestino.Nombre + " ###########");
-            System.Diagnostics.Debug.WriteLine("########### Cantidad de pasajeros Ascendidos " + pasajerosAscendidos + ". Pasajeros totales: " + this.Pasajeros + "###########");
+            this.log.Info("# T: " + LogHelper.timeConvert(this.EstacionActual.GetTiempoComprometido(SentidoActual)) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0, 20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + 0 +" | Totales: " + this.Pasajeros);
 
             CalcularResultados();
 
@@ -163,11 +167,11 @@ namespace SimuRails.Models
                 this.InvertirSentidoFlag = true;                
 
             }
-            //Sin importar que, la formacion ya llego a Destino.
-            System.Diagnostics.Debug.WriteLine("########### Formacion : "+ this.Nombre + " arribó a estacion: " + tramo.EstacionDestino.Nombre +" ###########");
-            System.Diagnostics.Debug.WriteLine("########### Cantidad de pasajeros Ascendidos " + pasajerosAscendidos + ". Cantidad de pasajeros Descendidos: "+ pasajerosDescendidos+". Pasajeros totales: "+this.Pasajeros +"###########");
+            //Sin importar que, la formacion ya llego a Destino.         
 
             this.EstacionActual = tramo.EstacionDestino;
+            if (this.InvertirSentidoFlag)
+            this.log.Info("# T: " + LogHelper.timeConvert(tramo.EstacionDestino.GetTiempoComprometido(SentidoActual)) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0,20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + pasajerosDescendidos + " | Totales: " + this.Pasajeros);
 
             CalcularResultados();
 
@@ -206,7 +210,7 @@ namespace SimuRails.Models
             ResultadoEstacion rdo = EstacionActual.Resultado;
             rdo.RegistrarNuevaFormacion();
 
-            double porcentajeOcupacion = Pasajeros * 100 / GetCapacidadReal();
+            /*double porcentajeOcupacion = Pasajeros * 100 / GetCapacidadReal();
             rdo.AgregarPorcentajeOcupacion(porcentajeOcupacion);
 
             double porcentajePersonasParadas = (Pasajeros - GetCantidadAsientos()) * 100 / Pasajeros;
@@ -216,7 +220,7 @@ namespace SimuRails.Models
 
             rdo.AgregarPorcentajeRegularidadAbsoluta(tiempoIncidentes > 0 ? 100 : 0);
 
-            rdo.AgregarPorcentajeDemoraPorIncidentes(tiempoIncidentes);
+            rdo.AgregarPorcentajeDemoraPorIncidentes(tiempoIncidentes);*/
         }
 
         public int GetCantidadAsientos()

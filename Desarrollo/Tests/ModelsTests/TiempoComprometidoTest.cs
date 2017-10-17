@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SimuRails.Models;
+using log4net.Config;
+using log4net;
+using System.Reflection;
 
 namespace Tests.ModelsTests
 {
@@ -12,11 +15,15 @@ namespace Tests.ModelsTests
     public class TiempoComprometidoTest
     {
         Traza traza;
-        
+        private readonly ILog log = LogManager.GetLogger("");
+
         [TestInitialize]
         public void Init()
         {
+            XmlConfigurator.Configure();
+
             traza = new ModelMock().Traza;
+
         }
         
         [TestMethod]
@@ -30,9 +37,9 @@ namespace Tests.ModelsTests
                 TrazaSimulada = traza
             };
 
-            System.Diagnostics.Debug.WriteLine("########### Iniciando test de tiempo comprometido ###########");
+            this.log.Info("Iniciando test de tiempo comprometido");
             simulacion.Ejecutar();
-            System.Diagnostics.Debug.WriteLine("########### Fin test de tiempo comprometido ###########");
+            this.log.Info("Fin test de tiempo comprometido");
             Assert.IsTrue(true);
         }
 

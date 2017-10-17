@@ -1,13 +1,17 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using SimuRails.Resources;
 
 namespace SimuRails.Models
 {
     public class TiempoComprometido : IMetodoSimulacion
     {
+        private readonly ILog log = LogManager.GetLogger("");
         private Traza Traza;
         private long TiempoFinal;
 
@@ -34,7 +38,9 @@ namespace SimuRails.Models
 
                 Servicio servicio = formacion.Servicio;
 
-                System.Diagnostics.Debug.WriteLine("########### Iniciando recorrido del servicio: "+ formacion.Servicio.Nombre + " formacion: "+ formacion.Nombre + "  ###########");
+                this.log.Info("Horarios disponibles de formaciones: \n"  + LogHelper.MostrarTiemposDeSalida(traza));
+                this.log.Info("Horarios de programaciones: \n" + LogHelper.MostrarProgramaciones(traza));
+                this.log.Info("T: " + LogHelper.timeConvert(t) + " | Servicio: " + formacion.Servicio.Nombre + " | Formacion: "+ formacion.Nombre + ":" + formacion.Id);
 
                 // Calcular ingreso de pasajeros en estación Cabecera Inicial o Final del recorrido.
                 tiempoDeLaFormacion = formacion.InicioRecorrido(t);
@@ -42,8 +48,6 @@ namespace SimuRails.Models
                 //Calculo viaje hasta que llegue a destino, ya sea estacion Final o Mantenimiento.
                 while (formacion.EstacionActual != formacion.EstacionDestino)
                 {
-                    System.Diagnostics.Debug.WriteLine("########### Estacion: "+formacion.EstacionActual.Nombre +"  ###########");
-
                     //Obtengo el camino a recorrer hasta la próxima estación.
                     //Debe poder obtener el tramo comprendido entre la estacionActual y la estacionSiguiente 
                     //en el sentido desde estacionActual -> formacion.getEstacionDestino()
