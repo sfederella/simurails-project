@@ -59,6 +59,7 @@
     <Compile Include="Models\TiempoComprometido.cs" />
     <Compile Include="Models\Tramo.cs" />
     <Compile Include="Models\Traza.cs" />
+    <Compile Include="Resources\LogHelper.cs" />
     <Compile Include="Views\Abms\CocheAbm\CochesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,9 +292,7 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="DB\hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -302,6 +301,10 @@
   <ItemGroup>
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.4.0.2\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MaterialSkin">

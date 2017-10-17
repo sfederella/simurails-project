@@ -139,7 +139,8 @@ namespace SimuRails.Models
 
         public virtual bool Equals(Estacion estacion)
         {
-            return Nombre.Equals(estacion.Nombre);
+            //return Nombre.Equals(estacion.Nombre);
+            return Id == estacion.Id;
         }
 
     }

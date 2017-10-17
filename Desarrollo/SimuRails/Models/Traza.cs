@@ -21,6 +21,18 @@ namespace SimuRails.Models
             {
                 servicio.Inicializar();
             }
+
+
+            int i = 1;
+
+            foreach (Servicio servicio in Servicios)
+            {
+                foreach (Formacion formacion in servicio.Formaciones)
+                {
+                    formacion.Id = i;
+                    i++;
+                }
+            }
         }
 
         public virtual Formacion GetProximaFormacion(int t)
