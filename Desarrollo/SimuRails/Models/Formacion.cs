@@ -216,10 +216,18 @@ namespace SimuRails.Models
 
         public virtual void CalcularResultados()
         {
-            ResultadoEstacion rdo = EstacionActual.Resultado;
+            ResultadoEstacion rdo;
+            if(SentidoActual == Sentido.IDA)
+            {
+                rdo = EstacionActual.ResultadoIda;
+            }
+            else
+            {
+                rdo = EstacionActual.ResultadoVuelta;
+            }
             rdo.RegistrarNuevaFormacion();
 
-            /*double porcentajeOcupacion = Pasajeros * 100 / GetCapacidadReal();
+            double porcentajeOcupacion = Pasajeros * 100 / GetCapacidadReal();
             rdo.AgregarPorcentajeOcupacion(porcentajeOcupacion);
 
             double porcentajePersonasParadas = (Pasajeros - GetCantidadAsientos()) * 100 / Pasajeros;
@@ -229,7 +237,7 @@ namespace SimuRails.Models
 
             rdo.AgregarPorcentajeRegularidadAbsoluta(tiempoIncidentes > 0 ? 100 : 0);
 
-            rdo.AgregarPorcentajeDemoraPorIncidentes(tiempoIncidentes);*/
+            rdo.AgregarPorcentajeDemoraPorIncidentes(tiempoIncidentes);
         }
 
         public virtual int GetCantidadAsientos()
@@ -275,6 +283,18 @@ namespace SimuRails.Models
                 }
             }
             return capacidadReal;
+        }
+
+        public virtual void MarcarProgramacionCorrespondiente()
+        {
+            if(SentidoActual == Sentido.IDA)
+            {
+                Servicio.MarcarProgramacion(ProgramacionCorrespondiente, Servicio.ProgramacionIda);
+            }
+            else
+            {
+                Servicio.MarcarProgramacion(ProgramacionCorrespondiente, Servicio.ProgramacionVuelta);
+            }
         }
     }
 

@@ -11,28 +11,30 @@ namespace SimuRails.Models
         {
             this.TiempoComprometidoSentidoVuelta = 0;
             this.TiempoComprometidoSentidoIda = 0;
-            this.Resultado = new ResultadoEstacion();
+            this.ResultadoIda = new ResultadoEstacion();
+            this.ResultadoVuelta = new ResultadoEstacion();
         }
 
+        // Persistentes
         public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
         public virtual bool EsEstacionDeMantenimiento { get; set; }
         public virtual IList<Incidente> Incidentes { get; set; }
-
         public virtual int PersonasEsperandoMaxIda { get; set; }
         public virtual int PersonasEsperandoMinIda { get; set; }
         public virtual int PersonasDesciendenMaxIda { get; set; }
         public virtual int PersonasDesciendenMinIda { get; set; }
-
         public virtual int PersonasEsperandoMaxVuelta { get; set; }
         public virtual int PersonasEsperandoMinVuelta { get; set; }
         public virtual int PersonasDesciendenMaxVuelta { get; set; }
         public virtual int PersonasDesciendenMinVuelta { get; set; }
 
+        // No persistentes
+        public virtual bool EsEstacionTerminal { get; set; }
         public virtual int TiempoComprometidoSentidoIda { get; set; }
         public virtual int TiempoComprometidoSentidoVuelta { get; set; }
-        public virtual ResultadoEstacion Resultado { get; set; }
-        public virtual bool EsEstacionTerminal { get; set; }
+        public virtual ResultadoEstacion ResultadoIda { get; set; }
+        public virtual ResultadoEstacion ResultadoVuelta { get; set; }
 
         public virtual int PasajerosAscendidos(Formacion formacion, int t)
         {

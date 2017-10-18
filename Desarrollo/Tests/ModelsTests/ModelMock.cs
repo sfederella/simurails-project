@@ -25,7 +25,8 @@ namespace Tests.ModelsTests
 
             foreach (Estacion estacion in Estaciones.Values)
             {
-                estacion.Resultado = mockResultado.Object;
+                estacion.ResultadoIda = mockResultado.Object;
+                estacion.ResultadoVuelta = mockResultado.Object;
             }
         }
 
@@ -269,7 +270,7 @@ namespace Tests.ModelsTests
                     Id = 601,
                     Modelo = "Loc. General Motors-EMD G22",
                     EsLocomotora = true,
-                    TipoDeConsumo = "Electrico", //TODO cambiar a enum
+                    TipoDeConsumo = Coche.TipoConsumo.ELECTRICO,
                     ConsumoParado = 50, 
                     ConsumoMovimiento = 300,
                     CantidadAsientos = 50,
@@ -290,7 +291,7 @@ namespace Tests.ModelsTests
                     Id = 603,
                     Modelo = "Loc. General Motors-EMD E80",
                     EsLocomotora = true,
-                    TipoDeConsumo = "Diesel", //TODO cambiar a enum
+                    TipoDeConsumo = Coche.TipoConsumo.DIESEL,
                     ConsumoParado = 1,
                     ConsumoMovimiento = 4,
                     CantidadAsientos = 50,

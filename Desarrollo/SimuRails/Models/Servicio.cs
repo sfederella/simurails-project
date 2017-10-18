@@ -12,6 +12,7 @@ namespace SimuRails.Models
             Formaciones = new List<Formacion>();
         }
 
+        // Persistente
         public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
         public virtual SortedDictionary<int, bool> ProgramacionIda { get; set; }
@@ -20,9 +21,9 @@ namespace SimuRails.Models
         public virtual Dictionary<Formacion, int> TiposFormacion { get; set; }
         public virtual int CantidadFormacionesInicio { get; set; }
 
+        // No persistente
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-
         public virtual IList<Formacion> Formaciones { get; set; }
 
         public virtual void Inicializar()
@@ -84,76 +85,110 @@ namespace SimuRails.Models
             return proximoTramo;
         }
 
-        public virtual void MarcarProgramacion(int programacion,Sentido sentido)
+        public virtual void MarcarProgramacion(int programacionCorrespondiente, SortedDictionary<int, bool> programaciones)
         {
-            if (sentido == Formacion.Sentido.IDA)
+            if(programacionCorrespondiente != int.MinValue)
             {
-                if (ProgramacionIda.ContainsKey(programacion))
+                if (programaciones.ContainsKey(programacionCorrespondiente))
                 {
-                    ProgramacionIda[programacion] = true;
+                    programaciones[programacionCorrespondiente] = true;
                 }
                 else
                 {
-                    throw new Exception("Programación Inexistente");
-                }
-            }
-            else
-            {
-                if (ProgramacionVuelta.ContainsKey(programacion))
-                {
-                    ProgramacionVuelta[programacion] = true;
-                }
-                else
-                {
-                    throw new Exception("Programación Inexistente");
+                    throw new Exception("Programacion Inexistente");
                 }
             }
         }
 
-        public virtual void LimpiarProgramacion(SortedDictionary<int, bool> Programacion)
+        public virtual void LimpiarProgramacion(SortedDictionary<int, bool> programaciones)
         {
-            foreach (KeyValuePair<int,bool> salida in Programacion)
+            foreach (KeyValuePair<int,bool> salida in programaciones)
             {
-                Programacion[salida.Key] = false;
+                programaciones[salida.Key] = false;
             }
         }
 
         public virtual Formacion GetProximaFormacion(int t)
         {
+
+            List<Formacion> formacionesOrdenadas = Formaciones.OrderBy(x => x.HoraSalida).ToList();
+            int acumDias = (t / 1440) * 1440;
+
             Formacion formacionMinHoraSalida = null;
-            foreach (Formacion formacion in Formaciones)
+            int minHoraProgramada = int.MinValue;
+            int auxHoraProgramada;
+            foreach (Formacion formacion in formacionesOrdenadas)
             {
-                if (formacionMinHoraSalida != null)
+                if (minHoraProgramada == int.MinValue)
                 {
-                    if (formacion.HoraSalida < formacionMinHoraSalida.HoraSalida)
+                    formacionMinHoraSalida = formacion;
+                    if (formacion.EstacionActual.EsEstacionTerminal)
                     {
-                        formacionMinHoraSalida = formacion;
+                        if (formacion.SentidoActual == Formacion.Sentido.IDA)
+                        {
+                            minHoraProgramada = GetProximaProgramacion(ProgramacionIda);
+                        }
+                        else
+                        {
+                            minHoraProgramada = GetProximaProgramacion(ProgramacionVuelta);
+                        }
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
                 else
                 {
-                    formacionMinHoraSalida = formacion;
+                    if (formacion.HoraSalida < (minHoraProgramada + acumDias))
+                    {
+                        if (formacion.EstacionActual.EsEstacionTerminal)
+                        {
+                            if (formacion.SentidoActual == Formacion.Sentido.IDA)
+                            {
+                                auxHoraProgramada = GetProximaProgramacion(ProgramacionIda);
+                            }
+                            else
+                            {
+                                auxHoraProgramada = GetProximaProgramacion(ProgramacionVuelta);
+                            }
+
+                            if (auxHoraProgramada < minHoraProgramada)
+                            {
+                                minHoraProgramada = auxHoraProgramada;
+                                formacionMinHoraSalida = formacion;
+                            }
+                        }
+                        else
+                        {
+                            minHoraProgramada = int.MinValue;
+                            formacionMinHoraSalida = formacion;
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }      
                 }
+
+                if (formacionMinHoraSalida.HoraSalida > (minHoraProgramada + acumDias)) break;
             }
 
-            int minHoraProgramada;
-            if (formacionMinHoraSalida.SentidoActual == Formacion.Sentido.IDA)
+            if (formacionMinHoraSalida.EstacionActual.EsEstacionTerminal)
             {
-                minHoraProgramada = GetProximaProgramacion(ProgramacionIda);
+                if ((minHoraProgramada + acumDias) > formacionMinHoraSalida.HoraSalida)
+                {
+                    formacionMinHoraSalida.HoraSalida = minHoraProgramada + acumDias;
+                }
+
+                formacionMinHoraSalida.ProgramacionCorrespondiente = (minHoraProgramada < 1440) ? minHoraProgramada : minHoraProgramada - 1440;
             }
             else
             {
-                minHoraProgramada = GetProximaProgramacion(ProgramacionVuelta);
+                formacionMinHoraSalida.ProgramacionCorrespondiente = int.MinValue;
             }
-
-            int acumDias = (t / 1440) * 1440;
-            if ((minHoraProgramada + acumDias) > formacionMinHoraSalida.HoraSalida)
-            {
-                formacionMinHoraSalida.HoraSalida = minHoraProgramada + acumDias;
-            }
-
-            formacionMinHoraSalida.ProgramacionCorrespondiente = (minHoraProgramada < 1440) ? minHoraProgramada : minHoraProgramada - 1440;
-
+            
             return formacionMinHoraSalida;
         }
 

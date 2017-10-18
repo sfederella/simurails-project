@@ -2,6 +2,7 @@
 {
     public class Tramo
     {
+        // Persistentes
         public virtual int Id { get; set; }
         public virtual Estacion EstacionOrigen { get; set; }
         public virtual Estacion EstacionDestino { get; set; }

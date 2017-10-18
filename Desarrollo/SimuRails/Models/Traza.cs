@@ -10,9 +10,9 @@ namespace SimuRails.Models
             Servicios = new List<Servicio>();
         }
     
+        // Persistentes
         public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
-
         public virtual IList<Servicio> Servicios { get; set; } //Ahora mapeo todas las relaciones como BAG (no lista en realidad) Si se necesita, se mapea distinto (es mas complejo)
 
         public virtual void Inicializar()
@@ -54,7 +54,7 @@ namespace SimuRails.Models
                 }
             }
 
-            fMin.Servicio.MarcarProgramacion(fMin.ProgramacionCorrespondiente,fMin.SentidoActual);
+            fMin.MarcarProgramacionCorrespondiente();
 
             return fMin;
         }

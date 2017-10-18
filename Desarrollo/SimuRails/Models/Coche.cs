@@ -10,10 +10,17 @@ namespace SimuRails.Models
     {
         public Coche() { }
 
+        public enum TipoConsumo
+        {
+            ELECTRICO,
+            DIESEL
+        }
+
+        // Persistentes
         public virtual int Id { get; set; }
         public virtual string Modelo { get; set; }
         public virtual bool EsLocomotora { get; set; }
-        public virtual string TipoDeConsumo { get; set; } //TODO: Ver si es un enum. <- Si es un enum 
+        public virtual TipoConsumo TipoDeConsumo { get; set; } 
         public virtual int ConsumoMovimiento { get; set; }
         public virtual int ConsumoParado { get; set; }
         public virtual int CantidadAsientos { get; set; }
