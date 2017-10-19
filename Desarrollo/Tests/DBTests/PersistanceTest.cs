@@ -32,50 +32,51 @@ namespace Tests.DBTests
         //    }
         //}
 
-        //[TestMethod]
-        //public void CRUDIncidente()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var incidente = new Incidente()
-        //        {
-        //            Nombre = "Incidente 1",
-        //            Descripcion = "Descripcion de incidente",
-        //            ProbabilidadDeOcurrencia = 10.45,
-        //            TiempoDemora = 100
-        //        };
+        [TestMethod]
+        public void CRUDIncidente()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var incidente = new Incidente()
+                {
+                    Nombre = "Incidente 1",
+                    Descripcion = "Descripcion de incidente",
+                    ProbabilidadDeOcurrencia = 10.45,
+                    TiempoDemora = 100
+                };
 
-        //        session.SaveOrUpdate(incidente);
-        //        session.Flush();
+                session.SaveOrUpdate(incidente);
+                session.Flush();
 
-        //        var incidenteDB = session.Query<Incidente>()
-        //           .Where(x => x.Descripcion == incidente.Descripcion && x.Nombre == incidente.Nombre)
-        //           .FirstOrDefault();
+                var incidenteDB = session.Query<Incidente>()
+                   .Where(x => x.Descripcion == incidente.Descripcion && x.Nombre == incidente.Nombre)
+                   .FirstOrDefault();
 
-        //        Assert.IsNotNull(incidenteDB);
+                Assert.IsNotNull(incidenteDB);
 
-        //        incidenteDB.ProbabilidadDeOcurrencia = 67.13;
-        //        incidenteDB.Nombre = "otro nombre";
+                incidenteDB.ProbabilidadDeOcurrencia = 67.13;
+                incidenteDB.Nombre = "otro nombre";
 
-        //        session.SaveOrUpdate(incidente);
-        //        session.Flush();
+                session.SaveOrUpdate(incidente);
+                session.Flush();
 
-        //        incidenteDB = session.Query<Incidente>()
-        //           .Where(x => x.Descripcion == incidente.Descripcion && x.TiempoDemora == incidente.TiempoDemora)
-        //           .FirstOrDefault();
+                incidenteDB = session.Query<Incidente>()
+                   .Where(x => x.Descripcion == incidente.Descripcion && x.TiempoDemora == incidente.TiempoDemora)
+                   .FirstOrDefault();
 
-        //        Assert.AreEqual(incidenteDB.Nombre, "otro nombre");
-        //        Assert.AreEqual(incidenteDB.ProbabilidadDeOcurrencia, 67.13);
+                Assert.AreEqual(incidenteDB.Nombre, "otro nombre");
+                Assert.AreEqual(incidenteDB.ProbabilidadDeOcurrencia, 67.13);
+                Assert.AreEqual(incidenteDB.Descripcion, incidente.Descripcion);
 
-        //        session.Delete(incidenteDB);
+                session.Delete(incidenteDB);
 
-        //        var existeIncidente = session.Query<Incidente>()
-        //           .Any(x => x.Descripcion == incidente.Descripcion && x.TiempoDemora == incidente.TiempoDemora);
+                var existeIncidente = session.Query<Incidente>()
+                   .Any(x => x.Descripcion == incidente.Descripcion && x.TiempoDemora == incidente.TiempoDemora);
 
-        //        Assert.IsFalse(existeIncidente);
-        //    }
-        //}
+                Assert.IsFalse(existeIncidente);
+            }
+        }
 
         //[TestMethod]
         //public void CRUDEstacion()
@@ -564,17 +565,17 @@ namespace Tests.DBTests
         //    return estacion;
         //}
 
-        //private static Incidente ObtenerIncidenteDePrueba()
-        //{
-        //    var incidente = new Incidente()
-        //    {
-        //        Nombre = "Incidente",
-        //        Descripcion = "Descripcion de incidente",
-        //        ProbabilidadDeOcurrencia = 10.45,
-        //        TiempoDemora = 100
-        //    };
-        //    return incidente;
-        //}
+        private static Incidente ObtenerIncidenteDePrueba()
+        {
+            var incidente = new Incidente()
+            {
+                Nombre = "Incidente",
+                Descripcion = "Descripcion de incidente",
+                ProbabilidadDeOcurrencia = 10.45,
+                TiempoDemora = 100
+            };
+            return incidente;
+        }
 
         //private static Relacion ObtenerRelacionDePrueba()
         //{
