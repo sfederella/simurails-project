@@ -51,6 +51,7 @@
     <Compile Include="Models\Estacion.cs" />
     <Compile Include="Models\FDP.cs" />
     <Compile Include="Models\Formacion.cs" />
+    <Compile Include="Models\FormacionComparer.cs" />
     <Compile Include="Models\IMetodoSimulacion.cs" />
     <Compile Include="Models\Incidente.cs" />
     <Compile Include="Models\ResultadoEstacion.cs" />

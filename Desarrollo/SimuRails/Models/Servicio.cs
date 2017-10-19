@@ -9,7 +9,7 @@ namespace SimuRails.Models
     {
         public Servicio()
         {
-            Formaciones = new List<Formacion>();
+            Formaciones = new SortedSet<Formacion>(new FormacionComparer());
         }
 
         // Persistente
@@ -24,12 +24,15 @@ namespace SimuRails.Models
         // No persistente
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
-        public virtual IList<Formacion> Formaciones { get; set; }
+        public virtual SortedSet<Formacion> Formaciones { get; set; }
 
         public virtual void Inicializar()
         {
             Desde = Tramos[0].EstacionOrigen;
+            Desde.EsEstacionTerminal = true;
+
             Hasta = Tramos[Tramos.Count - 1].EstacionDestino;
+            Hasta.EsEstacionTerminal = true;
 
             int count = 0; 
             foreach (KeyValuePair<Formacion,int> kvp in TiposFormacion)
@@ -39,9 +42,11 @@ namespace SimuRails.Models
                     Formacion tipoFormacion = kvp.Key;
                     Formacion formacion = new Formacion()
                     {
+                        Id = count,
                         Nombre = tipoFormacion.Nombre,
                         Servicio = this,
-                        TiposCoche = tipoFormacion.TiposCoche
+                        TiposCoche = tipoFormacion.TiposCoche,
+                        HoraSalida = 0
                     };
 
                     if (count < CantidadFormacionesInicio)
@@ -102,22 +107,20 @@ namespace SimuRails.Models
 
         public virtual void LimpiarProgramacion(SortedDictionary<int, bool> programaciones)
         {
-            foreach (KeyValuePair<int,bool> salida in programaciones)
+            foreach (int programacion in programaciones.Keys.ToList())
             {
-                programaciones[salida.Key] = false;
+                programaciones[programacion] = false;
             }
         }
 
         public virtual Formacion GetProximaFormacion(int t)
         {
-
-            List<Formacion> formacionesOrdenadas = Formaciones.OrderBy(x => x.HoraSalida).ToList();
             int acumDias = (t / 1440) * 1440;
 
             Formacion formacionMinHoraSalida = null;
             int minHoraProgramada = int.MinValue;
             int auxHoraProgramada;
-            foreach (Formacion formacion in formacionesOrdenadas)
+            foreach (Formacion formacion in Formaciones)
             {
                 if (minHoraProgramada == int.MinValue)
                 {
@@ -179,7 +182,7 @@ namespace SimuRails.Models
             {
                 if ((minHoraProgramada + acumDias) > formacionMinHoraSalida.HoraSalida)
                 {
-                    formacionMinHoraSalida.HoraSalida = minHoraProgramada + acumDias;
+                    formacionMinHoraSalida.ActualizarHoraSalida(minHoraProgramada + acumDias);
                 }
 
                 formacionMinHoraSalida.ProgramacionCorrespondiente = (minHoraProgramada < 1440) ? minHoraProgramada : minHoraProgramada - 1440;

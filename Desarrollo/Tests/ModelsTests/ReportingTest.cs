@@ -12,10 +12,22 @@ namespace Tests.ModelsTests
     public class ReporingTest
     {
         Traza traza;
-        
+
         [TestInitialize]
         public void Init()
         {
+            SortedSet<Formacion> formaciones = new SortedSet<Formacion>(new FormacionComparer());
+            formaciones.Add(new Formacion()
+            {
+                HoraSalida = 5
+            });
+
+            formaciones.Add(new Formacion()
+            {
+                HoraSalida = 5
+            });
+
+
             ModelMock modelMock = new ModelMock();
             modelMock.MockResultados();
             traza = modelMock.Traza;

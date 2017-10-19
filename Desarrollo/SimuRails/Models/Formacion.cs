@@ -58,6 +58,13 @@ namespace SimuRails.Models
             this.PasoPorMantenimiento = false;
         }
 
+        public virtual void ActualizarHoraSalida(int horaSalida)
+        {
+            Servicio.Formaciones.Remove(this);
+            HoraSalida = horaSalida;
+            Servicio.Formaciones.Add(this);
+        }
+
         public virtual int InicioRecorrido(int t)
         {
 
@@ -93,7 +100,7 @@ namespace SimuRails.Models
             //this.HoraSalida = tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
             tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
 
-            this.log.Info("# T: " + LogHelper.timeConvert(this.EstacionActual.GetTiempoComprometido(SentidoActual)) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0, 20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + 0 +" | Totales: " + this.Pasajeros);
+            this.log.Info("# T: " + LogHelper.timeConvert(this.EstacionActual.GetTiempoComprometido(SentidoActual),true) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0, 20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + 0 +" | Totales: " + this.Pasajeros);
 
             CalcularResultados();
 
@@ -140,7 +147,7 @@ namespace SimuRails.Models
 
                     //Se setea el tiempo comprometido de la estacion a la que acaba de llegar, y por ser estacion Destino, 
                     // el tren esta disponible para salir a la misma hora que termina el TC en la estacion + lo que dure el mantenimiento
-                    this.HoraSalida = tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion) + this.DuracionMantenimiento ;
+                    ActualizarHoraSalida(tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion) + this.DuracionMantenimiento);
 
                 }
                 else {
@@ -166,7 +173,7 @@ namespace SimuRails.Models
 
                 //Se setea el tiempo comprometido de la estacion a la que acaba de llegar, y por ser estacion Destino, 
                 // el tren esta disponible para salir a la misma hora que termina el TC en la estacion
-                this.HoraSalida = tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion);
+                ActualizarHoraSalida(tramo.EstacionDestino.SetTiempoComprometido(SentidoActual, t, tiempoDeViaje, tiempoAtencion));
 
                 this.InvertirSentidoFlag = true;                
 
@@ -175,12 +182,12 @@ namespace SimuRails.Models
             if (tramo.EstacionDestino.EsEstacionDeMantenimiento)
             {
                 this.PasoPorMantenimiento = true;
-                this.HoraSalida = tramo.EstacionDestino.GetTiempoComprometido(SentidoActual);
+                ActualizarHoraSalida(tramo.EstacionDestino.GetTiempoComprometido(SentidoActual));
             }
 
             this.EstacionActual = tramo.EstacionDestino;
             //if (this.InvertirSentidoFlag)
-            this.log.Info("# T: " + LogHelper.timeConvert(tramo.EstacionDestino.GetTiempoComprometido(SentidoActual)) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0,20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + pasajerosDescendidos + " | Totales: " + this.Pasajeros);
+            this.log.Info("# T: " + LogHelper.timeConvert(tramo.EstacionDestino.GetTiempoComprometido(SentidoActual),true) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0,20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + pasajerosDescendidos + " | Totales: " + this.Pasajeros);
 
             CalcularResultados();
 
@@ -230,8 +237,8 @@ namespace SimuRails.Models
             double porcentajeOcupacion = Pasajeros * 100 / GetCapacidadReal();
             rdo.AgregarPorcentajeOcupacion(porcentajeOcupacion);
 
-            double porcentajePersonasParadas = (Pasajeros - GetCantidadAsientos()) * 100 / Pasajeros;
-            rdo.AgregarPorcentajePersonasParadas(porcentajePersonasParadas > 0 ? porcentajePersonasParadas : 0);
+            double porcentajePersonasParadas = Pasajeros > GetCantidadAsientos() ? (Pasajeros - GetCantidadAsientos()) * 100 / Pasajeros : 0;
+            rdo.AgregarPorcentajePersonasParadas(porcentajePersonasParadas);
 
             rdo.AgregarPorcentajeSuperaronMaxCantLegal(Pasajeros > GetCapacidadLegal() ? 100 : 0);
 

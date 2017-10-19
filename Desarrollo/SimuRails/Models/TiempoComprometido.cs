@@ -40,7 +40,7 @@ namespace SimuRails.Models
 
                 this.log.Info("Horarios disponibles de formaciones: \n"  + LogHelper.MostrarTiemposDeSalida(traza));
                 this.log.Info("Horarios de programaciones: \n" + LogHelper.MostrarProgramaciones(traza));
-                this.log.Info("T: " + LogHelper.timeConvert(t) + " | Servicio: " + formacion.Servicio.Nombre + " | Formacion: "+ formacion.Nombre + ":" + formacion.Id);
+                this.log.Info("T: " + LogHelper.timeConvert(t,true) + " | Servicio: " + formacion.Servicio.Nombre + " | Formacion: "+ formacion.Nombre + ":" + formacion.Id);
 
                 // Calcular ingreso de pasajeros en estación Cabecera Inicial o Final del recorrido.
                 tiempoDeLaFormacion = formacion.InicioRecorrido(t);

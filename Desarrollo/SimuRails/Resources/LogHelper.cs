@@ -9,9 +9,14 @@ namespace SimuRails.Resources
 {
     class LogHelper
     {
-        internal static String timeConvert(int time)
+        internal static String timeConvert(int time, bool mostrarDia)
         {
-            return ((time / 24 / 60 + ":" + time / 60 % 24 + ':' + time % 60) + new string(' ', 8)).Substring(0, 8);
+            string result = "Hora: " + (time / 60 % 24).ToString("D2") + ':' + (time % 60).ToString("D2");
+            if (mostrarDia)
+            {
+                result = "Día: " + time / 24 / 60 + " " + result;
+            }
+            return result;
         }
 
         internal static object MostrarTiemposDeSalida(Traza traza)
@@ -41,7 +46,7 @@ namespace SimuRails.Resources
 
             foreach (KeyValuePair<int, string> kvp in map)
             {
-                result = result +  ("Hora: " + timeConvert(kvp.Key) +" | Formacion: " +  kvp.Value + "\n");
+                result = result +  (timeConvert(kvp.Key,true) +" | Formacion: " +  kvp.Value + "\n");
             }
 
             return result;
@@ -65,17 +70,17 @@ namespace SimuRails.Resources
             String result = "";
             foreach (Servicio servicio in traza.Servicios)
             {
-                    foreach (KeyValuePair<int, bool> kvp in servicio.ProgramacionIda)
+                foreach (KeyValuePair<int, bool> kvp in servicio.ProgramacionIda)
                 {
-                    map.Add(kvp.Key, kvp.Value + " Servicio: " + servicio.Nombre + " | Programacion Ida");
+                    map.Add(kvp.Key, kvp.Value.ToString().PadRight(5) + " Servicio: " + servicio.Nombre + " | Programacion Ida");
 
                     //result = result + ("Hora: " + timeConvert(kvp.Key) + " | Value: " + kvp.Value + "\n");
                 }
 
                 //result = result + "Servicio: " + servicio.Nombre + " | Programacion Vuelta: \n";
-                    foreach (KeyValuePair<int, bool> kvp in servicio.ProgramacionVuelta)
+                foreach (KeyValuePair<int, bool> kvp in servicio.ProgramacionVuelta)
                 {
-                    map.Add(kvp.Key, kvp.Value + " Servicio: " + servicio.Nombre + " | Programacion Vuelta" );
+                    map.Add(kvp.Key, kvp.Value.ToString().PadRight(5) + " Servicio: " + servicio.Nombre + " | Programacion Vuelta" );
 
                     //result = result + ("Hora: " + timeConvert(kvp.Key) + " | Value: " + kvp.Value + "\n");
                 }
@@ -83,7 +88,7 @@ namespace SimuRails.Resources
 
             foreach (KeyValuePair<int, string> kvp in map)
             {
-                result = result + ("Hora: " + timeConvert(kvp.Key) + kvp.Value + "\n");
+                result = result + (timeConvert(kvp.Key,false) + " " + kvp.Value + "\n");
             }
 
             return result;

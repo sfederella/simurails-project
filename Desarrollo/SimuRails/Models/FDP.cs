@@ -23,9 +23,13 @@ namespace SimuRails.Models
         {
             double r1, r2, m, x, y, mu, sigma, fx;
 
-            if ((minValue >= maxValue) || (minValue < 0) || (maxValue < 0))
+            if ((minValue > maxValue) || (minValue < 0) || (maxValue < 0))
             {
                 throw new System.ArgumentException("Valores incorrectos");
+            } 
+            else if (minValue == maxValue)
+            {
+                return minValue;
             }
 
             mu = Media(minValue, maxValue);
