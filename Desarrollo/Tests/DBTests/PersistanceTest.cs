@@ -287,46 +287,48 @@ namespace Tests.DBTests
         //    }
         //}
 
-        //[TestMethod]
-        //public void CRUDCoche()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var coche = ObtenerCocheDePrueba();
+        [TestMethod]
+        public void CRUDCoche()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var coche = ObtenerCocheDePrueba();
 
-        //        session.SaveOrUpdate(coche);
-        //        session.Flush();
+                session.SaveOrUpdate(coche);
+                session.Flush();
 
-        //        var cocheDB = session.Query<Coche>()
-        //           .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
-        //           .FirstOrDefault();
+                var cocheDB = session.Query<Coche>()
+                   .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
+                   .FirstOrDefault();
 
-        //        Assert.IsNotNull(cocheDB);
+                Assert.IsNotNull(cocheDB);
 
-        //        cocheDB.Modelo = "otro modelo";
-        //        cocheDB.MaximoLegalPasajeros = 190;
-        //        cocheDB.EsLocomotora = true;
+                cocheDB.Modelo = "otro modelo";
+                cocheDB.MaximoLegalPasajeros = 190;
+                cocheDB.EsLocomotora = true;
 
-        //        session.SaveOrUpdate(coche);
-        //        session.Flush();
+                session.SaveOrUpdate(coche);
+                session.Flush();
 
-        //        cocheDB = session.Query<Coche>()
-        //           .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
-        //           .FirstOrDefault();
+                cocheDB = session.Query<Coche>()
+                   .Where(x => x.Modelo == coche.Modelo && x.CapacidadMaximaPasajeros == coche.CapacidadMaximaPasajeros)
+                   .FirstOrDefault();
 
-        //        Assert.AreEqual(cocheDB.Modelo, "otro modelo");
-        //        Assert.AreEqual(cocheDB.MaximoLegalPasajeros, 190);
-        //        Assert.AreEqual(cocheDB.EsLocomotora, true);
+                Assert.AreEqual(cocheDB.Modelo, "otro modelo");
+                Assert.AreEqual(cocheDB.MaximoLegalPasajeros, 190);
+                Assert.AreEqual(cocheDB.EsLocomotora, true);
+                Assert.AreEqual(cocheDB.TipoDeConsumo, coche.TipoDeConsumo);
+                Assert.AreEqual(cocheDB.CantidadAsientos, coche.CantidadAsientos);
 
-        //        session.Delete(cocheDB);
+                session.Delete(cocheDB);
 
-        //        var existeCoche = session.Query<Coche>()
-        //           .Any(x => x.MaximoLegalPasajeros == coche.MaximoLegalPasajeros && x.Modelo == coche.Modelo);
+                var existeCoche = session.Query<Coche>()
+                   .Any(x => x.MaximoLegalPasajeros == coche.MaximoLegalPasajeros && x.Modelo == coche.Modelo);
 
-        //        Assert.IsFalse(existeCoche);
-        //    }
-        //}
+                Assert.IsFalse(existeCoche);
+            }
+        }
 
 
         //[TestMethod]
@@ -527,19 +529,20 @@ namespace Tests.DBTests
 
 
 
-        //private Coche ObtenerCocheDePrueba()
-        //{
-        //    return new Coche()
-        //    {
-        //        Modelo = "modelo",
-        //        EsLocomotora = false,
-        //        TipoDeConsumo = "bajo",
-        //        ConsumoMovimiento = 400,
-        //        ConsumoParado = 40,
-        //        MaximoLegalPasajeros = 200,
-        //        CapacidadMaximaPasajeros = 260
-        //    };
-        //}
+        private Coche ObtenerCocheDePrueba()
+        {
+            return new Coche()
+            {
+                Modelo = "modelo",
+                EsLocomotora = true,
+                TipoDeConsumo = Coche.TipoConsumo.DIESEL,
+                ConsumoMovimiento = 400,
+                ConsumoParado = 40,
+                CantidadAsientos = 20,
+                MaximoLegalPasajeros = 200,
+                CapacidadMaximaPasajeros = 260
+            };
+        }
 
         //private Formacion ObtenerFormacionDePrueba()
         //{

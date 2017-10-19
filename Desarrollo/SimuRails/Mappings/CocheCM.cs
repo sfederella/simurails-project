@@ -18,6 +18,7 @@ namespace SimuRails.Mappings
             Property(x => x.TipoDeConsumo);
             Property(x => x.ConsumoMovimiento);
             Property(x => x.ConsumoParado);
+            Property(x => x.CantidadAsientos);
             Property(x => x.MaximoLegalPasajeros);
             Property(x => x.CapacidadMaximaPasajeros);
         }
