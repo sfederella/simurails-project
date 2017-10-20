@@ -15,6 +15,8 @@ namespace SimuRails.Models
         public virtual string Nombre { get; set; }
         public virtual long Duracion { get; set; }
         public virtual Traza TrazaSimulada { get; set; }
+
+        //Este no lo persisto
         public virtual IMetodoSimulacion Metodo { get; set; }
 
         public virtual void Ejecutar()

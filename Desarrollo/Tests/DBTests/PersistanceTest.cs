@@ -114,49 +114,7 @@ namespace Tests.DBTests
                 Assert.IsFalse(existeEstacion);
             }
         }
-
-        //[TestMethod]
-        //public void CRUDRelacion()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var relacion = new Relacion()
-        //        {
-        //            Distancia = 1000,
-        //            VelocidadPromedio = 300,
-        //            TiempoViaje = 20
-        //        };
-
-        //        session.SaveOrUpdate(relacion);
-        //        session.Flush();
-
-        //        var relacionDB = session.Query<Relacion>()
-        //           .Where(x => x.Distancia == relacion.Distancia && x.VelocidadPromedio == relacion.VelocidadPromedio)
-        //           .FirstOrDefault();
-
-        //        Assert.IsNotNull(relacionDB);
-
-        //        relacionDB.TiempoViaje = 30;
-
-        //        session.SaveOrUpdate(relacion);
-        //        session.Flush();
-
-        //        relacionDB = session.Query<Relacion>()
-        //           .Where(x => x.Distancia == relacion.Distancia && x.VelocidadPromedio == relacion.VelocidadPromedio)
-        //           .FirstOrDefault();
-
-        //        Assert.AreEqual(relacionDB.TiempoViaje, 30);
-
-        //        session.Delete(relacionDB);
-
-        //        var existeRelacion = session.Query<Relacion>()
-        //           .Any(x => x.Distancia == relacion.Distancia && x.VelocidadPromedio == relacion.VelocidadPromedio);
-
-        //        Assert.IsFalse(existeRelacion);
-        //    }
-        //}
-
+        
         [TestMethod]
         public void CRUDServicio()
         {
@@ -203,48 +161,49 @@ namespace Tests.DBTests
             }
         }
 
-        //[TestMethod]
-        //public void CRUDSimulacion()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var simulacion = new Simulacion()
-        //        {
-        //            Nombre = "nombre de simulacion",
-        //            FrecuenciaDeSalida = 7
-        //        };
+        [TestMethod]
+        public void CRUDSimulacion()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var simulacion = ObtenerSimulacionDePrueba();
+                var traza = ObtenerTrazaDePrueba();
 
-        //        session.SaveOrUpdate(simulacion);
-        //        session.Flush();
+                session.SaveOrUpdate(traza);
+                session.Flush();
 
-        //        var simulacionDB = session.Query<Simulacion>()
-        //           .Where(x => x.Nombre == simulacion.Nombre)
-        //           .FirstOrDefault();
+                session.SaveOrUpdate(simulacion);
+                session.Flush();
 
-        //        Assert.IsNotNull(simulacionDB);
+                var simulacionDB = session.Query<Simulacion>()
+                   .Where(x => x.Nombre == simulacion.Nombre)
+                   .FirstOrDefault();
 
-        //        simulacionDB.Nombre = "otro nombre";
-        //        simulacionDB.FrecuenciaDeSalida = 6;
+                Assert.IsNotNull(simulacionDB);
+                Assert.AreEqual(simulacion.TrazaSimulada, simulacionDB.TrazaSimulada);
 
-        //        session.SaveOrUpdate(simulacion);
-        //        session.Flush();
+                simulacionDB.Nombre = "otro nombre";
+                simulacionDB.Duracion = 1;
 
-        //        simulacionDB = session.Query<Simulacion>()
-        //           .Where(x => x.Nombre == simulacion.Nombre)
-        //           .FirstOrDefault();
+                session.SaveOrUpdate(simulacion);
+                session.Flush();
 
-        //        Assert.AreEqual(simulacionDB.Nombre, "otro nombre");
-        //        Assert.AreEqual(simulacionDB.FrecuenciaDeSalida, 6);
+                simulacionDB = session.Query<Simulacion>()
+                   .Where(x => x.Nombre == simulacion.Nombre)
+                   .FirstOrDefault();
 
-        //        session.Delete(simulacionDB);
+                Assert.AreEqual(simulacionDB.Nombre, "otro nombre");
+                Assert.AreEqual(simulacionDB.Duracion, 1);
 
-        //        var existeSimulacion = session.Query<Simulacion>()
-        //           .Any(x => x.Nombre == simulacion.Nombre);
+                session.Delete(simulacionDB);
 
-        //        Assert.IsFalse(existeSimulacion);
-        //    }
-        //}
+                var existeSimulacion = session.Query<Simulacion>()
+                   .Any(x => x.Nombre == simulacion.Nombre);
+
+                Assert.IsFalse(existeSimulacion);
+            }
+        }
 
         [TestMethod]
         public void CRUDFormacion()
@@ -502,34 +461,7 @@ namespace Tests.DBTests
                 Assert.IsTrue(trazaDB.Servicios.Count == 2);
             }
         }
-
-        //[TestMethod]
-        //public void RelacionTrazaSimulaciones()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var unaSimluacion = ObtenerSimulacionDePrueba();
-        //        var otraSimulacion = ObtenerSimulacionDePrueba();
-        //        var unaTraza = ObtenerTrazaDePrueba();
-
-        //        unaTraza.Simulaciones.Add(unaSimluacion);
-        //        unaTraza.Simulaciones.Add(otraSimulacion);
-
-        //        session.SaveOrUpdate(unaSimluacion);
-        //        session.SaveOrUpdate(otraSimulacion);
-        //        session.Flush();
-
-        //        session.SaveOrUpdate(unaTraza);
-
-        //        var trazaDB = session.Query<Traza>().Where(x => x.Nombre == unaTraza.Nombre).FirstOrDefault();
-
-        //        Assert.IsNotNull(trazaDB);
-
-        //        Assert.IsTrue(trazaDB.Simulaciones.Count == 2);
-        //    }
-        //}
-
+  
 
 
         private Coche ObtenerCocheDePrueba()
@@ -596,17 +528,6 @@ namespace Tests.DBTests
             return tramo;
         }
 
-        //private static Relacion ObtenerRelacionDePrueba()
-        //{
-        //    var relacion = new Relacion()
-        //    {
-        //        Distancia = 1000,
-        //        VelocidadPromedio = 300,
-        //        TiempoViaje = 20
-        //    };
-        //    return relacion;
-        //}
-
         private static Servicio ObtenerServicioDePrueba()
         {
             var servicio = new Servicio()
@@ -626,14 +547,14 @@ namespace Tests.DBTests
             return traza;
         }
 
-        //private static Simulacion ObtenerSimulacionDePrueba()
-        //{
-        //    var simulacion = new Simulacion()
-        //    {
-        //        Nombre = "nombre de simulacion",
-        //        FrecuenciaDeSalida = 7
-        //    };
-        //    return simulacion;
-        //}
+        private static Simulacion ObtenerSimulacionDePrueba()
+        {
+            var simulacion = new Simulacion()
+            {
+                Nombre = "nombre de simulacion",
+                Duracion = 7
+            };
+            return simulacion;
+        }
     }
 }
