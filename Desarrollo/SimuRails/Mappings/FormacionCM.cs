@@ -11,14 +11,27 @@ namespace SimuRails.Mappings
             Id(x => x.Id, m => m.Generator(Generators.Identity));
 
             Property(x => x.Nombre);
+            Property(x => x.KilometrosMantenimiento);
+            Property(x => x.DuracionMantenimiento);
 
-            Bag(x => x.ComposicionesDeCoches, collectionMapping =>
-            {
-                collectionMapping.Table("ComposicionDeCoches");
-                collectionMapping.Cascade(Cascade.All);
-                collectionMapping.Key(k => k.Column("ComposicionDeCochesId"));
-            },
-            map => map.OneToMany());
+            Map(formacion => formacion.TiposCoche, 
+                mapping => 
+                {
+                    mapping.Table("Dict");
+                    mapping.Key(k => k.Column("FormacionId"));
+                },
+                mapkey =>
+                {
+                    mapkey.ManyToMany(x => x.Column("CocheId"));
+                },
+                mapvalue =>
+                {
+                    mapvalue.Element(k =>
+                    {
+                        k.Column("CantidadDeCoche");
+                    });
+                });
+
         }
     }
 }

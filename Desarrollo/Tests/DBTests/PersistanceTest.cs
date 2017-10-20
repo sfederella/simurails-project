@@ -5,6 +5,7 @@ using SimuRails.DB;
 using SimuRails.Models;
 using NHibernate.Linq;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Tests.DBTests
 {
@@ -248,45 +249,59 @@ namespace Tests.DBTests
         //    }
         //}
 
-        //[TestMethod]
-        //public void CRUDFormacion()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var formacion = new Formacion()
-        //        {
-        //            Nombre = "nombre de formacion",
-        //        };
+        [TestMethod]
+        public void CRUDFormacion()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var formacion = ObtenerFormacionDePrueba();
+                var locomotora = ObtenerCocheDePrueba();
+                var bagon = ObtenerCocheDePrueba();
+                bagon.EsLocomotora = false;
 
-        //        session.SaveOrUpdate(formacion);
-        //        session.Flush();
+                formacion.TiposCoche = new Dictionary<Coche, int>()
+                {
+                    { locomotora, 1 },
+                    { bagon, 20 }
+                };
 
-        //        var formacionDB = session.Query<Formacion>()
-        //           .Where(x => x.Nombre == formacion.Nombre)
-        //           .FirstOrDefault();
+                session.SaveOrUpdate(locomotora);
+                session.SaveOrUpdate(bagon);
+                session.Flush();
 
-        //        Assert.IsNotNull(formacionDB);
+                session.SaveOrUpdate(formacion);
+                session.Flush();
 
-        //        formacionDB.Nombre = "otro nombre";
+                var formacionDB = session.Query<Formacion>()
+                   .Where(x => x.Nombre == formacion.Nombre)
+                   .FirstOrDefault();
 
-        //        session.SaveOrUpdate(formacion);
-        //        session.Flush();
+                Assert.IsNotNull(formacionDB);
+                Assert.AreEqual(formacionDB.TiposCoche, formacion.TiposCoche);
+                Assert.AreEqual(formacionDB.TiposCoche[bagon], 20);
 
-        //        formacionDB = session.Query<Formacion>()
-        //           .Where(x => x.Nombre == formacion.Nombre)
-        //           .FirstOrDefault();
+                formacionDB.Nombre = "otro nombre";
+                formacionDB.TiposCoche[locomotora] = 99;
 
-        //        Assert.AreEqual(formacionDB.Nombre, "otro nombre");
+                session.SaveOrUpdate(formacion);
+                session.Flush();
 
-        //        session.Delete(formacionDB);
+                formacionDB = session.Query<Formacion>()
+                   .Where(x => x.Nombre == formacion.Nombre)
+                   .FirstOrDefault();
 
-        //        var existeFormacion = session.Query<Formacion>()
-        //           .Any(x => x.Nombre == formacion.Nombre);
+                Assert.AreEqual(formacionDB.Nombre, "otro nombre");
+                Assert.AreEqual(formacionDB.TiposCoche[locomotora], 99);
 
-        //        Assert.IsFalse(existeFormacion);
-        //    }
-        //}
+                session.Delete(formacionDB);
+
+                var existeFormacion = session.Query<Formacion>()
+                   .Any(x => x.Nombre == formacion.Nombre);
+
+                Assert.IsFalse(existeFormacion);
+            }
+        }
 
         [TestMethod]
         public void CRUDCoche()
@@ -545,13 +560,15 @@ namespace Tests.DBTests
             };
         }
 
-        //private Formacion ObtenerFormacionDePrueba()
-        //{
-        //    return new Formacion()
-        //    {
-        //        Nombre = "nombre de formacion",
-        //    };
-        //}
+        private Formacion ObtenerFormacionDePrueba()
+        {
+            return new Formacion()
+            {
+                Nombre = "nombre de formacion",
+                KilometrosMantenimiento = 1000,
+                DuracionMantenimiento = 300
+            };
+        }
 
         //private static Estacion ObtenerEstacionDePrueba()
         //{
