@@ -9,10 +9,11 @@ namespace SimuRails.Models
     {
         public Estacion()
         {
-            this.TiempoComprometidoSentidoVuelta = 0;
-            this.TiempoComprometidoSentidoIda = 0;
-            this.ResultadoIda = new ResultadoEstacion();
-            this.ResultadoVuelta = new ResultadoEstacion();
+            TiempoComprometidoSentidoVuelta = 0;
+            TiempoComprometidoSentidoIda = 0;
+            ResultadoIda = new ResultadoEstacion();
+            ResultadoVuelta = new ResultadoEstacion();
+            Incidentes = new List<Incidente>();
         }
 
         // Persistentes

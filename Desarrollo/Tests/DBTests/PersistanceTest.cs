@@ -79,50 +79,44 @@ namespace Tests.DBTests
             }
         }
 
-        //[TestMethod]
-        //public void CRUDEstacion()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var estacion = new Estacion()
-        //        {
-        //            Nombre = "nombre de estacion",
-        //            PersonasEsperandoMax = 300,
-        //            PersonasEsperandoMin = 20,
-        //            TipoFDP = "tipo de fdp"
-        //        };
+        [TestMethod]
+        public void CRUDEstacion()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var estacion = ObtenerEstacionDePrueba();
 
-        //        session.SaveOrUpdate(estacion);
-        //        session.Flush();
+                session.SaveOrUpdate(estacion);
+                session.Flush();
 
-        //        var estacionDB = session.Query<Estacion>()
-        //           .Where(x => x.PersonasEsperandoMax == estacion.PersonasEsperandoMax && x.Nombre == estacion.Nombre)
-        //           .FirstOrDefault();
+                var estacionDB = session.Query<Estacion>()
+                   .Where(x => x.Nombre == estacion.Nombre && x.PersonasDesciendenMaxIda == estacion.PersonasDesciendenMaxIda)
+                   .FirstOrDefault();
 
-        //        Assert.IsNotNull(estacionDB);
+                Assert.IsNotNull(estacionDB);
 
-        //        estacionDB.PersonasEsperandoMax = 1000;
-        //        estacionDB.Nombre = "otro nombre";
+                estacionDB.PersonasDesciendenMaxVuelta = 1000;
+                estacionDB.Nombre = "otro nombre";
 
-        //        session.SaveOrUpdate(estacion);
-        //        session.Flush();
+                session.SaveOrUpdate(estacion);
+                session.Flush();
 
-        //        estacionDB = session.Query<Estacion>()
-        //           .Where(x => x.TipoFDP == estacion.TipoFDP && x.PersonasEsperandoMin == estacion.PersonasEsperandoMin)
-        //           .FirstOrDefault();
+                estacionDB = session.Query<Estacion>()
+                   .Where(x => x.Nombre == estacion.Nombre && x.PersonasDesciendenMaxIda == estacion.PersonasDesciendenMaxIda)
+                   .FirstOrDefault();
 
-        //        Assert.AreEqual(estacionDB.Nombre, "otro nombre");
-        //        Assert.AreEqual(estacionDB.PersonasEsperandoMax, 1000);
+                Assert.AreEqual(estacionDB.Nombre, "otro nombre");
+                Assert.AreEqual(estacionDB.PersonasDesciendenMaxVuelta, 1000);
 
-        //        session.Delete(estacionDB);
+                session.Delete(estacionDB);
 
-        //        var existeEstacion = session.Query<Estacion>()
-        //           .Any(x => x.Nombre == estacion.Nombre && x.PersonasEsperandoMax == estacion.PersonasEsperandoMax);
+                var existeEstacion = session.Query<Estacion>()
+                   .Any(x => x.Nombre == estacion.Nombre && x.PersonasDesciendenMaxIda == estacion.PersonasDesciendenMaxIda);
 
-        //        Assert.IsFalse(existeEstacion);
-        //    }
-        //}
+                Assert.IsFalse(existeEstacion);
+            }
+        }
 
         //[TestMethod]
         //public void CRUDRelacion()
@@ -347,93 +341,32 @@ namespace Tests.DBTests
         }
 
 
-        //[TestMethod]
-        //public void RelacionEstacionIncidente()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var unIncidente = ObtenerIncidenteDePrueba();
-        //        var otroIncidente = ObtenerIncidenteDePrueba();
-        //        var unaEstacion = ObtenerEstacionDePrueba();
+        [TestMethod]
+        public void RelacionEstacionIncidente()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unIncidente = ObtenerIncidenteDePrueba();
+                var otroIncidente = ObtenerIncidenteDePrueba();
+                var unaEstacion = ObtenerEstacionDePrueba();
 
-        //        unaEstacion.Incidentes.Add(unIncidente);
-        //        unaEstacion.Incidentes.Add(otroIncidente);
+                unaEstacion.Incidentes.Add(unIncidente);
+                unaEstacion.Incidentes.Add(otroIncidente);
 
-        //        session.SaveOrUpdate(unIncidente);
-        //        session.SaveOrUpdate(otroIncidente);
-        //        session.Flush();
+                session.SaveOrUpdate(unIncidente);
+                session.SaveOrUpdate(otroIncidente);
+                session.Flush();
 
-        //        session.SaveOrUpdate(unaEstacion);
+                session.SaveOrUpdate(unaEstacion);
 
-        //        var estacionDB = session.Query<Estacion>().Where(x => x.Nombre == unaEstacion.Nombre).FirstOrDefault();
+                var estacionDB = session.Query<Estacion>().Where(x => x.Nombre == unaEstacion.Nombre).FirstOrDefault();
 
-        //        Assert.IsNotNull(estacionDB);
+                Assert.IsNotNull(estacionDB);
 
-        //        Assert.IsTrue(estacionDB.Incidentes.Count == 2);
-        //    }
-        //}
-
-        //[TestMethod]
-        //public void RelacionEstacionRelaciones()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var unaRelacion = ObtenerRelacionDePrueba();
-        //        var otraRelacion = ObtenerRelacionDePrueba();
-        //        var unaEstacion = ObtenerEstacionDePrueba();
-
-        //        unaEstacion.Relaciones.Add(unaRelacion);
-        //        unaEstacion.Relaciones.Add(otraRelacion);
-
-        //        session.SaveOrUpdate(unaRelacion);
-        //        session.SaveOrUpdate(otraRelacion);
-        //        session.Flush();
-
-        //        session.SaveOrUpdate(unaEstacion);
-
-        //        var estacionDB = session.Query<Estacion>().Where(x => x.Nombre == unaEstacion.Nombre).FirstOrDefault();
-
-        //        Assert.IsNotNull(estacionDB);
-
-        //        Assert.IsTrue(estacionDB.Relaciones.Count == 2);
-        //    }
-        //}
-
-        //[TestMethod]
-        //public void RelacionFormacionCoches()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var unaFormacion = ObtenerFormacionDePrueba();
-        //        var unCoche = ObtenerCocheDePrueba();
-        //        var otroCoche = ObtenerCocheDePrueba();
-
-        //        var composicionCoche1 = new ComposicionDeCoches(unCoche, 3);
-        //        var composicionCoche2 = new ComposicionDeCoches(otroCoche, 2);
-
-        //        unaFormacion.ComposicionesDeCoches.Add(composicionCoche1);
-        //        unaFormacion.ComposicionesDeCoches.Add(composicionCoche2);
-
-        //        session.SaveOrUpdate(unCoche);
-        //        session.SaveOrUpdate(otroCoche);
-        //        session.SaveOrUpdate(composicionCoche1);
-        //        session.SaveOrUpdate(composicionCoche2);
-        //        session.Flush();
-
-        //        session.SaveOrUpdate(unaFormacion);
-
-        //        var formacionDB = session.Query<Formacion>().Where(x => x.Nombre == unaFormacion.Nombre).FirstOrDefault();
-
-        //        Assert.IsNotNull(formacionDB);
-
-        //        Assert.IsTrue(formacionDB.ComposicionesDeCoches.Count == 2);
-
-        //        Assert.AreEqual(5, formacionDB.TotalDeCoches());
-        //    }
-        //}
+                Assert.IsTrue(estacionDB.Incidentes.Count == 2);
+            }
+        }
 
         //[TestMethod]
         //public void RelacionServicioFormaciones()
@@ -570,17 +503,22 @@ namespace Tests.DBTests
             };
         }
 
-        //private static Estacion ObtenerEstacionDePrueba()
-        //{
-        //    var estacion = new Estacion()
-        //    {
-        //        Nombre = "nombre de estacion",
-        //        PersonasEsperandoMax = 300,
-        //        PersonasEsperandoMin = 20,
-        //        TipoFDP = "tipo de fdp"
-        //    };
-        //    return estacion;
-        //}
+        private static Estacion ObtenerEstacionDePrueba()
+        {
+            var estacion = new Estacion()
+            {
+                Nombre = "nombre de estacion",
+                PersonasEsperandoMaxIda = 10,
+                PersonasEsperandoMaxVuelta = 15,
+                PersonasEsperandoMinIda = 5,
+                PersonasEsperandoMinVuelta = 10,
+                PersonasDesciendenMaxIda = 20,
+                PersonasDesciendenMaxVuelta = 25,
+                PersonasDesciendenMinIda = 10,
+                PersonasDesciendenMinVuelta = 15
+            };
+            return estacion;
+        }
 
         private static Incidente ObtenerIncidenteDePrueba()
         {
