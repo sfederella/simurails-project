@@ -12,26 +12,23 @@ namespace Tests.DBTests
     [TestClass]
     public class PersistanceTest
     {
-        //[TestMethod]
-        //public void seGuardaLaTrazaTest()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var traza = new Traza()
-        //        {
-        //            Nombre = "Traza1"
-        //        };
+        [TestMethod]
+        public void SeGuardaLaTrazaTest()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var traza = ObtenerTrazaDePrueba();
 
-        //        session.SaveOrUpdate(traza);
-        //        session.Flush();
+                session.SaveOrUpdate(traza);
+                session.Flush();
 
-        //        var existeTraza = session.Query<Traza>()
-        //           .Any(x => x.Nombre == traza.Nombre);
+                var existeTraza = session.Query<Traza>()
+                   .Any(x => x.Nombre == traza.Nombre);
 
-        //        Assert.IsTrue(existeTraza);
-        //    }
-        //}
+                Assert.IsTrue(existeTraza);
+            }
+        }
 
         [TestMethod]
         public void CRUDIncidente()
@@ -479,32 +476,32 @@ namespace Tests.DBTests
             }
         }
 
-        //[TestMethod]
-        //public void RelacionTrazaServicios()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var unServicio = ObtenerServicioDePrueba();
-        //        var otroServicioIgual = ObtenerServicioDePrueba();
-        //        var unaTraza = ObtenerTrazaDePrueba();
+        [TestMethod]
+        public void RelacionTrazaServicios()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unServicio = ObtenerServicioDePrueba();
+                var otroServicioIgual = ObtenerServicioDePrueba();
+                var unaTraza = ObtenerTrazaDePrueba();
 
-        //        unaTraza.Servicios.Add(unServicio);
-        //        unaTraza.Servicios.Add(otroServicioIgual);
+                unaTraza.Servicios.Add(unServicio);
+                unaTraza.Servicios.Add(otroServicioIgual);
 
-        //        session.SaveOrUpdate(unServicio);
-        //        session.SaveOrUpdate(otroServicioIgual);
-        //        session.Flush();
+                session.SaveOrUpdate(unServicio);
+                session.SaveOrUpdate(otroServicioIgual);
+                session.Flush();
 
-        //        session.SaveOrUpdate(unaTraza);
+                session.SaveOrUpdate(unaTraza);
 
-        //        var trazaDB = session.Query<Traza>().Where(x => x.Nombre == unaTraza.Nombre).FirstOrDefault();
+                var trazaDB = session.Query<Traza>().Where(x => x.Nombre == unaTraza.Nombre).FirstOrDefault();
 
-        //        Assert.IsNotNull(trazaDB);
+                Assert.IsNotNull(trazaDB);
 
-        //        Assert.IsTrue(trazaDB.Servicios.Count == 2);
-        //    }
-        //}
+                Assert.IsTrue(trazaDB.Servicios.Count == 2);
+            }
+        }
 
         //[TestMethod]
         //public void RelacionTrazaSimulaciones()
@@ -620,14 +617,14 @@ namespace Tests.DBTests
             return servicio;
         }
 
-        //private static Traza ObtenerTrazaDePrueba()
-        //{
-        //    var traza = new Traza()
-        //    {
-        //        Nombre = "Traza"
-        //    };
-        //    return traza;
-        //}
+        private static Traza ObtenerTrazaDePrueba()
+        {
+            var traza = new Traza()
+            {
+                Nombre = "Traza"
+            };
+            return traza;
+        }
 
         //private static Simulacion ObtenerSimulacionDePrueba()
         //{
