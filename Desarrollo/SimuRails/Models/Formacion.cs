@@ -12,13 +12,12 @@ namespace SimuRails.Models
 
         public Formacion()
         {
-            ComposicionesDeCoches = new List<ComposicionDeCoches>();
             InvertirSentidoFlag = false;
         }
         // Persistentes
         public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
-        public virtual Dictionary<Coche, int> TiposCoche { get; set; }
+        public virtual IDictionary<Coche, int> TiposCoche { get; set; }
         public virtual int KilometrosMantenimiento { get; set; }
         public virtual int DuracionMantenimiento { get; set; }
 
@@ -38,8 +37,6 @@ namespace SimuRails.Models
         private int capacidadLegal;
         private int capacidadReal;
         private int tiempoIncidentes;
-
-        public virtual IList<ComposicionDeCoches> ComposicionesDeCoches { get; set; }
 
         public enum Sentido
         {
@@ -209,12 +206,6 @@ namespace SimuRails.Models
             }
 
             this.InvertirSentidoFlag = false;
-        }
-
-        //Ejemplo de lo que es esta clase. Aca saca el total de coches que tiene la formacion por ejemplo
-        public virtual int TotalDeCoches()
-        {
-            return ComposicionesDeCoches.Sum(x => x.VecesRepetido);
         }
                 
         public virtual Boolean RequiereMantenimiento()

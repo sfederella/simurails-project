@@ -9,6 +9,7 @@ namespace SimuRails.Mappings
         public TrazaCM ()
         {
             Id(x => x.Id, m => m.Generator(Generators.Identity));
+
             Property(x => x.Nombre);
 
             Bag(x => x.Servicios, collectionMapping =>
@@ -19,14 +20,6 @@ namespace SimuRails.Mappings
                 collectionMapping.Inverse(true);
             },
             map => map.ManyToMany(c => c.Column("ServicioId")));
-
-            //Bag(x => x.Simulaciones, collectionMapping =>
-            //{
-            //    collectionMapping.Table("Simulacion");
-            //    collectionMapping.Cascade(Cascade.None);
-            //    collectionMapping.Key(k => k.Column("TrazaId"));
-            //},
-            //map => map.OneToMany());
         }
     }
 }

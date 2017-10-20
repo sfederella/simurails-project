@@ -10,15 +10,19 @@ namespace SimuRails.Models
         public Servicio()
         {
             Formaciones = new SortedSet<Formacion>(new FormacionComparer());
+            ProgramacionIda = new SortedDictionary<int, bool>();
+            ProgramacionVuelta = new SortedDictionary<int, bool>();
+            Tramos = new List<Tramo>();
+            TiposFormacion = new Dictionary<Formacion, int>();
         }
 
         // Persistente
         public virtual int Id { get; set; }
         public virtual string Nombre { get; set; }
-        public virtual SortedDictionary<int, bool> ProgramacionIda { get; set; }
-        public virtual SortedDictionary<int, bool> ProgramacionVuelta { get; set; }
-        public virtual List<Tramo> Tramos { get; set; }
-        public virtual Dictionary<Formacion, int> TiposFormacion { get; set; }
+        public virtual IDictionary<int, bool> ProgramacionIda { get; set; }
+        public virtual IDictionary<int, bool> ProgramacionVuelta { get; set; }
+        public virtual IList<Tramo> Tramos { get; set; }
+        public virtual IDictionary<Formacion, int> TiposFormacion { get; set; }
         public virtual int CantidadFormacionesInicio { get; set; }
 
         // No persistente
@@ -90,7 +94,7 @@ namespace SimuRails.Models
             return proximoTramo;
         }
 
-        public virtual void MarcarProgramacion(int programacionCorrespondiente, SortedDictionary<int, bool> programaciones)
+        public virtual void MarcarProgramacion(int programacionCorrespondiente, IDictionary<int, bool> programaciones)
         {
             if(programacionCorrespondiente != int.MinValue)
             {
@@ -105,7 +109,7 @@ namespace SimuRails.Models
             }
         }
 
-        public virtual void LimpiarProgramacion(SortedDictionary<int, bool> programaciones)
+        public virtual void LimpiarProgramacion(IDictionary<int, bool> programaciones)
         {
             foreach (int programacion in programaciones.Keys.ToList())
             {
@@ -195,7 +199,7 @@ namespace SimuRails.Models
             return formacionMinHoraSalida;
         }
 
-        private int GetProximaProgramacion(SortedDictionary<int, bool> Programacion)
+        private int GetProximaProgramacion(IDictionary<int, bool> Programacion)
         {
             int minHoraProgramada = int.MinValue;
 
