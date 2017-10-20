@@ -24,6 +24,7 @@ namespace SimuRails.Models
 
         // No persistentes
         public virtual int HoraSalida { get; set; }
+        public virtual int HoraPosibleSalida { get; set; }
         public virtual int Pasajeros { get; set; }
         public virtual Servicio Servicio { get; set; }
         public virtual Estacion EstacionActual { get; set; }
@@ -100,7 +101,7 @@ namespace SimuRails.Models
             //this.HoraSalida = tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
             tramo.EstacionOrigen.SetTiempoComprometido(SentidoActual, t, tiempoIncidentes, tiempoAtencion);
 
-            this.log.Info("# T: " + LogHelper.timeConvert(this.EstacionActual.GetTiempoComprometido(SentidoActual),true) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0, 20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + 0 +" | Totales: " + this.Pasajeros);
+            this.log.Info("# T: " + LogHelper.TimeConvert(this.EstacionActual.GetTiempoComprometido(SentidoActual),true) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0, 20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + 0 +" | Totales: " + this.Pasajeros);
 
             CalcularResultados();
 
@@ -187,7 +188,7 @@ namespace SimuRails.Models
 
             this.EstacionActual = tramo.EstacionDestino;
             //if (this.InvertirSentidoFlag)
-            this.log.Info("# T: " + LogHelper.timeConvert(tramo.EstacionDestino.GetTiempoComprometido(SentidoActual),true) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0,20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + pasajerosDescendidos + " | Totales: " + this.Pasajeros);
+            this.log.Info("# T: " + LogHelper.TimeConvert(tramo.EstacionDestino.GetTiempoComprometido(SentidoActual),true) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0,20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + pasajerosDescendidos + " | Totales: " + this.Pasajeros);
 
             CalcularResultados();
 

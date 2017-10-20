@@ -9,7 +9,7 @@ namespace SimuRails.Resources
 {
     class LogHelper
     {
-        internal static String timeConvert(int time, bool mostrarDia)
+        internal static String TimeConvert(int time, bool mostrarDia)
         {
             string result = "Hora: " + (time / 60 % 24).ToString("D2") + ':' + (time % 60).ToString("D2");
             if (mostrarDia)
@@ -46,7 +46,7 @@ namespace SimuRails.Resources
 
             foreach (KeyValuePair<int, string> kvp in map)
             {
-                result = result +  (timeConvert(kvp.Key,true) +" | Formacion: " +  kvp.Value + "\n");
+                result = result +  (TimeConvert(kvp.Key,true) +" | Formacion: " +  kvp.Value + "\n");
             }
 
             return result;
@@ -88,7 +88,7 @@ namespace SimuRails.Resources
 
             foreach (KeyValuePair<int, string> kvp in map)
             {
-                result = result + (timeConvert(kvp.Key,false) + " " + kvp.Value + "\n");
+                result = result + (TimeConvert(kvp.Key,false) + " " + kvp.Value + "\n");
             }
 
             return result;

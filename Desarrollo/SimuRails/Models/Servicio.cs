@@ -182,7 +182,7 @@ namespace SimuRails.Models
             {
                 if ((minHoraProgramada + acumDias) > formacionMinHoraSalida.HoraSalida)
                 {
-                    formacionMinHoraSalida.ActualizarHoraSalida(minHoraProgramada + acumDias);
+                    formacionMinHoraSalida.HoraPosibleSalida = minHoraProgramada + acumDias;
                 }
 
                 formacionMinHoraSalida.ProgramacionCorrespondiente = (minHoraProgramada < 1440) ? minHoraProgramada : minHoraProgramada - 1440;

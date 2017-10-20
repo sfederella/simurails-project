@@ -43,7 +43,7 @@ namespace SimuRails.Models
                 Formacion formacion = servicio.GetProximaFormacion(t);
                 if (fMin != null)
                 {
-                    if (formacion.HoraSalida < fMin.HoraSalida)
+                    if (formacion.HoraPosibleSalida < fMin.HoraPosibleSalida)
                     {
                         fMin = formacion;
                     }
@@ -54,6 +54,7 @@ namespace SimuRails.Models
                 }
             }
 
+            fMin.ActualizarHoraSalida(fMin.HoraPosibleSalida);
             fMin.MarcarProgramacionCorrespondiente();
 
             return fMin;

@@ -32,7 +32,7 @@ namespace Tests.ModelsTests
             Simulacion simulacion = new Simulacion()
             {
                 Nombre = "Simulacion Test",
-                Duracion = 10000,
+                Duracion = 1440,
                 Metodo = new TiempoComprometido(),
                 TrazaSimulada = traza
             };
