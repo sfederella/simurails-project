@@ -9,7 +9,9 @@ namespace SimuRails.Mappings
         public ServicioCM()
         {
             Id(x => x.Id, m => m.Generator(Generators.Identity));
+
             Property(x => x.Nombre);
+            Property(x => x.CantidadFormacionesInicio);
 
             Bag(x => x.Tramos, collectionMapping =>
             {
@@ -19,14 +21,65 @@ namespace SimuRails.Mappings
             },
             map => map.OneToMany());
 
-            Bag(x => x.Formaciones, collectionMapping =>
-            {
-                collectionMapping.Table("ServiciosXFormaciones");
-                collectionMapping.Key(k => k.Column("ServicioId"));
-                collectionMapping.Cascade(Cascade.None);
-                collectionMapping.Inverse(true);
-            },
-            map => map.ManyToMany(c => c.Column("FormacionId")));
+            Map(servicio => servicio.TiposFormacion,
+                mapping =>
+                {
+                    mapping.Table("DictTiposFormacion");
+                    mapping.Key(k => k.Column("ServicioId"));
+                },
+                mapkey =>
+                {
+                    mapkey.ManyToMany(x => x.Column("FormacionId"));
+                },
+                mapvalue =>
+                {
+                    mapvalue.Element(k =>
+                    {
+                        k.Column("CantidadDeFormaciones");
+                    });
+                });
+
+            Map(servicio => servicio.ProgramacionIda,
+                mapping =>
+                {
+                    mapping.Table("DictIda");
+                    mapping.Key(k => k.Column("ServicioId"));
+                },
+                mapkey =>
+                {
+                    mapkey.Element(k =>
+                    {
+                        k.Column("horario");
+                    });
+                },
+                mapvalue =>
+                {
+                    mapvalue.Element(k =>
+                    {
+                        k.Column("habilitado");
+                    });
+                });
+
+            Map(servicio => servicio.ProgramacionVuelta,
+                mapping =>
+                {
+                    mapping.Table("DictVuelta");
+                    mapping.Key(k => k.Column("ServicioId"));
+                },
+                mapkey =>
+                {
+                    mapkey.Element(k =>
+                    {
+                        k.Column("horario");
+                    });
+                },
+                mapvalue =>
+                {
+                    mapvalue.Element(k =>
+                    {
+                        k.Column("habilitado");
+                    });
+                });
         }
     }
 }

@@ -160,45 +160,51 @@ namespace Tests.DBTests
         //    }
         //}
 
-        //[TestMethod]
-        //public void CRUDServicio()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var servicio = new Servicio()
-        //        {
-        //            Nombre = "nombre de servicio"
-        //        };
+        [TestMethod]
+        public void CRUDServicio()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var servicio = ObtenerServicioDePrueba();
 
-        //        session.SaveOrUpdate(servicio);
-        //        session.Flush();
+                servicio.ProgramacionIda.Add(1, true);
+                servicio.ProgramacionIda.Add(3, false);
+                servicio.ProgramacionIda.Add(2, true);
+                servicio.ProgramacionVuelta.Add(1, false);
+                servicio.ProgramacionVuelta.Add(3, true);
+                servicio.ProgramacionVuelta.Add(2, true);
 
-        //        var servicioDB = session.Query<Servicio>()
-        //           .Where(x => x.Nombre == servicio.Nombre)
-        //           .FirstOrDefault();
+                session.SaveOrUpdate(servicio);
+                session.Flush();
 
-        //        Assert.IsNotNull(servicioDB);
+                var servicioDB = session.Query<Servicio>()
+                   .Where(x => x.Nombre == servicio.Nombre)
+                   .FirstOrDefault();
 
-        //        servicioDB.Nombre = "otro nombre";
+                Assert.IsNotNull(servicioDB);
+                Assert.AreEqual(servicioDB.ProgramacionIda, servicio.ProgramacionIda);
+                Assert.AreEqual(servicioDB.ProgramacionIda[3], false);
 
-        //        session.SaveOrUpdate(servicio);
-        //        session.Flush();
+                servicioDB.Nombre = "otro nombre";
 
-        //        servicioDB = session.Query<Servicio>()
-        //           .Where(x => x.Nombre == servicio.Nombre)
-        //           .FirstOrDefault();
+                session.SaveOrUpdate(servicio);
+                session.Flush();
 
-        //        Assert.AreEqual(servicioDB.Nombre, "otro nombre");
+                servicioDB = session.Query<Servicio>()
+                   .Where(x => x.Nombre == servicio.Nombre)
+                   .FirstOrDefault();
 
-        //        session.Delete(servicioDB);
+                Assert.AreEqual(servicioDB.Nombre, "otro nombre");
 
-        //        var existeServicio = session.Query<Servicio>()
-        //           .Any(x => x.Nombre == servicio.Nombre);
+                session.Delete(servicioDB);
 
-        //        Assert.IsFalse(existeServicio);
-        //    }
-        //}
+                var existeServicio = session.Query<Servicio>()
+                   .Any(x => x.Nombre == servicio.Nombre);
+
+                Assert.IsFalse(existeServicio);
+            }
+        }
 
         //[TestMethod]
         //public void CRUDSimulacion()
@@ -415,59 +421,63 @@ namespace Tests.DBTests
             }
         }
 
-        //[TestMethod]
-        //public void RelacionServicioFormaciones()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var unaFormacion = ObtenerFormacionDePrueba();
-        //        var otraFormacion = ObtenerFormacionDePrueba();
-        //        var unServicio = ObtenerServicioDePrueba();
+        [TestMethod]
+        public void RelacionServicioTipoFormaciones()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unaFormacion = ObtenerFormacionDePrueba();
+                var otraFormacion = ObtenerFormacionDePrueba();
+                var unServicio = ObtenerServicioDePrueba();
 
-        //        unServicio.Formaciones.Add(unaFormacion);
-        //        unServicio.Formaciones.Add(otraFormacion);
+                unServicio.TiposFormacion.Add(unaFormacion, 2);
+                unServicio.TiposFormacion.Add(otraFormacion, 5);
 
-        //        session.SaveOrUpdate(unaFormacion);
-        //        session.SaveOrUpdate(otraFormacion);
-        //        session.Flush();
+                session.SaveOrUpdate(unaFormacion);
+                session.SaveOrUpdate(otraFormacion);
+                session.Flush();
 
-        //        session.SaveOrUpdate(unServicio);
+                session.SaveOrUpdate(unServicio);
+                session.Flush();
 
-        //        var servicioDB = session.Query<Servicio>().Where(x => x.Nombre == unServicio.Nombre).FirstOrDefault();
+                var servicioDB = session.Query<Servicio>().Where(x => x.Nombre == unServicio.Nombre).FirstOrDefault();
 
-        //        Assert.IsNotNull(servicioDB);
+                Assert.IsNotNull(servicioDB);
 
-        //        Assert.IsTrue(servicioDB.Formaciones.Count == 2);
-        //    }
-        //}
+                Assert.AreEqual(unServicio.TiposFormacion, servicioDB.TiposFormacion);
+                Assert.AreEqual(servicioDB.TiposFormacion[unaFormacion], 2);
+            }
+        }
 
-        //[TestMethod]
-        //public void RelacionServicioRelaciones()
-        //{
-        //    using (var session = NHibernateHelper.OpenSession())
-        //    using (var transaction = session.BeginTransaction())
-        //    {
-        //        var unaRelacion = ObtenerRelacionDePrueba();
-        //        var otraRelacion = ObtenerRelacionDePrueba();
-        //        var unServicio = ObtenerServicioDePrueba();
+        [TestMethod]
+        public void RelacionServicioTramos()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var unTramo = ObtenerTramoDePrueba();
+                var otroTramo = ObtenerTramoDePrueba();
+                var unServicio = ObtenerServicioDePrueba();
 
-        //        unServicio.Relaciones.Add(unaRelacion);
-        //        unServicio.Relaciones.Add(otraRelacion);
+                unServicio.Tramos.Add(unTramo);
+                unServicio.Tramos.Add(otroTramo);
 
-        //        session.SaveOrUpdate(unaRelacion);
-        //        session.SaveOrUpdate(otraRelacion);
-        //        session.Flush();
+                session.SaveOrUpdate(unTramo);
+                session.SaveOrUpdate(otroTramo);
+                session.Flush();
 
-        //        session.SaveOrUpdate(unServicio);
+                session.SaveOrUpdate(unServicio);
+                session.Flush();
 
-        //        var servicioDB = session.Query<Servicio>().Where(x => x.Nombre == unServicio.Nombre).FirstOrDefault();
+                var servicioDB = session.Query<Servicio>().Where(x => x.Nombre == unServicio.Nombre).FirstOrDefault();
 
-        //        Assert.IsNotNull(servicioDB);
+                Assert.IsNotNull(servicioDB);
 
-        //        Assert.IsTrue(servicioDB.Relaciones.Count == 2);
-        //    }
-        //}
+                Assert.AreEqual(unServicio.Tramos, servicioDB.Tramos);
+                Assert.AreEqual(servicioDB.Tramos.FirstOrDefault(), unTramo);
+            }
+        }
 
         //[TestMethod]
         //public void RelacionTrazaServicios()
@@ -600,14 +610,15 @@ namespace Tests.DBTests
         //    return relacion;
         //}
 
-        //private static Servicio ObtenerServicioDePrueba()
-        //{
-        //    var servicio = new Servicio()
-        //    {
-        //        Nombre = "nombre de servicio"
-        //    };
-        //    return servicio;
-        //}
+        private static Servicio ObtenerServicioDePrueba()
+        {
+            var servicio = new Servicio()
+            {
+                Nombre = "nombre de servicio",
+                CantidadFormacionesInicio = 6
+            };
+            return servicio;
+        }
 
         //private static Traza ObtenerTrazaDePrueba()
         //{
