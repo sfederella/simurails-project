@@ -340,6 +340,53 @@ namespace Tests.DBTests
             }
         }
 
+        [TestMethod]
+        public void CRUDTramo()
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                var tramo = ObtenerTramoDePrueba();
+                var unaEstacion = ObtenerEstacionDePrueba();
+                var otraEstacion = ObtenerEstacionDePrueba();
+
+                session.SaveOrUpdate(unaEstacion);
+                session.SaveOrUpdate(otraEstacion);
+                session.Flush();
+
+                tramo.EstacionDestino = unaEstacion;
+                tramo.EstacionOrigen = otraEstacion;
+
+                session.SaveOrUpdate(tramo);
+                session.Flush();
+
+                var tramoDB = session.Query<Tramo>()
+                   .Where(x => x.TiempoViaje == tramo.TiempoViaje && x.Distancia == tramo.Distancia)
+                   .FirstOrDefault();
+
+                Assert.IsNotNull(tramoDB);
+                Assert.AreEqual(tramoDB.EstacionDestino, unaEstacion);
+
+                tramo.Distancia = 999;
+
+                session.SaveOrUpdate(tramo);
+                session.Flush();
+
+                tramoDB = session.Query<Tramo>()
+                   .Where(x => x.TiempoViaje == tramo.TiempoViaje && x.Distancia == tramo.Distancia)
+                   .FirstOrDefault();
+                
+                Assert.AreEqual(tramoDB.Distancia, 999);
+
+                session.Delete(tramoDB);
+
+                var existeTramo = session.Query<Tramo>()
+                   .Any(x => x.TiempoViaje == tramo.TiempoViaje && x.Distancia == tramo.Distancia);
+
+                Assert.IsFalse(existeTramo);
+            }
+        }
+
 
         [TestMethod]
         public void RelacionEstacionIncidente()
@@ -530,6 +577,16 @@ namespace Tests.DBTests
                 TiempoDemora = 100
             };
             return incidente;
+        }
+
+        private static Tramo ObtenerTramoDePrueba()
+        {
+            var tramo = new Tramo()
+            {
+                Distancia = 7000,
+                TiempoViaje = 40
+            };
+            return tramo;
         }
 
         //private static Relacion ObtenerRelacionDePrueba()
