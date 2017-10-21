@@ -8,14 +8,13 @@ namespace SimuRails.Models
 {
     public class ResultadoEstacion
     {
-        public int CantFormaciones { get; private set; }
-
-        public double PorcentajeOcupacion { get; private set; }
-        public double PorcentajePersonasParadas { get; private set; }
-        public double PorcentajeSuperaronMaxCantLegal { get; private set; }
-        public double PorcentajeRegularidadAbsoluta { get; private set; }
-        public double PorcentajeCumplimientoPrograma { get; private set; }
-        public double PorcentajeDemoraPorIncidentes { get; private set; }
+        public virtual int CantFormaciones { get; private set; }
+        public virtual double PorcentajeOcupacion { get; private set; }
+        public virtual double PorcentajePersonasParadas { get; private set; }
+        public virtual double PorcentajeSuperaronMaxCantLegal { get; private set; }
+        public virtual double PorcentajeRegularidadAbsoluta { get; private set; }
+        public virtual double PorcentajeCumplimientoPrograma { get; private set; }
+        public virtual double PorcentajeDemoraPorIncidentes { get; private set; }
 
         public ResultadoEstacion()
         {

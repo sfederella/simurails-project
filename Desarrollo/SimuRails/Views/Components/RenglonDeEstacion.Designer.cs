@@ -28,41 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.PerEsperandoMaxLbl = new MaterialSkin.Controls.MaterialLabel();
-            this.PerEsperandoMinLbl = new MaterialSkin.Controls.MaterialLabel();
+            this.EsMantenimientoLbl = new MaterialSkin.Controls.MaterialLabel();
             this.nombreLbl = new MaterialSkin.Controls.MaterialLabel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.SuspendLayout();
             // 
-            // PerEsperandoMaxLbl
+            // EsMantenimientoLbl
             // 
-            this.PerEsperandoMaxLbl.AutoSize = true;
-            this.PerEsperandoMaxLbl.Depth = 0;
-            this.PerEsperandoMaxLbl.Font = new System.Drawing.Font("Roboto", 11F);
-            this.PerEsperandoMaxLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PerEsperandoMaxLbl.Location = new System.Drawing.Point(511, 20);
-            this.PerEsperandoMaxLbl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.PerEsperandoMaxLbl.Name = "PerEsperandoMaxLbl";
-            this.PerEsperandoMaxLbl.Size = new System.Drawing.Size(108, 19);
-            this.PerEsperandoMaxLbl.TabIndex = 25;
-            this.PerEsperandoMaxLbl.Text = "materialLabel4";
-            this.PerEsperandoMaxLbl.Click += new System.EventHandler(this.capacidadTotalLbl_Click);
-            // 
-            // PerEsperandoMinLbl
-            // 
-            this.PerEsperandoMinLbl.AutoSize = true;
-            this.PerEsperandoMinLbl.Depth = 0;
-            this.PerEsperandoMinLbl.Font = new System.Drawing.Font("Roboto", 11F);
-            this.PerEsperandoMinLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.PerEsperandoMinLbl.Location = new System.Drawing.Point(308, 20);
-            this.PerEsperandoMinLbl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.PerEsperandoMinLbl.Name = "PerEsperandoMinLbl";
-            this.PerEsperandoMinLbl.Size = new System.Drawing.Size(108, 19);
-            this.PerEsperandoMinLbl.TabIndex = 24;
-            this.PerEsperandoMinLbl.Text = "materialLabel3";
-            this.PerEsperandoMinLbl.Click += new System.EventHandler(this.capacidadLegalLbl_Click);
+            this.EsMantenimientoLbl.AutoSize = true;
+            this.EsMantenimientoLbl.Depth = 0;
+            this.EsMantenimientoLbl.Font = new System.Drawing.Font("Roboto", 11F);
+            this.EsMantenimientoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.EsMantenimientoLbl.Location = new System.Drawing.Point(308, 20);
+            this.EsMantenimientoLbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.EsMantenimientoLbl.Name = "EsMantenimientoLbl";
+            this.EsMantenimientoLbl.Size = new System.Drawing.Size(108, 19);
+            this.EsMantenimientoLbl.TabIndex = 24;
+            this.EsMantenimientoLbl.Text = "materialLabel3";
             // 
             // nombreLbl
             // 
@@ -76,7 +60,6 @@
             this.nombreLbl.Size = new System.Drawing.Size(108, 19);
             this.nombreLbl.TabIndex = 22;
             this.nombreLbl.Text = "materialLabel1";
-            this.nombreLbl.Click += new System.EventHandler(this.modeloLbl_Click);
             // 
             // materialDivider1
             // 
@@ -90,7 +73,6 @@
             this.materialDivider1.Size = new System.Drawing.Size(885, 2);
             this.materialDivider1.TabIndex = 21;
             this.materialDivider1.Text = "materialDivider1";
-            this.materialDivider1.Click += new System.EventHandler(this.materialDivider1_Click);
             // 
             // materialFlatButton2
             // 
@@ -132,8 +114,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.materialFlatButton2);
             this.Controls.Add(this.materialFlatButton1);
-            this.Controls.Add(this.PerEsperandoMaxLbl);
-            this.Controls.Add(this.PerEsperandoMinLbl);
+            this.Controls.Add(this.EsMantenimientoLbl);
             this.Controls.Add(this.nombreLbl);
             this.Controls.Add(this.materialDivider1);
             this.Name = "RenglonDeEstacion";
@@ -144,9 +125,7 @@
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialLabel PerEsperandoMaxLbl;
-        private MaterialSkin.Controls.MaterialLabel PerEsperandoMinLbl;
+        private MaterialSkin.Controls.MaterialLabel EsMantenimientoLbl;
         private MaterialSkin.Controls.MaterialLabel nombreLbl;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;

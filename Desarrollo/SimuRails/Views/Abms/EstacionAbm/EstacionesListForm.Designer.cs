@@ -31,7 +31,6 @@
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label1 = new System.Windows.Forms.Label();
             this.listPanel = new System.Windows.Forms.Panel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.seleccion = new MaterialSkin.Controls.MaterialLabel();
             this.listPanel.SuspendLayout();
@@ -67,7 +66,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listPanel.AutoSize = true;
-            this.listPanel.Controls.Add(this.materialLabel2);
             this.listPanel.Controls.Add(this.materialLabel1);
             this.listPanel.Controls.Add(this.seleccion);
             this.listPanel.Location = new System.Drawing.Point(70, 64);
@@ -75,31 +73,18 @@
             this.listPanel.Size = new System.Drawing.Size(914, 361);
             this.listPanel.TabIndex = 20;
             // 
-            // materialLabel2
-            // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(508, 0);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(179, 19);
-            this.materialLabel2.TabIndex = 13;
-            this.materialLabel2.Text = "Personas Esperando Max";
-            // 
             // materialLabel1
             // 
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(270, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(270, -1);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(176, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(194, 19);
             this.materialLabel1.TabIndex = 12;
-            this.materialLabel1.Text = "Personas Esperando Min";
+            this.materialLabel1.Text = "Es Estación Mantenimiento";
             // 
             // seleccion
             // 
@@ -138,7 +123,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel listPanel;
-        private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel seleccion;
     }

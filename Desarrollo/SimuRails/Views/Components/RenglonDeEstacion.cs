@@ -17,8 +17,7 @@ namespace SimuRails.Views.Components
         {
             InitializeComponent();
             this.nombreLbl.Text = estacion.Nombre;
-            //this.PerEsperandoMinLbl.Text = estacion.PersonasEsperandoMin.ToString();
-            //this.PerEsperandoMaxLbl.Text = estacion.PersonasEsperandoMax.ToString();
+            if (estacion.EsEstacionDeMantenimiento){this.EsMantenimientoLbl.Text = "Si";} else { this.EsMantenimientoLbl.Text = "No"; }
             this.id = estacion.Id;
             this.handleEdit = handleEdit;
             this.handleRemove = handleRemove;
@@ -38,26 +37,6 @@ namespace SimuRails.Views.Components
             {
                 handleRemove(id);
             }
-        }
-
-        private void capacidadTotalLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void capacidadLegalLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void modeloLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialDivider1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

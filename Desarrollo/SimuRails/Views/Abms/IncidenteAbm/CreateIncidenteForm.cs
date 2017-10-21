@@ -23,8 +23,8 @@ namespace SimuRails.Views.Abms.IncidenteAbm
         {
             this.Controls.Add(this.attrs);
             this.attrs.Width = 970;
-            this.attrs.Location = new System.Drawing.Point(0, 50);
-            this.attrs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top)));
+            this.attrs.Location = new System.Drawing.Point(10, 50);
+            this.attrs.Anchor = ((AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom | AnchorStyles.Left));
             this.attrs.Name = "attrs";
         }
 
