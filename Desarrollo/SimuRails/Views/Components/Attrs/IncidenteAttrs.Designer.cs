@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.demoraField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.BindingSourceIncidente = new System.Windows.Forms.BindingSource(this.components);
             this.probabilidadField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.nombreField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.descripcionField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidente)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel7
@@ -55,7 +58,6 @@
             // 
             // materialLabel4
             // 
-            this.materialLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
@@ -95,7 +97,7 @@
             // 
             // demoraField
             // 
-            this.demoraField.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.demoraField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "TiempoDemora", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.demoraField.Depth = 0;
             this.demoraField.Hint = "en segundos";
             this.demoraField.Location = new System.Drawing.Point(324, 252);
@@ -106,11 +108,16 @@
             this.demoraField.SelectionLength = 0;
             this.demoraField.SelectionStart = 0;
             this.demoraField.Size = new System.Drawing.Size(148, 23);
-            this.demoraField.TabIndex = 26;
+            this.demoraField.TabIndex = 3;
             this.demoraField.UseSystemPasswordChar = false;
+            // 
+            // BindingSourceIncidente
+            // 
+            this.BindingSourceIncidente.DataSource = typeof(SimuRails.Models.Incidente);
             // 
             // probabilidadField
             // 
+            this.probabilidadField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "ProbabilidadDeOcurrencia", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.probabilidadField.Depth = 0;
             this.probabilidadField.Hint = "%";
             this.probabilidadField.Location = new System.Drawing.Point(33, 251);
@@ -121,11 +128,12 @@
             this.probabilidadField.SelectionLength = 0;
             this.probabilidadField.SelectionStart = 0;
             this.probabilidadField.Size = new System.Drawing.Size(148, 23);
-            this.probabilidadField.TabIndex = 25;
+            this.probabilidadField.TabIndex = 2;
             this.probabilidadField.UseSystemPasswordChar = false;
             // 
             // nombreField
             // 
+            this.nombreField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
             this.nombreField.Location = new System.Drawing.Point(20, 42);
@@ -136,11 +144,12 @@
             this.nombreField.SelectionLength = 0;
             this.nombreField.SelectionStart = 0;
             this.nombreField.Size = new System.Drawing.Size(270, 23);
-            this.nombreField.TabIndex = 23;
+            this.nombreField.TabIndex = 0;
             this.nombreField.UseSystemPasswordChar = false;
             // 
             // descripcionField
             // 
+            this.descripcionField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "Descripcion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.descripcionField.Depth = 0;
             this.descripcionField.Hint = "";
             this.descripcionField.Location = new System.Drawing.Point(20, 115);
@@ -151,7 +160,7 @@
             this.descripcionField.SelectionLength = 0;
             this.descripcionField.SelectionStart = 0;
             this.descripcionField.Size = new System.Drawing.Size(673, 23);
-            this.descripcionField.TabIndex = 38;
+            this.descripcionField.TabIndex = 1;
             this.descripcionField.UseSystemPasswordChar = false;
             // 
             // materialDivider1
@@ -197,6 +206,7 @@
             this.Controls.Add(this.nombreField);
             this.Name = "IncidenteAttrs";
             this.Size = new System.Drawing.Size(791, 291);
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +224,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField descripcionField;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private System.Windows.Forms.BindingSource BindingSourceIncidente;
     }
 }

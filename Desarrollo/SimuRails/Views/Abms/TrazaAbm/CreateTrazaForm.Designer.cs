@@ -1,6 +1,6 @@
 ﻿namespace SimuRails.Views.Abms
 {
-    partial class CreateIncidenteForm
+    partial class CreateTrazaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -70,11 +70,11 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(22, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 26);
+            this.label1.Size = new System.Drawing.Size(66, 26);
             this.label1.TabIndex = 26;
-            this.label1.Text = "Incidente";
+            this.label1.Text = "Traza";
             // 
-            // CreateIncidenteForm
+            // CreateTrazaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,9 +83,9 @@
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.materialRaisedButton2);
             this.Controls.Add(this.label1);
-            this.Name = "CreateIncidenteForm";
-            this.Text = "CreateIncidenteForm";
-            this.Load += new System.EventHandler(this.CreateIncidenteForm_Load);
+            this.Name = "CreateTrazaForm";
+            this.Text = "CreateTrazaForm";
+            this.Load += new System.EventHandler(this.CreateTrazaForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

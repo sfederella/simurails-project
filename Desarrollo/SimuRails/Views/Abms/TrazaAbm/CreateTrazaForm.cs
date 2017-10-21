@@ -5,21 +5,21 @@ using System.Windows.Forms;
 
 namespace SimuRails.Views.Abms
 {
-    public partial class CreateIncidenteForm : Form
+    public partial class CreateTrazaForm : Form
     {
-        private IncidentesListForm listForm;
-        private IncidenteAttrs attrs;
-        private Incidente incidente;
+        private TrazasListForm listForm;
+        private TrazaAttrs attrs;
+        private Traza traza;
 
-        public CreateIncidenteForm(IncidentesListForm listForm, Incidente incidente)
+        public CreateTrazaForm(TrazasListForm listForm, Traza traza)
         {
             InitializeComponent();
-            this.attrs = new IncidenteAttrs(incidente);
-            this.incidente = incidente;
+            this.attrs = new TrazaAttrs(traza);
+            this.traza = traza;
             this.listForm = listForm;
         }
 
-        private void CreateIncidenteForm_Load(object sender, EventArgs e)
+        private void CreateTrazaForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(this.attrs);
             this.attrs.Width = 970;
@@ -39,11 +39,16 @@ namespace SimuRails.Views.Abms
             listForm.Visible = true;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            if (this.attrs.applyTo(incidente))
+            if (this.attrs.applyTo(traza))
             {
-                 listForm.addIncidente(incidente);
+                 listForm.addTraza(traza);
                 this.cerrar();
             }
         }

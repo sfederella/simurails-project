@@ -91,6 +91,24 @@
     <Compile Include="Views\Abms\EstacionAbm\EditEstacionForm.Designer.cs">
       <DependentUpon>EditEstacionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Abms\TrazaAbm\CreateTrazaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\TrazaAbm\CreateTrazaForm.Designer.cs">
+      <DependentUpon>CreateTrazaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\TrazaAbm\EditTrazaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\TrazaAbm\EditTrazaForm.Designer.cs">
+      <DependentUpon>EditTrazaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\TrazaAbm\TrazasListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\TrazaAbm\TrazasListForm.Designer.cs">
+      <DependentUpon>TrazasListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Abms\IncidenteAbm\CreateIncidenteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +133,12 @@
     <Compile Include="Views\Abms\IncidenteAbm\IncidentesListForm.Designer.cs">
       <DependentUpon>IncidentesListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Components\Attrs\TrazaAttrs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\Attrs\TrazaAttrs.Designer.cs">
+      <DependentUpon>TrazaAttrs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\Attrs\EstacionAttrs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +156,12 @@
     </Compile>
     <Compile Include="Views\Components\Attrs\CocheAttrs.Designer.cs">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeTraza.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeTraza.Designer.cs">
+      <DependentUpon>RenglonDeTraza.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\RenglonDeEstacion.cs">
       <SubType>UserControl</SubType>
@@ -151,17 +181,18 @@
     <Compile Include="Views\Components\RenglonDeIncidente.Designer.cs">
       <DependentUpon>RenglonDeIncidente.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Views\Components\RenglonDeServicio.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Components\RenglonDeServicio.Designer.cs">
       <DependentUpon>RenglonDeServicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Components\RenglonDeTraza.cs">
+    <Compile Include="Views\Components\RenglonDeTrazaSimu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Components\RenglonDeTraza.Designer.cs">
-      <DependentUpon>RenglonDeTraza.cs</DependentUpon>
+    <Compile Include="Views\Components\RenglonDeTrazaSimu.Designer.cs">
+      <DependentUpon>RenglonDeTrazaSimu.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\RenglonListaVacia.cs">
       <SubType>UserControl</SubType>
@@ -169,6 +200,7 @@
     <Compile Include="Views\Components\RenglonListaVacia.Designer.cs">
       <DependentUpon>RenglonListaVacia.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +233,7 @@
     <Compile Include="Views\SpinnerForm.Designer.cs">
       <DependentUpon>SpinnerForm.cs</DependentUpon>
     </Compile>
+
     <EmbeddedResource Include="Views\Abms\CocheAbm\CochesListForm.resx">
       <DependentUpon>CochesListForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +249,15 @@
     <EmbeddedResource Include="Views\Abms\EstacionAbm\EditEstacionForm.resx">
       <DependentUpon>EditEstacionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\TrazaAbm\CreateTrazaForm.resx">
+      <DependentUpon>CreateTrazaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\TrazaAbm\EditTrazaForm.resx">
+      <DependentUpon>EditTrazaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\TrazaAbm\TrazasListForm.resx">
+      <DependentUpon>TrazasListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Abms\IncidenteAbm\CreateIncidenteForm.resx">
       <DependentUpon>CreateIncidenteForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +270,9 @@
     <EmbeddedResource Include="Views\Abms\IncidenteAbm\IncidentesListForm.resx">
       <DependentUpon>IncidentesListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\Attrs\TrazaAttrs.resx">
+      <DependentUpon>TrazaAttrs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\Attrs\EstacionAttrs.resx">
       <DependentUpon>EstacionAttrs.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\Attrs\CocheAttrs.resx">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeTraza.resx">
+      <DependentUpon>RenglonDeTraza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeEstacion.resx">
       <DependentUpon>RenglonDeEstacion.cs</DependentUpon>
@@ -246,11 +294,12 @@
     <EmbeddedResource Include="Views\Components\RenglonDeIncidente.resx">
       <DependentUpon>RenglonDeIncidente.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="Views\Components\RenglonDeServicio.resx">
       <DependentUpon>RenglonDeServicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Components\RenglonDeTraza.resx">
-      <DependentUpon>RenglonDeTraza.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Components\RenglonDeTrazaSimu.resx">
+      <DependentUpon>RenglonDeTrazaSimu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonListaVacia.resx">
       <DependentUpon>RenglonListaVacia.cs</DependentUpon>
@@ -280,6 +329,11 @@
       <DependentUpon>SpinnerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\SimuRails.Models.Coche.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.Estacion.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.Incidente.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.Servicio.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.Traza.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -318,6 +372,7 @@
     <Reference Include="NHibernate, Version=4.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.1.1.4000\lib\net40\NHibernate.dll</HintPath>
     </Reference>
+
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -333,6 +388,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
+
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>

@@ -8,26 +8,26 @@ using System.Windows.Forms;
 
 namespace SimuRails.Views.Abms
 {
-    public partial class IncidentesListForm : Form
+    public partial class TrazasListForm : Form
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private Repositorio repositorioIncidente = new Repositorio();
+        private Repositorio repositorioTraza = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
-        public IncidentesListForm()
+        public TrazasListForm()
         {
             InitializeComponent();
         }
 
-        public IncidentesListForm(MainForm mainForm, TabPage tabPage)
+        public TrazasListForm(MainForm mainForm, TabPage tabPage)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             this.tabPage = tabPage;
         }
 
-        private void IncidentesListForm_Load_1(object sender, EventArgs e)
+        private void TrazasListForm_Load_1(object sender, EventArgs e)
         {
             this.dibujarRenglones();
         }
@@ -37,15 +37,15 @@ namespace SimuRails.Views.Abms
             this.dibujarRenglones();
         }
 
-        public void addIncidente(Incidente incidente)
+        public void addTraza(Traza Traza)
         {
-            repositorioIncidente.Guardar(incidente);
+            repositorioTraza.Guardar(Traza);
             this.dibujarRenglones();
         }
 
-        private RenglonDeIncidente renglonDe(Incidente incidente, int indice)
+        private RenglonDeTraza renglonDe(Traza traza, int indice)
         {
-            var renglon = new RenglonDeIncidente(incidente, this.OnIncidenteEdit, this.onIncidenteRemove);
+            var renglon = new RenglonDeTraza(traza, this.OnTrazaEdit, this.onTrazaRemove);
             this.incluirEnLista(indice, renglon);
             return renglon;
         }
@@ -59,24 +59,24 @@ namespace SimuRails.Views.Abms
             renglones.Add(renglon);
         }
 
-        private void onIncidenteRemove(int id)
+        private void onTrazaRemove(int id)
         {
-            Incidente incidente = this.findIncidente(id);
-            repositorioIncidente.Eliminar(incidente);
+            Traza traza = this.findTraza(id);
+            repositorioTraza.Eliminar(traza);
             this.dibujarRenglones();
         }
 
         private void dibujarRenglones()
         {
-            var incidentes = repositorioIncidente.Listar<Incidente>();
+            var trazas = repositorioTraza.Listar<Traza>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
-            for (int i = 0; i < incidentes.Count; i++)
+            for (int i = 0; i < trazas.Count; i++)
             {
-                renglones.Add(this.renglonDe(incidentes.ElementAt(i), i));
+                renglones.Add(this.renglonDe(trazas.ElementAt(i), i));
 
             }
-            if (incidentes.Count == 0)
+            if (trazas.Count == 0)
             {
                 this.incluirEnLista(0, new RenglonListaVacia());
             }
@@ -88,22 +88,22 @@ namespace SimuRails.Views.Abms
             unRenglon.Dispose();
         }
 
-        public void OnIncidenteEdit(int incidenteId)
+        public void OnTrazaEdit(int trazaId)
         {
-            Incidente incidente = findIncidente(incidenteId);
-            this.mainForm.embedForm(new EditIncidenteForm(this, repositorioIncidente, incidente), tabPage);
+            Traza traza = findTraza(trazaId);
+            this.mainForm.embedForm(new EditTrazaForm(this, repositorioTraza, traza), tabPage);
             this.Visible = false;
         }
 
-        private Incidente findIncidente(int incidenteId)
+        private Traza findTraza(int trazaId)
         {
-            return repositorioIncidente.Obtener<Incidente>(incidenteId);
+            return repositorioTraza.Obtener<Traza>(trazaId);
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            Incidente incidente = new Incidente();
-            this.mainForm.embedForm(new CreateIncidenteForm(this, incidente), tabPage);
+            Traza traza = new Traza();
+            this.mainForm.embedForm(new CreateTrazaForm(this, traza), tabPage);
             this.Visible = false;
         }
     }

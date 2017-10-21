@@ -6,20 +6,20 @@ using System.Windows.Forms;
 
 namespace SimuRails.Views.Abms
 {
-    public partial class EditIncidenteForm : Form
+    public partial class EditTrazaForm : Form
     {
-        private IncidentesListForm listForm;
-        private IncidenteAttrs attrs;
-        private Incidente incidente;
-        private Repositorio repositorioIncidente;
+        private TrazasListForm listForm;
+        private TrazaAttrs attrs;
+        private Traza traza;
+        private Repositorio repositorioTraza;
 
-        public EditIncidenteForm(IncidentesListForm listForm, Repositorio repositorioIncidente, Incidente incidente)
+        public EditTrazaForm(TrazasListForm listForm, Repositorio repositorioTraza, Traza traza)
         {
             InitializeComponent();
             this.listForm = listForm;
-            this.attrs = new IncidenteAttrs(incidente);
-            this.incidente = incidente;
-            this.repositorioIncidente = repositorioIncidente;
+            this.attrs = new TrazaAttrs(traza);
+            this.traza = traza;
+            this.repositorioTraza = repositorioTraza;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -35,16 +35,16 @@ namespace SimuRails.Views.Abms
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)
         {
-            if (this.attrs.applyTo(incidente))
+            if (this.attrs.applyTo(traza))
             {
-                repositorioIncidente.Actualizar(incidente);
+                repositorioTraza.Actualizar(traza);
                 listForm.updateList();
                 this.cerrar();
             }
 
         }
 
-        private void EditIncidenteForm_Load(object sender, EventArgs e)
+        private void EditTrazaForm_Load(object sender, EventArgs e)
         {
             this.Controls.Add(this.attrs);
             this.attrs.Width = 970;
