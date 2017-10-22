@@ -17,7 +17,7 @@ namespace SimuRails.Views.Components
         {
             InitializeComponent();
             this.nombreLbl.Text = traza.Nombre;
-            this.cantServiciosLbl.Text = traza.Servicios.Count.ToString();
+            //this.cantServiciosLbl.Text = traza.Servicios.Count.ToString();
             this.id = traza.Id;
             this.handleEdit = handleEdit;
             this.handleRemove = handleRemove;

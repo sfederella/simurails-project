@@ -83,7 +83,7 @@
             this.mainMaterialTabSelector.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.mainMaterialTabSelector.BaseTabControl = this.mainMaterialTabControl;
             this.mainMaterialTabSelector.Depth = 0;
-            this.mainMaterialTabSelector.Location = new System.Drawing.Point(81, 64);
+            this.mainMaterialTabSelector.Location = new System.Drawing.Point(116, 64);
             this.mainMaterialTabSelector.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainMaterialTabSelector.Name = "mainMaterialTabSelector";
             this.mainMaterialTabSelector.Size = new System.Drawing.Size(932, 38);
@@ -110,7 +110,7 @@
             this.mainMaterialTabControl.Name = "mainMaterialTabControl";
             this.mainMaterialTabControl.Padding = new System.Drawing.Point(0, 0);
             this.mainMaterialTabControl.SelectedIndex = 0;
-            this.mainMaterialTabControl.Size = new System.Drawing.Size(1099, 444);
+            this.mainMaterialTabControl.Size = new System.Drawing.Size(1169, 759);
             this.mainMaterialTabControl.TabIndex = 2;
             // 
             // tabSimulacion
@@ -119,7 +119,7 @@
             this.tabSimulacion.Location = new System.Drawing.Point(4, 22);
             this.tabSimulacion.Name = "tabSimulacion";
             this.tabSimulacion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSimulacion.Size = new System.Drawing.Size(1091, 418);
+            this.tabSimulacion.Size = new System.Drawing.Size(1161, 733);
             this.tabSimulacion.TabIndex = 0;
             this.tabSimulacion.Text = "Simulación";
             // 
@@ -196,7 +196,7 @@
             this.materialTabSelector1.Location = new System.Drawing.Point(-3, 64);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1099, 38);
+            this.materialTabSelector1.Size = new System.Drawing.Size(1169, 38);
             this.materialTabSelector1.TabIndex = 3;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -205,13 +205,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1093, 540);
+            this.ClientSize = new System.Drawing.Size(1163, 855);
             this.ContextMenuStrip = this.materialContextMenuStrip1;
             this.Controls.Add(this.mainMaterialTabSelector);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.mainMaterialTabControl);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SimuRails";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.materialContextMenuStrip1.ResumeLayout(false);

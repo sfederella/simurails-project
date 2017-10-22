@@ -1,7 +1,5 @@
 ﻿using System.Windows.Forms;
 using SimuRails.Models;
-using System.Collections.Generic;
-using static SimuRails.Models.Coche;
 
 namespace SimuRails.Views.Components
 {
@@ -14,8 +12,6 @@ namespace SimuRails.Views.Components
             InitializeComponent();
             pCoche = coche;
             BindingSourceCoche.DataSource = pCoche;
-
-            List<int> lst = new List<int>();
         }
 
         public bool applyTo(Coche coche)
