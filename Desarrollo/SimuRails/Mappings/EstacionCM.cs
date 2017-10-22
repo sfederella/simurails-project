@@ -25,7 +25,6 @@ namespace SimuRails.Mappings
                 collectionMapping.Table("EstacionesXIncidentes");
                 collectionMapping.Key(k => k.Column("EstacionId"));
                 collectionMapping.Cascade(Cascade.None);
-                collectionMapping.Inverse(true);
             },
             map => map.ManyToMany(c => c.Column("IncidenteId")));
         }
