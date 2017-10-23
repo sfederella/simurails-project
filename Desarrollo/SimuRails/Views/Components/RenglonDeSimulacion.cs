@@ -22,7 +22,7 @@ namespace SimuRails.Views.Components
             InitializeComponent();
             this.nombreLbl.Text = simulacion.Nombre;
             this.duracionLbl.Text = simulacion.Duracion.ToString();
-            this.trazaLbl.Text = "nombre de taza";//simulacion.NombreTraza();
+            this.trazaLbl.Text = simulacion.TrazaSimulada.Nombre;
             this.id = simulacion.Id;
             this.handleEdit = handleEdit;
             this.handleRemove = handleRemove;

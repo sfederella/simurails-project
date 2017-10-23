@@ -483,7 +483,7 @@
             // ListBoxAsignados
             // 
             this.ListBoxAsignados.DataSource = this.BindingSourceIncidentesAsignados;
-            this.ListBoxAsignados.DisplayMember = "Nombre";
+            this.ListBoxAsignados.DisplayMember = "Valor";
             this.ListBoxAsignados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListBoxAsignados.FormattingEnabled = true;
             this.ListBoxAsignados.ItemHeight = 18;
@@ -491,11 +491,11 @@
             this.ListBoxAsignados.Name = "ListBoxAsignados";
             this.ListBoxAsignados.Size = new System.Drawing.Size(241, 202);
             this.ListBoxAsignados.TabIndex = 71;
-            this.ListBoxAsignados.ValueMember = "Id";
+            this.ListBoxAsignados.ValueMember = "Clave";
             // 
             // BindingSourceIncidentesAsignados
             // 
-            this.BindingSourceIncidentesAsignados.DataSource = typeof(SimuRails.Models.Incidente);
+            this.BindingSourceIncidentesAsignados.DataSource = typeof(SimuRails.KeyValue);
             // 
             // ButtonDesasignar
             // 

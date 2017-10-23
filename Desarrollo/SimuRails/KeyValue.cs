@@ -2,9 +2,9 @@
 {
     class KeyValue
     {
-        public string Clave { get; set; }
-        public double Valor { get; set; }
-        public KeyValue(string clave, double valor)
+        public int Clave { get; set; }
+        public string Valor { get; set; }
+        public KeyValue(int clave, string valor)
         {
             Clave = clave;
             Valor = valor;

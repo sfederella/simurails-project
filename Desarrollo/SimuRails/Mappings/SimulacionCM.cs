@@ -17,6 +17,8 @@ namespace SimuRails.Mappings
             {
                 mapping.Column("TrazaId");
                 mapping.Cascade(Cascade.None);
+                mapping.Lazy(LazyRelation.NoLazy);
+
             });
         }
     }

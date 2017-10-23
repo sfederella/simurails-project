@@ -21,7 +21,7 @@ namespace SimuRails.Views.Components.Attrs
             InitializeComponent();
             pEstacion = estacion;
             BindingSourceEstacion.DataSource = pEstacion;
-           // BindIncidentes();
+            BindIncidentes();
         }
 
         public bool applyTo(Estacion estacion)
@@ -34,7 +34,7 @@ namespace SimuRails.Views.Components.Attrs
         #region " Incidentes "
         private void BindIncidentes()
         {
-            ListBoxAsignados.DataSource = pEstacion.Incidentes;
+            ListBoxAsignados.DataSource = GetLstTrazasAsignadas();
             BindingSourceEstacion.SuspendBinding();
             List<Incidente> lst = new List<Incidente>();
             foreach (Incidente incidente in repositorioIncidentes.Listar<Incidente>())
@@ -49,21 +49,28 @@ namespace SimuRails.Views.Components.Attrs
         }
         private void ButtonAsignar_Click(object sender, EventArgs e)
         {
-            //if ((BindingSourceIncidentesDisponibles.Current != null))
-            //{
-            //    pEstacion.Incidentes.Add((Incidente)BindingSourceIncidentesDisponibles.Current);
-            //    BindIncidentes();
-            //}
+            if ((BindingSourceIncidentesDisponibles.Current != null))
+            {
+                pEstacion.Incidentes.Add((Incidente)BindingSourceIncidentesDisponibles.Current);
+                BindIncidentes();
+            }
         }
 
         private void ButtonDesasignar_Click(object sender, EventArgs e)
         {
-            //if ((BindingSourceIncidentesAsignados.Current != null))
-            //{
-            //    pEstacion.Incidentes.Remove((Incidente)BindingSourceIncidentesAsignados.Current);
-            //    BindIncidentes();
-            //}
-         }
+            if ((BindingSourceIncidentesAsignados.Current != null))
+            {
+                Incidente select = pEstacion.Incidentes.Where(i => i.Id == ((KeyValue)BindingSourceIncidentesAsignados.Current).Clave).First();
+                pEstacion.Incidentes.Remove(select);
+                BindIncidentes();
+            }
+        }
+
+        private List<KeyValue> GetLstTrazasAsignadas()
+        {
+            return (from x in pEstacion.Incidentes select new KeyValue(x.Id, x.Nombre)).ToList();
+        }
+
         #endregion
 
     }
