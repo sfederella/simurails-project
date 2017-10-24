@@ -95,6 +95,24 @@
     <Compile Include="Views\Abms\EstacionAbm\EditEstacionForm.Designer.cs">
       <DependentUpon>EditEstacionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Abms\FormacionAbm\CreateFormacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\FormacionAbm\CreateFormacionForm.Designer.cs">
+      <DependentUpon>CreateFormacionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\FormacionAbm\EditFormacionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\FormacionAbm\EditFormacionForm.Designer.cs">
+      <DependentUpon>EditFormacionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Abms\FormacionAbm\FormacionListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\FormacionAbm\FormacionListForm.Designer.cs">
+      <DependentUpon>FormacionListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Abms\SimulacionAbm\CreateSimulacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +191,12 @@
     <Compile Include="Views\Abms\IncidenteAbm\IncidentesListForm.Designer.cs">
       <DependentUpon>IncidentesListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Components\Attrs\FormacionAttr.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\Attrs\FormacionAttr.Designer.cs">
+      <DependentUpon>FormacionAttr.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\Attrs\SimulacionAttrs.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -208,6 +232,12 @@
     </Compile>
     <Compile Include="Views\Components\Attrs\CocheAttrs.Designer.cs">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeFormacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeFormacion.Designer.cs">
+      <DependentUpon>RenglonDeFormacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\RenglonDeSimulacion.cs">
       <SubType>UserControl</SubType>
@@ -286,6 +316,15 @@
     <EmbeddedResource Include="Views\Abms\EstacionAbm\EditEstacionForm.resx">
       <DependentUpon>EditEstacionForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\FormacionAbm\CreateFormacionForm.resx">
+      <DependentUpon>CreateFormacionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\FormacionAbm\EditFormacionForm.resx">
+      <DependentUpon>EditFormacionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\FormacionAbm\FormacionListForm.resx">
+      <DependentUpon>FormacionListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Abms\SimulacionAbm\CreateSimulacionForm.resx">
       <DependentUpon>CreateSimulacionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +364,9 @@
     <EmbeddedResource Include="Views\Abms\IncidenteAbm\IncidentesListForm.resx">
       <DependentUpon>IncidentesListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\Attrs\FormacionAttr.resx">
+      <DependentUpon>FormacionAttr.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\Attrs\SimulacionAttrs.resx">
       <DependentUpon>SimulacionAttrs.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\Attrs\CocheAttrs.resx">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeFormacion.resx">
+      <DependentUpon>RenglonDeFormacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeSimulacion.resx">
       <DependentUpon>RenglonDeSimulacion.cs</DependentUpon>
@@ -386,6 +431,7 @@
     <None Include="Properties\DataSources\KeyValue.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Coche.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Estacion.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.Formacion.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Incidente.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Servicio.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Simulacion.datasource" />

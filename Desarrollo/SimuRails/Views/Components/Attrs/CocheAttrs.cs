@@ -17,8 +17,12 @@ namespace SimuRails.Views.Components
         public bool applyTo(Coche coche)
         {
             if (pCoche.Modelo == null || pCoche.Modelo == "") { MessageBox.Show("Se debe completar un modelo que identifique al coche."); return false; }
-            coche = pCoche;
             return true;
+        }
+
+        private void CocheAttrs_Load(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

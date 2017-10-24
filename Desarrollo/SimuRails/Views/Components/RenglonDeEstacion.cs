@@ -38,5 +38,20 @@ namespace SimuRails.Views.Components
                 handleRemove(id);
             }
         }
+
+        private void EsMantenimientoLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nombreLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialDivider1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
