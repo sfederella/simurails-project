@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using SimuRails.Models;
 using System.Collections.Generic;
 using SimuRails.DB;
+using System.Linq;
 
 namespace SimuRails.Views.Components.Attrs
 {
@@ -28,11 +29,12 @@ namespace SimuRails.Views.Components.Attrs
         #region " Servicios "
         private void BindServicios()
         {
+            BindingSourceServiciosAsignados.DataSource = GetLstServiciosAsignados();
             BindingSourceTraza.SuspendBinding();
             List<Servicio> lst = new List<Servicio>();
             foreach (Servicio servicio in repositorioServicios.Listar<Servicio>())
             {
-                if (! pTraza.Servicios.Contains(servicio))
+                if (!pTraza.Servicios.Any(i => i.Id == servicio.Id))
                 {
                     lst.Add(servicio);
                 }
@@ -51,8 +53,17 @@ namespace SimuRails.Views.Components.Attrs
 
         private void ButtonDesasignar_Click(object sender, EventArgs e)
         {
-           // Model.Roles.Remove((UsuarioRol)RolesAsignadosBindingSource.Current);
-            BindServicios();
+            if ((BindingSourceServiciosAsignados.Current != null))
+            {
+                Servicio select = pTraza.Servicios.Where(i => i.Id == ((KeyValue)BindingSourceServiciosAsignados.Current).Clave).First();
+                pTraza.Servicios.Remove(select);
+                BindServicios();
+            }
+        }
+
+        private List<KeyValue> GetLstServiciosAsignados()
+        {
+            return (from x in pTraza.Servicios select new KeyValue(x.Id, x.Nombre)).ToList();
         }
         #endregion
     }

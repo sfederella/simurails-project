@@ -40,8 +40,10 @@
             this.ButtonAsignar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ButtonDesasignar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ListBoxAsignados = new System.Windows.Forms.ListBox();
+            this.BindingSourceServiciosAsignados = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceServiciosDisponibles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceServiciosAsignados)).BeginInit();
             this.SuspendLayout();
             // 
             // nombreField
@@ -163,7 +165,8 @@
             // 
             // ListBoxAsignados
             // 
-            this.ListBoxAsignados.DataSource = this.BindingSourceTraza;
+            this.ListBoxAsignados.DataSource = this.BindingSourceServiciosAsignados;
+            this.ListBoxAsignados.DisplayMember = "Valor";
             this.ListBoxAsignados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListBoxAsignados.FormattingEnabled = true;
             this.ListBoxAsignados.ItemHeight = 18;
@@ -171,6 +174,11 @@
             this.ListBoxAsignados.Name = "ListBoxAsignados";
             this.ListBoxAsignados.Size = new System.Drawing.Size(241, 202);
             this.ListBoxAsignados.TabIndex = 28;
+            this.ListBoxAsignados.ValueMember = "Clave";
+            // 
+            // BindingSourceServiciosAsignados
+            // 
+            this.BindingSourceServiciosAsignados.DataSource = typeof(SimuRails.KeyValue);
             // 
             // TrazaAttrs
             // 
@@ -190,6 +198,7 @@
             this.Size = new System.Drawing.Size(791, 439);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceServiciosDisponibles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceServiciosAsignados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +217,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton ButtonDesasignar;
         private System.Windows.Forms.ListBox ListBoxAsignados;
         private System.Windows.Forms.BindingSource BindingSourceServiciosDisponibles;
+        private System.Windows.Forms.BindingSource BindingSourceServiciosAsignados;
     }
 }
