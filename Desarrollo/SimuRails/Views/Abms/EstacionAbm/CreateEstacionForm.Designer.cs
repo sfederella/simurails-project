@@ -1,4 +1,4 @@
-﻿namespace SimuRails.Views.Abms.EstacionAbm
+﻿namespace SimuRails.Views.Abms
 {
     partial class CreateEstacionForm
     {

@@ -365,9 +365,11 @@ namespace Tests.DBTests
 
                 session.SaveOrUpdate(unIncidente);
                 session.SaveOrUpdate(otroIncidente);
+
                 session.Flush();
 
                 session.SaveOrUpdate(unaEstacion);
+                session.Flush();
 
                 var estacionDB = session.Query<Estacion>().Where(x => x.Nombre == unaEstacion.Nombre).FirstOrDefault();
 

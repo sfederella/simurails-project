@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SimuRails.Views.Abms.EstacionAbm
+namespace SimuRails.Views.Abms
 {
     public partial class EstacionesListForm : Form
     {

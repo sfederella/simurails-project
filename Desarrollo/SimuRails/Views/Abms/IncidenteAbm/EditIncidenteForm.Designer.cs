@@ -1,4 +1,4 @@
-﻿namespace SimuRails.Views.Abms.IncidenteAbm
+﻿namespace SimuRails.Views.Abms
 {
     partial class EditIncidenteForm
     {
@@ -67,12 +67,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(27, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 27);
+            this.label1.Size = new System.Drawing.Size(100, 26);
             this.label1.TabIndex = 23;
-            this.label1.Text = "Incidentes";
+            this.label1.Text = "Incidente";
             // 
             // EditIncidenteForm
             // 

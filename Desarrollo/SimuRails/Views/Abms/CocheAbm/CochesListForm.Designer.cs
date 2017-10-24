@@ -54,10 +54,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Roboto Medium", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(65, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 27);
+            this.label1.Size = new System.Drawing.Size(86, 26);
             this.label1.TabIndex = 18;
             this.label1.Text = "Coches";
             // 
@@ -84,9 +84,9 @@
             this.materialLabel2.Location = new System.Drawing.Point(508, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(62, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(118, 19);
             this.materialLabel2.TabIndex = 13;
-            this.materialLabel2.Text = "Demora";
+            this.materialLabel2.Text = "Capacidad Total";
             // 
             // materialLabel1
             // 

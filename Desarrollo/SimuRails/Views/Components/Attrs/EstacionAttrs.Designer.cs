@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.esperandoMinIdaField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.BindingSourceEstacion = new System.Windows.Forms.BindingSource(this.components);
             this.nombreField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.esperandoMaxIdaField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
-            this.clbIncidentes = new System.Windows.Forms.CheckedListBox();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.EsMantenimientoCheck = new MaterialSkin.Controls.MaterialCheckBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
@@ -59,6 +59,17 @@
             this.materialLabel15 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel16 = new MaterialSkin.Controls.MaterialLabel();
             this.desciendenMinIdaField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.ListBoxAsignados = new System.Windows.Forms.ListBox();
+            this.BindingSourceIncidentesAsignados = new System.Windows.Forms.BindingSource(this.components);
+            this.ButtonDesasignar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.ButtonAsignar = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.BindingSourceIncidentesDisponibles = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceEstacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesAsignados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesDisponibles)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel7
@@ -89,6 +100,7 @@
             // 
             // esperandoMinIdaField
             // 
+            this.esperandoMinIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMinIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMinIdaField.Depth = 0;
             this.esperandoMinIdaField.Hint = "Cant. de personas";
             this.esperandoMinIdaField.Location = new System.Drawing.Point(40, 167);
@@ -99,11 +111,16 @@
             this.esperandoMinIdaField.SelectionLength = 0;
             this.esperandoMinIdaField.SelectionStart = 0;
             this.esperandoMinIdaField.Size = new System.Drawing.Size(126, 23);
-            this.esperandoMinIdaField.TabIndex = 25;
+            this.esperandoMinIdaField.TabIndex = 2;
             this.esperandoMinIdaField.UseSystemPasswordChar = false;
+            // 
+            // BindingSourceEstacion
+            // 
+            this.BindingSourceEstacion.DataSource = typeof(SimuRails.Models.Estacion);
             // 
             // nombreField
             // 
+            this.nombreField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
             this.nombreField.Location = new System.Drawing.Point(20, 42);
@@ -114,7 +131,7 @@
             this.nombreField.SelectionLength = 0;
             this.nombreField.SelectionStart = 0;
             this.nombreField.Size = new System.Drawing.Size(270, 23);
-            this.nombreField.TabIndex = 23;
+            this.nombreField.TabIndex = 0;
             this.nombreField.UseSystemPasswordChar = false;
             // 
             // materialDivider1
@@ -158,6 +175,7 @@
             // 
             // esperandoMaxIdaField
             // 
+            this.esperandoMaxIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMaxIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMaxIdaField.Depth = 0;
             this.esperandoMaxIdaField.Hint = "Cant. de personas";
             this.esperandoMaxIdaField.Location = new System.Drawing.Point(40, 227);
@@ -168,7 +186,7 @@
             this.esperandoMaxIdaField.SelectionLength = 0;
             this.esperandoMaxIdaField.SelectionStart = 0;
             this.esperandoMaxIdaField.Size = new System.Drawing.Size(126, 23);
-            this.esperandoMaxIdaField.TabIndex = 38;
+            this.esperandoMaxIdaField.TabIndex = 3;
             this.esperandoMaxIdaField.UseSystemPasswordChar = false;
             // 
             // materialDivider2
@@ -184,44 +202,20 @@
             this.materialDivider2.TabIndex = 42;
             this.materialDivider2.Text = "materialDivider2";
             // 
-            // clbIncidentes
-            // 
-            this.clbIncidentes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.clbIncidentes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.clbIncidentes.FormattingEnabled = true;
-            this.clbIncidentes.Location = new System.Drawing.Point(394, 114);
-            this.clbIncidentes.Name = "clbIncidentes";
-            this.clbIncidentes.Size = new System.Drawing.Size(379, 156);
-            this.clbIncidentes.Sorted = true;
-            this.clbIncidentes.TabIndex = 44;
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(390, 85);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(245, 19);
-            this.materialLabel4.TabIndex = 45;
-            this.materialLabel4.Text = "Incidentes existentes en el sistema";
-            // 
             // EsMantenimientoCheck
             // 
-            this.EsMantenimientoCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EsMantenimientoCheck.AutoSize = true;
+            this.EsMantenimientoCheck.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.BindingSourceEstacion, "EsEstacionDeMantenimiento", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.EsMantenimientoCheck.Depth = 0;
             this.EsMantenimientoCheck.Font = new System.Drawing.Font("Roboto", 10F);
-            this.EsMantenimientoCheck.Location = new System.Drawing.Point(348, 26);
+            this.EsMantenimientoCheck.Location = new System.Drawing.Point(348, 32);
             this.EsMantenimientoCheck.Margin = new System.Windows.Forms.Padding(0);
             this.EsMantenimientoCheck.MouseLocation = new System.Drawing.Point(-1, -1);
             this.EsMantenimientoCheck.MouseState = MaterialSkin.MouseState.HOVER;
             this.EsMantenimientoCheck.Name = "EsMantenimientoCheck";
             this.EsMantenimientoCheck.Ripple = true;
             this.EsMantenimientoCheck.Size = new System.Drawing.Size(216, 30);
-            this.EsMantenimientoCheck.TabIndex = 46;
+            this.EsMantenimientoCheck.TabIndex = 1;
             this.EsMantenimientoCheck.Text = "Es estación de mantenimiento";
             this.EsMantenimientoCheck.UseVisualStyleBackColor = true;
             // 
@@ -277,6 +271,7 @@
             // 
             // esperandoMaxVueltaField
             // 
+            this.esperandoMaxVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMaxVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMaxVueltaField.Depth = 0;
             this.esperandoMaxVueltaField.Hint = "Cant. de personas";
             this.esperandoMaxVueltaField.Location = new System.Drawing.Point(219, 227);
@@ -287,7 +282,7 @@
             this.esperandoMaxVueltaField.SelectionLength = 0;
             this.esperandoMaxVueltaField.SelectionStart = 0;
             this.esperandoMaxVueltaField.Size = new System.Drawing.Size(126, 23);
-            this.esperandoMaxVueltaField.TabIndex = 52;
+            this.esperandoMaxVueltaField.TabIndex = 5;
             this.esperandoMaxVueltaField.UseSystemPasswordChar = false;
             // 
             // materialLabel9
@@ -305,6 +300,7 @@
             // 
             // esperandoMinVueltaField
             // 
+            this.esperandoMinVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMinVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMinVueltaField.Depth = 0;
             this.esperandoMinVueltaField.Hint = "Cant. de personas";
             this.esperandoMinVueltaField.Location = new System.Drawing.Point(219, 167);
@@ -315,7 +311,7 @@
             this.esperandoMinVueltaField.SelectionLength = 0;
             this.esperandoMinVueltaField.SelectionStart = 0;
             this.esperandoMinVueltaField.Size = new System.Drawing.Size(126, 23);
-            this.esperandoMinVueltaField.TabIndex = 50;
+            this.esperandoMinVueltaField.TabIndex = 4;
             this.esperandoMinVueltaField.UseSystemPasswordChar = false;
             // 
             // materialLabel10
@@ -333,6 +329,7 @@
             // 
             // desciendenMaxVueltaField
             // 
+            this.desciendenMaxVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMaxVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMaxVueltaField.Depth = 0;
             this.desciendenMaxVueltaField.Hint = "Cant. de personas";
             this.desciendenMaxVueltaField.Location = new System.Drawing.Point(221, 415);
@@ -343,7 +340,7 @@
             this.desciendenMaxVueltaField.SelectionLength = 0;
             this.desciendenMaxVueltaField.SelectionStart = 0;
             this.desciendenMaxVueltaField.Size = new System.Drawing.Size(126, 23);
-            this.desciendenMaxVueltaField.TabIndex = 64;
+            this.desciendenMaxVueltaField.TabIndex = 9;
             this.desciendenMaxVueltaField.UseSystemPasswordChar = false;
             // 
             // materialLabel11
@@ -361,6 +358,7 @@
             // 
             // desciendenMinVueltaField
             // 
+            this.desciendenMinVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMinVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMinVueltaField.Depth = 0;
             this.desciendenMinVueltaField.Hint = "Cant. de personas";
             this.desciendenMinVueltaField.Location = new System.Drawing.Point(221, 355);
@@ -371,7 +369,7 @@
             this.desciendenMinVueltaField.SelectionLength = 0;
             this.desciendenMinVueltaField.SelectionStart = 0;
             this.desciendenMinVueltaField.Size = new System.Drawing.Size(126, 23);
-            this.desciendenMinVueltaField.TabIndex = 62;
+            this.desciendenMinVueltaField.TabIndex = 8;
             this.desciendenMinVueltaField.UseSystemPasswordChar = false;
             // 
             // materialDivider4
@@ -426,6 +424,7 @@
             // 
             // desciendenMaxIdaField
             // 
+            this.desciendenMaxIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMaxIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMaxIdaField.Depth = 0;
             this.desciendenMaxIdaField.Hint = "Cant. de personas";
             this.desciendenMaxIdaField.Location = new System.Drawing.Point(42, 415);
@@ -436,7 +435,7 @@
             this.desciendenMaxIdaField.SelectionLength = 0;
             this.desciendenMaxIdaField.SelectionStart = 0;
             this.desciendenMaxIdaField.Size = new System.Drawing.Size(126, 23);
-            this.desciendenMaxIdaField.TabIndex = 57;
+            this.desciendenMaxIdaField.TabIndex = 7;
             this.desciendenMaxIdaField.UseSystemPasswordChar = false;
             // 
             // materialLabel15
@@ -467,6 +466,7 @@
             // 
             // desciendenMinIdaField
             // 
+            this.desciendenMinIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMinIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMinIdaField.Depth = 0;
             this.desciendenMinIdaField.Hint = "Cant. de personas";
             this.desciendenMinIdaField.Location = new System.Drawing.Point(42, 355);
@@ -477,14 +477,108 @@
             this.desciendenMinIdaField.SelectionLength = 0;
             this.desciendenMinIdaField.SelectionStart = 0;
             this.desciendenMinIdaField.Size = new System.Drawing.Size(126, 23);
-            this.desciendenMinIdaField.TabIndex = 54;
+            this.desciendenMinIdaField.TabIndex = 6;
             this.desciendenMinIdaField.UseSystemPasswordChar = false;
+            // 
+            // ListBoxAsignados
+            // 
+            this.ListBoxAsignados.DataSource = this.BindingSourceIncidentesAsignados;
+            this.ListBoxAsignados.DisplayMember = "Valor";
+            this.ListBoxAsignados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListBoxAsignados.FormattingEnabled = true;
+            this.ListBoxAsignados.ItemHeight = 18;
+            this.ListBoxAsignados.Location = new System.Drawing.Point(711, 107);
+            this.ListBoxAsignados.Name = "ListBoxAsignados";
+            this.ListBoxAsignados.Size = new System.Drawing.Size(241, 202);
+            this.ListBoxAsignados.TabIndex = 71;
+            this.ListBoxAsignados.ValueMember = "Clave";
+            // 
+            // BindingSourceIncidentesAsignados
+            // 
+            this.BindingSourceIncidentesAsignados.DataSource = typeof(SimuRails.KeyValue);
+            // 
+            // ButtonDesasignar
+            // 
+            this.ButtonDesasignar.Depth = 0;
+            this.ButtonDesasignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonDesasignar.Location = new System.Drawing.Point(641, 217);
+            this.ButtonDesasignar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonDesasignar.Name = "ButtonDesasignar";
+            this.ButtonDesasignar.Primary = true;
+            this.ButtonDesasignar.Size = new System.Drawing.Size(62, 23);
+            this.ButtonDesasignar.TabIndex = 67;
+            this.ButtonDesasignar.Text = "<";
+            this.ButtonDesasignar.UseVisualStyleBackColor = true;
+            this.ButtonDesasignar.Click += new System.EventHandler(this.ButtonDesasignar_Click);
+            // 
+            // ButtonAsignar
+            // 
+            this.ButtonAsignar.Depth = 0;
+            this.ButtonAsignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAsignar.Location = new System.Drawing.Point(641, 161);
+            this.ButtonAsignar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ButtonAsignar.Name = "ButtonAsignar";
+            this.ButtonAsignar.Primary = true;
+            this.ButtonAsignar.Size = new System.Drawing.Size(62, 23);
+            this.ButtonAsignar.TabIndex = 66;
+            this.ButtonAsignar.Text = ">";
+            this.ButtonAsignar.UseVisualStyleBackColor = true;
+            this.ButtonAsignar.Click += new System.EventHandler(this.ButtonAsignar_Click);
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel4.Location = new System.Drawing.Point(707, 85);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(153, 19);
+            this.materialLabel4.TabIndex = 70;
+            this.materialLabel4.Text = "Incidentes Asignados";
+            // 
+            // materialLabel17
+            // 
+            this.materialLabel17.AutoSize = true;
+            this.materialLabel17.Depth = 0;
+            this.materialLabel17.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel17.Location = new System.Drawing.Point(390, 85);
+            this.materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel17.Name = "materialLabel17";
+            this.materialLabel17.Size = new System.Drawing.Size(161, 19);
+            this.materialLabel17.TabIndex = 69;
+            this.materialLabel17.Text = "Incidentes Disponibles";
+            // 
+            // listBox1
+            // 
+            this.listBox1.DataSource = this.BindingSourceIncidentesDisponibles;
+            this.listBox1.DisplayMember = "Nombre";
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 18;
+            this.listBox1.Location = new System.Drawing.Point(394, 107);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(241, 202);
+            this.listBox1.TabIndex = 68;
+            this.listBox1.ValueMember = "Id";
+            // 
+            // BindingSourceIncidentesDisponibles
+            // 
+            this.BindingSourceIncidentesDisponibles.DataSource = typeof(SimuRails.Models.Incidente);
             // 
             // EstacionAttrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.ListBoxAsignados);
+            this.Controls.Add(this.ButtonDesasignar);
+            this.Controls.Add(this.ButtonAsignar);
+            this.Controls.Add(this.materialLabel4);
+            this.Controls.Add(this.materialLabel17);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.desciendenMaxVueltaField);
             this.Controls.Add(this.materialLabel11);
@@ -505,8 +599,6 @@
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.EsMantenimientoCheck);
-            this.Controls.Add(this.materialLabel4);
-            this.Controls.Add(this.clbIncidentes);
             this.Controls.Add(this.materialDivider2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.esperandoMaxIdaField);
@@ -518,6 +610,9 @@
             this.Controls.Add(this.nombreField);
             this.Name = "EstacionAttrs";
             this.Size = new System.Drawing.Size(957, 482);
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceEstacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesAsignados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesDisponibles)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -534,8 +629,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField esperandoMaxIdaField;
         private MaterialSkin.Controls.MaterialDivider materialDivider2;
-        private System.Windows.Forms.CheckedListBox clbIncidentes;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialCheckBox EsMantenimientoCheck;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
@@ -556,5 +649,14 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel15;
         private MaterialSkin.Controls.MaterialLabel materialLabel16;
         private MaterialSkin.Controls.MaterialSingleLineTextField desciendenMinIdaField;
+        private System.Windows.Forms.BindingSource BindingSourceEstacion;
+        private System.Windows.Forms.ListBox ListBoxAsignados;
+        private MaterialSkin.Controls.MaterialRaisedButton ButtonDesasignar;
+        private MaterialSkin.Controls.MaterialRaisedButton ButtonAsignar;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel17;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.BindingSource BindingSourceIncidentesDisponibles;
+        private System.Windows.Forms.BindingSource BindingSourceIncidentesAsignados;
     }
 }

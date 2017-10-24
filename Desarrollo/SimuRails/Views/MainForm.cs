@@ -1,9 +1,6 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
-using SimuRails.Views;
 using SimuRails.Views.Abms;
-using SimuRails.Views.Abms.IncidenteAbm;
-using SimuRails.Views.Abms.EstacionAbm;
 using System.Windows.Forms;
 
 namespace SimuRails.Views
@@ -23,11 +20,13 @@ namespace SimuRails.Views
         private void MainForm_Load(object sender, System.EventArgs e)
         {
             // Embeber formularios en los tabs respectivos
-            embedForm(new Simulacion(this, tabSimulacion), tabSimulacion);
+            // embedForm(new SimulacionList(this, tabSimulacion), tabSimulacion);
+            embedForm(new SimulacionesListForm(this, tabSimulacion), tabSimulacion);
             embedForm(new ServiciosListForm(), tabServicios);
             embedForm(new EstacionesListForm(this, tabEstaciones), tabEstaciones);
             embedForm(new CochesListForm(this, tabCoches), tabCoches);
             embedForm(new IncidentesListForm(this, tabIncidentes), tabIncidentes);
+            embedForm(new TrazasListForm(this, tabTrazas), tabTrazas);
         }
         
         public void embedForm(Form form, TabPage tabPage)

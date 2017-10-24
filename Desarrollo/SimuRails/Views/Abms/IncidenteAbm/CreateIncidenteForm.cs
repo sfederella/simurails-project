@@ -3,7 +3,7 @@ using SimuRails.Views.Components.Attrs;
 using System;
 using System.Windows.Forms;
 
-namespace SimuRails.Views.Abms.IncidenteAbm
+namespace SimuRails.Views.Abms
 {
     public partial class CreateIncidenteForm : Form
     {
@@ -37,11 +37,6 @@ namespace SimuRails.Views.Abms.IncidenteAbm
         {
             this.Close();
             listForm.Visible = true;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void materialRaisedButton2_Click(object sender, EventArgs e)

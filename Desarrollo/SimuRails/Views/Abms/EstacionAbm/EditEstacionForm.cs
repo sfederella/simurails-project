@@ -4,7 +4,7 @@ using SimuRails.Views.Components.Attrs;
 using System;
 using System.Windows.Forms;
 
-namespace SimuRails.Views.Abms.EstacionAbm
+namespace SimuRails.Views.Abms
 {
     public partial class EditEstacionForm : Form
     {

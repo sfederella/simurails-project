@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimuRails.Models;
 
@@ -13,27 +6,37 @@ namespace SimuRails.Views.Components
 {
     public partial class RenglonDeTraza : UserControl
     {
-        public event EventHandler Selected;
+        private int id;
+        public delegate void Del(int id);
+        private Del handleEdit;
+        private Del handleRemove;
 
-        public RenglonDeTraza(Traza traza)
+        public int Id { get; set; }
+
+        public RenglonDeTraza(Traza traza, Del handleEdit, Del handleRemove)
         {
             InitializeComponent();
-            this.materialLabel1.Text = traza.Nombre;
+            this.nombreLbl.Text = traza.Nombre;
+            //this.cantServiciosLbl.Text = traza.Servicios.Count.ToString();
+            this.id = traza.Id;
+            this.handleEdit = handleEdit;
+            this.handleRemove = handleRemove;
         }
 
-        private void materialRadioButton1_CheckedChanged(object sender, EventArgs e)
+        private void materialFlatButton2_Click(object sender, EventArgs e)
         {
-            EventHandler handler = Selected;
-
-            if (handler != null && radioButton.Checked)
+            if(this.handleEdit != null)
             {
-                handler(this, EventArgs.Empty);
+                handleEdit(id);
             }
         }
 
-        public void deseleccionar()
+        private void materialFlatButton1_Click(object sender, EventArgs e)
         {
-            radioButton.Checked = false;
+            if (this.handleRemove != null)
+            {
+                handleRemove(id);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace SimuRails.Views.Abms.IncidenteAbm
+﻿namespace SimuRails.Views.Abms
 {
     partial class IncidentesListForm
     {
