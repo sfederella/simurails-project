@@ -29,6 +29,8 @@ namespace SimuRails.Models
         public virtual Estacion Desde { get; set; }
         public virtual Estacion Hasta { get; set; }
         public virtual SortedSet<Formacion> Formaciones { get; set; }
+        public virtual Int32 AcumDiasIda { get; set; }
+        public virtual Int32 AcumDiasVuelta { get; set; }
 
         public virtual void Inicializar()
         {
@@ -38,8 +40,8 @@ namespace SimuRails.Models
             Hasta = Tramos[Tramos.Count - 1].EstacionDestino;
             Hasta.EsEstacionTerminal = true;
 
-            int count = 0; 
-            foreach (KeyValuePair<Formacion,int> kvp in TiposFormacion)
+            int count = 0;
+            foreach (KeyValuePair<Formacion, int> kvp in TiposFormacion)
             {
                 for (int i = 0; i < kvp.Value; i++)
                 {
@@ -58,7 +60,7 @@ namespace SimuRails.Models
                         formacion.SentidoActual = Sentido.IDA;
                         formacion.EstacionActual = Desde;
                         formacion.EstacionDestino = Hasta;
-                    } 
+                    }
                     else
                     {
                         formacion.SentidoActual = Sentido.VUELTA;
@@ -69,7 +71,7 @@ namespace SimuRails.Models
                     count++;
                 }
             }
-            
+
         }
 
         public virtual Tramo GetTramo(Estacion estacionActual, Sentido sentido)
@@ -96,7 +98,7 @@ namespace SimuRails.Models
 
         public virtual void MarcarProgramacion(int programacionCorrespondiente, IDictionary<int, bool> programaciones)
         {
-            if(programacionCorrespondiente != int.MinValue)
+            if (programacionCorrespondiente != int.MinValue)
             {
                 if (programaciones.ContainsKey(programacionCorrespondiente))
                 {
@@ -119,8 +121,6 @@ namespace SimuRails.Models
 
         public virtual Formacion GetProximaFormacion(int t)
         {
-            int acumDias = (t / 1440) * 1440;
-
             Formacion formacionMinHoraSalida = null;
             int minHoraProgramada = int.MinValue;
             int auxHoraProgramada;
@@ -131,14 +131,7 @@ namespace SimuRails.Models
                     formacionMinHoraSalida = formacion;
                     if (formacion.EstacionActual.EsEstacionTerminal)
                     {
-                        if (formacion.SentidoActual == Formacion.Sentido.IDA)
-                        {
-                            minHoraProgramada = GetProximaProgramacion(ProgramacionIda);
-                        }
-                        else
-                        {
-                            minHoraProgramada = GetProximaProgramacion(ProgramacionVuelta);
-                        }
+                        minHoraProgramada = GetProximaProgramacion(formacion.SentidoActual);
                     }
                     else
                     {
@@ -147,18 +140,11 @@ namespace SimuRails.Models
                 }
                 else
                 {
-                    if (formacion.HoraSalida < (minHoraProgramada + acumDias))
+                    if (formacion.HoraSalida < (minHoraProgramada))
                     {
                         if (formacion.EstacionActual.EsEstacionTerminal)
                         {
-                            if (formacion.SentidoActual == Formacion.Sentido.IDA)
-                            {
-                                auxHoraProgramada = GetProximaProgramacion(ProgramacionIda);
-                            }
-                            else
-                            {
-                                auxHoraProgramada = GetProximaProgramacion(ProgramacionVuelta);
-                            }
+                            auxHoraProgramada = GetProximaProgramacion(formacion.SentidoActual);
 
                             if (auxHoraProgramada < minHoraProgramada)
                             {
@@ -176,34 +162,41 @@ namespace SimuRails.Models
                     else
                     {
                         break;
-                    }      
+                    }
                 }
 
-                if (formacionMinHoraSalida.HoraSalida > (minHoraProgramada + acumDias)) break;
+                if (formacionMinHoraSalida.HoraSalida > (minHoraProgramada)) break;
             }
 
             if (formacionMinHoraSalida.EstacionActual.EsEstacionTerminal)
             {
-                if ((minHoraProgramada + acumDias) > formacionMinHoraSalida.HoraSalida)
+                if ((minHoraProgramada) > formacionMinHoraSalida.HoraSalida)
                 {
-                    formacionMinHoraSalida.HoraPosibleSalida = minHoraProgramada + acumDias;
+
+                    formacionMinHoraSalida.HoraPosibleSalida = minHoraProgramada;
+                }
+                else
+                {
+                    formacionMinHoraSalida.HoraPosibleSalida = formacionMinHoraSalida.HoraSalida;
                 }
 
-                formacionMinHoraSalida.ProgramacionCorrespondiente = (minHoraProgramada < 1440) ? minHoraProgramada : minHoraProgramada - 1440;
+                formacionMinHoraSalida.ProgramacionCorrespondiente = minHoraProgramada % 1440;
             }
             else
             {
+                formacionMinHoraSalida.HoraPosibleSalida = formacionMinHoraSalida.HoraSalida;
                 formacionMinHoraSalida.ProgramacionCorrespondiente = int.MinValue;
             }
-            
+
             return formacionMinHoraSalida;
         }
 
-        private int GetProximaProgramacion(IDictionary<int, bool> Programacion)
+        private int GetProximaProgramacion(Sentido sentido)
         {
+            IDictionary<int, bool> programacion = sentido == Sentido.IDA ? ProgramacionIda : ProgramacionVuelta;
             int minHoraProgramada = int.MinValue;
 
-            foreach (KeyValuePair<int, bool> kvp in Programacion)
+            foreach (KeyValuePair<int, bool> kvp in programacion)
             {
                 if (!kvp.Value)
                 {
@@ -214,11 +207,19 @@ namespace SimuRails.Models
 
             if (minHoraProgramada == int.MinValue)
             {
-                LimpiarProgramacion(Programacion);
-                minHoraProgramada = Programacion.Keys.First() + 1440;
+                LimpiarProgramacion(programacion);
+                minHoraProgramada = programacion.Keys.First();
+                if (sentido == Sentido.IDA)
+                {
+                    AcumDiasIda++;
+                }
+                else
+                {
+                    AcumDiasVuelta++;
+                }
             }
 
-            return minHoraProgramada;
+            return minHoraProgramada + (sentido == Sentido.IDA ? AcumDiasIda : AcumDiasVuelta) * 1440;
         }
 
     }
