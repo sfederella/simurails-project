@@ -110,7 +110,7 @@
             this.mainMaterialTabControl.Name = "mainMaterialTabControl";
             this.mainMaterialTabControl.Padding = new System.Drawing.Point(0, 0);
             this.mainMaterialTabControl.SelectedIndex = 0;
-            this.mainMaterialTabControl.Size = new System.Drawing.Size(1169, 759);
+            this.mainMaterialTabControl.Size = new System.Drawing.Size(1169, 684);
             this.mainMaterialTabControl.TabIndex = 2;
             // 
             // tabSimulacion
@@ -119,16 +119,17 @@
             this.tabSimulacion.Location = new System.Drawing.Point(4, 22);
             this.tabSimulacion.Name = "tabSimulacion";
             this.tabSimulacion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSimulacion.Size = new System.Drawing.Size(1161, 733);
+            this.tabSimulacion.Size = new System.Drawing.Size(1161, 658);
             this.tabSimulacion.TabIndex = 0;
             this.tabSimulacion.Text = "Simulación";
+            this.tabSimulacion.Click += new System.EventHandler(this.tabSimulacion_Click);
             // 
             // tabCompartir
             // 
             this.tabCompartir.Location = new System.Drawing.Point(4, 22);
             this.tabCompartir.Name = "tabCompartir";
             this.tabCompartir.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCompartir.Size = new System.Drawing.Size(1091, 418);
+            this.tabCompartir.Size = new System.Drawing.Size(1161, 733);
             this.tabCompartir.TabIndex = 1;
             this.tabCompartir.Text = "Compartir";
             this.tabCompartir.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@
             // 
             this.tabTrazas.Location = new System.Drawing.Point(4, 22);
             this.tabTrazas.Name = "tabTrazas";
-            this.tabTrazas.Size = new System.Drawing.Size(1091, 418);
+            this.tabTrazas.Size = new System.Drawing.Size(1161, 733);
             this.tabTrazas.TabIndex = 2;
             this.tabTrazas.Text = "Trazas";
             this.tabTrazas.UseVisualStyleBackColor = true;
@@ -146,7 +147,7 @@
             // 
             this.tabServicios.Location = new System.Drawing.Point(4, 22);
             this.tabServicios.Name = "tabServicios";
-            this.tabServicios.Size = new System.Drawing.Size(1091, 418);
+            this.tabServicios.Size = new System.Drawing.Size(1161, 733);
             this.tabServicios.TabIndex = 3;
             this.tabServicios.Text = "Servicios";
             this.tabServicios.UseVisualStyleBackColor = true;
@@ -155,7 +156,7 @@
             // 
             this.tabFormaciones.Location = new System.Drawing.Point(4, 22);
             this.tabFormaciones.Name = "tabFormaciones";
-            this.tabFormaciones.Size = new System.Drawing.Size(1091, 418);
+            this.tabFormaciones.Size = new System.Drawing.Size(1161, 733);
             this.tabFormaciones.TabIndex = 4;
             this.tabFormaciones.Text = "Formaciones";
             this.tabFormaciones.UseVisualStyleBackColor = true;
@@ -164,7 +165,7 @@
             // 
             this.tabCoches.Location = new System.Drawing.Point(4, 22);
             this.tabCoches.Name = "tabCoches";
-            this.tabCoches.Size = new System.Drawing.Size(1091, 418);
+            this.tabCoches.Size = new System.Drawing.Size(1161, 733);
             this.tabCoches.TabIndex = 5;
             this.tabCoches.Text = "Coches";
             this.tabCoches.UseVisualStyleBackColor = true;
@@ -173,7 +174,7 @@
             // 
             this.tabEstaciones.Location = new System.Drawing.Point(4, 22);
             this.tabEstaciones.Name = "tabEstaciones";
-            this.tabEstaciones.Size = new System.Drawing.Size(1091, 418);
+            this.tabEstaciones.Size = new System.Drawing.Size(1161, 733);
             this.tabEstaciones.TabIndex = 6;
             this.tabEstaciones.Text = "Estaciones";
             this.tabEstaciones.UseVisualStyleBackColor = true;
@@ -182,7 +183,7 @@
             // 
             this.tabIncidentes.Location = new System.Drawing.Point(4, 22);
             this.tabIncidentes.Name = "tabIncidentes";
-            this.tabIncidentes.Size = new System.Drawing.Size(1091, 418);
+            this.tabIncidentes.Size = new System.Drawing.Size(1161, 733);
             this.tabIncidentes.TabIndex = 7;
             this.tabIncidentes.Text = "Incidentes";
             this.tabIncidentes.UseVisualStyleBackColor = true;
@@ -205,7 +206,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1163, 855);
+            this.ClientSize = new System.Drawing.Size(1163, 780);
             this.ContextMenuStrip = this.materialContextMenuStrip1;
             this.Controls.Add(this.mainMaterialTabSelector);
             this.Controls.Add(this.materialTabSelector1);

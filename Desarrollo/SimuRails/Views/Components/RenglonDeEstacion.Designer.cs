@@ -47,6 +47,7 @@
             this.EsMantenimientoLbl.Size = new System.Drawing.Size(108, 19);
             this.EsMantenimientoLbl.TabIndex = 24;
             this.EsMantenimientoLbl.Text = "materialLabel3";
+            this.EsMantenimientoLbl.Click += new System.EventHandler(this.EsMantenimientoLbl_Click);
             // 
             // nombreLbl
             // 
@@ -60,6 +61,7 @@
             this.nombreLbl.Size = new System.Drawing.Size(108, 19);
             this.nombreLbl.TabIndex = 22;
             this.nombreLbl.Text = "materialLabel1";
+            this.nombreLbl.Click += new System.EventHandler(this.nombreLbl_Click);
             // 
             // materialDivider1
             // 
@@ -73,6 +75,7 @@
             this.materialDivider1.Size = new System.Drawing.Size(885, 2);
             this.materialDivider1.TabIndex = 21;
             this.materialDivider1.Text = "materialDivider1";
+            this.materialDivider1.Click += new System.EventHandler(this.materialDivider1_Click);
             // 
             // materialFlatButton2
             // 

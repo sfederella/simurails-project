@@ -34,7 +34,7 @@ namespace SimuRails.Views.Components.Attrs
         #region " Incidentes "
         private void BindIncidentes()
         {
-            ListBoxAsignados.DataSource = GetLstTrazasAsignadas();
+            BindingSourceIncidentesAsignados.DataSource = GetLstTrazasAsignadas();
             BindingSourceEstacion.SuspendBinding();
             List<Incidente> lst = new List<Incidente>();
             foreach (Incidente incidente in repositorioIncidentes.Listar<Incidente>())
