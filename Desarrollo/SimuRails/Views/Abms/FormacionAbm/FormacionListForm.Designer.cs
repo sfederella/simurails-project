@@ -31,6 +31,7 @@
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label1 = new System.Windows.Forms.Label();
             this.listPanel = new System.Windows.Forms.Panel();
+            this.formacionesList = new SimuRails.Views.Components.MaterialList();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.seleccion = new MaterialSkin.Controls.MaterialLabel();
@@ -67,13 +68,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listPanel.AutoSize = true;
+            this.listPanel.Controls.Add(this.formacionesList);
             this.listPanel.Controls.Add(this.materialLabel2);
             this.listPanel.Controls.Add(this.materialLabel1);
             this.listPanel.Controls.Add(this.seleccion);
             this.listPanel.Location = new System.Drawing.Point(70, 64);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(914, 361);
+            this.listPanel.Size = new System.Drawing.Size(914, 362);
             this.listPanel.TabIndex = 23;
+            // 
+            // formacionesList
+            // 
+            this.formacionesList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.formacionesList.BackColor = System.Drawing.SystemColors.Window;
+            this.formacionesList.Location = new System.Drawing.Point(3, 22);
+            this.formacionesList.Name = "formacionesList";
+            this.formacionesList.Size = new System.Drawing.Size(903, 337);
+            this.formacionesList.TabIndex = 14;
             // 
             // materialLabel2
             // 
@@ -141,5 +154,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel seleccion;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private Components.MaterialList formacionesList;
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="Mappings\SimulacionCM.cs" />
     <Compile Include="Mappings\TramoCM.cs" />
     <Compile Include="Mappings\TrazaCM.cs" />
+    <Compile Include="Models\AgrupacionCoche.cs" />
     <Compile Include="Models\Coche.cs" />
     <Compile Include="Models\ComposicionDeCoches.cs" />
     <Compile Include="Models\Estacion.cs" />
@@ -233,6 +234,18 @@
     <Compile Include="Views\Components\Attrs\CocheAttrs.Designer.cs">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Components\MaterialList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\MaterialList.Designer.cs">
+      <DependentUpon>MaterialList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeAgrupacionCoche.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeAgrupacionCoche.Designer.cs">
+      <DependentUpon>RenglonDeAgrupacionCoche.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\RenglonDeFormacion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -385,6 +398,12 @@
     <EmbeddedResource Include="Views\Components\Attrs\CocheAttrs.resx">
       <DependentUpon>CocheAttrs.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\MaterialList.resx">
+      <DependentUpon>MaterialList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeAgrupacionCoche.resx">
+      <DependentUpon>RenglonDeAgrupacionCoche.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeFormacion.resx">
       <DependentUpon>RenglonDeFormacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,6 +448,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\KeyValue.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.AgrupacionCoche.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Coche.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Estacion.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Formacion.datasource" />

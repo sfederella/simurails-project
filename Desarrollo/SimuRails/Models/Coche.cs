@@ -26,5 +26,11 @@ namespace SimuRails.Models
         public virtual int CantidadAsientos { get; set; }
         public virtual int MaximoLegalPasajeros { get; set; }
         public virtual int CapacidadMaximaPasajeros { get; set; }
+
+
+        public override string ToString()
+        {
+            return Modelo;
+        }
     }
 }

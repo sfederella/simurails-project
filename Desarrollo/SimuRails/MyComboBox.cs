@@ -24,11 +24,11 @@ namespace SimuRails.Report
         }
         private void MyComboBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (this.SelectedIndex == -1)
+            /*if (this.SelectedIndex == -1)
             {
                 e.Cancel = true;
-                this.SelectedIndex = 0;
-            }
+                //this.SelectedIndex = 0;
+            }*/
         }
 
 
