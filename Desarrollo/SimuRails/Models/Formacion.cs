@@ -318,6 +318,11 @@ namespace SimuRails.Models
                 Servicio.MarcarProgramacion(ProgramacionCorrespondiente, Servicio.ProgramacionVuelta);
             }
         }
+
+        public override string ToString()
+        {
+            return this.Nombre;
+        }
     }
 
 }

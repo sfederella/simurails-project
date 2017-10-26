@@ -47,6 +47,7 @@
     <Compile Include="Mappings\TramoCM.cs" />
     <Compile Include="Mappings\TrazaCM.cs" />
     <Compile Include="Models\AgrupacionCoche.cs" />
+    <Compile Include="Models\AgrupacionFormacion.cs" />
     <Compile Include="Models\Coche.cs" />
     <Compile Include="Models\ComposicionDeCoches.cs" />
     <Compile Include="Models\Estacion.cs" />
@@ -246,6 +247,12 @@
     <Compile Include="Views\Components\RenglonDeAgrupacionCoche.Designer.cs">
       <DependentUpon>RenglonDeAgrupacionCoche.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Components\RenglonDeAgrupacionFormacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeAgrupacionFormacion.Designer.cs">
+      <DependentUpon>RenglonDeAgrupacionFormacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\RenglonDeFormacion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -263,6 +270,12 @@
     </Compile>
     <Compile Include="Views\Components\RenglonDeServicio.Designer.cs">
       <DependentUpon>RenglonDeServicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeTramo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Components\RenglonDeTramo.Designer.cs">
+      <DependentUpon>RenglonDeTramo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Components\RenglonDeTraza.cs">
       <SubType>UserControl</SubType>
@@ -404,6 +417,9 @@
     <EmbeddedResource Include="Views\Components\RenglonDeAgrupacionCoche.resx">
       <DependentUpon>RenglonDeAgrupacionCoche.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeAgrupacionFormacion.resx">
+      <DependentUpon>RenglonDeAgrupacionFormacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeFormacion.resx">
       <DependentUpon>RenglonDeFormacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -412,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeServicio.resx">
       <DependentUpon>RenglonDeServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Components\RenglonDeTramo.resx">
+      <DependentUpon>RenglonDeTramo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Components\RenglonDeTraza.resx">
       <DependentUpon>RenglonDeTraza.cs</DependentUpon>
@@ -449,12 +468,14 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\KeyValue.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.AgrupacionCoche.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.AgrupacionFormacion.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Coche.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Estacion.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Formacion.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Incidente.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Servicio.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Simulacion.datasource" />
+    <None Include="Properties\DataSources\SimuRails.Models.Tramo.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.Traza.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

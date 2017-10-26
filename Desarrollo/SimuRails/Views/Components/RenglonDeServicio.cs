@@ -17,6 +17,8 @@ namespace SimuRails.Views.Components
         {
             InitializeComponent();
             this.nombreLbl.Text = servicio.Nombre;
+            this.origenLbl.Text = servicio.Tramos[0].EstacionOrigen.ToString();
+            this.destinoLbl.Text = servicio.Tramos[servicio.Tramos.Count - 1].EstacionDestino.ToString();
             this.id = servicio.Id;
             this.handleEdit = handleEdit;
             this.handleRemove = handleRemove;

@@ -147,5 +147,9 @@ namespace SimuRails.Models
             return Id == estacion.Id;
         }
 
+        public override string ToString()
+        {
+            return this.Nombre;
+        }
     }
 }

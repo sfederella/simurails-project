@@ -1,6 +1,6 @@
 ﻿namespace SimuRails.Views.Components
 {
-    partial class RenglonDeAgrupacionCoche
+    partial class RenglonDeAgrupacionFormacion
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -30,7 +30,7 @@
         {
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.cantidadLbl = new MaterialSkin.Controls.MaterialLabel();
-            this.modeloLbl = new MaterialSkin.Controls.MaterialLabel();
+            this.nombreLbl = new MaterialSkin.Controls.MaterialLabel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.materialFlatButton1.Name = "materialFlatButton1";
             this.materialFlatButton1.Primary = false;
             this.materialFlatButton1.Size = new System.Drawing.Size(65, 36);
-            this.materialFlatButton1.TabIndex = 30;
+            this.materialFlatButton1.TabIndex = 34;
             this.materialFlatButton1.Text = "Borrar";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
@@ -57,27 +57,27 @@
             this.cantidadLbl.Depth = 0;
             this.cantidadLbl.Font = new System.Drawing.Font("Roboto", 11F);
             this.cantidadLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.cantidadLbl.Location = new System.Drawing.Point(281, 18);
+            this.cantidadLbl.Location = new System.Drawing.Point(243, 18);
             this.cantidadLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.cantidadLbl.Name = "cantidadLbl";
             this.cantidadLbl.Size = new System.Drawing.Size(108, 19);
-            this.cantidadLbl.TabIndex = 29;
+            this.cantidadLbl.TabIndex = 33;
             this.cantidadLbl.Text = "materialLabel3";
             this.cantidadLbl.Click += new System.EventHandler(this.cantidadLbl_Click);
             // 
-            // modeloLbl
+            // nombreLbl
             // 
-            this.modeloLbl.AutoSize = true;
-            this.modeloLbl.Depth = 0;
-            this.modeloLbl.Font = new System.Drawing.Font("Roboto", 11F);
-            this.modeloLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.modeloLbl.Location = new System.Drawing.Point(17, 18);
-            this.modeloLbl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.modeloLbl.Name = "modeloLbl";
-            this.modeloLbl.Size = new System.Drawing.Size(108, 19);
-            this.modeloLbl.TabIndex = 28;
-            this.modeloLbl.Text = "materialLabel1";
-            this.modeloLbl.Click += new System.EventHandler(this.modeloLbl_Click);
+            this.nombreLbl.AutoSize = true;
+            this.nombreLbl.Depth = 0;
+            this.nombreLbl.Font = new System.Drawing.Font("Roboto", 11F);
+            this.nombreLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.nombreLbl.Location = new System.Drawing.Point(17, 18);
+            this.nombreLbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.nombreLbl.Name = "nombreLbl";
+            this.nombreLbl.Size = new System.Drawing.Size(108, 19);
+            this.nombreLbl.TabIndex = 32;
+            this.nombreLbl.Text = "materialLabel1";
+            this.nombreLbl.Click += new System.EventHandler(this.nombreLbl_Click);
             // 
             // materialDivider1
             // 
@@ -89,19 +89,19 @@
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
             this.materialDivider1.Size = new System.Drawing.Size(673, 2);
-            this.materialDivider1.TabIndex = 27;
+            this.materialDivider1.TabIndex = 31;
             this.materialDivider1.Text = "materialDivider1";
             this.materialDivider1.Click += new System.EventHandler(this.materialDivider1_Click);
             // 
-            // RenglonDeAgrupacionCoche
+            // RenglonDeAgrupacionFormacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.cantidadLbl);
-            this.Controls.Add(this.modeloLbl);
+            this.Controls.Add(this.nombreLbl);
             this.Controls.Add(this.materialDivider1);
-            this.Name = "RenglonDeAgrupacionCoche";
+            this.Name = "RenglonDeAgrupacionFormacion";
             this.Size = new System.Drawing.Size(672, 47);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -112,7 +112,7 @@
 
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
         private MaterialSkin.Controls.MaterialLabel cantidadLbl;
-        private MaterialSkin.Controls.MaterialLabel modeloLbl;
+        private MaterialSkin.Controls.MaterialLabel nombreLbl;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
     }
 }

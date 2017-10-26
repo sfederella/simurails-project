@@ -11,18 +11,23 @@ using SimuRails.Models;
 
 namespace SimuRails.Views.Components
 {
-    public partial class RenglonDeAgrupacionCoche : UserControl
+    public partial class RenglonDeAgrupacionFormacion : UserControl
     {
-        public delegate void DelAgrupacion(AgrupacionCoche agrupacion);
-        private DelAgrupacion handleRemove;
+        public RenglonDeAgrupacionFormacion()
+        {
+            InitializeComponent();
+        }
 
-        public AgrupacionCoche Agrupacion{ get; set; }
+        public delegate void DelAgrupacionFormacion(AgrupacionFormacion agrupacion);
+        private DelAgrupacionFormacion handleRemove;
 
-        public RenglonDeAgrupacionCoche(AgrupacionCoche agrupacion, DelAgrupacion handleRemove)
+        public AgrupacionFormacion Agrupacion { get; set; }
+
+        public RenglonDeAgrupacionFormacion(AgrupacionFormacion agrupacion, DelAgrupacionFormacion handleRemove)
         {
             InitializeComponent();
             this.Agrupacion = agrupacion;
-            this.modeloLbl.Text = agrupacion.Coche.Modelo;
+            this.nombreLbl.Text = agrupacion.Formacion.Nombre;
             this.cantidadLbl.Text = agrupacion.Cantidad.ToString();
             this.handleRemove = handleRemove;
         }
@@ -45,7 +50,7 @@ namespace SimuRails.Views.Components
 
         }
 
-        private void modeloLbl_Click(object sender, EventArgs e)
+        private void nombreLbl_Click(object sender, EventArgs e)
         {
 
         }
