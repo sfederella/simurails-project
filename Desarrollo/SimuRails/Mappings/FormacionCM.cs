@@ -19,6 +19,7 @@ namespace SimuRails.Mappings
                 {
                     mapping.Table("Dict");
                     mapping.Key(k => k.Column("FormacionId"));
+                    mapping.Lazy(CollectionLazy.NoLazy);
                 },
                 mapkey =>
                 {

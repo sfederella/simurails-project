@@ -32,6 +32,8 @@
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.origenLbl = new MaterialSkin.Controls.MaterialLabel();
+            this.destinoLbl = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // nombreLbl
@@ -94,10 +96,38 @@
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
+            // origenLbl
+            // 
+            this.origenLbl.AutoSize = true;
+            this.origenLbl.Depth = 0;
+            this.origenLbl.Font = new System.Drawing.Font("Roboto", 11F);
+            this.origenLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.origenLbl.Location = new System.Drawing.Point(241, 20);
+            this.origenLbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.origenLbl.Name = "origenLbl";
+            this.origenLbl.Size = new System.Drawing.Size(108, 19);
+            this.origenLbl.TabIndex = 28;
+            this.origenLbl.Text = "materialLabel1";
+            // 
+            // destinoLbl
+            // 
+            this.destinoLbl.AutoSize = true;
+            this.destinoLbl.Depth = 0;
+            this.destinoLbl.Font = new System.Drawing.Font("Roboto", 11F);
+            this.destinoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.destinoLbl.Location = new System.Drawing.Point(475, 20);
+            this.destinoLbl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.destinoLbl.Name = "destinoLbl";
+            this.destinoLbl.Size = new System.Drawing.Size(108, 19);
+            this.destinoLbl.TabIndex = 29;
+            this.destinoLbl.Text = "materialLabel1";
+            // 
             // RenglonDeServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.destinoLbl);
+            this.Controls.Add(this.origenLbl);
             this.Controls.Add(this.materialFlatButton2);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.nombreLbl);
@@ -114,5 +144,7 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialLabel origenLbl;
+        private MaterialSkin.Controls.MaterialLabel destinoLbl;
     }
 }

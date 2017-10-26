@@ -1,4 +1,6 @@
-﻿using SimuRails.DB;
+﻿using NHibernate;
+using NHibernate.Linq;
+using SimuRails.DB;
 using SimuRails.Models;
 using SimuRails.Views.Components;
 using System;
@@ -68,17 +70,20 @@ namespace SimuRails.Views.Abms
 
         private void dibujarRenglones()
         {
-            var servicios = repositorioServicio.Listar<Servicio>();
-
-            renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
-            for (int i = 0; i < servicios.Count; i++)
+            using (var session = NHibernateHelper.OpenSession())
             {
-                renglones.Add(this.renglonDe(servicios.ElementAt(i), i));
+                var servicios = session.Query<Servicio>().ToList();
 
-            }
-            if (servicios.Count == 0)
-            {
-                this.incluirEnLista(0, new RenglonListaVacia());
+                renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
+                for (int i = 0; i < servicios.Count; i++)
+                {
+                    renglones.Add(this.renglonDe(servicios.ElementAt(i), i));
+
+                }
+                if (servicios.Count == 0)
+                {
+                    this.incluirEnLista(0, new RenglonListaVacia());
+                }
             }
         }
 
@@ -90,14 +95,23 @@ namespace SimuRails.Views.Abms
 
         public void OnServicioEdit(int servicioId)
         {
-            Servicio servicio = findServicio(servicioId);
-            this.mainForm.embedForm(new EditServicioForm(this, repositorioServicio, servicio), tabPage);
-            this.Visible = false;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                Servicio servicio = findServicio(servicioId, session);
+                this.mainForm.embedForm(new EditServicioForm(this, repositorioServicio, servicio), tabPage);
+                this.Visible = false;
+            }
+
         }
 
         private Servicio findServicio(int servicioId)
         {
             return repositorioServicio.Obtener<Servicio>(servicioId);
+        }
+
+        private Servicio findServicio(int servicioId, ISession session)
+        {
+            return session.Get<Servicio>(servicioId);
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NHibernate;
 
 namespace SimuRails.Views.Abms.FormacionAbm
 {
@@ -23,7 +24,6 @@ namespace SimuRails.Views.Abms.FormacionAbm
 
         private MainForm mainForm;
         private TabPage tabPage;
-        private List<Control> renglones = new List<Control>();
 
         public FormacionListForm(MainForm mainForm, TabPage tabPage)
         {
@@ -54,25 +54,14 @@ namespace SimuRails.Views.Abms.FormacionAbm
             this.dibujarRenglones();
         }
 
-        private RenglonDeFormacion renglonDe(Formacion formacion, int indice)
+        private RenglonDeFormacion renglonDe(Formacion formacion)
         {
-            var renglon = new RenglonDeFormacion(formacion, this.OnformacionEdit, this.onformacionRemove);
-            this.incluirEnLista(indice, renglon);
-            return renglon;
-        }
-
-        private void incluirEnLista(int indice, Control renglon)
-        {
-            renglon.Location = new System.Drawing.Point(5, 25 + indice * 50);
-            renglon.Width = this.listPanel.Width;
-            renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
-            this.listPanel.Controls.Add(renglon);
-            renglones.Add(renglon);
+            return new RenglonDeFormacion(formacion, this.OnformacionEdit, this.onformacionRemove);
         }
 
         private void onformacionRemove(int id)
         {
-            Formacion formacion = this.findformacion(id);
+            Formacion formacion = this.findFormacion(id);
             using (var session = NHibernateHelper.OpenSession())
             using (var transaction = session.BeginTransaction())
             {
@@ -90,32 +79,26 @@ namespace SimuRails.Views.Abms.FormacionAbm
                 formaciones = session.Query<Formacion>().ToList();
             }
 
-            renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
-            for (int i = 0; i < formaciones.Count; i++)
-            {
-                renglones.Add(this.renglonDe(formaciones.ElementAt(i), i));
-
-            }
-            if (formaciones.Count == 0)
-            {
-                this.incluirEnLista(0, new RenglonListaVacia());
-            }
-        }
-
-        private void removeRenglon(Control unRenglon)
-        {
-            this.Controls.Remove(unRenglon);
-            unRenglon.Dispose();
+            var renglones = formaciones.Select(formacion => this.renglonDe(formacion)).ToList<Control>();
+            this.formacionesList.setearRenglones(renglones);
         }
 
         public void OnformacionEdit(int formacionId)
         {
-            Formacion formacion = findformacion(formacionId);
-            this.mainForm.embedForm(new EditFormacionForm(this, formacion), tabPage);
-            this.Visible = false;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                Formacion formacion = findFormacion(session, formacionId);
+                this.mainForm.embedForm(new EditFormacionForm(this, formacion), tabPage);
+                this.Visible = false;
+            }
         }
 
-        private Formacion findformacion(int formacionId)
+        private Formacion findFormacion(ISession session, int formacionId)
+        {
+            return session.Get<Formacion>(formacionId);
+        }
+
+        private Formacion findFormacion(int formacionId)
         {
             using (var session = NHibernateHelper.OpenSession())
             {
