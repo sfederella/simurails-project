@@ -14,19 +14,26 @@ namespace Tests.ModelsTests
 
         public void MockResultados()
         {
-            Mock<ResultadoEstacion> mockResultado = new Mock<ResultadoEstacion>();
-            mockResultado.Setup(x => x.CantFormaciones).Returns(FDP.Rand(0, 100));
-            mockResultado.Setup(x => x.PorcentajeOcupacion).Returns(FDP.Rand(0, 100));
-            mockResultado.Setup(x => x.PorcentajePersonasParadas).Returns(FDP.Rand(0, 100));
-            mockResultado.Setup(x => x.PorcentajeSuperaronMaxCantLegal).Returns(FDP.Rand(0, 100));
-            mockResultado.Setup(x => x.PorcentajeRegularidadAbsoluta).Returns(FDP.Rand(0, 100));
-            mockResultado.Setup(x => x.PorcentajeCumplimientoPrograma).Returns(FDP.Rand(0, 100));
-            mockResultado.Setup(x => x.PorcentajeDemoraPorIncidentes).Returns(FDP.Rand(0, 100));
-
-            foreach (Estacion estacion in Estaciones.Values)
+             foreach (Estacion estacion in Estaciones.Values)
             {
-                estacion.ResultadoIda = mockResultado.Object;
-                estacion.ResultadoVuelta = mockResultado.Object;
+                Mock<ResultadoEstacion> mockResultadoIDA = new Mock<ResultadoEstacion>();
+                mockResultadoIDA.Setup(x => x.CantFormaciones).Returns(FDP.Rand(0, 100));
+                mockResultadoIDA.Setup(x => x.PorcentajeOcupacion).Returns(FDP.Rand(0, 100));
+                mockResultadoIDA.Setup(x => x.PorcentajePersonasParadas).Returns(FDP.Rand(0, 100));
+                mockResultadoIDA.Setup(x => x.PorcentajeSuperaronMaxCantLegal).Returns(FDP.Rand(0, 100));
+                mockResultadoIDA.Setup(x => x.PorcentajeRegularidadAbsoluta).Returns(FDP.Rand(0, 100));
+                mockResultadoIDA.Setup(x => x.PorcentajeCumplimientoPrograma).Returns(FDP.Rand(0, 100));
+                mockResultadoIDA.Setup(x => x.PorcentajeDemoraPorIncidentes).Returns(FDP.Rand(0, 100));
+                estacion.ResultadoIda = mockResultadoIDA.Object;
+                Mock<ResultadoEstacion> mockResultadoVuelta = new Mock<ResultadoEstacion>();
+                mockResultadoVuelta.Setup(x => x.CantFormaciones).Returns(FDP.Rand(0, 100));
+                mockResultadoVuelta.Setup(x => x.PorcentajeOcupacion).Returns(FDP.Rand(0, 100));
+                mockResultadoVuelta.Setup(x => x.PorcentajePersonasParadas).Returns(FDP.Rand(0, 100));
+                mockResultadoVuelta.Setup(x => x.PorcentajeSuperaronMaxCantLegal).Returns(FDP.Rand(0, 100));
+                mockResultadoVuelta.Setup(x => x.PorcentajeRegularidadAbsoluta).Returns(FDP.Rand(0, 100));
+                mockResultadoVuelta.Setup(x => x.PorcentajeCumplimientoPrograma).Returns(FDP.Rand(0, 100));
+                mockResultadoVuelta.Setup(x => x.PorcentajeDemoraPorIncidentes).Returns(FDP.Rand(0, 100));
+                estacion.ResultadoVuelta = mockResultadoVuelta.Object;
             }
         }
 
