@@ -65,8 +65,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Resources\LogHelper.cs" />
+    <Compile Include="Sharing\DictionaryJsonConverter.cs" />
     <Compile Include="Sharing\SharingUtils.cs" />
-    <Compile Include="Sharing\DictionaryAsArrayResolver.cs" />
     <Compile Include="Views\Abms\CocheAbm\CochesListForm.cs">
       <SubType>Form</SubType>
     </Compile>

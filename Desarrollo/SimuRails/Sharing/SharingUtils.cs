@@ -23,11 +23,8 @@ namespace SimuRails.Sharing
 
             if (savefile.ShowDialog() == DialogResult.OK)
             {
-                JsonSerializerSettings settings = new JsonSerializerSettings
-                {
-                    Formatting = Formatting.Indented,
-                    ContractResolver = new DictionaryAsArrayResolver()
-                };
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.Converters.Add(new DictionaryJsonConverter());
                 string json = JsonConvert.SerializeObject(traza, settings);
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
                 {
@@ -43,7 +40,6 @@ namespace SimuRails.Sharing
 
             OpenFileDialog openFile = new OpenFileDialog
             {
-                InitialDirectory = "c:\\",
                 Filter = "Archivo SimuRails (*.sr)|*.sr|Todos los archivos (*.*)|*.*",
                 RestoreDirectory = true
             };
@@ -53,16 +49,13 @@ namespace SimuRails.Sharing
                 try
                 {
                     string json = File.ReadAllText(openFile.FileName);
-                    JsonSerializerSettings settings = new JsonSerializerSettings
-                    {
-                        Formatting = Formatting.Indented,
-                        ContractResolver = new DictionaryAsArrayResolver()
-                    };
+                    JsonSerializerSettings settings = new JsonSerializerSettings();
+                    settings.Converters.Add(new DictionaryJsonConverter());
                     traza = JsonConvert.DeserializeObject<Traza>(json, settings);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al abrir el archivo. Ex:"+ex.Message);
+                    MessageBox.Show("Error al abrir el archivo. Verifique que el mismo no está corrupto.");
                 }
             }
 
