@@ -1,5 +1,7 @@
 ﻿using SimuRails.Models;
+using SimuRails.Report;
 using SimuRails.Views.Abms;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace SimuRails.Views
@@ -26,7 +28,20 @@ namespace SimuRails.Views
         private void SpinnerForm_Load(object sender, System.EventArgs e)
         {
             this.Show();
-           // simulacion.Ejecutar();
+        }
+
+        private void showResultadoReport()
+        {
+            this.Close();
+            this.form.mainForm.embedForm(new ReportGraphsForm(this.simulacion), this.form.tabPage);
+        }
+
+        private void SpinnerForm_Shown(object sender, System.EventArgs e)
+        {
+            Application.DoEvents();
+            // simulacion.Ejecutar();           
+            //System.Threading.Thread.Sleep(2000);
+            //showResultadoReport();
         }
     }
 }

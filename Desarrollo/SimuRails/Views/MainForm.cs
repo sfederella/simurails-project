@@ -38,10 +38,10 @@ namespace SimuRails.Views
             form.Dock = DockStyle.Fill;
             tabPage.Controls.Add(form);
         }
-
-        private void tabSimulacion_Click(object sender, System.EventArgs e)
+        private void label1_Click(object sender, System.EventArgs e)
         {
-
+            SobreNosotrosForm frm = new SobreNosotrosForm();
+            frm.ShowDialog();
         }
     }
 }

@@ -83,6 +83,7 @@
             this.Name = "SpinnerForm";
             this.Text = "SpinnerForm";
             this.Load += new System.EventHandler(this.SpinnerForm_Load);
+            this.Shown += new System.EventHandler(this.SpinnerForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
