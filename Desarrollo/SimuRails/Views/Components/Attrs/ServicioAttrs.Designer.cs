@@ -55,6 +55,8 @@
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel11 = new MaterialSkin.Controls.MaterialLabel();
+            this.programacionIdaButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.programacionVueltaButton = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceServicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceFormacionEditando)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTramoEditando)).BeginInit();
@@ -89,7 +91,7 @@
             this.materialLabel7.Location = new System.Drawing.Point(10, 9);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(63, 18);
+            this.materialLabel7.Size = new System.Drawing.Size(63, 19);
             this.materialLabel7.TabIndex = 22;
             this.materialLabel7.Text = "Nombre";
             // 
@@ -128,7 +130,7 @@
             this.materialLabel4.Location = new System.Drawing.Point(688, 143);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(63, 18);
+            this.materialLabel4.Size = new System.Drawing.Size(63, 19);
             this.materialLabel4.TabIndex = 52;
             this.materialLabel4.Text = "Nombre";
             // 
@@ -141,7 +143,7 @@
             this.materialLabel3.Location = new System.Drawing.Point(889, 144);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(68, 18);
+            this.materialLabel3.Size = new System.Drawing.Size(68, 19);
             this.materialLabel3.TabIndex = 51;
             this.materialLabel3.Text = "Cantidad";
             // 
@@ -170,7 +172,7 @@
             this.materialLabel2.Location = new System.Drawing.Point(667, 9);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(97, 18);
+            this.materialLabel2.Size = new System.Drawing.Size(97, 19);
             this.materialLabel2.TabIndex = 49;
             this.materialLabel2.Text = "Formaciones";
             // 
@@ -209,7 +211,7 @@
             this.materialLabel1.Location = new System.Drawing.Point(20, 144);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(50, 18);
+            this.materialLabel1.Size = new System.Drawing.Size(50, 19);
             this.materialLabel1.TabIndex = 59;
             this.materialLabel1.Text = "Salida";
             // 
@@ -222,7 +224,7 @@
             this.materialLabel5.Location = new System.Drawing.Point(143, 144);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(61, 18);
+            this.materialLabel5.Size = new System.Drawing.Size(61, 19);
             this.materialLabel5.TabIndex = 58;
             this.materialLabel5.Text = "Llegada";
             // 
@@ -235,7 +237,7 @@
             this.materialLabel6.Location = new System.Drawing.Point(10, 113);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(61, 18);
+            this.materialLabel6.Size = new System.Drawing.Size(61, 19);
             this.materialLabel6.TabIndex = 56;
             this.materialLabel6.Text = "Tramos";
             // 
@@ -257,7 +259,7 @@
             this.materialLabel8.Location = new System.Drawing.Point(371, 144);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(60, 18);
+            this.materialLabel8.Size = new System.Drawing.Size(60, 19);
             this.materialLabel8.TabIndex = 66;
             this.materialLabel8.Text = "Tiempo";
             // 
@@ -286,7 +288,7 @@
             this.materialLabel9.Location = new System.Drawing.Point(274, 144);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(72, 18);
+            this.materialLabel9.Size = new System.Drawing.Size(72, 19);
             this.materialLabel9.TabIndex = 68;
             this.materialLabel9.Text = "Distancia";
             // 
@@ -364,11 +366,39 @@
             this.materialLabel11.TabIndex = 71;
             this.materialLabel11.Text = "Tipos";
             // 
+            // programacionIdaButton
+            // 
+            this.programacionIdaButton.Depth = 0;
+            this.programacionIdaButton.Location = new System.Drawing.Point(929, 30);
+            this.programacionIdaButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.programacionIdaButton.Name = "programacionIdaButton";
+            this.programacionIdaButton.Primary = true;
+            this.programacionIdaButton.Size = new System.Drawing.Size(180, 27);
+            this.programacionIdaButton.TabIndex = 72;
+            this.programacionIdaButton.Text = "Programacion Ida";
+            this.programacionIdaButton.UseVisualStyleBackColor = true;
+            this.programacionIdaButton.Click += new System.EventHandler(this.programacionIdaButton_Click);
+            // 
+            // programacionVueltaButton
+            // 
+            this.programacionVueltaButton.Depth = 0;
+            this.programacionVueltaButton.Location = new System.Drawing.Point(929, 61);
+            this.programacionVueltaButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.programacionVueltaButton.Name = "programacionVueltaButton";
+            this.programacionVueltaButton.Primary = true;
+            this.programacionVueltaButton.Size = new System.Drawing.Size(180, 27);
+            this.programacionVueltaButton.TabIndex = 73;
+            this.programacionVueltaButton.Text = "Programacion Vuelta";
+            this.programacionVueltaButton.UseVisualStyleBackColor = true;
+            this.programacionVueltaButton.Click += new System.EventHandler(this.programacionVueltaButton_Click);
+            // 
             // ServicioAttrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.programacionVueltaButton);
+            this.Controls.Add(this.programacionIdaButton);
             this.Controls.Add(this.materialLabel11);
             this.Controls.Add(this.materialLabel10);
             this.Controls.Add(this.materialSingleLineTextField4);
@@ -430,5 +460,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
         private MaterialSkin.Controls.MaterialLabel materialLabel11;
+        private MaterialSkin.Controls.MaterialRaisedButton programacionIdaButton;
+        private MaterialSkin.Controls.MaterialRaisedButton programacionVueltaButton;
     }
 }

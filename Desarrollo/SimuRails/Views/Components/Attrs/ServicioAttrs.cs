@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using SimuRails.DB;
 using System.Linq;
 using NHibernate.Linq;
+using SimuRails.Views.Abms.ServicioAbm;
 
 namespace SimuRails.Views.Components.Attrs
 {
@@ -108,6 +109,30 @@ namespace SimuRails.Views.Components.Attrs
             bindingSourceTramoEditando.DataSource = pTramoEditando;
             origenTramoCbo.SelectedItem = null;
             destinoTramoCbo.SelectedItem = null;
+        }
+
+        private void programacionIdaButton_Click(object sender, EventArgs e)
+        {
+            var programacion = pServicio.ProgramacionIda.Keys.ToList();
+            using (ProgramacionServicioForm frmProg = new ProgramacionServicioForm(programacion))
+            {
+                if (frmProg.ShowDialog() == DialogResult.OK)
+                {
+                    //pServicio.programacion = frmProg.Programacion;
+                }
+            }
+        }
+
+        private void programacionVueltaButton_Click(object sender, EventArgs e)
+        {
+            var programacion = pServicio.ProgramacionVuelta.Keys.ToList();
+            using (ProgramacionServicioForm frmProg = new ProgramacionServicioForm(programacion))
+            {
+                if (frmProg.ShowDialog() == DialogResult.OK)
+                {
+                    //pServicio.programacion = frmProg.Programacion;
+                }
+            }
         }
     }
 }

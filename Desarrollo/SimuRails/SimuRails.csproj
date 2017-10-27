@@ -132,6 +132,12 @@
     <Compile Include="Views\Abms\FormacionAbm\FormacionListForm.Designer.cs">
       <DependentUpon>FormacionListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Abms\ServicioAbm\ProgramacionServicioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Abms\ServicioAbm\ProgramacionServicioForm.Designer.cs">
+      <DependentUpon>ProgramacionServicioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Abms\SimulacionAbm\CreateSimulacionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -381,6 +387,9 @@
     <EmbeddedResource Include="Views\Abms\FormacionAbm\FormacionListForm.resx">
       <DependentUpon>FormacionListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Abms\ServicioAbm\ProgramacionServicioForm.resx">
+      <DependentUpon>ProgramacionServicioForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Abms\SimulacionAbm\CreateSimulacionForm.resx">
       <DependentUpon>CreateSimulacionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -546,6 +555,12 @@
     </Reference>
     <Reference Include="Meta.Numerics, Version=3.1.0.0, Culture=neutral, PublicKeyToken=67d25c65a6631347, processorArchitecture=MSIL">
       <HintPath>..\packages\Meta.Numerics.3.1.0\lib\Meta.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Reporting.WinForms.v11.1.0.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
