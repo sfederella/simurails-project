@@ -22,6 +22,7 @@ namespace SimuRails.Views.Components.Attrs
         public bool applyTo(Traza traza)
         {
             if (pTraza.Nombre == null || pTraza.Nombre == "") { MessageBox.Show("Se debe completar un nombre que identifique a la Traza."); return false; }
+            if (pTraza.Servicios.Count == 0) { MessageBox.Show("La traza debe incluir al menos un servicio."); return false; }
             traza = pTraza;
             return true;
           }
