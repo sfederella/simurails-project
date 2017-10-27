@@ -23,7 +23,10 @@ namespace SimuRails.Sharing
 
             if (savefile.ShowDialog() == DialogResult.OK)
             {
-                JsonSerializerSettings settings = new JsonSerializerSettings();
+                JsonSerializerSettings settings = new JsonSerializerSettings()
+                {
+                    ContractResolver = new NHibernateContractResolver()
+                };
                 settings.Converters.Add(new DictionaryJsonConverter());
                 string json = JsonConvert.SerializeObject(traza, settings);
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
