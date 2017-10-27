@@ -182,6 +182,7 @@ namespace SimuRails.Models
                     this.KilometrosRecorridos += distancia;
                     ActualizarHoraSalida(t + tiempoDeViaje + tiempoAtencion);
                     this.log.Info("# T: " + LogHelper.TimeConvert(this.HoraSalida, true) + " | Estacion: " + (this.EstacionActual.Nombre + new string(' ', 20)).Substring(0, 20) + " | Ascendidos " + pasajerosAscendidos + " | Descendidos: " + pasajerosDescendidos + " | Totales: " + this.Pasajeros);
+                    CalcularResultados();
                     return t + tiempoDeViaje + tiempoAtencion;
                 }
                 //Se setea el tiempo comprometido de la estacion a la que acaba de llegar.
