@@ -1,6 +1,6 @@
 ﻿namespace SimuRails.Views.Abms
 {
-    partial class CompartirForm
+    partial class EstacionesListForm
     {
         /// <summary>
         /// Required designer variable.

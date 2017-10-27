@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using SimuRails.Models;
 using SimuRails.Views.Abms;
+using SimuRails.DB;
 
 namespace SimuRails.Views.Components
 {
@@ -48,7 +49,16 @@ namespace SimuRails.Views.Components
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            this.form.mainForm.embedForm(new SpinnerForm(this.form,this.simulacion), this.form.tabPage);        
+            this.form.mainForm.embedForm(new SpinnerForm(this.form,this.simulacion), this.form.tabPage);   
+            var id = simulacion.Id;           
+            using (var session = NHibernateHelper.OpenSession())
+            using (var transaction = session.BeginTransaction())
+            {
+                Simulacion sim = session.Get<Simulacion>(id);
+                sim.Metodo = new TiempoComprometido();
+                sim.Ejecutar();
+                transaction.Commit();
+            }
         }
     }
 }
