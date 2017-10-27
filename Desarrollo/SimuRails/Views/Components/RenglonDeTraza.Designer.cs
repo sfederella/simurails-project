@@ -33,6 +33,7 @@
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.exportarButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // cantServiciosLbl
@@ -80,7 +81,7 @@
             this.materialFlatButton2.AutoSize = true;
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton2.Depth = 0;
-            this.materialFlatButton2.Location = new System.Drawing.Point(748, 12);
+            this.materialFlatButton2.Location = new System.Drawing.Point(648, 12);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
@@ -97,7 +98,7 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(815, 12);
+            this.materialFlatButton1.Location = new System.Drawing.Point(715, 12);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
@@ -108,10 +109,26 @@
             this.materialFlatButton1.UseVisualStyleBackColor = true;
             this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             // 
+            // exportarButton
+            // 
+            this.exportarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.exportarButton.Depth = 0;
+            this.exportarButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportarButton.Location = new System.Drawing.Point(787, 12);
+            this.exportarButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.exportarButton.Name = "exportarButton";
+            this.exportarButton.Primary = true;
+            this.exportarButton.Size = new System.Drawing.Size(94, 33);
+            this.exportarButton.TabIndex = 28;
+            this.exportarButton.Text = "Exportar";
+            this.exportarButton.UseVisualStyleBackColor = true;
+            this.exportarButton.Click += new System.EventHandler(this.exportarButton_Click);
+            // 
             // RenglonDeTraza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.exportarButton);
             this.Controls.Add(this.materialFlatButton2);
             this.Controls.Add(this.materialFlatButton1);
             this.Controls.Add(this.cantServiciosLbl);
@@ -130,5 +147,6 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton exportarButton;
     }
 }

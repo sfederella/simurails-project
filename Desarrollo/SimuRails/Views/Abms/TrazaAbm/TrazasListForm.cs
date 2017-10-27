@@ -1,5 +1,7 @@
-﻿using SimuRails.DB;
+﻿using NHibernate.Linq;
+using SimuRails.DB;
 using SimuRails.Models;
+using SimuRails.Sharing;
 using SimuRails.Views.Components;
 using System;
 using System.Collections.Generic;
@@ -45,7 +47,7 @@ namespace SimuRails.Views.Abms
 
         private RenglonDeTraza renglonDe(Traza traza, int indice)
         {
-            var renglon = new RenglonDeTraza(traza, this.OnTrazaEdit, this.onTrazaRemove);
+            var renglon = new RenglonDeTraza(traza, this.OnTrazaEdit, this.onTrazaRemove, this.OnTrazaExport);
             this.incluirEnLista(indice, renglon);
             return renglon;
         }
@@ -64,6 +66,16 @@ namespace SimuRails.Views.Abms
             Traza traza = this.findTraza(id);
             repositorioTraza.Eliminar(traza);
             this.dibujarRenglones();
+        }
+
+        private void OnTrazaExport(int id)
+        {
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                var trazaAExportar = session.Get<Traza>(id);
+                SharingUtils.Exportar(trazaAExportar);
+            }
+
         }
 
         private void dibujarRenglones()
@@ -105,6 +117,20 @@ namespace SimuRails.Views.Abms
             Traza traza = new Traza();
             this.mainForm.embedForm(new CreateTrazaForm(this, traza), tabPage);
             this.Visible = false;
+        }
+
+        private void ImportarButton_Click(object sender, EventArgs e)
+        {
+            Traza trazaRecuperada = SharingUtils.Importar();
+            if (trazaRecuperada != null)
+            {
+                using (var session = NHibernateHelper.OpenSession())
+                using (var transaction = session.BeginTransaction())
+                {
+                    session.Save(trazaRecuperada);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

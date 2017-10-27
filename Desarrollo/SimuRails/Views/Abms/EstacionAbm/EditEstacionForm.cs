@@ -8,12 +8,12 @@ namespace SimuRails.Views.Abms
 {
     public partial class EditEstacionForm : Form
     {
-        private EstacionesListForm listForm;
+        private CompartirForm listForm;
         private EstacionAttrs attrs;
         private Estacion estacion;
         private Repositorio repositorioEstacion;
 
-        public EditEstacionForm(EstacionesListForm listForm, Repositorio repositorioEstacion, Estacion estacion)
+        public EditEstacionForm(CompartirForm listForm, Repositorio repositorioEstacion, Estacion estacion)
         {
             InitializeComponent();
             this.listForm = listForm;

@@ -13,6 +13,7 @@ namespace SimuRails.Models
         public Formacion()
         {
             InvertirSentidoFlag = false;
+            TiposCoche = new Dictionary<Coche, int>();
         }
         // Persistentes
         public virtual int Id { get; set; }

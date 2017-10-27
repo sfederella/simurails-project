@@ -48,7 +48,7 @@ namespace SimuRails.Views.Abms
         {
             if (this.attrs.applyTo(traza))
             {
-                 listForm.addTraza(traza);
+                listForm.addTraza(traza);
                 this.cerrar();
             }
         }

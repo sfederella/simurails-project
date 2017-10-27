@@ -7,11 +7,11 @@ namespace SimuRails.Views.Abms
 {
     public partial class CreateEstacionForm : Form
     {
-        private EstacionesListForm listForm;
+        private CompartirForm listForm;
         private EstacionAttrs attrs;
         private Estacion estacion;
 
-        public CreateEstacionForm(EstacionesListForm listForm, Estacion estacion)
+        public CreateEstacionForm(CompartirForm listForm, Estacion estacion)
         {
             InitializeComponent();
             this.attrs = new EstacionAttrs(estacion);

@@ -33,6 +33,7 @@
             this.listPanel = new System.Windows.Forms.Panel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.seleccion = new MaterialSkin.Controls.MaterialLabel();
+            this.ImportarButton = new MaterialSkin.Controls.MaterialRaisedButton();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,16 +100,31 @@
             this.seleccion.TabIndex = 10;
             this.seleccion.Text = "Nombre";
             // 
-            // TrazaListForm
+            // ImportarButton
+            // 
+            this.ImportarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImportarButton.Depth = 0;
+            this.ImportarButton.Location = new System.Drawing.Point(768, 457);
+            this.ImportarButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ImportarButton.Name = "ImportarButton";
+            this.ImportarButton.Primary = true;
+            this.ImportarButton.Size = new System.Drawing.Size(105, 30);
+            this.ImportarButton.TabIndex = 23;
+            this.ImportarButton.Text = "Importar";
+            this.ImportarButton.UseVisualStyleBackColor = true;
+            this.ImportarButton.Click += new System.EventHandler(this.ImportarButton_Click);
+            // 
+            // TrazasListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1049, 503);
+            this.Controls.Add(this.ImportarButton);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listPanel);
-            this.Name = "TrazaListForm";
+            this.Name = "TrazasListForm";
             this.Text = "TrazasListForm";
             this.Load += new System.EventHandler(this.TrazasListForm_Load_1);
             this.listPanel.ResumeLayout(false);
@@ -125,5 +141,6 @@
         private System.Windows.Forms.Panel listPanel;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel seleccion;
+        private MaterialSkin.Controls.MaterialRaisedButton ImportarButton;
     }
 }

@@ -8,19 +8,19 @@ using System.Windows.Forms;
 
 namespace SimuRails.Views.Abms
 {
-    public partial class EstacionesListForm : Form
+    public partial class CompartirForm : Form
     {
         private MainForm mainForm;
         private TabPage tabPage;
         private Repositorio repositorioestacion = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
-        public EstacionesListForm()
+        public CompartirForm()
         {
             InitializeComponent();
         }
 
-        public EstacionesListForm(MainForm mainForm, TabPage tabPage)
+        public CompartirForm(MainForm mainForm, TabPage tabPage)
         {
             InitializeComponent();
             this.mainForm = mainForm;
