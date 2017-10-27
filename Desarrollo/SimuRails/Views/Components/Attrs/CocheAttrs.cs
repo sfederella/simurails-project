@@ -19,10 +19,5 @@ namespace SimuRails.Views.Components
             if (pCoche.Modelo == null || pCoche.Modelo == "") { MessageBox.Show("Se debe completar un modelo que identifique al coche."); return false; }
             return true;
         }
-
-        private void CocheAttrs_Load(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }
