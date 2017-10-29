@@ -509,6 +509,7 @@
     <EmbeddedResource Include="Views\SpinnerForm.resx">
       <DependentUpon>SpinnerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DiagramaDeClases.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\KeyValue.datasource" />
     <None Include="Properties\DataSources\SimuRails.Models.AgrupacionCoche.datasource" />
@@ -539,6 +540,7 @@
     <Content Include="DB\hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\signo-de-interrogacion.png" />
     <None Include="Resources\usuario-hombre.png" />
   </ItemGroup>
   <ItemGroup>
