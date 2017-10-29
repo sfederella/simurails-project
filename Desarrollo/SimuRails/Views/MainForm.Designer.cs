@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.item1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subitem1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +44,8 @@
             this.tabEstaciones = new System.Windows.Forms.TabPage();
             this.tabIncidentes = new System.Windows.Forms.TabPage();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.materialContextMenuStrip1.SuspendLayout();
             this.mainMaterialTabControl.SuspendLayout();
@@ -201,6 +204,22 @@
             this.materialTabSelector1.TabIndex = 3;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.label2.Image = global::SimuRails.Properties.Resources.signo_de_interrogacion;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(1097, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 23);
+            this.label2.TabIndex = 6;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.label2, "Ayuda");
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -209,12 +228,12 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label1.Image = global::SimuRails.Properties.Resources.usuario_hombre;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(1037, 38);
+            this.label1.Location = new System.Drawing.Point(1127, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 23);
+            this.label1.Size = new System.Drawing.Size(24, 23);
             this.label1.TabIndex = 5;
-            this.label1.Text = "NOSOTROS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolTip1.SetToolTip(this.label1, "Sobre nosotros");
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // MainForm
@@ -224,6 +243,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1163, 780);
             this.ContextMenuStrip = this.materialContextMenuStrip1;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.mainMaterialTabSelector);
             this.Controls.Add(this.materialTabSelector1);
@@ -257,5 +277,7 @@
         private System.Windows.Forms.TabPage tabIncidentes;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label2;
     }
 }

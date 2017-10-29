@@ -2,6 +2,8 @@
 using MaterialSkin.Controls;
 using SimuRails.Views.Abms;
 using SimuRails.Views.Abms.FormacionAbm;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SimuRails.Views
@@ -42,6 +44,19 @@ namespace SimuRails.Views
         {
             SobreNosotrosForm frm = new SobreNosotrosForm();
             frm.ShowDialog();
+        }
+
+        private void label2_Click(object sender, System.EventArgs e)
+        {
+            string pathManual = Path.Combine(Application.StartupPath, "ManualDeUsuario.pdf");
+            try
+            {
+                Process.Start(pathManual);
+            }
+            catch
+            {
+                MessageBox.Show("No se puede acceder al Manual de Usuario.", "Error de Apertura");
+            }         
         }
     }
 }
