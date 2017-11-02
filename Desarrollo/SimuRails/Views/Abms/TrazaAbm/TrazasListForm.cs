@@ -131,6 +131,8 @@ namespace SimuRails.Views.Abms
                     transaction.Commit();
                 }
             }
+
+            dibujarRenglones();
         }
     }
 }
