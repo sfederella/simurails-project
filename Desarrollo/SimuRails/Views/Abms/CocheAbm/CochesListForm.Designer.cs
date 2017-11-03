@@ -74,6 +74,7 @@
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(914, 361);
             this.listPanel.TabIndex = 17;
+            this.listPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.listPanel_Paint);
             // 
             // materialLabel2
             // 

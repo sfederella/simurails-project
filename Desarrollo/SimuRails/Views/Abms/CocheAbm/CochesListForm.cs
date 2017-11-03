@@ -102,5 +102,10 @@ namespace SimuRails.Views.Abms
             this.mainForm.EmbedForm(new CreateCocheForm(this, coche), tabPage);
             this.Visible = false;
         }
+
+        private void listPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
