@@ -19,11 +19,11 @@ namespace SimuRails.Views.Abms.FormacionAbm
         private FormacionAttr attrs;
         private Formacion formacion;
 
-        public EditFormacionForm(FormacionListForm listForm, Formacion formacion)
+        public EditFormacionForm(FormacionListForm listForm, Formacion formacion, NHibernate.ISession session)
         {
             InitializeComponent();
             this.listForm = listForm;
-            this.attrs = new FormacionAttr(formacion);
+            this.attrs = new FormacionAttr(formacion, session);
             this.formacion = formacion;
         }
 

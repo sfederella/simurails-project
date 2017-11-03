@@ -1,4 +1,5 @@
-﻿using SimuRails.Models;
+﻿using SimuRails.DB;
+using SimuRails.Models;
 using SimuRails.Views.Components.Attrs;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,10 @@ namespace SimuRails.Views.Abms.FormacionAbm
         public CreateFormacionForm(FormacionListForm listForm, Formacion formacion)
         {
             InitializeComponent();
-            this.attrs = new FormacionAttr(formacion);
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                this.attrs = new FormacionAttr(formacion, session);
+            }
             this.formacion = formacion;
             this.listForm = listForm;
         }
