@@ -204,7 +204,9 @@
             // 
             // ButtonVerReporte
             // 
+            this.ButtonVerReporte.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonVerReporte.Depth = 0;
+            this.ButtonVerReporte.Icon = null;
             this.ButtonVerReporte.Location = new System.Drawing.Point(757, 4);
             this.ButtonVerReporte.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonVerReporte.Name = "ButtonVerReporte";
@@ -219,7 +221,9 @@
             // ButtonGenerarArchivo
             // 
             this.ButtonGenerarArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonGenerarArchivo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonGenerarArchivo.Depth = 0;
+            this.ButtonGenerarArchivo.Icon = null;
             this.ButtonGenerarArchivo.Location = new System.Drawing.Point(1021, 4);
             this.ButtonGenerarArchivo.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonGenerarArchivo.Name = "ButtonGenerarArchivo";
@@ -253,9 +257,8 @@
             this.FlowLayOutPanel1.Location = new System.Drawing.Point(0, 0);
             this.FlowLayOutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.FlowLayOutPanel1.Name = "FlowLayOutPanel1";
-            this.FlowLayOutPanel1.Size = new System.Drawing.Size(1140, 394);
+            this.FlowLayOutPanel1.Size = new System.Drawing.Size(1157, 380);
             this.FlowLayOutPanel1.TabIndex = 4;
-            this.FlowLayOutPanel1.WrapContents = false;
             // 
             // toolTip1
             // 
@@ -269,7 +272,7 @@
             this.PanelGraficoTraza.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelGraficoTraza.Location = new System.Drawing.Point(0, 0);
             this.PanelGraficoTraza.Name = "PanelGraficoTraza";
-            this.PanelGraficoTraza.Size = new System.Drawing.Size(1140, 380);
+            this.PanelGraficoTraza.Size = new System.Drawing.Size(1157, 380);
             this.PanelGraficoTraza.TabIndex = 2;
             // 
             // GraficoTraza
@@ -334,7 +337,7 @@
             series4.YValueMembers = "ValorVuelta";
             this.GraficoTraza.Series.Add(series3);
             this.GraficoTraza.Series.Add(series4);
-            this.GraficoTraza.Size = new System.Drawing.Size(1140, 380);
+            this.GraficoTraza.Size = new System.Drawing.Size(1157, 380);
             this.GraficoTraza.TabIndex = 2;
             this.GraficoTraza.Text = "chart1";
             title2.BackColor = System.Drawing.Color.White;
@@ -353,16 +356,17 @@
             this.panelGraficos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelGraficos.Location = new System.Drawing.Point(0, 114);
             this.panelGraficos.Name = "panelGraficos";
-            this.panelGraficos.Size = new System.Drawing.Size(1157, 627);
+            this.panelGraficos.Size = new System.Drawing.Size(1157, 762);
             this.panelGraficos.TabIndex = 5;
             // 
             // PanelGraphsEstaciones
             // 
+            this.PanelGraphsEstaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelGraphsEstaciones.Controls.Add(this.FlowLayOutPanel1);
-            this.PanelGraphsEstaciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelGraphsEstaciones.Location = new System.Drawing.Point(0, 380);
             this.PanelGraphsEstaciones.Name = "PanelGraphsEstaciones";
-            this.PanelGraphsEstaciones.Size = new System.Drawing.Size(1140, 394);
+            this.PanelGraphsEstaciones.Size = new System.Drawing.Size(1157, 381);
             this.PanelGraphsEstaciones.TabIndex = 3;
             // 
             // BindingSourceTraza
@@ -389,7 +393,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1157, 741);
+            this.ClientSize = new System.Drawing.Size(1157, 876);
             this.Controls.Add(this.panelGraficos);
             this.Controls.Add(this.PanelFiltro);
             this.Controls.Add(this.panelCabecera);
