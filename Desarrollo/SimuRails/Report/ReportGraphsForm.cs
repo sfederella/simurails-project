@@ -48,18 +48,23 @@ namespace SimuRails.Report
                 Chart ch = CloneChart(GraphPorEstaciones);
                 ch.DataSource = lstEstaciones;
                 ch.Visible = true;
-                ch.Width = (GraficoTraza.Size.Width / 2) - 6;
+                //ch.Width = (FlowLayOutPanel1.Width / 2) ;
                 ch.Titles[0].Text = servicio.Nombre;
                 ch.ChartAreas[0].AxisY.Title = msgAxisY;
                 FlowLayOutPanel1.Controls.Add(ch);
-
+                
                 //TODOS LOS RESULTADOS A NIVEL SERVICIO SON PROMEDIOS DE LOS % EN LAS ESTACIONES
                 listServicios.Add(new ReportHelperValorIdaVuelta(servicio.Nombre, lstEstaciones.Average(x => x.ValorIda), lstEstaciones.Average(x => x.ValorVuelta)));
-           }
+            }
+
             BindingSourceTraza.DataSource = listServicios;
             GraficoTraza.Titles[0].Text = itm.Nombre;
             GraficoTraza.ChartAreas[0].AxisY.Title = msgAxisY;
-            GraficoTraza.Visible = true;          
+            GraficoTraza.Visible = true;
+
+            //Esto es una negrda pero funciona al menos si hay 2
+            this.Width++;
+            this.Width--;
         }
 
         private void ButtonGenerarArchivo_Click(object sender, EventArgs e)

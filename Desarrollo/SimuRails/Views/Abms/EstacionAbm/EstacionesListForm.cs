@@ -91,7 +91,7 @@ namespace SimuRails.Views.Abms
         public void OnestacionEdit(int estacionId)
         {
             Estacion estacion = findestacion(estacionId);
-            this.mainForm.embedForm(new EditEstacionForm(this, repositorioestacion, estacion), tabPage);
+            this.mainForm.EmbedForm(new EditEstacionForm(this, repositorioestacion, estacion), tabPage);
             this.Visible = false;
         }
 
@@ -103,7 +103,7 @@ namespace SimuRails.Views.Abms
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             Estacion estacion = new Estacion();
-            this.mainForm.embedForm(new CreateEstacionForm(this, estacion), tabPage);
+            this.mainForm.EmbedForm(new CreateEstacionForm(this, estacion), tabPage);
             this.Visible = false;
         }
     }
