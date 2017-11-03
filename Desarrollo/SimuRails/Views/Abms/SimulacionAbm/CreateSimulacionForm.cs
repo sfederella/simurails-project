@@ -48,7 +48,7 @@ namespace SimuRails.Views.Abms
         {
             if (this.attrs.applyTo(simulacion))
             {
-                 listForm.addSimulacion(simulacion);
+                listForm.addSimulacion(simulacion);
                 this.cerrar();
             }
         }
