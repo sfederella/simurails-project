@@ -98,10 +98,11 @@ namespace SimuRails.Views.Abms
             using (var session = NHibernateHelper.OpenSession())
             {
                 Servicio servicio = findServicio(servicioId, session);
-                this.mainForm.embedForm(new EditServicioForm(this, repositorioServicio, servicio), tabPage);
+                NHibernateUtil.Initialize(servicio.ProgramacionIda);
+                NHibernateUtil.Initialize(servicio.ProgramacionVuelta);
+                this.mainForm.EmbedForm(new EditServicioForm(this, repositorioServicio, servicio), tabPage);
                 this.Visible = false;
             }
-
         }
 
         private Servicio findServicio(int servicioId)
@@ -117,7 +118,7 @@ namespace SimuRails.Views.Abms
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             Servicio servicio = new Servicio();
-            this.mainForm.embedForm(new CreateServicioForm(this, servicio), tabPage);
+            this.mainForm.EmbedForm(new CreateServicioForm(this, servicio), tabPage);
             this.Visible = false;
         }
     }

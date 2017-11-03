@@ -24,7 +24,7 @@ namespace SimuRails.Mappings
             {
                 collectionMapping.Table("EstacionesXIncidentes");
                 collectionMapping.Key(k => k.Column("EstacionId"));
-                collectionMapping.Cascade(Cascade.None);
+                collectionMapping.Cascade(Cascade.All);
                 collectionMapping.Lazy(CollectionLazy.NoLazy);
             },
             map => map.ManyToMany(c => c.Column("IncidenteId")));

@@ -25,6 +25,7 @@ namespace SimuRails.Mappings
                 mapping =>
                 {
                     mapping.Table("DictTiposFormacion");
+                    mapping.Cascade(Cascade.All);
                     mapping.Key(k => k.Column("ServicioId"));
                 },
                 mapkey =>
@@ -43,6 +44,7 @@ namespace SimuRails.Mappings
                 mapping =>
                 {
                     mapping.Table("DictIda");
+                    mapping.Cascade(Cascade.All);
                     mapping.Key(k => k.Column("ServicioId"));
                 },
                 mapkey =>
@@ -64,6 +66,7 @@ namespace SimuRails.Mappings
                 mapping =>
                 {
                     mapping.Table("DictVuelta");
+                    mapping.Cascade(Cascade.All);
                     mapping.Key(k => k.Column("ServicioId"));
                 },
                 mapkey =>

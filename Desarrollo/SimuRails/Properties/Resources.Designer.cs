@@ -61,6 +61,33 @@ namespace SimuRails.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;hibernate-configuration xmlns=&quot;urn:nhibernate-configuration-2.2&quot;&gt;
+        ///  &lt;session-factory name=&quot;NHibernate.Test&quot;&gt;
+        ///    &lt;property name=&quot;connection.driver_class&quot;&gt;NHibernate.Driver.SQLite20Driver&lt;/property&gt;
+        ///    &lt;property name=&quot;connection.connection_string&quot;&gt;Data Source=test.db;Version=3;New=True&lt;/property&gt;
+        ///    &lt;property name=&quot;dialect&quot;&gt;NHibernate.Dialect.SQLiteDialect&lt;/property&gt;
+        ///    &lt;property name=&quot;show_sql&quot;&gt;true&lt;/property&gt;
+        ///  &lt;/session-factory&gt;
+        ///&lt;/hibernate-configuration&gt;.
+        /// </summary>
+        internal static string HibernateXLM {
+            get {
+                return ResourceManager.GetString("HibernateXLM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ManualDeUsuario {
+            get {
+                object obj = ResourceManager.GetObject("ManualDeUsuario", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap signo_de_interrogacion {

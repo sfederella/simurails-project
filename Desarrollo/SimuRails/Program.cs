@@ -17,7 +17,9 @@ namespace SimuRails
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            MainForm mainForm = new MainForm();
+            mainForm.MaximizeWindow(true);
+            Application.Run(mainForm);
         }
     }
 }

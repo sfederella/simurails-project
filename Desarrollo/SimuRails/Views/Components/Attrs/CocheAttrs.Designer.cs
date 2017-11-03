@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.modeloField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.BindingSourceCoche = new System.Windows.Forms.BindingSource(this.components);
             this.locomotoraCheck = new MaterialSkin.Controls.MaterialCheckBox();
             this.capacidadLegalField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.capacidadTotalField = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -40,7 +39,12 @@
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.asientosField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.errorModeloLbl = new System.Windows.Forms.Label();
+            this.errorAsientosLbl = new System.Windows.Forms.Label();
+            this.errorMaximaLbl = new System.Windows.Forms.Label();
+            this.errorLegalLbl = new System.Windows.Forms.Label();
+            this.BindingSourceCoche = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCoche)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,10 +63,6 @@
             this.modeloField.Size = new System.Drawing.Size(270, 23);
             this.modeloField.TabIndex = 0;
             this.modeloField.UseSystemPasswordChar = false;
-            // 
-            // BindingSourceCoche
-            // 
-            this.BindingSourceCoche.DataSource = typeof(SimuRails.Models.Coche);
             // 
             // locomotoraCheck
             // 
@@ -86,7 +86,7 @@
             this.capacidadLegalField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "MaximoLegalPasajeros", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.capacidadLegalField.Depth = 0;
             this.capacidadLegalField.Hint = "Personas";
-            this.capacidadLegalField.Location = new System.Drawing.Point(34, 150);
+            this.capacidadLegalField.Location = new System.Drawing.Point(292, 173);
             this.capacidadLegalField.MouseState = MaterialSkin.MouseState.HOVER;
             this.capacidadLegalField.Name = "capacidadLegalField";
             this.capacidadLegalField.PasswordChar = '\0';
@@ -102,7 +102,7 @@
             this.capacidadTotalField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "CapacidadMaximaPasajeros", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.capacidadTotalField.Depth = 0;
             this.capacidadTotalField.Hint = "Personas";
-            this.capacidadTotalField.Location = new System.Drawing.Point(325, 150);
+            this.capacidadTotalField.Location = new System.Drawing.Point(569, 173);
             this.capacidadTotalField.MouseState = MaterialSkin.MouseState.HOVER;
             this.capacidadTotalField.Name = "capacidadTotalField";
             this.capacidadTotalField.PasswordChar = '\0';
@@ -119,7 +119,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(3, 75);
+            this.materialDivider1.Location = new System.Drawing.Point(0, 99);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
             this.materialDivider1.Size = new System.Drawing.Size(787, 2);
@@ -132,7 +132,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(17, 92);
+            this.materialLabel2.Location = new System.Drawing.Point(14, 116);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(79, 19);
@@ -145,12 +145,12 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(30, 128);
+            this.materialLabel3.Location = new System.Drawing.Point(288, 151);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(45, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(115, 19);
             this.materialLabel3.TabIndex = 18;
-            this.materialLabel3.Text = "Legal";
+            this.materialLabel3.Text = "Capacidad legal";
             // 
             // materialLabel4
             // 
@@ -158,12 +158,12 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(321, 128);
+            this.materialLabel4.Location = new System.Drawing.Point(565, 151);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(62, 19);
+            this.materialLabel4.Size = new System.Drawing.Size(136, 19);
             this.materialLabel4.TabIndex = 19;
-            this.materialLabel4.Text = "Máxima";
+            this.materialLabel4.Text = "Capacidad máxima";
             // 
             // materialLabel7
             // 
@@ -174,9 +174,9 @@
             this.materialLabel7.Location = new System.Drawing.Point(17, 20);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(60, 19);
+            this.materialLabel7.Size = new System.Drawing.Size(118, 19);
             this.materialLabel7.TabIndex = 22;
-            this.materialLabel7.Text = "Modelo";
+            this.materialLabel7.Text = "Nombre modelo";
             // 
             // materialLabel8
             // 
@@ -184,36 +184,92 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(560, 128);
+            this.materialLabel8.Location = new System.Drawing.Point(25, 151);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(150, 19);
             this.materialLabel8.TabIndex = 25;
             this.materialLabel8.Text = "Cantidad de asientos";
             // 
-            // materialSingleLineTextField1
+            // asientosField
             // 
-            this.materialSingleLineTextField1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "CantidadAsientos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "Asientos";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(564, 150);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(148, 23);
-            this.materialSingleLineTextField1.TabIndex = 7;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.asientosField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "CantidadAsientos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
+            this.asientosField.Depth = 0;
+            this.asientosField.Hint = "Asientos";
+            this.asientosField.Location = new System.Drawing.Point(29, 173);
+            this.asientosField.MouseState = MaterialSkin.MouseState.HOVER;
+            this.asientosField.Name = "asientosField";
+            this.asientosField.PasswordChar = '\0';
+            this.asientosField.SelectedText = "";
+            this.asientosField.SelectionLength = 0;
+            this.asientosField.SelectionStart = 0;
+            this.asientosField.Size = new System.Drawing.Size(148, 23);
+            this.asientosField.TabIndex = 7;
+            this.asientosField.UseSystemPasswordChar = false;
+            // 
+            // errorModeloLbl
+            // 
+            this.errorModeloLbl.AutoSize = true;
+            this.errorModeloLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorModeloLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorModeloLbl.Location = new System.Drawing.Point(18, 68);
+            this.errorModeloLbl.Name = "errorModeloLbl";
+            this.errorModeloLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorModeloLbl.TabIndex = 26;
+            this.errorModeloLbl.Text = "Este campo es requerido";
+            this.errorModeloLbl.Visible = false;
+            // 
+            // errorAsientosLbl
+            // 
+            this.errorAsientosLbl.AutoSize = true;
+            this.errorAsientosLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorAsientosLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorAsientosLbl.Location = new System.Drawing.Point(26, 199);
+            this.errorAsientosLbl.Name = "errorAsientosLbl";
+            this.errorAsientosLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorAsientosLbl.TabIndex = 31;
+            this.errorAsientosLbl.Text = "Este campo es requerido";
+            this.errorAsientosLbl.Visible = false;
+            // 
+            // errorMaximaLbl
+            // 
+            this.errorMaximaLbl.AutoSize = true;
+            this.errorMaximaLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorMaximaLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorMaximaLbl.Location = new System.Drawing.Point(566, 199);
+            this.errorMaximaLbl.Name = "errorMaximaLbl";
+            this.errorMaximaLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorMaximaLbl.TabIndex = 32;
+            this.errorMaximaLbl.Text = "Este campo es requerido";
+            this.errorMaximaLbl.Visible = false;
+            // 
+            // errorLegalLbl
+            // 
+            this.errorLegalLbl.AutoSize = true;
+            this.errorLegalLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLegalLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorLegalLbl.Location = new System.Drawing.Point(289, 199);
+            this.errorLegalLbl.Name = "errorLegalLbl";
+            this.errorLegalLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorLegalLbl.TabIndex = 33;
+            this.errorLegalLbl.Text = "Este campo es requerido";
+            this.errorLegalLbl.Visible = false;
+            // 
+            // BindingSourceCoche
+            // 
+            this.BindingSourceCoche.DataSource = typeof(SimuRails.Models.Coche);
             // 
             // CocheAttrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.errorLegalLbl);
+            this.Controls.Add(this.errorMaximaLbl);
+            this.Controls.Add(this.errorAsientosLbl);
+            this.Controls.Add(this.errorModeloLbl);
             this.Controls.Add(this.materialLabel8);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.asientosField);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.materialLabel3);
@@ -225,6 +281,7 @@
             this.Controls.Add(this.modeloField);
             this.Name = "CocheAttrs";
             this.Size = new System.Drawing.Size(791, 291);
+            this.Load += new System.EventHandler(this.CocheAttrs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCoche)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -244,6 +301,10 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private System.Windows.Forms.BindingSource BindingSourceCoche;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField asientosField;
+        private System.Windows.Forms.Label errorModeloLbl;
+        private System.Windows.Forms.Label errorAsientosLbl;
+        private System.Windows.Forms.Label errorMaximaLbl;
+        private System.Windows.Forms.Label errorLegalLbl;
     }
 }

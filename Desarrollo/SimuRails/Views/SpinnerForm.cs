@@ -33,7 +33,7 @@ namespace SimuRails.Views
         private void showResultadoReport()
         {
             this.Close();
-            this.form.mainForm.embedForm(new ReportGraphsForm(this.simulacion), this.form.tabPage);
+            this.form.mainForm.EmbedForm(new ReportGraphsForm(this.simulacion), this.form.tabPage);
         }
 
         private void SpinnerForm_Shown(object sender, System.EventArgs e)

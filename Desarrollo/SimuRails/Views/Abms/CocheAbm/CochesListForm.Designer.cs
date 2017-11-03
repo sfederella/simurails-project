@@ -40,7 +40,9 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
             this.materialRaisedButton1.Location = new System.Drawing.Point(879, 461);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
@@ -74,6 +76,7 @@
             this.listPanel.Name = "listPanel";
             this.listPanel.Size = new System.Drawing.Size(914, 361);
             this.listPanel.TabIndex = 17;
+            this.listPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.listPanel_Paint);
             // 
             // materialLabel2
             // 

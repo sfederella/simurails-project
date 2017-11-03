@@ -16,13 +16,13 @@ namespace SimuRails.Mappings
             ManyToOne(x => x.EstacionOrigen, mapping =>
             {
                 mapping.Column("EstacionId1");
-                mapping.Cascade(Cascade.None);
+                mapping.Cascade(Cascade.All);
             });
 
             ManyToOne(x => x.EstacionDestino, mapping =>
             {
                 mapping.Column("EstacionId2");
-                mapping.Cascade(Cascade.None);
+                mapping.Cascade(Cascade.All);
             });
         }
     }

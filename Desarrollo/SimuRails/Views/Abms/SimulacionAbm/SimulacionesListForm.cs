@@ -91,7 +91,7 @@ namespace SimuRails.Views.Abms
         public void OnSimulacionEdit(int simulacionId)
         {
             Simulacion simulacion = findSimulacion(simulacionId);
-            this.mainForm.embedForm(new EditSimulacionForm(this, repositorioSimulacion, simulacion), tabPage);
+            this.mainForm.EmbedForm(new EditSimulacionForm(this, repositorioSimulacion, simulacion), tabPage);
             this.Visible = false;
         }
 
@@ -103,7 +103,7 @@ namespace SimuRails.Views.Abms
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             Simulacion simulacion = new Simulacion();
-            this.mainForm.embedForm(new CreateSimulacionForm(this, simulacion), tabPage);
+            this.mainForm.EmbedForm(new CreateSimulacionForm(this, simulacion), tabPage);
             this.Visible = false;
         }
     }

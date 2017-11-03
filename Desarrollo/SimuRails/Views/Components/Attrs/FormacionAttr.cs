@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using SimuRails.Models;
 using SimuRails.DB;
 using NHibernate.Linq;
+using SimuRails.Views.Validables;
+using NHibernate;
 
 namespace SimuRails.Views.Components.Attrs
 {
@@ -23,16 +25,39 @@ namespace SimuRails.Views.Components.Attrs
         private Formacion pFormacion;
         private AgrupacionCoche pCocheEditando = new AgrupacionCoche();
         private List<AgrupacionCoche> cochesListados = new List<AgrupacionCoche>();
-        public FormacionAttr(Formacion formacion)
+        private List<Validable> validables = new List<Validable>();
+
+        private List<Validable> validablesParaLista = new List<Validable>();
+
+        public FormacionAttr(Formacion formacion, NHibernate.ISession session)
         {
             InitializeComponent();
             pFormacion = formacion;
+            validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePresencia(unaFormacion => unaFormacion.Nombre), errorNombreLbl, bindingSourceFormacion));
+            //validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePresencia(unaFormacion => unaFormacion.Nombre), errorNombreLbl, nombreField));
+            validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePositivo(unaFormacion => unaFormacion.KilometrosMantenimiento), errorDistanciaLbl, bindingSourceFormacion));
+            validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePositivo(unaFormacion => unaFormacion.DuracionMantenimiento), errorTiempoManteLbl, bindingSourceFormacion));
+            validables.Add(new Validator<Formacion>(pFormacion, new ReglaConcreta<Formacion>(unaFormacion => unaFormacion.TiposCoche.Keys.Count > 0, "Debe tener por lo menos un tipo de coche"), errorCochesLbl));
+
             cochesListados = AgrupacionCoche.From(formacion.TiposCoche);
-            var modelos = listaDeModelos();
+            var modelos = listaDeModelos(session);
             modeloCbo.Items.AddRange(modelos.ToArray());
+
+            validablesParaLista.Add(new Validator<AgrupacionCoche>(pCocheEditando, ReglaConcreta<AgrupacionCoche>.dePositivo(unaAgrupacionCoche => unaAgrupacionCoche.Cantidad), errorCantidadLbl));
+            validablesParaLista.Add(new Validator<AgrupacionCoche>(pCocheEditando, new ReglaCompuesta<AgrupacionCoche>(new List<Regla<AgrupacionCoche>> {
+                new ReglaConcreta<AgrupacionCoche>(unaAgrupacion => unaAgrupacion.Coche != null, "Este campo es requerido"),
+                new ReglaConcreta<AgrupacionCoche>(unaAgrupacion => cochesListados.TrueForAll(otraAgrupacion => !unaAgrupacion.Coche.Equals(otraAgrupacion.Coche)), "No se puede usar el mismo tipo\n de coche dos veces")
+            }), errorModeloLbl));
+
+
             bindingSourceFormacion.DataSource = pFormacion;
             bindingSourceCocheEditando.DataSource = pCocheEditando;
             this.dibujarListado();
+        }
+
+        private List<Coche> listaDeModelos(ISession session)
+        {
+            return session.Query<Coche>().ToList();
         }
 
         private void dibujarListado()
@@ -52,27 +77,33 @@ namespace SimuRails.Views.Components.Attrs
             this.dibujarListado();
         }
 
-        private List<Coche> listaDeModelos()
-        {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                return session.Query<Coche>().ToList();
-            }
-        }
-
         public bool applyTo(Formacion formacion)
         {
             this.pFormacion.TiposCoche = AgrupacionCoche.ToDictionary(cochesListados);
-            return true;
+            validables.ForEach(validable => validable.mostrarError());
+            return validables.TrueForAll(validable => validable.esValido());
+        }
+
+        private void registrarValidables()
+        {
+            
         }
 
         private void agregarBtn_Click(object sender, EventArgs e)
         {
-            cochesListados.Add(pCocheEditando);
-            this.listadoCoches.agregarRenglon(this.renglonDe(pCocheEditando));
-            pCocheEditando = new AgrupacionCoche();
-            bindingSourceCocheEditando.DataSource = pCocheEditando;
-            modeloCbo.SelectedItem = null;
+            validablesParaLista.ForEach(validable => validable.mostrarError());
+            if(validablesParaLista.TrueForAll(validable => validable.esValido()))
+            {
+                var nuevoCocheListado = pCocheEditando.crearCopia();
+                pCocheEditando.limpiar();
+                cochesListados.Add(nuevoCocheListado);
+                this.listadoCoches.agregarRenglon(this.renglonDe(nuevoCocheListado));
+
+                bindingSourceCocheEditando.ResetBindings(true);
+
+                modeloCbo.SelectedItem = null;
+                errorCochesLbl.Visible = false;
+            }
         }
     }
 }

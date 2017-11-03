@@ -16,7 +16,7 @@ namespace SimuRails.Mappings
             {
                 collectionMapping.Table("ServicioXTraza");
                 collectionMapping.Key(k => k.Column("TrazaId"));
-                collectionMapping.Cascade(Cascade.None);
+                collectionMapping.Cascade(Cascade.All);
                 collectionMapping.Lazy(CollectionLazy.NoLazy);
             },
             map => map.ManyToMany(c => c.Column("ServicioId")));

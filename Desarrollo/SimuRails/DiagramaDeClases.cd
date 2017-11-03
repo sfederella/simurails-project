@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SimuRails.Models.AgrupacionCoche">
+    <Position X="15" Y="10.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AhAAAAEAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AgrupacionCoche.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.AgrupacionFormacion">
+    <Position X="7.25" Y="11.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AhAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Models\AgrupacionFormacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.Coche">
+    <Position X="19.25" Y="11" Width="2.5" />
+    <NestedTypes>
+      <Enum Name="SimuRails.Models.Coche.TipoConsumo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Coche.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAEAEAAAAAEAAIAACAAgAAAgAAAAAAIA=</HashCode>
+      <FileName>Models\Coche.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.ComposicionDeCoches">
+    <Position X="15" Y="13.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ComposicionDeCoches.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.Estacion">
+    <Position X="7.5" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>SBACAAIAAIkgAAAMgEAAgAAAIAAAAAEAIAAiAEwAIQA=</HashCode>
+      <FileName>Models\Estacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.FDP">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAACAAAAAIAAAAAAAAEAABAAQ=</HashCode>
+      <FileName>Models\FDP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.Formacion">
+    <Position X="11" Y="7.25" Width="3.25" />
+    <NestedTypes>
+      <Enum Name="SimuRails.Models.Formacion.Sentido" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\Formacion.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gQAmDIAAIAAIAAAFAEAAiQoQAQABgBIIQwACAAABABg=</HashCode>
+      <FileName>Models\Formacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.FormacionComparer" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="15.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Models\FormacionComparer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SimuRails.Models.Incidente">
+    <Position X="14.75" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAIAAAAAgAABAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Incidente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.ResultadoEstacion">
+    <Position X="11.75" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>CAIEIEABAAAkAAAAQAAAWAARAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ResultadoEstacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.Servicio">
+    <Position X="3.5" Y="9.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAACEAAABABAwAAABAAACAIAAAAKEAAEBQA=</HashCode>
+      <FileName>Models\Servicio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.Simulacion">
+    <Position X="0.5" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAABAgAAAAAABAAAAIAAAAACAAAA=</HashCode>
+      <FileName>Models\Simulacion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.TiempoComprometido" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAACAABAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Models\TiempoComprometido.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SimuRails.Models.Tramo">
+    <Position X="4.75" Y="5.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAQBBAAAAAAA=</HashCode>
+      <FileName>Models\Tramo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimuRails.Models.Traza">
+    <Position X="0.5" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AgACAIAAAAAAAAAAAAAAgAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Traza.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SimuRails.Models.IMetodoSimulacion">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IMetodoSimulacion.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

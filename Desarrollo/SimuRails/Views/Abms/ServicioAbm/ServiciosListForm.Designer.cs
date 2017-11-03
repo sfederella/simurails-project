@@ -31,17 +31,19 @@
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label1 = new System.Windows.Forms.Label();
             this.listPanel = new System.Windows.Forms.Panel();
-            this.seleccion = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.seleccion = new MaterialSkin.Controls.MaterialLabel();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(879, 457);
+            this.materialRaisedButton1.Icon = null;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(879, 461);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -75,18 +77,18 @@
             this.listPanel.Size = new System.Drawing.Size(914, 361);
             this.listPanel.TabIndex = 20;
             // 
-            // seleccion
+            // materialLabel2
             // 
-            this.seleccion.AutoSize = true;
-            this.seleccion.Depth = 0;
-            this.seleccion.Font = new System.Drawing.Font("Roboto", 11F);
-            this.seleccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.seleccion.Location = new System.Drawing.Point(14, 0);
-            this.seleccion.MouseState = MaterialSkin.MouseState.HOVER;
-            this.seleccion.Name = "seleccion";
-            this.seleccion.Size = new System.Drawing.Size(63, 19);
-            this.seleccion.TabIndex = 10;
-            this.seleccion.Text = "Nombre";
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(479, 0);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(61, 19);
+            this.materialLabel2.TabIndex = 12;
+            this.materialLabel2.Text = "Destino";
             // 
             // materialLabel1
             // 
@@ -101,18 +103,18 @@
             this.materialLabel1.TabIndex = 11;
             this.materialLabel1.Text = "Origen";
             // 
-            // materialLabel2
+            // seleccion
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(479, 0);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(61, 19);
-            this.materialLabel2.TabIndex = 12;
-            this.materialLabel2.Text = "Destino";
+            this.seleccion.AutoSize = true;
+            this.seleccion.Depth = 0;
+            this.seleccion.Font = new System.Drawing.Font("Roboto", 11F);
+            this.seleccion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.seleccion.Location = new System.Drawing.Point(14, 0);
+            this.seleccion.MouseState = MaterialSkin.MouseState.HOVER;
+            this.seleccion.Name = "seleccion";
+            this.seleccion.Size = new System.Drawing.Size(63, 19);
+            this.seleccion.TabIndex = 10;
+            this.seleccion.Text = "Nombre";
             // 
             // ServiciosListForm
             // 

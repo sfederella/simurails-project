@@ -118,7 +118,7 @@ namespace SimuRails.Views.Components.Attrs
             {
                 if (frmProg.ShowDialog() == DialogResult.OK)
                 {
-                    //pServicio.programacion = frmProg.Programacion;
+                    pServicio.ProgramacionIda = frmProg.Programacion.ToDictionary(x => x, x => false);
                 }
             }
         }
@@ -130,7 +130,7 @@ namespace SimuRails.Views.Components.Attrs
             {
                 if (frmProg.ShowDialog() == DialogResult.OK)
                 {
-                    //pServicio.programacion = frmProg.Programacion;
+                    pServicio.ProgramacionVuelta = frmProg.Programacion.ToDictionary(x => x, x => false);
                 }
             }
         }

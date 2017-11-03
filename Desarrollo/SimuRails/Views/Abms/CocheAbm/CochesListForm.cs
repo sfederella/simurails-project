@@ -86,7 +86,7 @@ namespace SimuRails.Views.Abms
         public void OnCocheEdit(int cocheId)
         {
             Coche coche = findCoche(cocheId);
-            this.mainForm.embedForm(new EditCocheForm(this, repositorioCoche, coche), tabPage);
+            this.mainForm.EmbedForm(new EditCocheForm(this, repositorioCoche, coche), tabPage);
             this.Visible = false;
         }
 
@@ -99,8 +99,13 @@ namespace SimuRails.Views.Abms
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             Coche coche = new Coche();
-            this.mainForm.embedForm(new CreateCocheForm(this, coche), tabPage);
+            this.mainForm.EmbedForm(new CreateCocheForm(this, coche), tabPage);
             this.Visible = false;
+        }
+
+        private void listPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

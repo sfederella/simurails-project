@@ -31,5 +31,16 @@ namespace SimuRails.Models
         {
             return diccionario.Select(claveValor => new AgrupacionCoche(claveValor.Key, claveValor.Value)).ToList();
         }
+
+        public AgrupacionCoche crearCopia()
+        {
+            return new AgrupacionCoche(Coche, Cantidad);
+        }
+
+        internal void limpiar()
+        {
+            this.Coche = null;
+            this.Cantidad = 0;
+        }
     }
 }

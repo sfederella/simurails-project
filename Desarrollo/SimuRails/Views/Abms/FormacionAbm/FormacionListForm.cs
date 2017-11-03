@@ -88,7 +88,7 @@ namespace SimuRails.Views.Abms.FormacionAbm
             using (var session = NHibernateHelper.OpenSession())
             {
                 Formacion formacion = findFormacion(session, formacionId);
-                this.mainForm.embedForm(new EditFormacionForm(this, formacion), tabPage);
+                this.mainForm.EmbedForm(new EditFormacionForm(this, formacion, session), tabPage);
                 this.Visible = false;
             }
         }
@@ -110,7 +110,7 @@ namespace SimuRails.Views.Abms.FormacionAbm
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             Formacion formacion = new Formacion();
-            this.mainForm.embedForm(new CreateFormacionForm(this, formacion), tabPage);
+            this.mainForm.EmbedForm(new CreateFormacionForm(this, formacion), tabPage);
             this.Visible = false;
         }
     }

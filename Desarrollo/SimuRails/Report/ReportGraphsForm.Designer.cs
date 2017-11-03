@@ -40,13 +40,11 @@
             System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.GraphPorEstaciones = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.BindingSourceTraza = new System.Windows.Forms.BindingSource(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelCabecera = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.LabelDuracion = new System.Windows.Forms.Label();
             this.LabelNombreSimulacion = new System.Windows.Forms.Label();
             this.PanelFiltro = new System.Windows.Forms.Panel();
-            this.ComboBoxReportes = new SimuRails.Report.MyComboBox();
             this.ButtonVerReporte = new MaterialSkin.Controls.MaterialRaisedButton();
             this.ButtonGenerarArchivo = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,13 +53,19 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.PanelGraficoTraza = new System.Windows.Forms.Panel();
             this.GraficoTraza = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panelGraficos = new System.Windows.Forms.Panel();
+            this.PanelGraphsEstaciones = new System.Windows.Forms.Panel();
+            this.BindingSourceTraza = new System.Windows.Forms.BindingSource(this.components);
+            this.ComboBoxReportes = new SimuRails.Report.MyComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.GraphPorEstaciones)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelCabecera.SuspendLayout();
             this.PanelFiltro.SuspendLayout();
             this.FlowLayOutPanel1.SuspendLayout();
             this.PanelGraficoTraza.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GraficoTraza)).BeginInit();
+            this.panelGraficos.SuspendLayout();
+            this.PanelGraphsEstaciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).BeginInit();
             this.SuspendLayout();
             // 
             // GraphPorEstaciones
@@ -93,8 +97,10 @@
             legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
             legend1.Name = "Legend1";
             this.GraphPorEstaciones.Legends.Add(legend1);
-            this.GraphPorEstaciones.Location = new System.Drawing.Point(3, 3);
+            this.GraphPorEstaciones.Location = new System.Drawing.Point(0, 0);
+            this.GraphPorEstaciones.Margin = new System.Windows.Forms.Padding(0);
             this.GraphPorEstaciones.Name = "GraphPorEstaciones";
+            this.GraphPorEstaciones.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.GraphPorEstaciones.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.GraphPorEstaciones.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49))))),
@@ -136,20 +142,16 @@
             this.GraphPorEstaciones.Titles.Add(title1);
             this.GraphPorEstaciones.Visible = false;
             // 
-            // BindingSourceTraza
+            // panelCabecera
             // 
-            this.BindingSourceTraza.DataSource = typeof(SimuRails.Report.ReportHelperGrafico);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.LabelDuracion);
-            this.panel1.Controls.Add(this.LabelNombreSimulacion);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1157, 75);
-            this.panel1.TabIndex = 2;
+            this.panelCabecera.Controls.Add(this.label2);
+            this.panelCabecera.Controls.Add(this.LabelDuracion);
+            this.panelCabecera.Controls.Add(this.LabelNombreSimulacion);
+            this.panelCabecera.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCabecera.Location = new System.Drawing.Point(0, 0);
+            this.panelCabecera.Name = "panelCabecera";
+            this.panelCabecera.Size = new System.Drawing.Size(1157, 75);
+            this.panelCabecera.TabIndex = 2;
             // 
             // label2
             // 
@@ -200,24 +202,11 @@
             this.PanelFiltro.Size = new System.Drawing.Size(1157, 39);
             this.PanelFiltro.TabIndex = 0;
             // 
-            // ComboBoxReportes
-            // 
-            this.ComboBoxReportes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.ComboBoxReportes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.ComboBoxReportes.BackColor = System.Drawing.SystemColors.Control;
-            this.ComboBoxReportes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ComboBoxReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ComboBoxReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.ComboBoxReportes.FormattingEnabled = true;
-            this.ComboBoxReportes.Location = new System.Drawing.Point(210, 6);
-            this.ComboBoxReportes.Name = "ComboBoxReportes";
-            this.ComboBoxReportes.Size = new System.Drawing.Size(541, 25);
-            this.ComboBoxReportes.TabIndex = 16;
-            // 
             // ButtonVerReporte
             // 
+            this.ButtonVerReporte.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonVerReporte.Depth = 0;
+            this.ButtonVerReporte.Icon = null;
             this.ButtonVerReporte.Location = new System.Drawing.Point(757, 4);
             this.ButtonVerReporte.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonVerReporte.Name = "ButtonVerReporte";
@@ -232,7 +221,9 @@
             // ButtonGenerarArchivo
             // 
             this.ButtonGenerarArchivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonGenerarArchivo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonGenerarArchivo.Depth = 0;
+            this.ButtonGenerarArchivo.Icon = null;
             this.ButtonGenerarArchivo.Location = new System.Drawing.Point(1021, 4);
             this.ButtonGenerarArchivo.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonGenerarArchivo.Name = "ButtonGenerarArchivo";
@@ -259,14 +250,14 @@
             // 
             // FlowLayOutPanel1
             // 
-            this.FlowLayOutPanel1.AutoScroll = true;
+            this.FlowLayOutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FlowLayOutPanel1.Controls.Add(this.GraphPorEstaciones);
-            this.FlowLayOutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlowLayOutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FlowLayOutPanel1.Location = new System.Drawing.Point(0, 494);
+            this.FlowLayOutPanel1.Location = new System.Drawing.Point(0, 0);
             this.FlowLayOutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.FlowLayOutPanel1.Name = "FlowLayOutPanel1";
-            this.FlowLayOutPanel1.Size = new System.Drawing.Size(1157, 389);
+            this.FlowLayOutPanel1.Size = new System.Drawing.Size(1157, 380);
             this.FlowLayOutPanel1.TabIndex = 4;
             // 
             // toolTip1
@@ -279,7 +270,7 @@
             // 
             this.PanelGraficoTraza.Controls.Add(this.GraficoTraza);
             this.PanelGraficoTraza.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PanelGraficoTraza.Location = new System.Drawing.Point(0, 114);
+            this.PanelGraficoTraza.Location = new System.Drawing.Point(0, 0);
             this.PanelGraficoTraza.Name = "PanelGraficoTraza";
             this.PanelGraficoTraza.Size = new System.Drawing.Size(1157, 380);
             this.PanelGraficoTraza.TabIndex = 2;
@@ -357,28 +348,69 @@
             this.GraficoTraza.Titles.Add(title2);
             this.GraficoTraza.Visible = false;
             // 
+            // panelGraficos
+            // 
+            this.panelGraficos.AutoScroll = true;
+            this.panelGraficos.Controls.Add(this.PanelGraphsEstaciones);
+            this.panelGraficos.Controls.Add(this.PanelGraficoTraza);
+            this.panelGraficos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelGraficos.Location = new System.Drawing.Point(0, 114);
+            this.panelGraficos.Name = "panelGraficos";
+            this.panelGraficos.Size = new System.Drawing.Size(1157, 762);
+            this.panelGraficos.TabIndex = 5;
+            // 
+            // PanelGraphsEstaciones
+            // 
+            this.PanelGraphsEstaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelGraphsEstaciones.Controls.Add(this.FlowLayOutPanel1);
+            this.PanelGraphsEstaciones.Location = new System.Drawing.Point(0, 380);
+            this.PanelGraphsEstaciones.Name = "PanelGraphsEstaciones";
+            this.PanelGraphsEstaciones.Size = new System.Drawing.Size(1157, 381);
+            this.PanelGraphsEstaciones.TabIndex = 3;
+            // 
+            // BindingSourceTraza
+            // 
+            this.BindingSourceTraza.DataSource = typeof(SimuRails.Report.ReportHelperGrafico);
+            // 
+            // ComboBoxReportes
+            // 
+            this.ComboBoxReportes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.ComboBoxReportes.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.ComboBoxReportes.BackColor = System.Drawing.SystemColors.Control;
+            this.ComboBoxReportes.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ComboBoxReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ComboBoxReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxReportes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
+            this.ComboBoxReportes.FormattingEnabled = true;
+            this.ComboBoxReportes.Location = new System.Drawing.Point(210, 6);
+            this.ComboBoxReportes.Name = "ComboBoxReportes";
+            this.ComboBoxReportes.Size = new System.Drawing.Size(541, 25);
+            this.ComboBoxReportes.TabIndex = 16;
+            // 
             // ReportGraphsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1157, 883);
-            this.Controls.Add(this.FlowLayOutPanel1);
-            this.Controls.Add(this.PanelGraficoTraza);
+            this.ClientSize = new System.Drawing.Size(1157, 876);
+            this.Controls.Add(this.panelGraficos);
             this.Controls.Add(this.PanelFiltro);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelCabecera);
             this.Name = "ReportGraphsForm";
             this.Text = "Resultado de Simulación";
             this.SizeChanged += new System.EventHandler(this.ReportGraphsForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.GraphPorEstaciones)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelCabecera.ResumeLayout(false);
+            this.panelCabecera.PerformLayout();
             this.PanelFiltro.ResumeLayout(false);
             this.PanelFiltro.PerformLayout();
             this.FlowLayOutPanel1.ResumeLayout(false);
             this.PanelGraficoTraza.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GraficoTraza)).EndInit();
+            this.panelGraficos.ResumeLayout(false);
+            this.PanelGraphsEstaciones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -387,7 +419,7 @@
 
         private System.Windows.Forms.DataVisualization.Charting.Chart GraphPorEstaciones;
         private System.Windows.Forms.BindingSource BindingSourceTraza;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelCabecera;
         private System.Windows.Forms.Panel PanelFiltro;
         private System.Windows.Forms.FlowLayoutPanel FlowLayOutPanel1;
         private System.Windows.Forms.Label LabelNombreSimulacion;
@@ -401,5 +433,7 @@
         private System.Windows.Forms.Panel PanelGraficoTraza;
         private System.Windows.Forms.DataVisualization.Charting.Chart GraficoTraza;
         private MyComboBox ComboBoxReportes;
+        private System.Windows.Forms.Panel panelGraficos;
+        private System.Windows.Forms.Panel PanelGraphsEstaciones;
     }
 }

@@ -18,6 +18,7 @@ namespace SimuRails.Views.Components.Attrs
             List<Traza> list = repositorioTrazas.Listar<Traza>();
             BindingSourceTraza.DataSource = list;
             ComboBoxTraza.listaDatos = list.Select(x => x.Nombre).ToList();
+            duracionField_KeyUp(null, null);
         }
 
         public bool applyTo(Simulacion simulacion)
@@ -27,6 +28,12 @@ namespace SimuRails.Views.Components.Attrs
             if (pSimulacion.TrazaSimulada == null ) { MessageBox.Show("Se debe establecer la traza a simular."); return false; }
             simulacion = pSimulacion;
             return true;
+        }
+
+        private void duracionField_KeyUp(object sender, KeyEventArgs e)
+        {
+            long dias = duracionField.Text != "" ? long.Parse(duracionField.Text) : 0;
+            contadorMinutosText.Text = (dias * 1440).ToString();
         }
     }
 }

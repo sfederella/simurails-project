@@ -103,7 +103,7 @@ namespace SimuRails.Views.Abms
         public void OnTrazaEdit(int trazaId)
         {
             Traza traza = findTraza(trazaId);
-            this.mainForm.embedForm(new EditTrazaForm(this, repositorioTraza, traza), tabPage);
+            this.mainForm.EmbedForm(new EditTrazaForm(this, repositorioTraza, traza), tabPage);
             this.Visible = false;
         }
 
@@ -115,7 +115,7 @@ namespace SimuRails.Views.Abms
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             Traza traza = new Traza();
-            this.mainForm.embedForm(new CreateTrazaForm(this, traza), tabPage);
+            this.mainForm.EmbedForm(new CreateTrazaForm(this, traza), tabPage);
             this.Visible = false;
         }
 

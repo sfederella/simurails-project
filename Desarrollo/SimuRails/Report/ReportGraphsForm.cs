@@ -34,6 +34,7 @@ namespace SimuRails.Report
 
             this.PanelGraficoTraza.BackColor = color;
             this.FlowLayOutPanel1.BackColor = color;
+            this.panelGraficos.BackColor = color;
             string msgAxisY = "";
             if (itm.Valor == 1 || itm.Valor == 2) { msgAxisY = "% Pasajeros"; }
             else if (itm.Valor == 3 || itm.Valor == 4) { msgAxisY = "% trenes"; }
@@ -47,18 +48,22 @@ namespace SimuRails.Report
                 Chart ch = CloneChart(GraphPorEstaciones);
                 ch.DataSource = lstEstaciones;
                 ch.Visible = true;
-                ch.Width = (GraficoTraza.Size.Width / 2) - 6;
+                //ch.Width = (FlowLayOutPanel1.Width / 2) ;
                 ch.Titles[0].Text = servicio.Nombre;
                 ch.ChartAreas[0].AxisY.Title = msgAxisY;
                 FlowLayOutPanel1.Controls.Add(ch);
-
                 //TODOS LOS RESULTADOS A NIVEL SERVICIO SON PROMEDIOS DE LOS % EN LAS ESTACIONES
                 listServicios.Add(new ReportHelperValorIdaVuelta(servicio.Nombre, lstEstaciones.Average(x => x.ValorIda), lstEstaciones.Average(x => x.ValorVuelta)));
-           }
+            }
+
             BindingSourceTraza.DataSource = listServicios;
             GraficoTraza.Titles[0].Text = itm.Nombre;
             GraficoTraza.ChartAreas[0].AxisY.Title = msgAxisY;
-            GraficoTraza.Visible = true;          
+            GraficoTraza.Visible = true;
+
+            //Esto es una negrda pero funciona al menos si hay 2
+            this.Width++;
+            this.Width--;
         }
 
         private void ButtonGenerarArchivo_Click(object sender, EventArgs e)
@@ -68,11 +73,13 @@ namespace SimuRails.Report
             string rutaTraza = Path.GetTempPath() + "rutaTraza" + DateTime.Now.ToString("MMddyy HHmmss")+".png";
             CloneChartSinBorde(GraficoTraza).SaveImage(rutaTraza, ChartImageFormat.Png);
             lstRutas.Add(new ReportHelperGrafico(rutaTraza, 0));
+            int i = 0;
             foreach (Chart chartEstacion in FlowLayOutPanel1.Controls)
             {
-                string rutaEstacion = Path.GetTempPath() + "rutaEstacion" + DateTime.Now.ToString("MMddyy HHmmss") + ".png";
+                string rutaEstacion = Path.GetTempPath() + "rutaEstacion" +i+ DateTime.Now.ToString("MMddyy HHmmss") + ".png";
                 CloneChartSinBorde(chartEstacion).SaveImage(rutaEstacion, ChartImageFormat.Png);
                 lstRutas.Add(new ReportHelperGrafico(rutaEstacion, 0));
+                i++;
             }
 
             ReportViewerForm f = new ReportViewerForm()
@@ -163,10 +170,12 @@ namespace SimuRails.Report
         {
             foreach (Chart chart in FlowLayOutPanel1.Controls)
             {
-                chart.Width = (GraficoTraza.Size.Width / 2) - 6;
+                chart.Width = (GraficoTraza.Size.Width / 2)-6;
             }
+            int cantRenglones = (int)(Math.Abs((FlowLayOutPanel1.Controls.Count / 2) + 0.5));
+            FlowLayOutPanel1.Height = 390 * cantRenglones;
+            PanelGraphsEstaciones.Height = FlowLayOutPanel1.Height;
         }
-
 
         #endregion
     }

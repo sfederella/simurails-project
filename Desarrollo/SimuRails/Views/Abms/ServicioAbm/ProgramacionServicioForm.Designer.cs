@@ -32,13 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgramacionServicioForm));
             this.horariosGridView = new System.Windows.Forms.DataGridView();
-            this.Horarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importarExcel = new System.Windows.Forms.Button();
-            this.btnInsertRow = new System.Windows.Forms.Button();
-            this.aceptarButton = new System.Windows.Forms.Button();
-            this.cancelarButton = new System.Windows.Forms.Button();
+            this.importarExcel = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnInsertRow = new MaterialSkin.Controls.MaterialFlatButton();
+            this.aceptarButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.cancelarButton = new MaterialSkin.Controls.MaterialFlatButton();
             this.openExcelDialog = new System.Windows.Forms.OpenFileDialog();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.btnClear = new MaterialSkin.Controls.MaterialFlatButton();
+            this.Horarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.horariosGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,27 +58,27 @@
             this.horariosGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.horariosGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Horarios});
-            this.horariosGridView.Location = new System.Drawing.Point(184, 12);
+            this.horariosGridView.Location = new System.Drawing.Point(176, 76);
             this.horariosGridView.Name = "horariosGridView";
+            this.horariosGridView.RowHeadersWidth = 25;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.horariosGridView.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.horariosGridView.Size = new System.Drawing.Size(193, 414);
+            this.horariosGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.horariosGridView.Size = new System.Drawing.Size(193, 350);
             this.horariosGridView.TabIndex = 0;
             this.horariosGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.HorariosGridView_CellEndEdit);
             this.horariosGridView.SelectionChanged += new System.EventHandler(this.HorariosGridView_SelectionChanged);
             // 
-            // Horarios
-            // 
-            this.Horarios.HeaderText = "Horarios de Salida";
-            this.Horarios.Name = "Horarios";
-            this.Horarios.ToolTipText = "Horario de salida empezando desde las 00:00 horas.";
-            this.Horarios.Width = 150;
-            // 
             // importarExcel
             // 
-            this.importarExcel.Location = new System.Drawing.Point(29, 54);
+            this.importarExcel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.importarExcel.Depth = 0;
+            this.importarExcel.Icon = null;
+            this.importarExcel.Location = new System.Drawing.Point(21, 96);
+            this.importarExcel.MouseState = MaterialSkin.MouseState.HOVER;
             this.importarExcel.Name = "importarExcel";
-            this.importarExcel.Size = new System.Drawing.Size(120, 30);
+            this.importarExcel.Primary = true;
+            this.importarExcel.Size = new System.Drawing.Size(134, 36);
             this.importarExcel.TabIndex = 37;
             this.importarExcel.Text = "Importar Excel";
             this.importarExcel.UseVisualStyleBackColor = true;
@@ -86,9 +86,15 @@
             // 
             // btnInsertRow
             // 
-            this.btnInsertRow.Location = new System.Drawing.Point(29, 119);
+            this.btnInsertRow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnInsertRow.Depth = 0;
+            this.btnInsertRow.Icon = null;
+            this.btnInsertRow.Location = new System.Drawing.Point(21, 141);
+            this.btnInsertRow.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnInsertRow.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnInsertRow.Name = "btnInsertRow";
-            this.btnInsertRow.Size = new System.Drawing.Size(120, 30);
+            this.btnInsertRow.Primary = false;
+            this.btnInsertRow.Size = new System.Drawing.Size(134, 36);
             this.btnInsertRow.TabIndex = 38;
             this.btnInsertRow.Text = "Insertar Fila";
             this.btnInsertRow.UseVisualStyleBackColor = true;
@@ -96,9 +102,14 @@
             // 
             // aceptarButton
             // 
-            this.aceptarButton.Location = new System.Drawing.Point(29, 324);
+            this.aceptarButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.aceptarButton.Depth = 0;
+            this.aceptarButton.Icon = null;
+            this.aceptarButton.Location = new System.Drawing.Point(21, 326);
+            this.aceptarButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.aceptarButton.Name = "aceptarButton";
-            this.aceptarButton.Size = new System.Drawing.Size(120, 30);
+            this.aceptarButton.Primary = true;
+            this.aceptarButton.Size = new System.Drawing.Size(134, 36);
             this.aceptarButton.TabIndex = 40;
             this.aceptarButton.Text = "Aceptar";
             this.aceptarButton.UseVisualStyleBackColor = true;
@@ -106,9 +117,15 @@
             // 
             // cancelarButton
             // 
-            this.cancelarButton.Location = new System.Drawing.Point(29, 360);
+            this.cancelarButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.cancelarButton.Depth = 0;
+            this.cancelarButton.Icon = null;
+            this.cancelarButton.Location = new System.Drawing.Point(21, 371);
+            this.cancelarButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cancelarButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.cancelarButton.Name = "cancelarButton";
-            this.cancelarButton.Size = new System.Drawing.Size(120, 30);
+            this.cancelarButton.Primary = false;
+            this.cancelarButton.Size = new System.Drawing.Size(134, 36);
             this.cancelarButton.TabIndex = 41;
             this.cancelarButton.Text = "Cancelar";
             this.cancelarButton.UseVisualStyleBackColor = true;
@@ -122,15 +139,29 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(29, 155);
+            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClear.Depth = 0;
+            this.btnClear.Icon = null;
+            this.btnClear.Location = new System.Drawing.Point(21, 189);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(120, 30);
+            this.btnClear.Primary = false;
+            this.btnClear.Size = new System.Drawing.Size(134, 36);
             this.btnClear.TabIndex = 42;
             this.btnClear.Text = "Vaciar";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.BbtnClear_Click);
             // 
-            // frmProgramacionServicio
+            // Horarios
+            // 
+            this.Horarios.HeaderText = "Horarios de Salida";
+            this.Horarios.Name = "Horarios";
+            this.Horarios.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Horarios.ToolTipText = "Horario de salida empezando desde las 00:00 horas.";
+            this.Horarios.Width = 170;
+            // 
+            // ProgramacionServicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,7 +173,8 @@
             this.Controls.Add(this.importarExcel);
             this.Controls.Add(this.horariosGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmProgramacionServicio";
+            this.Name = "ProgramacionServicioForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Editor de Programación";
             this.Load += new System.EventHandler(this.FrmProgramacionServicio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.horariosGridView)).EndInit();
@@ -153,12 +185,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView horariosGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Horarios;
-        private System.Windows.Forms.Button importarExcel;
-        private System.Windows.Forms.Button btnInsertRow;
-        private System.Windows.Forms.Button aceptarButton;
-        private System.Windows.Forms.Button cancelarButton;
+        private MaterialSkin.Controls.MaterialRaisedButton importarExcel;
+        private MaterialSkin.Controls.MaterialFlatButton btnInsertRow;
+        private MaterialSkin.Controls.MaterialRaisedButton aceptarButton;
+        private MaterialSkin.Controls.MaterialFlatButton cancelarButton;
         private System.Windows.Forms.OpenFileDialog openExcelDialog;
-        private System.Windows.Forms.Button btnClear;
+        private MaterialSkin.Controls.MaterialFlatButton btnClear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Horarios;
     }
 }

@@ -40,6 +40,11 @@
             this.descripcionField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.errorNombreLbl = new System.Windows.Forms.Label();
+            this.errorOcurrenciaLbl = new System.Windows.Forms.Label();
+            this.errorDemoraLbl = new System.Windows.Forms.Label();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +104,7 @@
             // 
             this.demoraField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "TiempoDemora", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.demoraField.Depth = 0;
-            this.demoraField.Hint = "en segundos";
+            this.demoraField.Hint = "";
             this.demoraField.Location = new System.Drawing.Point(324, 252);
             this.demoraField.MouseState = MaterialSkin.MouseState.HOVER;
             this.demoraField.Name = "demoraField";
@@ -107,7 +112,7 @@
             this.demoraField.SelectedText = "";
             this.demoraField.SelectionLength = 0;
             this.demoraField.SelectionStart = 0;
-            this.demoraField.Size = new System.Drawing.Size(148, 23);
+            this.demoraField.Size = new System.Drawing.Size(89, 23);
             this.demoraField.TabIndex = 3;
             this.demoraField.UseSystemPasswordChar = false;
             // 
@@ -119,7 +124,7 @@
             // 
             this.probabilidadField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "ProbabilidadDeOcurrencia", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.probabilidadField.Depth = 0;
-            this.probabilidadField.Hint = "%";
+            this.probabilidadField.Hint = "";
             this.probabilidadField.Location = new System.Drawing.Point(33, 251);
             this.probabilidadField.MouseState = MaterialSkin.MouseState.HOVER;
             this.probabilidadField.Name = "probabilidadField";
@@ -127,7 +132,7 @@
             this.probabilidadField.SelectedText = "";
             this.probabilidadField.SelectionLength = 0;
             this.probabilidadField.SelectionStart = 0;
-            this.probabilidadField.Size = new System.Drawing.Size(148, 23);
+            this.probabilidadField.Size = new System.Drawing.Size(72, 23);
             this.probabilidadField.TabIndex = 2;
             this.probabilidadField.UseSystemPasswordChar = false;
             // 
@@ -189,11 +194,78 @@
             this.materialLabel2.TabIndex = 32;
             this.materialLabel2.Text = "Riesgo";
             // 
+            // errorNombreLbl
+            // 
+            this.errorNombreLbl.AutoSize = true;
+            this.errorNombreLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorNombreLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorNombreLbl.Location = new System.Drawing.Point(17, 68);
+            this.errorNombreLbl.Name = "errorNombreLbl";
+            this.errorNombreLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorNombreLbl.TabIndex = 38;
+            this.errorNombreLbl.Text = "Este campo es requerido";
+            this.errorNombreLbl.Visible = false;
+            // 
+            // errorOcurrenciaLbl
+            // 
+            this.errorOcurrenciaLbl.AutoSize = true;
+            this.errorOcurrenciaLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorOcurrenciaLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorOcurrenciaLbl.Location = new System.Drawing.Point(30, 277);
+            this.errorOcurrenciaLbl.Name = "errorOcurrenciaLbl";
+            this.errorOcurrenciaLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorOcurrenciaLbl.TabIndex = 40;
+            this.errorOcurrenciaLbl.Text = "Este campo es requerido";
+            this.errorOcurrenciaLbl.Visible = false;
+            // 
+            // errorDemoraLbl
+            // 
+            this.errorDemoraLbl.AutoSize = true;
+            this.errorDemoraLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorDemoraLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorDemoraLbl.Location = new System.Drawing.Point(321, 278);
+            this.errorDemoraLbl.Name = "errorDemoraLbl";
+            this.errorDemoraLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorDemoraLbl.TabIndex = 41;
+            this.errorDemoraLbl.Text = "Este campo es requerido";
+            this.errorDemoraLbl.Visible = false;
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(111, 251);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(20, 19);
+            this.materialLabel5.TabIndex = 42;
+            this.materialLabel5.Text = "%";
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(419, 252);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(75, 19);
+            this.materialLabel6.TabIndex = 43;
+            this.materialLabel6.Text = "Segundos";
+            // 
             // IncidenteAttrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.materialLabel6);
+            this.Controls.Add(this.materialLabel5);
+            this.Controls.Add(this.errorDemoraLbl);
+            this.Controls.Add(this.errorOcurrenciaLbl);
+            this.Controls.Add(this.errorNombreLbl);
             this.Controls.Add(this.descripcionField);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.materialLabel4);
@@ -205,7 +277,7 @@
             this.Controls.Add(this.probabilidadField);
             this.Controls.Add(this.nombreField);
             this.Name = "IncidenteAttrs";
-            this.Size = new System.Drawing.Size(791, 291);
+            this.Size = new System.Drawing.Size(791, 323);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,5 +297,10 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.BindingSource BindingSourceIncidente;
+        private System.Windows.Forms.Label errorNombreLbl;
+        private System.Windows.Forms.Label errorOcurrenciaLbl;
+        private System.Windows.Forms.Label errorDemoraLbl;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
     }
 }
