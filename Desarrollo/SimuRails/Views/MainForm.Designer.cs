@@ -145,7 +145,7 @@
             this.mainMaterialTabControl.Name = "mainMaterialTabControl";
             this.mainMaterialTabControl.Padding = new System.Drawing.Point(0, 0);
             this.mainMaterialTabControl.SelectedIndex = 0;
-            this.mainMaterialTabControl.Size = new System.Drawing.Size(1169, 684);
+            this.mainMaterialTabControl.Size = new System.Drawing.Size(1169, 452);
             this.mainMaterialTabControl.TabIndex = 2;
             // 
             // tabSimulacion
@@ -153,7 +153,7 @@
             this.tabSimulacion.Location = new System.Drawing.Point(4, 22);
             this.tabSimulacion.Name = "tabSimulacion";
             this.tabSimulacion.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSimulacion.Size = new System.Drawing.Size(1161, 658);
+            this.tabSimulacion.Size = new System.Drawing.Size(1161, 426);
             this.tabSimulacion.TabIndex = 0;
             this.tabSimulacion.Text = "Simulación";
             this.tabSimulacion.UseVisualStyleBackColor = true;
@@ -231,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1163, 780);
+            this.ClientSize = new System.Drawing.Size(1163, 548);
             this.ContextMenuStrip = this.materialContextMenuStrip1;
             this.Controls.Add(this.mainMaterialTabControl);
             this.Controls.Add(this.mainMaterialTabSelector2);
