@@ -127,7 +127,8 @@ namespace SimuRails.Views.Abms
                 using (var session = NHibernateHelper.OpenSession())
                 using (var transaction = session.BeginTransaction())
                 {
-                    session.Save(trazaRecuperada);
+                    //session.Replicate(trazaRecuperada, NHibernate.ReplicationMode.Overwrite);
+                    session.Persist(trazaRecuperada);
                     transaction.Commit();
                 }
             }
