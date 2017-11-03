@@ -1,4 +1,4 @@
-﻿using SimuRails.Models;
+using SimuRails.Models;
 using System.Collections.Generic;
 using Moq;
 
@@ -328,7 +328,7 @@ namespace Tests.ModelsTests
                     TiposCoche = new Dictionary<Coche,int>()
                     {
                         [Coches["Loc. General Motors-EMD G22"]] = 1,
-                        [Coches["Loc. General Motors-EMD G22"]] = 5
+                        [Coches["Coche General Motors-EMD G10"]] = 5
                     }
                 },
                 ["Form. Diesel Mitre"] = new Formacion()
@@ -355,10 +355,10 @@ namespace Tests.ModelsTests
                     Nombre = "Villa Ballester",
                     PersonasDesciendenMaxIda = 0,
                     PersonasDesciendenMinIda = 0,
-                    PersonasEsperandoMaxIda = 80,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 80,
-                    PersonasDesciendenMinVuelta = 5,
+                    PersonasEsperandoMaxIda = 700,
+                    PersonasEsperandoMinIda = 600,
+                    PersonasDesciendenMaxVuelta = 700,
+                    PersonasDesciendenMinVuelta = 600,
                     PersonasEsperandoMaxVuelta = 0,
                     PersonasEsperandoMinVuelta = 0
                 },
@@ -367,13 +367,13 @@ namespace Tests.ModelsTests
                 {
                     Id = 402,
                     Nombre = "Bancalari",
-                    PersonasDesciendenMaxIda = 10,
+                    PersonasDesciendenMaxIda = 50,
                     PersonasDesciendenMinIda = 0,
-                    PersonasEsperandoMaxIda = 70,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 70,
-                    PersonasDesciendenMinVuelta = 5,
-                    PersonasEsperandoMaxVuelta = 10,
+                    PersonasEsperandoMaxIda = 200,
+                    PersonasEsperandoMinIda = 100,
+                    PersonasDesciendenMaxVuelta = 200,
+                    PersonasDesciendenMinVuelta = 100,
+                    PersonasEsperandoMaxVuelta = 50,
                     PersonasEsperandoMinVuelta = 0
                 },
 
@@ -381,13 +381,13 @@ namespace Tests.ModelsTests
                 {
                     Id = 403,
                     Nombre = "Pacheco",
-                    PersonasDesciendenMaxIda = 20,
+                    PersonasDesciendenMaxIda = 60,
                     PersonasDesciendenMinIda = 0,
-                    PersonasEsperandoMaxIda = 60,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 60,
-                    PersonasDesciendenMinVuelta = 5,
-                    PersonasEsperandoMaxVuelta = 20,
+                    PersonasEsperandoMaxIda = 210,
+                    PersonasEsperandoMinIda = 110,
+                    PersonasDesciendenMaxVuelta = 210,
+                    PersonasDesciendenMinVuelta = 110,
+                    PersonasEsperandoMaxVuelta = 60,
                     PersonasEsperandoMinVuelta = 0
                 },
 
@@ -395,13 +395,13 @@ namespace Tests.ModelsTests
                 {
                     Id = 404,
                     Nombre = "Benavidez",
-                    PersonasDesciendenMaxIda = 30,
+                    PersonasDesciendenMaxIda = 70,
                     PersonasDesciendenMinIda = 0,
-                    PersonasEsperandoMaxIda = 50,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 50,
-                    PersonasDesciendenMinVuelta = 5,
-                    PersonasEsperandoMaxVuelta = 30,
+                    PersonasEsperandoMaxIda = 220,
+                    PersonasEsperandoMinIda = 120,
+                    PersonasDesciendenMaxVuelta = 220,
+                    PersonasDesciendenMinVuelta = 120,
+                    PersonasEsperandoMaxVuelta = 70,
                     PersonasEsperandoMinVuelta = 0
                 },
 
@@ -409,14 +409,14 @@ namespace Tests.ModelsTests
                 {
                     Id = 405,
                     Nombre = "Maschwitz",
-                    PersonasDesciendenMaxIda = 40,
-                    PersonasDesciendenMinIda = 5,
-                    PersonasEsperandoMaxIda = 40,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 40,
-                    PersonasDesciendenMinVuelta = 5,
-                    PersonasEsperandoMaxVuelta = 40,
-                    PersonasEsperandoMinVuelta = 5,
+                    PersonasDesciendenMaxIda = 100,
+                    PersonasDesciendenMinIda = 20,
+                    PersonasEsperandoMaxIda = 210,
+                    PersonasEsperandoMinIda = 110,
+                    PersonasDesciendenMaxVuelta = 210,
+                    PersonasDesciendenMinVuelta = 110,
+                    PersonasEsperandoMaxVuelta = 100,
+                    PersonasEsperandoMinVuelta = 20,
                     EsEstacionDeMantenimiento = true
                 },
 
@@ -424,84 +424,84 @@ namespace Tests.ModelsTests
                 {
                     Id = 406,
                     Nombre = "Escobar",
-                    PersonasDesciendenMaxIda = 40,
-                    PersonasDesciendenMinIda = 5,
-                    PersonasEsperandoMaxIda = 40,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 40,
-                    PersonasDesciendenMinVuelta = 5,
-                    PersonasEsperandoMaxVuelta = 40,
-                    PersonasEsperandoMinVuelta = 5
+                    PersonasDesciendenMaxIda = 110,
+                    PersonasDesciendenMinIda = 30,
+                    PersonasEsperandoMaxIda = 200,
+                    PersonasEsperandoMinIda = 100,
+                    PersonasDesciendenMaxVuelta = 200,
+                    PersonasDesciendenMinVuelta = 100,
+                    PersonasEsperandoMaxVuelta = 110,
+                    PersonasEsperandoMinVuelta = 30
                 },
 
                 ["Río Luján"] = new Estacion()
                 {
                     Id = 407,
                     Nombre = "Río Luján",
-                    PersonasDesciendenMaxIda = 40,
-                    PersonasDesciendenMinIda = 5,
-                    PersonasEsperandoMaxIda = 40,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 40,
-                    PersonasDesciendenMinVuelta = 5,
-                    PersonasEsperandoMaxVuelta = 40,
-                    PersonasEsperandoMinVuelta = 5
+                    PersonasDesciendenMaxIda = 120,
+                    PersonasDesciendenMinIda = 40,
+                    PersonasEsperandoMaxIda = 150,
+                    PersonasEsperandoMinIda = 50,
+                    PersonasDesciendenMaxVuelta = 150,
+                    PersonasDesciendenMinVuelta = 50,
+                    PersonasEsperandoMaxVuelta = 120,
+                    PersonasEsperandoMinVuelta = 40
                 },
 
                 ["Otamendi"] = new Estacion()
                 {
                     Id = 408,
                     Nombre = "Otamendi",
-                    PersonasDesciendenMaxIda = 50,
-                    PersonasDesciendenMinIda = 5,
-                    PersonasEsperandoMaxIda = 30,
-                    PersonasEsperandoMinIda = 0,
-                    PersonasDesciendenMaxVuelta = 30,
-                    PersonasDesciendenMinVuelta = 0,
-                    PersonasEsperandoMaxVuelta = 50,
-                    PersonasEsperandoMinVuelta = 5
+                    PersonasDesciendenMaxIda = 130,
+                    PersonasDesciendenMinIda = 40,
+                    PersonasEsperandoMaxIda = 140,
+                    PersonasEsperandoMinIda = 50,
+                    PersonasDesciendenMaxVuelta = 140,
+                    PersonasDesciendenMinVuelta = 50,
+                    PersonasEsperandoMaxVuelta = 130,
+                    PersonasEsperandoMinVuelta = 40
                 },
 
                 ["Campana"] = new Estacion()
                 {
                     Id = 409,
                     Nombre = "Campana",
-                    PersonasDesciendenMaxIda = 60,
-                    PersonasDesciendenMinIda = 5,
-                    PersonasEsperandoMaxIda = 20,
-                    PersonasEsperandoMinIda = 0,
-                    PersonasDesciendenMaxVuelta = 20,
-                    PersonasDesciendenMinVuelta = 0,
-                    PersonasEsperandoMaxVuelta = 60,
-                    PersonasEsperandoMinVuelta = 5
+                    PersonasDesciendenMaxIda = 140,
+                    PersonasDesciendenMinIda = 50,
+                    PersonasEsperandoMaxIda = 120,
+                    PersonasEsperandoMinIda = 50,
+                    PersonasDesciendenMaxVuelta = 120,
+                    PersonasDesciendenMinVuelta = 50,
+                    PersonasEsperandoMaxVuelta = 140,
+                    PersonasEsperandoMinVuelta = 50
                 },
 
                 ["Km. 83"] = new Estacion()
                 {
                     Id = 410,
                     Nombre = "Km. 83",
-                    PersonasDesciendenMaxIda = 70,
-                    PersonasDesciendenMinIda = 5,
-                    PersonasEsperandoMaxIda = 10,
-                    PersonasEsperandoMinIda = 0,
-                    PersonasDesciendenMaxVuelta = 10,
-                    PersonasDesciendenMinVuelta = 0,
-                    PersonasEsperandoMaxVuelta = 70,
-                    PersonasEsperandoMinVuelta = 5
+                    PersonasDesciendenMaxIda = 130,
+                    PersonasDesciendenMinIda = 40,
+                    PersonasEsperandoMaxIda = 140,
+                    PersonasEsperandoMinIda = 50,
+                    PersonasDesciendenMaxVuelta = 140,
+                    PersonasDesciendenMinVuelta = 50,
+                    PersonasEsperandoMaxVuelta = 130,
+                    PersonasEsperandoMinVuelta = 40
                 },
 
                 ["Zárate"] = new Estacion()
                 {
                     Id = 411,
                     Nombre = "Zárate",
-                    PersonasDesciendenMaxIda = 80,
-                    PersonasDesciendenMinIda = 5,
-                    PersonasEsperandoMaxIda = 0,
-                    PersonasEsperandoMinIda = 0,
-                    PersonasDesciendenMaxVuelta = 0,
-                    PersonasDesciendenMinVuelta = 0,
-                    PersonasEsperandoMaxVuelta = 80,
-                    PersonasEsperandoMinVuelta = 5
+                    PersonasDesciendenMaxIda = 130,
+                    PersonasDesciendenMinIda = 70,
+                    PersonasEsperandoMaxIda = 100,
+                    PersonasEsperandoMinIda = 50,
+                    PersonasDesciendenMaxVuelta = 100,
+                    PersonasDesciendenMinVuelta = 50,
+                    PersonasEsperandoMaxVuelta = 130,
+                    PersonasEsperandoMinVuelta = 70
                 },
 
                 ["Victoria"] = new Estacion()
@@ -510,10 +510,10 @@ namespace Tests.ModelsTests
                     Nombre = "Victoria",
                     PersonasDesciendenMaxIda = 0,
                     PersonasDesciendenMinIda = 0,
-                    PersonasEsperandoMaxIda = 80,
-                    PersonasEsperandoMinIda = 5,
-                    PersonasDesciendenMaxVuelta = 80,
-                    PersonasDesciendenMinVuelta = 5,
+                    PersonasEsperandoMaxIda = 700,
+                    PersonasEsperandoMinIda = 500,
+                    PersonasDesciendenMaxVuelta = 700,
+                    PersonasDesciendenMinVuelta = 500,
                     PersonasEsperandoMaxVuelta = 0,
                     PersonasEsperandoMinVuelta = 0
                 },
