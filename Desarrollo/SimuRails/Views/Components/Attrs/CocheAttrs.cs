@@ -25,11 +25,10 @@ namespace SimuRails.Views.Components
             InitializeComponent();
             pCoche = coche;
 
-
             validables.Add(new Validator<Coche>(pCoche, ReglaConcreta<Coche>.dePresencia((unCoche => unCoche.Modelo)), this.errorModeloLbl, this.modeloField));
             validables.Add(new Validator<Coche>(pCoche, ReglaConcreta<Coche>.dePositivo((unCoche => unCoche.MaximoLegalPasajeros)), this.errorLegalLbl, this.capacidadLegalField));
             validables.Add(new Validator<Coche>(pCoche, reglaParaCapacidadMaxima, this.errorMaximaLbl, this.capacidadTotalField));
-            validables.Add(new Validator<Coche>(pCoche, ReglaConcreta<Coche>.dePositivo((unCoche => unCoche.CantidadAsientos)), this.errorAsientosLbl, this.asientosField));
+            validables.Add(new Validator<Coche>(pCoche, reglaParaAsientos, this.errorAsientosLbl, this.asientosField));
 
             BindingSourceCoche.DataSource = pCoche;
         }
