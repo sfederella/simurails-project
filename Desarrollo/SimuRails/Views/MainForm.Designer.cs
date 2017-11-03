@@ -119,7 +119,7 @@
             this.mainMaterialTabSelector2.BackColor = System.Drawing.SystemColors.Control;
             this.mainMaterialTabSelector2.BaseTabControl = this.mainMaterialTabControl;
             this.mainMaterialTabSelector2.Depth = 0;
-            this.mainMaterialTabSelector2.Location = new System.Drawing.Point(168, 58);
+            this.mainMaterialTabSelector2.Location = new System.Drawing.Point(168, 60);
             this.mainMaterialTabSelector2.MouseState = MaterialSkin.MouseState.HOVER;
             this.mainMaterialTabSelector2.Name = "mainMaterialTabSelector2";
             this.mainMaterialTabSelector2.Size = new System.Drawing.Size(807, 38);
@@ -163,7 +163,7 @@
             this.tabTrazas.Location = new System.Drawing.Point(4, 22);
             this.tabTrazas.Name = "tabTrazas";
             this.tabTrazas.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTrazas.Size = new System.Drawing.Size(1161, 658);
+            this.tabTrazas.Size = new System.Drawing.Size(1161, 426);
             this.tabTrazas.TabIndex = 1;
             this.tabTrazas.Text = "Trazas";
             this.tabTrazas.UseVisualStyleBackColor = true;
@@ -172,7 +172,7 @@
             // 
             this.tabServicios.Location = new System.Drawing.Point(4, 22);
             this.tabServicios.Name = "tabServicios";
-            this.tabServicios.Size = new System.Drawing.Size(1161, 658);
+            this.tabServicios.Size = new System.Drawing.Size(1161, 426);
             this.tabServicios.TabIndex = 2;
             this.tabServicios.Text = "Servicios";
             this.tabServicios.UseVisualStyleBackColor = true;
@@ -181,7 +181,7 @@
             // 
             this.tabFormaciones.Location = new System.Drawing.Point(4, 22);
             this.tabFormaciones.Name = "tabFormaciones";
-            this.tabFormaciones.Size = new System.Drawing.Size(1161, 658);
+            this.tabFormaciones.Size = new System.Drawing.Size(1161, 426);
             this.tabFormaciones.TabIndex = 3;
             this.tabFormaciones.Text = "Formaciones";
             this.tabFormaciones.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
             // 
             this.tabCoches.Location = new System.Drawing.Point(4, 22);
             this.tabCoches.Name = "tabCoches";
-            this.tabCoches.Size = new System.Drawing.Size(1161, 658);
+            this.tabCoches.Size = new System.Drawing.Size(1161, 426);
             this.tabCoches.TabIndex = 4;
             this.tabCoches.Text = "Coches";
             this.tabCoches.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@
             // 
             this.tabEstaciones.Location = new System.Drawing.Point(4, 22);
             this.tabEstaciones.Name = "tabEstaciones";
-            this.tabEstaciones.Size = new System.Drawing.Size(1161, 658);
+            this.tabEstaciones.Size = new System.Drawing.Size(1161, 426);
             this.tabEstaciones.TabIndex = 5;
             this.tabEstaciones.Text = "Estaciones";
             this.tabEstaciones.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@
             // 
             this.tabIncidentes.Location = new System.Drawing.Point(4, 22);
             this.tabIncidentes.Name = "tabIncidentes";
-            this.tabIncidentes.Size = new System.Drawing.Size(1161, 658);
+            this.tabIncidentes.Size = new System.Drawing.Size(1161, 426);
             this.tabIncidentes.TabIndex = 6;
             this.tabIncidentes.Text = "Incidentes";
             this.tabIncidentes.UseVisualStyleBackColor = true;

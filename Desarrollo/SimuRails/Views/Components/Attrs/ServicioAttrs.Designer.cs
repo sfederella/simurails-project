@@ -64,10 +64,12 @@
             // 
             // nombreField
             // 
+            this.nombreField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nombreField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceServicio, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
             this.nombreField.Location = new System.Drawing.Point(14, 30);
+            this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
             this.nombreField.Name = "nombreField";
             this.nombreField.PasswordChar = '\0';
@@ -76,6 +78,7 @@
             this.nombreField.SelectionStart = 0;
             this.nombreField.Size = new System.Drawing.Size(270, 23);
             this.nombreField.TabIndex = 0;
+            this.nombreField.TabStop = false;
             this.nombreField.UseSystemPasswordChar = false;
             // 
             // BindingSourceServicio
@@ -84,6 +87,7 @@
             // 
             // materialLabel7
             // 
+            this.materialLabel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
@@ -97,6 +101,7 @@
             // 
             // nombreFormacionCbo
             // 
+            this.nombreFormacionCbo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nombreFormacionCbo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindingSourceFormacionEditando, "Formacion", true));
             this.nombreFormacionCbo.FormattingEnabled = true;
             this.nombreFormacionCbo.Location = new System.Drawing.Point(692, 171);
@@ -110,7 +115,10 @@
             // 
             // agregarBtn
             // 
+            this.agregarBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.agregarBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.agregarBtn.Depth = 0;
+            this.agregarBtn.Icon = null;
             this.agregarBtn.Location = new System.Drawing.Point(1048, 167);
             this.agregarBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.agregarBtn.Name = "agregarBtn";
@@ -123,6 +131,7 @@
             // 
             // materialLabel4
             // 
+            this.materialLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
@@ -136,6 +145,7 @@
             // 
             // materialLabel3
             // 
+            this.materialLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
@@ -149,10 +159,12 @@
             // 
             // materialSingleLineTextField1
             // 
+            this.materialSingleLineTextField1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialSingleLineTextField1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceFormacionEditando, "Cantidad", true));
             this.materialSingleLineTextField1.Depth = 0;
             this.materialSingleLineTextField1.Hint = "";
             this.materialSingleLineTextField1.Location = new System.Drawing.Point(893, 171);
+            this.materialSingleLineTextField1.MaxLength = 32767;
             this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
             this.materialSingleLineTextField1.PasswordChar = '\0';
@@ -161,10 +173,12 @@
             this.materialSingleLineTextField1.SelectionStart = 0;
             this.materialSingleLineTextField1.Size = new System.Drawing.Size(80, 23);
             this.materialSingleLineTextField1.TabIndex = 50;
+            this.materialSingleLineTextField1.TabStop = false;
             this.materialSingleLineTextField1.UseSystemPasswordChar = false;
             // 
             // materialLabel2
             // 
+            this.materialLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -178,6 +192,7 @@
             // 
             // origenTramoCbo
             // 
+            this.origenTramoCbo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.origenTramoCbo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindingSourceTramoEditando, "EstacionOrigen", true));
             this.origenTramoCbo.FormattingEnabled = true;
             this.origenTramoCbo.Location = new System.Drawing.Point(24, 171);
@@ -191,7 +206,10 @@
             // 
             // materialRaisedButton1
             // 
+            this.materialRaisedButton1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
             this.materialRaisedButton1.Location = new System.Drawing.Point(470, 167);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
@@ -204,6 +222,7 @@
             // 
             // materialLabel1
             // 
+            this.materialLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
@@ -217,6 +236,7 @@
             // 
             // materialLabel5
             // 
+            this.materialLabel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
@@ -230,6 +250,7 @@
             // 
             // materialLabel6
             // 
+            this.materialLabel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
@@ -243,6 +264,7 @@
             // 
             // destinoTramoCbo
             // 
+            this.destinoTramoCbo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.destinoTramoCbo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindingSourceTramoEditando, "EstacionDestino", true));
             this.destinoTramoCbo.FormattingEnabled = true;
             this.destinoTramoCbo.Location = new System.Drawing.Point(147, 171);
@@ -252,6 +274,7 @@
             // 
             // materialLabel8
             // 
+            this.materialLabel8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
@@ -265,10 +288,12 @@
             // 
             // materialSingleLineTextField2
             // 
+            this.materialSingleLineTextField2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialSingleLineTextField2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceTramoEditando, "Distancia", true));
             this.materialSingleLineTextField2.Depth = 0;
             this.materialSingleLineTextField2.Hint = "Km";
             this.materialSingleLineTextField2.Location = new System.Drawing.Point(278, 171);
+            this.materialSingleLineTextField2.MaxLength = 32767;
             this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
             this.materialSingleLineTextField2.PasswordChar = '\0';
@@ -277,10 +302,12 @@
             this.materialSingleLineTextField2.SelectionStart = 0;
             this.materialSingleLineTextField2.Size = new System.Drawing.Size(80, 23);
             this.materialSingleLineTextField2.TabIndex = 65;
+            this.materialSingleLineTextField2.TabStop = false;
             this.materialSingleLineTextField2.UseSystemPasswordChar = false;
             // 
             // materialLabel9
             // 
+            this.materialLabel9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel9.AutoSize = true;
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
@@ -294,10 +321,12 @@
             // 
             // materialSingleLineTextField3
             // 
+            this.materialSingleLineTextField3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialSingleLineTextField3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceTramoEditando, "TiempoViaje", true));
             this.materialSingleLineTextField3.Depth = 0;
             this.materialSingleLineTextField3.Hint = "Min";
             this.materialSingleLineTextField3.Location = new System.Drawing.Point(375, 171);
+            this.materialSingleLineTextField3.MaxLength = 32767;
             this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
             this.materialSingleLineTextField3.PasswordChar = '\0';
@@ -306,10 +335,12 @@
             this.materialSingleLineTextField3.SelectionStart = 0;
             this.materialSingleLineTextField3.Size = new System.Drawing.Size(80, 23);
             this.materialSingleLineTextField3.TabIndex = 67;
+            this.materialSingleLineTextField3.TabStop = false;
             this.materialSingleLineTextField3.UseSystemPasswordChar = false;
             // 
             // listadoTramos
             // 
+            this.listadoTramos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listadoTramos.BackColor = System.Drawing.SystemColors.Window;
             this.listadoTramos.Location = new System.Drawing.Point(14, 212);
             this.listadoTramos.Name = "listadoTramos";
@@ -318,6 +349,7 @@
             // 
             // listadoFormaciones
             // 
+            this.listadoFormaciones.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listadoFormaciones.BackColor = System.Drawing.SystemColors.Window;
             this.listadoFormaciones.Location = new System.Drawing.Point(671, 212);
             this.listadoFormaciones.Name = "listadoFormaciones";
@@ -326,6 +358,7 @@
             // 
             // materialLabel10
             // 
+            this.materialLabel10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel10.AutoSize = true;
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
@@ -339,10 +372,12 @@
             // 
             // materialSingleLineTextField4
             // 
+            this.materialSingleLineTextField4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialSingleLineTextField4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceServicio, "CantidadFormacionesInicio", true));
             this.materialSingleLineTextField4.Depth = 0;
             this.materialSingleLineTextField4.Hint = "";
             this.materialSingleLineTextField4.Location = new System.Drawing.Point(692, 65);
+            this.materialSingleLineTextField4.MaxLength = 32767;
             this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
             this.materialSingleLineTextField4.PasswordChar = '\0';
@@ -351,10 +386,12 @@
             this.materialSingleLineTextField4.SelectionStart = 0;
             this.materialSingleLineTextField4.Size = new System.Drawing.Size(165, 23);
             this.materialSingleLineTextField4.TabIndex = 69;
+            this.materialSingleLineTextField4.TabStop = false;
             this.materialSingleLineTextField4.UseSystemPasswordChar = false;
             // 
             // materialLabel11
             // 
+            this.materialLabel11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel11.AutoSize = true;
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
@@ -368,8 +405,11 @@
             // 
             // programacionIdaButton
             // 
+            this.programacionIdaButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.programacionIdaButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.programacionIdaButton.Depth = 0;
-            this.programacionIdaButton.Location = new System.Drawing.Point(929, 30);
+            this.programacionIdaButton.Icon = null;
+            this.programacionIdaButton.Location = new System.Drawing.Point(955, 9);
             this.programacionIdaButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.programacionIdaButton.Name = "programacionIdaButton";
             this.programacionIdaButton.Primary = true;
@@ -381,8 +421,11 @@
             // 
             // programacionVueltaButton
             // 
+            this.programacionVueltaButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.programacionVueltaButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.programacionVueltaButton.Depth = 0;
-            this.programacionVueltaButton.Location = new System.Drawing.Point(929, 61);
+            this.programacionVueltaButton.Icon = null;
+            this.programacionVueltaButton.Location = new System.Drawing.Point(955, 43);
             this.programacionVueltaButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.programacionVueltaButton.Name = "programacionVueltaButton";
             this.programacionVueltaButton.Primary = true;

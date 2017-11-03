@@ -40,8 +40,10 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(879, 457);
+            this.materialRaisedButton1.Icon = null;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(879, 461);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
@@ -103,8 +105,10 @@
             // ImportarButton
             // 
             this.ImportarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ImportarButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ImportarButton.Depth = 0;
-            this.ImportarButton.Location = new System.Drawing.Point(768, 457);
+            this.ImportarButton.Icon = null;
+            this.ImportarButton.Location = new System.Drawing.Point(768, 461);
             this.ImportarButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.ImportarButton.Name = "ImportarButton";
             this.ImportarButton.Primary = true;

@@ -98,10 +98,11 @@ namespace SimuRails.Views.Abms
             using (var session = NHibernateHelper.OpenSession())
             {
                 Servicio servicio = findServicio(servicioId, session);
+                NHibernateUtil.Initialize(servicio.ProgramacionIda);
+                NHibernateUtil.Initialize(servicio.ProgramacionVuelta);
                 this.mainForm.EmbedForm(new EditServicioForm(this, repositorioServicio, servicio), tabPage);
                 this.Visible = false;
             }
-
         }
 
         private Servicio findServicio(int servicioId)

@@ -47,7 +47,7 @@ namespace MaterialSkin.Controls
             _animationManager.OnAnimationProgress += sender => Invalidate();
 
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            AutoSize = true;
+            AutoSize = false;
         }
 
         public override string Text

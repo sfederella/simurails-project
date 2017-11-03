@@ -2,6 +2,7 @@
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -36,6 +37,8 @@ namespace SimuRails.Views.Abms.ServicioAbm
 
         private void AceptarButton_Click(object sender, EventArgs e)
         {
+            Programacion.Clear();
+            //this.horariosGridView.Sort(this.horariosGridView.Columns["Horarios"], ListSortDirection.Ascending);
             foreach (DataGridViewRow horarioRow in horariosGridView.Rows)
             {
                 if (horarioRow.Cells[0].Value != null)
@@ -43,6 +46,11 @@ namespace SimuRails.Views.Abms.ServicioAbm
                     string[] timeArr = horarioRow.Cells[0].Value.ToString().Split(':');
                     Programacion.Add(int.Parse(timeArr[0]) * 60 + int.Parse(timeArr[1]));
                 }
+            }
+            if (!IsSorted(Programacion))
+            {
+                MessageBox.Show("La programación no se encuentra ordenada. Se ordenará automáticamente.");
+                Programacion.Sort();
             }
             this.DialogResult = DialogResult.OK;
             Close();
@@ -133,6 +141,15 @@ namespace SimuRails.Views.Abms.ServicioAbm
             horariosGridView.Rows.Insert(rowIndex, 1);
             horariosGridView.CurrentCell = horariosGridView.Rows[rowIndex].Cells[colIndex];
             horariosGridView.BeginEdit(true);
+        }
+
+        private bool IsSorted(List<int> list)
+        {
+            for (int i = 1; i < list.Count; i++)
+            {
+                if (list[i - 1] > list[i]) return false;
+            }
+            return true;
         }
 
     }
