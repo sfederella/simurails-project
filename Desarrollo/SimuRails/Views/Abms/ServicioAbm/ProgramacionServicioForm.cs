@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
@@ -6,16 +8,22 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace SimuRails.Views.Abms.ServicioAbm
 {
-    public partial class ProgramacionServicioForm : Form
+    public partial class ProgramacionServicioForm : MaterialForm
     {
         DataGridViewCell cellWithError;
 
         public List<int> Programacion { get; private set; }
-       
+
+        private readonly MaterialSkinManager materialSkinManager;
+
         public ProgramacionServicioForm(List<int> programacionInicial)
         {
             Programacion = programacionInicial;
             InitializeComponent();
+            materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
 
         private void FrmProgramacionServicio_Load(object sender, EventArgs e)

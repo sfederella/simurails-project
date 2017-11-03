@@ -13,6 +13,8 @@ namespace SimuRails.Views
         private readonly MaterialSkinManager materialSkinManager;
         public MainForm()
         {
+            Sizable = true;
+            
             InitializeComponent();
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
