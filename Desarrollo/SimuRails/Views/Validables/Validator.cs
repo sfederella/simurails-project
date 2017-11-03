@@ -25,6 +25,11 @@ namespace SimuRails.Views.Validables
             observado.Leave += this.triggerValidacion;
         }
 
+        public Validator(V validado, Regla<V> regla, Label label, BindingSource observado) : this(validado, regla, label)
+        {
+            observado.BindingComplete += this.triggerValidacion;
+        }
+
         public void mostrarError()
         {
             var validez = this.esValido();
