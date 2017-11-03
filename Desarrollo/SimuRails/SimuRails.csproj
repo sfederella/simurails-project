@@ -357,6 +357,11 @@
     <Compile Include="Views\SpinnerForm.Designer.cs">
       <DependentUpon>SpinnerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Validables\Regla.cs" />
+    <Compile Include="Views\Validables\ReglaCompuesta.cs" />
+    <Compile Include="Views\Validables\ReglaConcreta.cs" />
+    <Compile Include="Views\Validables\Validable.cs" />
+    <Compile Include="Views\Validables\Validator.cs" />
     <EmbeddedResource Include="Report\ReportGrafico.rdlc" />
     <EmbeddedResource Include="Report\ReportGraphsForm.resx">
       <DependentUpon>ReportGraphsForm.cs</DependentUpon>
