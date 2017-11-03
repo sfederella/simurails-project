@@ -37,6 +37,8 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.ComboBoxTraza = new SimuRails.Report.MyComboBox();
+            this.contadorMinutosText = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceSimulacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).BeginInit();
             this.SuspendLayout();
@@ -82,7 +84,7 @@
             // 
             this.duracionField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceSimulacion, "Duracion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.duracionField.Depth = 0;
-            this.duracionField.Hint = "minutos";
+            this.duracionField.Hint = "días";
             this.duracionField.Location = new System.Drawing.Point(313, 42);
             this.duracionField.MouseState = MaterialSkin.MouseState.HOVER;
             this.duracionField.Name = "duracionField";
@@ -93,6 +95,7 @@
             this.duracionField.Size = new System.Drawing.Size(148, 23);
             this.duracionField.TabIndex = 1;
             this.duracionField.UseSystemPasswordChar = false;
+            this.duracionField.KeyUp += new System.Windows.Forms.KeyEventHandler(this.duracionField_KeyUp);
             // 
             // materialLabel5
             // 
@@ -105,7 +108,7 @@
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(69, 19);
             this.materialLabel5.TabIndex = 20;
-            this.materialLabel5.Text = "Duracion";
+            this.materialLabel5.Text = "Duración";
             // 
             // materialLabel7
             // 
@@ -138,11 +141,39 @@
             this.ComboBoxTraza.Size = new System.Drawing.Size(270, 25);
             this.ComboBoxTraza.TabIndex = 23;
             // 
+            // contadorMinutosText
+            // 
+            this.contadorMinutosText.AutoSize = true;
+            this.contadorMinutosText.Depth = 0;
+            this.contadorMinutosText.Font = new System.Drawing.Font("Roboto", 11F);
+            this.contadorMinutosText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.contadorMinutosText.Location = new System.Drawing.Point(487, 46);
+            this.contadorMinutosText.MouseState = MaterialSkin.MouseState.HOVER;
+            this.contadorMinutosText.Name = "contadorMinutosText";
+            this.contadorMinutosText.Size = new System.Drawing.Size(17, 19);
+            this.contadorMinutosText.TabIndex = 24;
+            this.contadorMinutosText.Text = "0";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(487, 20);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(64, 19);
+            this.materialLabel2.TabIndex = 25;
+            this.materialLabel2.Text = "Minutos";
+            // 
             // SimulacionAttrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.contadorMinutosText);
             this.Controls.Add(this.ComboBoxTraza);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.materialLabel5);
@@ -168,5 +199,7 @@
         private System.Windows.Forms.BindingSource BindingSourceSimulacion;
         private System.Windows.Forms.BindingSource BindingSourceTraza;
         private Report.MyComboBox ComboBoxTraza;
+        private MaterialSkin.Controls.MaterialLabel contadorMinutosText;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }

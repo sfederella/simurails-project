@@ -91,7 +91,7 @@ namespace SimuRails.Views.Abms
         public void OnIncidenteEdit(int incidenteId)
         {
             Incidente incidente = findIncidente(incidenteId);
-            this.mainForm.embedForm(new EditIncidenteForm(this, repositorioIncidente, incidente), tabPage);
+            this.mainForm.EmbedForm(new EditIncidenteForm(this, repositorioIncidente, incidente), tabPage);
             this.Visible = false;
         }
 
@@ -103,7 +103,7 @@ namespace SimuRails.Views.Abms
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
             Incidente incidente = new Incidente();
-            this.mainForm.embedForm(new CreateIncidenteForm(this, incidente), tabPage);
+            this.mainForm.EmbedForm(new CreateIncidenteForm(this, incidente), tabPage);
             this.Visible = false;
         }
     }
