@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using SimuRails.Mappings;
 using System;
+using System.IO;
+using System.Xml;
 
 namespace SimuRails.DB
 {
@@ -73,7 +75,8 @@ namespace SimuRails.DB
         {
             var configuration = new Configuration();
             //Loads properties from hibernate.cfg.xml
-            configuration.Configure();
+            XmlReader xmlReader = XmlReader.Create(new StringReader(global::SimuRails.Properties.Resources.HibernateXLM));
+            configuration.Configure(xmlReader);
             //Loads nhibernate mappings 
             configuration.AddDeserializedMapping(Mapping, null);
 

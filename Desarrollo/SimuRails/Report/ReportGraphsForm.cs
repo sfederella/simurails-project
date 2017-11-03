@@ -34,6 +34,7 @@ namespace SimuRails.Report
 
             this.PanelGraficoTraza.BackColor = color;
             this.FlowLayOutPanel1.BackColor = color;
+            this.panelGraficos.BackColor = color;
             string msgAxisY = "";
             if (itm.Valor == 1 || itm.Valor == 2) { msgAxisY = "% Pasajeros"; }
             else if (itm.Valor == 3 || itm.Valor == 4) { msgAxisY = "% trenes"; }

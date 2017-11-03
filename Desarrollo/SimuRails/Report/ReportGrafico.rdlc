@@ -87,11 +87,12 @@
               <Border>
                 <Style>None</Style>
               </Border>
+              <TextAlign>Center</TextAlign>
               <VerticalAlign>Middle</VerticalAlign>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>25.88417cm</Height>
+        <Height>7.33688cm</Height>
         <Style>
           <Border>
             <Style>None</Style>

@@ -51,7 +51,10 @@ namespace SimuRails.Views
             string pathManual = Path.Combine(Application.StartupPath, "ManualDeUsuario.pdf");
             try
             {
-                Process.Start(pathManual);
+                //Process.Start(pathManual);
+                string openPDFFile =Path.Combine(Application.StartupPath,"ManualUsuario.PDF");
+                System.IO.File.WriteAllBytes(openPDFFile, global::SimuRails.Properties.Resources.ManualDeUsuario);
+                System.Diagnostics.Process.Start(openPDFFile);    
             }
             catch
             {
