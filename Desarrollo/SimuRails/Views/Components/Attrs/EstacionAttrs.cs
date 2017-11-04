@@ -15,13 +15,22 @@ namespace SimuRails.Views.Components.Attrs
     public partial class EstacionAttrs : UserControl
     {
         private Repositorio repositorioIncidentes = new Repositorio();
-        private Estacion pEstacion; 
+        private Estacion pEstacion;
         public EstacionAttrs(Estacion estacion)
         {
             InitializeComponent();
             pEstacion = estacion;
             BindingSourceEstacion.DataSource = pEstacion;
             BindIncidentes();
+
+            esperandoMinIdaField.IsNumeric = true;
+            esperandoMaxIdaField.IsNumeric = true;
+            esperandoMinVueltaField.IsNumeric = true;
+            esperandoMaxVueltaField.IsNumeric = true;
+            desciendenMinIdaField.IsNumeric = true;
+            desciendenMaxIdaField.IsNumeric = true;
+            desciendenMinVueltaField.IsNumeric = true;
+            desciendenMaxVueltaField.IsNumeric = true;
         }
 
         public bool applyTo(Estacion estacion)

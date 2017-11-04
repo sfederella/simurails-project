@@ -9,6 +9,8 @@ namespace MaterialSkin.Controls
 {
     public class MaterialSingleLineTextField : Control, IMaterialControl
     {
+        public bool IsNumeric { get; set; }
+
         //Properties for managing the material design properties
         [Browsable(false)]
         public int Depth { get; set; }
@@ -980,6 +982,19 @@ namespace MaterialSkin.Controls
             //Fix for tabstop
             _baseTextBox.TabStop = true;
             this.TabStop = false;
+           
+            Validating += new CancelEventHandler(this.OnValidating);
+        }
+
+        private void OnValidating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (IsNumeric)
+            {
+                if (!int.TryParse(Text, out var n))
+                {
+                    Text = "0";
+                }
+            }
         }
 
         protected override void OnPaint(PaintEventArgs pevent)

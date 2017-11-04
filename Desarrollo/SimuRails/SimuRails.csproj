@@ -402,11 +402,11 @@
     <Compile Include="Views\LandingInfo.Designer.cs">
       <DependentUpon>LandingInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SpinnerForm.cs">
+    <Compile Include="Views\SimulacionEjecutandoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\SpinnerForm.Designer.cs">
-      <DependentUpon>SpinnerForm.cs</DependentUpon>
+    <Compile Include="Views\SimulacionEjecutandoForm.Designer.cs">
+      <DependentUpon>SimulacionEjecutandoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Validables\Regla.cs" />
     <Compile Include="Views\Validables\ReglaCompuesta.cs" />
@@ -563,8 +563,8 @@
     <EmbeddedResource Include="Views\LandingInfo.resx">
       <DependentUpon>LandingInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\SpinnerForm.resx">
-      <DependentUpon>SpinnerForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\SimulacionEjecutandoForm.resx">
+      <DependentUpon>SimulacionEjecutandoForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="DiagramaDeClases.cd" />
     <EmbeddedResource Include="ManualDeUsuario.pdf" />

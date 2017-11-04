@@ -23,6 +23,9 @@ namespace SimuRails.Views.Components.Attrs
 
             BindingSourceIncidente.DataSource = pIncidente;
 
+            probabilidadField.IsNumeric = true;
+            demoraField.IsNumeric = true;
+
         }
 
         public bool applyTo(Incidente incidente)

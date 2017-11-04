@@ -19,6 +19,7 @@ namespace SimuRails.Views.Components.Attrs
             BindingSourceTraza.DataSource = list;
             ComboBoxTraza.listaDatos = list.Select(x => x.Nombre).ToList();
             contadorMinutosText.Text = (simulacion.Duracion * 1440).ToString();
+            duracionField.IsNumeric = true;
         }
 
         public bool applyTo(Simulacion simulacion)
@@ -40,5 +41,6 @@ namespace SimuRails.Views.Components.Attrs
         {
             MessageBox.Show("La simulación maneja minutos como unidad de tiempo.");
         }
+        
     }
 }
