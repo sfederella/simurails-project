@@ -86,9 +86,9 @@
             this.materialLabel2.Location = new System.Drawing.Point(508, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(214, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(204, 19);
             this.materialLabel2.TabIndex = 13;
-            this.materialLabel2.Text = "Tiempo demora (en segundos)";
+            this.materialLabel2.Text = "Tiempo demora (en minutos)";
             // 
             // materialLabel1
             // 

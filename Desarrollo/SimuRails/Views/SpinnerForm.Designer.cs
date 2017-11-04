@@ -32,6 +32,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.SimulacionBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.percentageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +62,9 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Icon = null;
             this.materialRaisedButton1.Location = new System.Drawing.Point(355, 360);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
@@ -71,19 +75,38 @@
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
+            // SimulacionBackgroundWorker
+            // 
+            this.SimulacionBackgroundWorker.WorkerReportsProgress = true;
+            this.SimulacionBackgroundWorker.WorkerSupportsCancellation = true;
+            this.SimulacionBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SimulacionBackgroundWorker_DoWork);
+            this.SimulacionBackgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.SimulacionBackgroundWorker_ProgressChanged);
+            this.SimulacionBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.SimulacionBackgroundWorker_RunWorkerCompleted);
+            // 
+            // percentageLabel
+            // 
+            this.percentageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.percentageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percentageLabel.Location = new System.Drawing.Point(396, 173);
+            this.percentageLabel.Name = "percentageLabel";
+            this.percentageLabel.Size = new System.Drawing.Size(85, 31);
+            this.percentageLabel.TabIndex = 3;
+            this.percentageLabel.Text = "0%";
+            this.percentageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SpinnerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(879, 457);
+            this.Controls.Add(this.percentageLabel);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "SpinnerForm";
             this.Text = "SpinnerForm";
             this.Load += new System.EventHandler(this.SpinnerForm_Load);
-            this.Shown += new System.EventHandler(this.SpinnerForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -95,5 +118,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private System.ComponentModel.BackgroundWorker SimulacionBackgroundWorker;
+        private System.Windows.Forms.Label percentageLabel;
     }
 }

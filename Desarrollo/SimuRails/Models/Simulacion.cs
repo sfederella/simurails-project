@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,10 @@ namespace SimuRails.Models
         //Este no lo persisto
         public virtual IMetodoSimulacion Metodo { get; set; }
 
-        public virtual void Ejecutar()
+        public virtual bool Ejecutar(BackgroundWorker backgroundWorker)
         {
-            Metodo.EjecutarSimulacion(TrazaSimulada,Duracion);
+            if (Metodo == null) Metodo = new TiempoComprometido();
+            return Metodo.EjecutarSimulacion(TrazaSimulada,Duracion, backgroundWorker);
         }
     }
 }

@@ -34,7 +34,6 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.demoraField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.BindingSourceIncidente = new System.Windows.Forms.BindingSource(this.components);
             this.probabilidadField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.nombreField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.descripcionField = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -45,6 +44,7 @@
             this.errorDemoraLbl = new System.Windows.Forms.Label();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.BindingSourceIncidente = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidente)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +106,7 @@
             this.demoraField.Depth = 0;
             this.demoraField.Hint = "";
             this.demoraField.Location = new System.Drawing.Point(324, 252);
+            this.demoraField.MaxLength = 32767;
             this.demoraField.MouseState = MaterialSkin.MouseState.HOVER;
             this.demoraField.Name = "demoraField";
             this.demoraField.PasswordChar = '\0';
@@ -114,11 +115,8 @@
             this.demoraField.SelectionStart = 0;
             this.demoraField.Size = new System.Drawing.Size(89, 23);
             this.demoraField.TabIndex = 3;
+            this.demoraField.TabStop = false;
             this.demoraField.UseSystemPasswordChar = false;
-            // 
-            // BindingSourceIncidente
-            // 
-            this.BindingSourceIncidente.DataSource = typeof(SimuRails.Models.Incidente);
             // 
             // probabilidadField
             // 
@@ -126,6 +124,7 @@
             this.probabilidadField.Depth = 0;
             this.probabilidadField.Hint = "";
             this.probabilidadField.Location = new System.Drawing.Point(33, 251);
+            this.probabilidadField.MaxLength = 32767;
             this.probabilidadField.MouseState = MaterialSkin.MouseState.HOVER;
             this.probabilidadField.Name = "probabilidadField";
             this.probabilidadField.PasswordChar = '\0';
@@ -134,6 +133,7 @@
             this.probabilidadField.SelectionStart = 0;
             this.probabilidadField.Size = new System.Drawing.Size(72, 23);
             this.probabilidadField.TabIndex = 2;
+            this.probabilidadField.TabStop = false;
             this.probabilidadField.UseSystemPasswordChar = false;
             // 
             // nombreField
@@ -142,6 +142,7 @@
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
             this.nombreField.Location = new System.Drawing.Point(20, 42);
+            this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
             this.nombreField.Name = "nombreField";
             this.nombreField.PasswordChar = '\0';
@@ -150,6 +151,7 @@
             this.nombreField.SelectionStart = 0;
             this.nombreField.Size = new System.Drawing.Size(270, 23);
             this.nombreField.TabIndex = 0;
+            this.nombreField.TabStop = false;
             this.nombreField.UseSystemPasswordChar = false;
             // 
             // descripcionField
@@ -158,6 +160,7 @@
             this.descripcionField.Depth = 0;
             this.descripcionField.Hint = "";
             this.descripcionField.Location = new System.Drawing.Point(20, 115);
+            this.descripcionField.MaxLength = 32767;
             this.descripcionField.MouseState = MaterialSkin.MouseState.HOVER;
             this.descripcionField.Name = "descripcionField";
             this.descripcionField.PasswordChar = '\0';
@@ -166,6 +169,7 @@
             this.descripcionField.SelectionStart = 0;
             this.descripcionField.Size = new System.Drawing.Size(673, 23);
             this.descripcionField.TabIndex = 1;
+            this.descripcionField.TabStop = false;
             this.descripcionField.UseSystemPasswordChar = false;
             // 
             // materialDivider1
@@ -197,11 +201,11 @@
             // errorNombreLbl
             // 
             this.errorNombreLbl.AutoSize = true;
-            this.errorNombreLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorNombreLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorNombreLbl.Location = new System.Drawing.Point(17, 68);
             this.errorNombreLbl.Name = "errorNombreLbl";
-            this.errorNombreLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorNombreLbl.Size = new System.Drawing.Size(167, 15);
             this.errorNombreLbl.TabIndex = 38;
             this.errorNombreLbl.Text = "Este campo es requerido";
             this.errorNombreLbl.Visible = false;
@@ -209,11 +213,11 @@
             // errorOcurrenciaLbl
             // 
             this.errorOcurrenciaLbl.AutoSize = true;
-            this.errorOcurrenciaLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorOcurrenciaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorOcurrenciaLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorOcurrenciaLbl.Location = new System.Drawing.Point(30, 277);
             this.errorOcurrenciaLbl.Name = "errorOcurrenciaLbl";
-            this.errorOcurrenciaLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorOcurrenciaLbl.Size = new System.Drawing.Size(167, 15);
             this.errorOcurrenciaLbl.TabIndex = 40;
             this.errorOcurrenciaLbl.Text = "Este campo es requerido";
             this.errorOcurrenciaLbl.Visible = false;
@@ -221,11 +225,11 @@
             // errorDemoraLbl
             // 
             this.errorDemoraLbl.AutoSize = true;
-            this.errorDemoraLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorDemoraLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorDemoraLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorDemoraLbl.Location = new System.Drawing.Point(321, 278);
             this.errorDemoraLbl.Name = "errorDemoraLbl";
-            this.errorDemoraLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorDemoraLbl.Size = new System.Drawing.Size(167, 15);
             this.errorDemoraLbl.TabIndex = 41;
             this.errorDemoraLbl.Text = "Este campo es requerido";
             this.errorDemoraLbl.Visible = false;
@@ -249,12 +253,16 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(419, 252);
+            this.materialLabel6.Location = new System.Drawing.Point(419, 255);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(75, 19);
+            this.materialLabel6.Size = new System.Drawing.Size(64, 19);
             this.materialLabel6.TabIndex = 43;
-            this.materialLabel6.Text = "Segundos";
+            this.materialLabel6.Text = "minutos";
+            // 
+            // BindingSourceIncidente
+            // 
+            this.BindingSourceIncidente.DataSource = typeof(SimuRails.Models.Incidente);
             // 
             // IncidenteAttrs
             // 

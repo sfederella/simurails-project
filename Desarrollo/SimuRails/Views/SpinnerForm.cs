@@ -1,4 +1,5 @@
-﻿using SimuRails.Models;
+﻿using SimuRails.DB;
+using SimuRails.Models;
 using SimuRails.Report;
 using SimuRails.Views.Abms;
 using System.Threading;
@@ -8,40 +9,60 @@ namespace SimuRails.Views
 {
     public partial class SpinnerForm : Form
     {
-        private Simulacion simulacion;
         private SimulacionesListForm form;
+        private Simulacion simulacion;
 
         public SpinnerForm(SimulacionesListForm form, Simulacion simulacion)
         {
             InitializeComponent();
-            this.simulacion = simulacion;
             this.form = form;
+            this.simulacion = simulacion;
             form.Visible = false;
         }
 
         private void materialRaisedButton1_Click(object sender, System.EventArgs e)
         {
-            form.Visible = true;
-            this.Close();
+            SimulacionBackgroundWorker.CancelAsync();
         }
 
         private void SpinnerForm_Load(object sender, System.EventArgs e)
         {
-            this.Show();
+            SimulacionBackgroundWorker.RunWorkerAsync();
         }
 
-        private void showResultadoReport()
+        private void SimulacionBackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            this.Close();
-            this.form.mainForm.EmbedForm(new ReportGraphsForm(this.simulacion), this.form.tabPage);
+            var id = simulacion.Id;
+            using (var session = NHibernateHelper.OpenSession())
+            {
+                simulacion = session.Get<Simulacion>(id);
+                //Convierto días a minutos
+                simulacion.Duracion = simulacion.Duracion * 1440;
+                bool finalizada = simulacion.Ejecutar(SimulacionBackgroundWorker);
+                e.Cancel = !finalizada;
+            }
         }
 
-        private void SpinnerForm_Shown(object sender, System.EventArgs e)
+        private void SimulacionBackgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            Application.DoEvents();
-            // simulacion.Ejecutar();           
-            //System.Threading.Thread.Sleep(2000);
-            //showResultadoReport();
+            percentageLabel.Text = e.ProgressPercentage.ToString() + "%";
+        }
+
+        private void SimulacionBackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                form.Visible = true;
+            }
+            else if (e.Error != null)
+            {
+                MessageBox.Show("Error: " + e.Error.Message);
+                form.Visible = true;
+            } else
+            {
+                form.mainForm.EmbedForm(new ReportGraphsForm(form, simulacion), form.tabPage);
+            }
+            Close();
         }
     }
 }

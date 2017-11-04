@@ -32,12 +32,12 @@ namespace SimuRails.Models
 
         // No persistentes
         public virtual bool EsEstacionTerminal { get; set; }
-        public virtual int TiempoComprometidoSentidoIda { get; set; }
-        public virtual int TiempoComprometidoSentidoVuelta { get; set; }
+        public virtual long TiempoComprometidoSentidoIda { get; set; }
+        public virtual long TiempoComprometidoSentidoVuelta { get; set; }
         public virtual ResultadoEstacion ResultadoIda { get; set; }
         public virtual ResultadoEstacion ResultadoVuelta { get; set; }
 
-        public virtual int PasajerosAscendidos(Formacion formacion, int t)
+        public virtual int PasajerosAscendidos(Formacion formacion, long t)
         {
             if(formacion.SentidoActual == Sentido.IDA)
             {
@@ -49,7 +49,7 @@ namespace SimuRails.Models
             }
         }
 
-        public virtual int PasajerosDescendidos(Formacion formacion, int t)
+        public virtual int PasajerosDescendidos(Formacion formacion, long t)
         {
             int pasajerosDescendidos;
             if (formacion.SentidoActual == Sentido.IDA)
@@ -98,12 +98,12 @@ namespace SimuRails.Models
             return lista;
         }
 
-        public virtual int GetTiempoComprometido(Sentido sentido)
+        public virtual long GetTiempoComprometido(Sentido sentido)
         {
             return sentido == Formacion.Sentido.IDA ? TiempoComprometidoSentidoIda : TiempoComprometidoSentidoVuelta;
         }
 
-        public virtual int SetTiempoComprometido(Sentido sentido, int t, int tiempoDeViaje, int tiempoAtencion)
+        public virtual long SetTiempoComprometido(Sentido sentido, long t, int tiempoDeViaje, int tiempoAtencion)
         {
             if (this.GetTiempoComprometido(sentido) < t + tiempoDeViaje)
             {
@@ -117,7 +117,7 @@ namespace SimuRails.Models
             }
         }
 
-        public virtual void SetTiempoComprometido(Sentido sentido, int tiempoComprometido)
+        public virtual void SetTiempoComprometido(Sentido sentido, long tiempoComprometido)
         {
             if (sentido == Formacion.Sentido.IDA)
             {

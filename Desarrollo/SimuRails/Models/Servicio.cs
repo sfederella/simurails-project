@@ -52,7 +52,9 @@ namespace SimuRails.Models
                         Nombre = tipoFormacion.Nombre,
                         Servicio = this,
                         TiposCoche = tipoFormacion.TiposCoche,
-                        HoraSalida = 0
+                        HoraSalida = 0,
+                        DuracionMantenimiento = tipoFormacion.DuracionMantenimiento,
+                        KilometrosMantenimiento = tipoFormacion.KilometrosMantenimiento
                     };
 
                     if (count < CantidadFormacionesInicio)
@@ -119,7 +121,7 @@ namespace SimuRails.Models
             }
         }
 
-        public virtual Formacion GetProximaFormacion(int t)
+        public virtual Formacion GetProximaFormacion(long t)
         {
             Formacion formacionMinHoraSalida = null;
             int minHoraProgramada = int.MinValue;

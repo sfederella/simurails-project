@@ -35,7 +35,7 @@ namespace SimuRails.Models
             }
         }
 
-        public virtual Formacion GetProximaFormacion(int t)
+        public virtual Formacion GetProximaFormacion(long t)
         {
             Formacion fMin = null;
             foreach (Servicio servicio in Servicios)

@@ -366,9 +366,9 @@
             this.materialLabel10.Location = new System.Drawing.Point(677, 43);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(112, 19);
+            this.materialLabel10.Size = new System.Drawing.Size(208, 19);
             this.materialLabel10.TabIndex = 70;
-            this.materialLabel10.Text = "Cantidad Inicial";
+            this.materialLabel10.Text = "Cantidad en terminal de inicio";
             // 
             // materialSingleLineTextField4
             // 
@@ -376,7 +376,7 @@
             this.materialSingleLineTextField4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceServicio, "CantidadFormacionesInicio", true));
             this.materialSingleLineTextField4.Depth = 0;
             this.materialSingleLineTextField4.Hint = "";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(692, 65);
+            this.materialSingleLineTextField4.Location = new System.Drawing.Point(681, 65);
             this.materialSingleLineTextField4.MaxLength = 32767;
             this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
@@ -384,7 +384,7 @@
             this.materialSingleLineTextField4.SelectedText = "";
             this.materialSingleLineTextField4.SelectionLength = 0;
             this.materialSingleLineTextField4.SelectionStart = 0;
-            this.materialSingleLineTextField4.Size = new System.Drawing.Size(165, 23);
+            this.materialSingleLineTextField4.Size = new System.Drawing.Size(212, 23);
             this.materialSingleLineTextField4.TabIndex = 69;
             this.materialSingleLineTextField4.TabStop = false;
             this.materialSingleLineTextField4.UseSystemPasswordChar = false;

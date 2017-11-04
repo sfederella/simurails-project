@@ -35,9 +35,11 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.tiempoEnManteField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.bindingSourceFormacion = new System.Windows.Forms.BindingSource(this.components);
             this.distanciaManteField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.nombreField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.cantidadCocheField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.bindingSourceCocheEditando = new System.Windows.Forms.BindingSource(this.components);
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.agregarBtn = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -51,11 +53,9 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
-            this.bindingSourceCocheEditando = new System.Windows.Forms.BindingSource(this.components);
             this.listadoCoches = new SimuRails.Views.Components.MaterialList();
-            this.bindingSourceFormacion = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCocheEditando)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceFormacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCocheEditando)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel7
@@ -129,6 +129,7 @@
             this.tiempoEnManteField.Depth = 0;
             this.tiempoEnManteField.Hint = "Min";
             this.tiempoEnManteField.Location = new System.Drawing.Point(626, 68);
+            this.tiempoEnManteField.MaxLength = 32767;
             this.tiempoEnManteField.MouseState = MaterialSkin.MouseState.HOVER;
             this.tiempoEnManteField.Name = "tiempoEnManteField";
             this.tiempoEnManteField.PasswordChar = '\0';
@@ -137,7 +138,12 @@
             this.tiempoEnManteField.SelectionStart = 0;
             this.tiempoEnManteField.Size = new System.Drawing.Size(111, 23);
             this.tiempoEnManteField.TabIndex = 30;
+            this.tiempoEnManteField.TabStop = false;
             this.tiempoEnManteField.UseSystemPasswordChar = false;
+            // 
+            // bindingSourceFormacion
+            // 
+            this.bindingSourceFormacion.DataSource = typeof(SimuRails.Models.Formacion);
             // 
             // distanciaManteField
             // 
@@ -145,6 +151,7 @@
             this.distanciaManteField.Depth = 0;
             this.distanciaManteField.Hint = "Kms";
             this.distanciaManteField.Location = new System.Drawing.Point(357, 68);
+            this.distanciaManteField.MaxLength = 32767;
             this.distanciaManteField.MouseState = MaterialSkin.MouseState.HOVER;
             this.distanciaManteField.Name = "distanciaManteField";
             this.distanciaManteField.PasswordChar = '\0';
@@ -153,6 +160,7 @@
             this.distanciaManteField.SelectionStart = 0;
             this.distanciaManteField.Size = new System.Drawing.Size(114, 23);
             this.distanciaManteField.TabIndex = 29;
+            this.distanciaManteField.TabStop = false;
             this.distanciaManteField.UseSystemPasswordChar = false;
             // 
             // nombreField
@@ -161,6 +169,7 @@
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
             this.nombreField.Location = new System.Drawing.Point(20, 68);
+            this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
             this.nombreField.Name = "nombreField";
             this.nombreField.PasswordChar = '\0';
@@ -169,6 +178,7 @@
             this.nombreField.SelectionStart = 0;
             this.nombreField.Size = new System.Drawing.Size(270, 23);
             this.nombreField.TabIndex = 26;
+            this.nombreField.TabStop = false;
             this.nombreField.UseSystemPasswordChar = false;
             // 
             // cantidadCocheField
@@ -177,6 +187,7 @@
             this.cantidadCocheField.Depth = 0;
             this.cantidadCocheField.Hint = "";
             this.cantidadCocheField.Location = new System.Drawing.Point(330, 205);
+            this.cantidadCocheField.MaxLength = 32767;
             this.cantidadCocheField.MouseState = MaterialSkin.MouseState.HOVER;
             this.cantidadCocheField.Name = "cantidadCocheField";
             this.cantidadCocheField.PasswordChar = '\0';
@@ -185,7 +196,12 @@
             this.cantidadCocheField.SelectionStart = 0;
             this.cantidadCocheField.Size = new System.Drawing.Size(172, 23);
             this.cantidadCocheField.TabIndex = 43;
+            this.cantidadCocheField.TabStop = false;
             this.cantidadCocheField.UseSystemPasswordChar = false;
+            // 
+            // bindingSourceCocheEditando
+            // 
+            this.bindingSourceCocheEditando.DataSource = typeof(SimuRails.Models.AgrupacionCoche);
             // 
             // materialLabel3
             // 
@@ -215,7 +231,9 @@
             // 
             // agregarBtn
             // 
+            this.agregarBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.agregarBtn.Depth = 0;
+            this.agregarBtn.Icon = null;
             this.agregarBtn.Location = new System.Drawing.Point(646, 201);
             this.agregarBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.agregarBtn.Name = "agregarBtn";
@@ -238,11 +256,11 @@
             // errorNombreLbl
             // 
             this.errorNombreLbl.AutoSize = true;
-            this.errorNombreLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorNombreLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorNombreLbl.Location = new System.Drawing.Point(17, 94);
             this.errorNombreLbl.Name = "errorNombreLbl";
-            this.errorNombreLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorNombreLbl.Size = new System.Drawing.Size(167, 15);
             this.errorNombreLbl.TabIndex = 49;
             this.errorNombreLbl.Text = "Este campo es requerido";
             this.errorNombreLbl.Visible = false;
@@ -250,11 +268,11 @@
             // errorDistanciaLbl
             // 
             this.errorDistanciaLbl.AutoSize = true;
-            this.errorDistanciaLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorDistanciaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorDistanciaLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorDistanciaLbl.Location = new System.Drawing.Point(354, 94);
             this.errorDistanciaLbl.Name = "errorDistanciaLbl";
-            this.errorDistanciaLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorDistanciaLbl.Size = new System.Drawing.Size(167, 15);
             this.errorDistanciaLbl.TabIndex = 50;
             this.errorDistanciaLbl.Text = "Este campo es requerido";
             this.errorDistanciaLbl.Visible = false;
@@ -262,11 +280,11 @@
             // errorTiempoManteLbl
             // 
             this.errorTiempoManteLbl.AutoSize = true;
-            this.errorTiempoManteLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorTiempoManteLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorTiempoManteLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorTiempoManteLbl.Location = new System.Drawing.Point(623, 94);
             this.errorTiempoManteLbl.Name = "errorTiempoManteLbl";
-            this.errorTiempoManteLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorTiempoManteLbl.Size = new System.Drawing.Size(167, 15);
             this.errorTiempoManteLbl.TabIndex = 51;
             this.errorTiempoManteLbl.Text = "Este campo es requerido";
             this.errorTiempoManteLbl.Visible = false;
@@ -274,11 +292,11 @@
             // errorModeloLbl
             // 
             this.errorModeloLbl.AutoSize = true;
-            this.errorModeloLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorModeloLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorModeloLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorModeloLbl.Location = new System.Drawing.Point(44, 229);
             this.errorModeloLbl.Name = "errorModeloLbl";
-            this.errorModeloLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorModeloLbl.Size = new System.Drawing.Size(167, 15);
             this.errorModeloLbl.TabIndex = 52;
             this.errorModeloLbl.Text = "Este campo es requerido";
             this.errorModeloLbl.Visible = false;
@@ -286,11 +304,11 @@
             // errorCantidadLbl
             // 
             this.errorCantidadLbl.AutoSize = true;
-            this.errorCantidadLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorCantidadLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorCantidadLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorCantidadLbl.Location = new System.Drawing.Point(327, 231);
             this.errorCantidadLbl.Name = "errorCantidadLbl";
-            this.errorCantidadLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorCantidadLbl.Size = new System.Drawing.Size(167, 15);
             this.errorCantidadLbl.TabIndex = 53;
             this.errorCantidadLbl.Text = "Este campo es requerido";
             this.errorCantidadLbl.Visible = false;
@@ -298,11 +316,11 @@
             // errorCochesLbl
             // 
             this.errorCochesLbl.AutoSize = true;
-            this.errorCochesLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorCochesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorCochesLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorCochesLbl.Location = new System.Drawing.Point(157, 314);
             this.errorCochesLbl.Name = "errorCochesLbl";
-            this.errorCochesLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorCochesLbl.Size = new System.Drawing.Size(167, 15);
             this.errorCochesLbl.TabIndex = 54;
             this.errorCochesLbl.Text = "Este campo es requerido";
             this.errorCochesLbl.Visible = false;
@@ -331,7 +349,7 @@
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(64, 19);
             this.materialLabel8.TabIndex = 55;
-            this.materialLabel8.Text = "Minutos";
+            this.materialLabel8.Text = "minutos";
             // 
             // materialLabel9
             // 
@@ -342,13 +360,9 @@
             this.materialLabel9.Location = new System.Drawing.Point(477, 68);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(39, 19);
+            this.materialLabel9.Size = new System.Drawing.Size(38, 19);
             this.materialLabel9.TabIndex = 56;
-            this.materialLabel9.Text = "Kms";
-            // 
-            // bindingSourceCocheEditando
-            // 
-            this.bindingSourceCocheEditando.DataSource = typeof(SimuRails.Models.AgrupacionCoche);
+            this.materialLabel9.Text = "kms";
             // 
             // listadoCoches
             // 
@@ -357,10 +371,6 @@
             this.listadoCoches.Name = "listadoCoches";
             this.listadoCoches.Size = new System.Drawing.Size(752, 176);
             this.listadoCoches.TabIndex = 46;
-            // 
-            // bindingSourceFormacion
-            // 
-            this.bindingSourceFormacion.DataSource = typeof(SimuRails.Models.Formacion);
             // 
             // FormacionAttr
             // 
@@ -393,8 +403,8 @@
             this.Name = "FormacionAttr";
             this.Size = new System.Drawing.Size(871, 478);
             this.Load += new System.EventHandler(this.FormacionAttr_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCocheEditando)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceFormacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCocheEditando)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

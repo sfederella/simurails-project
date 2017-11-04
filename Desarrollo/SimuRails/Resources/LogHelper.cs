@@ -9,7 +9,7 @@ namespace SimuRails.Resources
 {
     class LogHelper
     {
-        internal static String TimeConvert(int time, bool mostrarDia)
+        internal static String TimeConvert(long time, bool mostrarDia)
         {
             string result = "Hora: " + (time / 60 % 24).ToString("D2") + ':' + (time % 60).ToString("D2");
             if (mostrarDia)
@@ -21,7 +21,7 @@ namespace SimuRails.Resources
 
         internal static object MostrarTiemposDeSalida(Traza traza)
         {
-            SortedDictionary<int, string> map = new SortedDictionary<int, string>();
+            SortedDictionary<long, string> map = new SortedDictionary<long, string>();
             String result = "";
             foreach (Servicio servicio in traza.Servicios)
             {
@@ -44,7 +44,7 @@ namespace SimuRails.Resources
                 }
             }
 
-            foreach (KeyValuePair<int, string> kvp in map)
+            foreach (KeyValuePair<long, string> kvp in map)
             {
                 result = result +  (TimeConvert(kvp.Key,true) +" | Formacion: " +  kvp.Value + "\n");
             }
@@ -80,7 +80,7 @@ namespace SimuRails.Resources
                 //result = result + "Servicio: " + servicio.Nombre + " | Programacion Vuelta: \n";
                 foreach (KeyValuePair<int, bool> kvp in servicio.ProgramacionVuelta)
                 {
-                    map.Add(kvp.Key, kvp.Value.ToString().PadRight(5) + " Servicio: " + servicio.Nombre + " | Programacion Vuelta" );
+                    //map.Add(kvp.Key, kvp.Value.ToString().PadRight(5) + " Servicio: " + servicio.Nombre + " | Programacion Vuelta" );
 
                     //result = result + ("Hora: " + timeConvert(kvp.Key) + " | Value: " + kvp.Value + "\n");
                 }

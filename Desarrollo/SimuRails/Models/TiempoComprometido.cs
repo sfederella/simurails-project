@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using SimuRails.Resources;
+using System.ComponentModel;
 
 namespace SimuRails.Models
 {
@@ -17,7 +18,7 @@ namespace SimuRails.Models
 
         public TiempoComprometido() { }
 
-        public void EjecutarSimulacion(Traza traza, long tiempoFinal)
+        public bool EjecutarSimulacion(Traza traza, long tiempoFinal, BackgroundWorker backgroundWorker)
         {
             Traza = traza;
             TiempoFinal = tiempoFinal;
@@ -25,7 +26,7 @@ namespace SimuRails.Models
             // Inicializa la traza configurando y creando los objetos dinámicos que no se traen de la base
             Traza.Inicializar();
 
-            int t = 0;
+            long t = 0;
 
             // A partir del tiempo t, la traza le devuelve la instancia de formacion que tiene el horario de salida mas proximo.
             Formacion formacion = traza.GetProximaFormacion(t);
@@ -34,7 +35,7 @@ namespace SimuRails.Models
 
             while (t < tiempoFinal)
             {
-                int tiempoDeLaFormacion;
+                long tiempoDeLaFormacion;
 
                 Servicio servicio = formacion.Servicio;
 
@@ -69,7 +70,15 @@ namespace SimuRails.Models
 
                 t = formacion.HoraSalida;
 
+                backgroundWorker.ReportProgress((int)(t*100/tiempoFinal));
+                if (backgroundWorker.CancellationPending)
+                {
+                    return false;
+                }
+
             }
+
+            return true;
 
         }
 
