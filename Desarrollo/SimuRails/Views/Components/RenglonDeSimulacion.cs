@@ -50,7 +50,7 @@ namespace SimuRails.Views.Components
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            form.mainForm.EmbedForm(new SpinnerForm(form,simulacion), form.tabPage);
+            form.mainForm.EmbedForm(new SimulacionEjecutandoForm(form,simulacion), form.tabPage);
         }
     }
 }
