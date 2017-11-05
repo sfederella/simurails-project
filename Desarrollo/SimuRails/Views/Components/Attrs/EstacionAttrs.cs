@@ -14,13 +14,15 @@ namespace SimuRails.Views.Components.Attrs
 {
     public partial class EstacionAttrs : UserControl
     {
-        private Repositorio repositorioIncidentes = new Repositorio();
-        private Estacion pEstacion; 
-        public EstacionAttrs(Estacion estacion)
+        private Estacion pEstacion;
+        private List<Incidente> pIncidentes;
+
+        public EstacionAttrs(Estacion estacion, Repositorio repositorio)
         {
             InitializeComponent();
             pEstacion = estacion;
             BindingSourceEstacion.DataSource = pEstacion;
+            this.pIncidentes = repositorio.Listar<Incidente>();
             BindIncidentes();
         }
 
@@ -37,7 +39,7 @@ namespace SimuRails.Views.Components.Attrs
             BindingSourceIncidentesAsignados.DataSource = GetLstTrazasAsignadas();
             BindingSourceEstacion.SuspendBinding();
             List<Incidente> lst = new List<Incidente>();
-            foreach (Incidente incidente in repositorioIncidentes.Listar<Incidente>())
+            foreach (Incidente incidente in this.pIncidentes)
             {
                 if (!pEstacion.Incidentes.Any(i => i.Id==incidente.Id))
                 {

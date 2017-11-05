@@ -11,15 +11,13 @@ namespace SimuRails.Views.Abms
         private IncidentesListForm listForm;
         private IncidenteAttrs attrs;
         private Incidente incidente;
-        private Repositorio repositorioIncidente;
 
-        public EditIncidenteForm(IncidentesListForm listForm, Repositorio repositorioIncidente, Incidente incidente)
+        public EditIncidenteForm(IncidentesListForm listForm, Incidente incidente)
         {
             InitializeComponent();
             this.listForm = listForm;
             this.attrs = new IncidenteAttrs(incidente);
             this.incidente = incidente;
-            this.repositorioIncidente = repositorioIncidente;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -37,8 +35,12 @@ namespace SimuRails.Views.Abms
         {
             if (this.attrs.applyTo(incidente))
             {
-                repositorioIncidente.Actualizar(incidente);
-                listForm.updateList();
+                using (var repositorio = new Repositorio())
+                {
+                    repositorio.Actualizar(incidente);
+                    listForm.dibujarRenglones(repositorio);
+                }
+
                 this.cerrar();
             }
 

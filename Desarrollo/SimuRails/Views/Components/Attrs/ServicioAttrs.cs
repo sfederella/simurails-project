@@ -11,19 +11,18 @@ namespace SimuRails.Views.Components.Attrs
 {
     public partial class ServicioAttrs : UserControl
     {
-        private Repositorio repositorioServicios = new Repositorio();
         private Servicio pServicio;
         private AgrupacionFormacion pFormacionEditando = new AgrupacionFormacion();
         private Tramo pTramoEditando = new Tramo();
         private List<AgrupacionFormacion> formacionesListadas = new List<AgrupacionFormacion>();
 
-        public ServicioAttrs(Servicio servicio)
+        public ServicioAttrs(Servicio servicio, Repositorio repositorio)
         {
             InitializeComponent();
             pServicio = servicio;
             formacionesListadas = AgrupacionFormacion.From(servicio.TiposFormacion);
-            var nombreFormaciones = listaDeModelos();
-            var nombreEstaciones = listaDeEstaciones();
+            var nombreFormaciones = repositorio.Listar<Formacion>();
+            var nombreEstaciones = repositorio.Listar<Estacion>();
             nombreFormacionCbo.Items.AddRange(nombreFormaciones.ToArray());
             origenTramoCbo.Items.AddRange(nombreEstaciones.ToArray());
             destinoTramoCbo.Items.AddRange(nombreEstaciones.ToArray());
@@ -74,22 +73,6 @@ namespace SimuRails.Views.Components.Attrs
         {
             this.pServicio.Tramos.Remove(tramo);
             this.dibujarListadoTramos();
-        }
-
-        private List<Formacion> listaDeModelos()
-        {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                return session.Query<Formacion>().ToList();
-            }
-        }
-
-        private List<Estacion> listaDeEstaciones()
-        {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                return session.Query<Estacion>().ToList();
-            }
         }
 
         private void agregarBtn_Click(object sender, EventArgs e)

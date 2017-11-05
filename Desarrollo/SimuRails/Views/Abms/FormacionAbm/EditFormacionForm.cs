@@ -19,11 +19,11 @@ namespace SimuRails.Views.Abms.FormacionAbm
         private FormacionAttr attrs;
         private Formacion formacion;
 
-        public EditFormacionForm(FormacionListForm listForm, Formacion formacion, NHibernate.ISession session)
+        public EditFormacionForm(FormacionListForm listForm, Formacion formacion, Repositorio repositorio)
         {
             InitializeComponent();
             this.listForm = listForm;
-            this.attrs = new FormacionAttr(formacion, session);
+            this.attrs = new FormacionAttr(formacion, repositorio);
             this.formacion = formacion;
         }
 
@@ -42,11 +42,9 @@ namespace SimuRails.Views.Abms.FormacionAbm
         {
             if (this.attrs.applyTo(formacion))
             {
-                using (var session = NHibernateHelper.OpenSession())
-                using (var transaction = session.BeginTransaction())
+                using (var repositorio = new Repositorio())
                 {
-                    session.SaveOrUpdate(formacion);
-                    transaction.Commit();
+                    repositorio.GuardarOActualizar(formacion);
                 }
                 listForm.updateList();
                 this.cerrar();

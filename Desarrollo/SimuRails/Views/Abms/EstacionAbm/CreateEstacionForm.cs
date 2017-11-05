@@ -1,4 +1,5 @@
-﻿using SimuRails.Models;
+﻿using SimuRails.DB;
+using SimuRails.Models;
 using SimuRails.Views.Components.Attrs;
 using System;
 using System.Windows.Forms;
@@ -11,10 +12,10 @@ namespace SimuRails.Views.Abms
         private EstacionAttrs attrs;
         private Estacion estacion;
 
-        public CreateEstacionForm(EstacionesListForm listForm, Estacion estacion)
+        public CreateEstacionForm(EstacionesListForm listForm, Estacion estacion, Repositorio repositorio)
         {
             InitializeComponent();
-            this.attrs = new EstacionAttrs(estacion);
+            this.attrs = new EstacionAttrs(estacion, repositorio);
             this.estacion = estacion;
             this.listForm = listForm;
         }

@@ -14,7 +14,6 @@ namespace SimuRails.Views.Abms
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private Repositorio repositorioServicio = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
         public ServiciosListForm()
@@ -41,8 +40,11 @@ namespace SimuRails.Views.Abms
 
         public void addServicio(Servicio Servicio)
         {
-            repositorioServicio.Guardar(Servicio);
-            this.dibujarRenglones();
+            using (var repositorioServicio = new Repositorio())
+            {
+                repositorioServicio.Guardar(Servicio);
+                this.dibujarRenglones();
+            }
         }
 
         private RenglonDeServicio renglonDe(Servicio servicio, int indice)
@@ -63,16 +65,20 @@ namespace SimuRails.Views.Abms
 
         private void onServicioRemove(int id)
         {
-            Servicio servicio = this.findServicio(id);
-            repositorioServicio.Eliminar(servicio);
-            this.dibujarRenglones();
+            using (var repositorioServicio = new Repositorio())
+            {
+                Servicio servicio = repositorioServicio.Obtener<Servicio>(id);
+                repositorioServicio.Eliminar(servicio);
+                this.dibujarRenglones();
+            }
+                
         }
 
         private void dibujarRenglones()
         {
-            using (var session = NHibernateHelper.OpenSession())
+            using (var repositorioServicio = new Repositorio())
             {
-                var servicios = session.Query<Servicio>().ToList();
+                var servicios = repositorioServicio.Listar<Servicio>();
 
                 renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
                 for (int i = 0; i < servicios.Count; i++)
@@ -95,9 +101,9 @@ namespace SimuRails.Views.Abms
 
         public void OnServicioEdit(int servicioId)
         {
-            using (var session = NHibernateHelper.OpenSession())
+            using (var repositorioServicio = new Repositorio())
             {
-                Servicio servicio = findServicio(servicioId, session);
+                Servicio servicio = repositorioServicio.Obtener<Servicio>(servicioId);
                 NHibernateUtil.Initialize(servicio.ProgramacionIda);
                 NHibernateUtil.Initialize(servicio.ProgramacionVuelta);
                 this.mainForm.EmbedForm(new EditServicioForm(this, repositorioServicio, servicio), tabPage);
@@ -105,20 +111,13 @@ namespace SimuRails.Views.Abms
             }
         }
 
-        private Servicio findServicio(int servicioId)
-        {
-            return repositorioServicio.Obtener<Servicio>(servicioId);
-        }
-
-        private Servicio findServicio(int servicioId, ISession session)
-        {
-            return session.Get<Servicio>(servicioId);
-        }
-
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            Servicio servicio = new Servicio();
-            this.mainForm.EmbedForm(new CreateServicioForm(this, servicio), tabPage);
+            using (var repositorio = new Repositorio())
+            {
+                Servicio servicio = new Servicio();
+                this.mainForm.EmbedForm(new CreateServicioForm(this, servicio, repositorio), tabPage);
+            }
             this.Visible = false;
         }
     }

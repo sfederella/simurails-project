@@ -14,7 +14,6 @@ namespace SimuRails.Views.Abms
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private Repositorio repositorioTraza = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
         public TrazasListForm()
@@ -31,18 +30,20 @@ namespace SimuRails.Views.Abms
 
         private void TrazasListForm_Load_1(object sender, EventArgs e)
         {
-            this.dibujarRenglones();
-        }
-
-        internal void updateList()
-        {
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         public void addTraza(Traza Traza)
         {
-            repositorioTraza.Guardar(Traza);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                repositorio.Guardar(Traza);
+                this.dibujarRenglones(repositorio);
+            }
+                
         }
 
         private RenglonDeTraza renglonDe(Traza traza, int indice)
@@ -63,24 +64,27 @@ namespace SimuRails.Views.Abms
 
         private void onTrazaRemove(int id)
         {
-            Traza traza = this.findTraza(id);
-            repositorioTraza.Eliminar(traza);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                Traza traza = this.findTraza(id);
+                repositorio.Eliminar(traza);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private void OnTrazaExport(int id)
         {
-            using (var session = NHibernateHelper.OpenSession())
+            using (var repositorio = new Repositorio())
             {
-                var trazaAExportar = session.Get<Traza>(id);
+                var trazaAExportar = repositorio.Obtener<Traza>(id);
                 SharingUtils.Exportar(trazaAExportar);
             }
 
         }
 
-        private void dibujarRenglones()
+        public void dibujarRenglones(Repositorio repositorio)
         {
-            var trazas = repositorioTraza.Listar<Traza>();
+            var trazas = repositorio.Listar<Traza>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
             for (int i = 0; i < trazas.Count; i++)
@@ -102,21 +106,31 @@ namespace SimuRails.Views.Abms
 
         public void OnTrazaEdit(int trazaId)
         {
-            Traza traza = findTraza(trazaId);
-            this.mainForm.EmbedForm(new EditTrazaForm(this, repositorioTraza, traza), tabPage);
+            using (var repositorio = new Repositorio())
+            {
+                Traza traza = findTraza(trazaId);
+                this.mainForm.EmbedForm(new EditTrazaForm(this, repositorio, traza), tabPage);
+            }
+
             this.Visible = false;
         }
 
         private Traza findTraza(int trazaId)
         {
-            return repositorioTraza.Obtener<Traza>(trazaId);
+            using (var repositorio = new Repositorio())
+            {
+                return repositorio.Obtener<Traza>(trazaId);
+            }
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            Traza traza = new Traza();
-            this.mainForm.EmbedForm(new CreateTrazaForm(this, traza), tabPage);
-            this.Visible = false;
+            using (var repositorio = new Repositorio())
+            {
+                Traza traza = new Traza();
+                this.mainForm.EmbedForm(new CreateTrazaForm(this, traza, repositorio), tabPage);
+                this.Visible = false;
+            }
         }
 
         private void ImportarButton_Click(object sender, EventArgs e)
@@ -124,16 +138,13 @@ namespace SimuRails.Views.Abms
             Traza trazaRecuperada = SharingUtils.Importar();
             if (trazaRecuperada != null)
             {
-                using (var session = NHibernateHelper.OpenSession())
-                using (var transaction = session.BeginTransaction())
+                using (var repositorio = new Repositorio())
                 {
                     //session.Replicate(trazaRecuperada, NHibernate.ReplicationMode.Overwrite);
-                    session.Persist(trazaRecuperada);
-                    transaction.Commit();
+                    repositorio.Persistir(trazaRecuperada);
+                    dibujarRenglones(repositorio);
                 }
             }
-
-            dibujarRenglones();
         }
     }
 }

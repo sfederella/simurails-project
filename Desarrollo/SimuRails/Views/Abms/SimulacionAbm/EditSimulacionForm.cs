@@ -11,15 +11,13 @@ namespace SimuRails.Views.Abms
         private SimulacionesListForm listForm;
         private SimulacionAttrs attrs;
         private Simulacion simulacion;
-        private Repositorio repositorioSimulacion;
 
-        public EditSimulacionForm(SimulacionesListForm listForm, Repositorio repositorioSimulacion, Simulacion simulacion)
+        public EditSimulacionForm(SimulacionesListForm listForm, Repositorio repositorio, Simulacion simulacion)
         {
             InitializeComponent();
             this.listForm = listForm;
-            this.attrs = new SimulacionAttrs(simulacion);
+            this.attrs = new SimulacionAttrs(simulacion, repositorio);
             this.simulacion = simulacion;
-            this.repositorioSimulacion = repositorioSimulacion;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -37,8 +35,11 @@ namespace SimuRails.Views.Abms
         {
             if (this.attrs.applyTo(simulacion))
             {
-                repositorioSimulacion.Actualizar(simulacion);
-                listForm.updateList();
+                using (var repositorio = new Repositorio())
+                {
+                    repositorio.Actualizar(simulacion);
+                    listForm.dibujarRenglones(repositorio);
+                }
                 this.cerrar();
             }
 

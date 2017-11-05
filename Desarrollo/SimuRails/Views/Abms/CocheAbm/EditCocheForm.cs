@@ -18,15 +18,13 @@ namespace SimuRails.Views.Abms
         private CochesListForm listForm;
         private CocheAttrs attrs;
         private Coche coche;
-        private Repositorio repositorioCoche;
 
-        public EditCocheForm(CochesListForm listForm, Repositorio repositorioCoche, Coche coche)
+        public EditCocheForm(CochesListForm listForm, Coche coche)
         {
             InitializeComponent();
             this.listForm = listForm;
             this.attrs = new CocheAttrs(coche);
             this.coche = coche;
-            this.repositorioCoche = repositorioCoche;
         }
 
         private void EditCocheForm_Load(object sender, EventArgs e)
@@ -53,8 +51,11 @@ namespace SimuRails.Views.Abms
         {
             if (this.attrs.applyTo(coche))
             {
-                repositorioCoche.Actualizar(coche);
-                listForm.updateList();
+                using (var repositorio = new Repositorio())
+                {
+                    repositorio.Actualizar(coche);
+                    listForm.dibujarRenglones(repositorio);
+                }
                 this.cerrar();
             }      
         }

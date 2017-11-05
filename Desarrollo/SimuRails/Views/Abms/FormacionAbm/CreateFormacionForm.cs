@@ -22,9 +22,9 @@ namespace SimuRails.Views.Abms.FormacionAbm
         public CreateFormacionForm(FormacionListForm listForm, Formacion formacion)
         {
             InitializeComponent();
-            using (var session = NHibernateHelper.OpenSession())
+            using (var repositorio = new Repositorio())
             {
-                this.attrs = new FormacionAttr(formacion, session);
+                this.attrs = new FormacionAttr(formacion, repositorio);
             }
             this.formacion = formacion;
             this.listForm = listForm;

@@ -12,7 +12,6 @@ namespace SimuRails.Views.Abms
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private Repositorio repositorioestacion = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
         public EstacionesListForm()
@@ -29,23 +28,24 @@ namespace SimuRails.Views.Abms
 
         private void EstacionesListForm_Load(object sender, EventArgs e)
         {
-            this.dibujarRenglones();
-        }
-
-        internal void updateList()
-        {
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         public void addEstacion(Estacion estacion)
         {
-            repositorioestacion.Guardar(estacion);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                repositorio.Guardar(estacion);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private RenglonDeEstacion renglonDe(Estacion estacion, int indice)
         {
-            var renglon = new RenglonDeEstacion(estacion, this.OnestacionEdit, this.onestacionRemove);
+            var renglon = new RenglonDeEstacion(estacion, this.OnestacionEdit, this.onEstacionRemove);
             this.incluirEnLista(indice, renglon);
             return renglon;
         }
@@ -59,16 +59,19 @@ namespace SimuRails.Views.Abms
             renglones.Add(renglon);
         }
 
-        private void onestacionRemove(int id)
+        private void onEstacionRemove(int id)
         {
-            Estacion estacion = this.findestacion(id);
-            repositorioestacion.Eliminar(estacion);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                Estacion estacion = repositorio.Obtener<Estacion>(id);
+                repositorio.Eliminar(estacion);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
-        private void dibujarRenglones()
+        public void dibujarRenglones(Repositorio repositorio)
         {
-            var estacions = repositorioestacion.Listar<Estacion>();
+            var estacions = repositorio.Listar<Estacion>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
             for (int i = 0; i < estacions.Count; i++)
@@ -90,20 +93,23 @@ namespace SimuRails.Views.Abms
 
         public void OnestacionEdit(int estacionId)
         {
-            Estacion estacion = findestacion(estacionId);
-            this.mainForm.EmbedForm(new EditEstacionForm(this, repositorioestacion, estacion), tabPage);
+            using (var repositorio = new Repositorio())
+            {
+                Estacion estacion = repositorio.Obtener<Estacion>(estacionId);
+                this.mainForm.EmbedForm(new EditEstacionForm(this, repositorio, estacion), tabPage);
+            }
+                
             this.Visible = false;
-        }
-
-        private Estacion findestacion(int estacionId)
-        {
-            return repositorioestacion.Obtener<Estacion>(estacionId);
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            Estacion estacion = new Estacion();
-            this.mainForm.EmbedForm(new CreateEstacionForm(this, estacion), tabPage);
+            using (var repositorio = new Repositorio())
+            {
+                Estacion estacion = new Estacion();
+                this.mainForm.EmbedForm(new CreateEstacionForm(this, estacion, repositorio), tabPage);
+            }
+
             this.Visible = false;
         }
     }

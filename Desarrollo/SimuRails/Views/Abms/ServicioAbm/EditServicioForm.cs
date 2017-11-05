@@ -11,15 +11,13 @@ namespace SimuRails.Views.Abms
         private ServiciosListForm listForm;
         private ServicioAttrs attrs;
         private Servicio servicio;
-        private Repositorio repositorioServicio;
-
+       
         public EditServicioForm(ServiciosListForm listForm, Repositorio repositorioServicio, Servicio servicio)
         {
             InitializeComponent();
             this.listForm = listForm;
-            this.attrs = new ServicioAttrs(servicio);
+            this.attrs = new ServicioAttrs(servicio, repositorioServicio);
             this.servicio = servicio;
-            this.repositorioServicio = repositorioServicio;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -37,7 +35,10 @@ namespace SimuRails.Views.Abms
         {
             if (this.attrs.applyTo(servicio))
             {
-                repositorioServicio.Actualizar(servicio);
+                using (var repositorioServicio = new Repositorio())
+                {
+                    repositorioServicio.Actualizar(servicio);
+                }
                 listForm.updateList();
                 this.cerrar();
             }

@@ -104,6 +104,7 @@
             this.esperandoMinIdaField.Depth = 0;
             this.esperandoMinIdaField.Hint = "Cant. de personas";
             this.esperandoMinIdaField.Location = new System.Drawing.Point(40, 167);
+            this.esperandoMinIdaField.MaxLength = 32767;
             this.esperandoMinIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMinIdaField.Name = "esperandoMinIdaField";
             this.esperandoMinIdaField.PasswordChar = '\0';
@@ -112,6 +113,7 @@
             this.esperandoMinIdaField.SelectionStart = 0;
             this.esperandoMinIdaField.Size = new System.Drawing.Size(126, 23);
             this.esperandoMinIdaField.TabIndex = 2;
+            this.esperandoMinIdaField.TabStop = false;
             this.esperandoMinIdaField.UseSystemPasswordChar = false;
             // 
             // BindingSourceEstacion
@@ -124,6 +126,7 @@
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
             this.nombreField.Location = new System.Drawing.Point(20, 42);
+            this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
             this.nombreField.Name = "nombreField";
             this.nombreField.PasswordChar = '\0';
@@ -132,6 +135,7 @@
             this.nombreField.SelectionStart = 0;
             this.nombreField.Size = new System.Drawing.Size(270, 23);
             this.nombreField.TabIndex = 0;
+            this.nombreField.TabStop = false;
             this.nombreField.UseSystemPasswordChar = false;
             // 
             // materialDivider1
@@ -179,6 +183,7 @@
             this.esperandoMaxIdaField.Depth = 0;
             this.esperandoMaxIdaField.Hint = "Cant. de personas";
             this.esperandoMaxIdaField.Location = new System.Drawing.Point(40, 227);
+            this.esperandoMaxIdaField.MaxLength = 32767;
             this.esperandoMaxIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMaxIdaField.Name = "esperandoMaxIdaField";
             this.esperandoMaxIdaField.PasswordChar = '\0';
@@ -187,6 +192,7 @@
             this.esperandoMaxIdaField.SelectionStart = 0;
             this.esperandoMaxIdaField.Size = new System.Drawing.Size(126, 23);
             this.esperandoMaxIdaField.TabIndex = 3;
+            this.esperandoMaxIdaField.TabStop = false;
             this.esperandoMaxIdaField.UseSystemPasswordChar = false;
             // 
             // materialDivider2
@@ -275,6 +281,7 @@
             this.esperandoMaxVueltaField.Depth = 0;
             this.esperandoMaxVueltaField.Hint = "Cant. de personas";
             this.esperandoMaxVueltaField.Location = new System.Drawing.Point(219, 227);
+            this.esperandoMaxVueltaField.MaxLength = 32767;
             this.esperandoMaxVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMaxVueltaField.Name = "esperandoMaxVueltaField";
             this.esperandoMaxVueltaField.PasswordChar = '\0';
@@ -283,6 +290,7 @@
             this.esperandoMaxVueltaField.SelectionStart = 0;
             this.esperandoMaxVueltaField.Size = new System.Drawing.Size(126, 23);
             this.esperandoMaxVueltaField.TabIndex = 5;
+            this.esperandoMaxVueltaField.TabStop = false;
             this.esperandoMaxVueltaField.UseSystemPasswordChar = false;
             // 
             // materialLabel9
@@ -304,6 +312,7 @@
             this.esperandoMinVueltaField.Depth = 0;
             this.esperandoMinVueltaField.Hint = "Cant. de personas";
             this.esperandoMinVueltaField.Location = new System.Drawing.Point(219, 167);
+            this.esperandoMinVueltaField.MaxLength = 32767;
             this.esperandoMinVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMinVueltaField.Name = "esperandoMinVueltaField";
             this.esperandoMinVueltaField.PasswordChar = '\0';
@@ -312,6 +321,7 @@
             this.esperandoMinVueltaField.SelectionStart = 0;
             this.esperandoMinVueltaField.Size = new System.Drawing.Size(126, 23);
             this.esperandoMinVueltaField.TabIndex = 4;
+            this.esperandoMinVueltaField.TabStop = false;
             this.esperandoMinVueltaField.UseSystemPasswordChar = false;
             // 
             // materialLabel10
@@ -333,6 +343,7 @@
             this.desciendenMaxVueltaField.Depth = 0;
             this.desciendenMaxVueltaField.Hint = "Cant. de personas";
             this.desciendenMaxVueltaField.Location = new System.Drawing.Point(221, 415);
+            this.desciendenMaxVueltaField.MaxLength = 32767;
             this.desciendenMaxVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMaxVueltaField.Name = "desciendenMaxVueltaField";
             this.desciendenMaxVueltaField.PasswordChar = '\0';
@@ -341,6 +352,7 @@
             this.desciendenMaxVueltaField.SelectionStart = 0;
             this.desciendenMaxVueltaField.Size = new System.Drawing.Size(126, 23);
             this.desciendenMaxVueltaField.TabIndex = 9;
+            this.desciendenMaxVueltaField.TabStop = false;
             this.desciendenMaxVueltaField.UseSystemPasswordChar = false;
             // 
             // materialLabel11
@@ -362,6 +374,7 @@
             this.desciendenMinVueltaField.Depth = 0;
             this.desciendenMinVueltaField.Hint = "Cant. de personas";
             this.desciendenMinVueltaField.Location = new System.Drawing.Point(221, 355);
+            this.desciendenMinVueltaField.MaxLength = 32767;
             this.desciendenMinVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMinVueltaField.Name = "desciendenMinVueltaField";
             this.desciendenMinVueltaField.PasswordChar = '\0';
@@ -370,6 +383,7 @@
             this.desciendenMinVueltaField.SelectionStart = 0;
             this.desciendenMinVueltaField.Size = new System.Drawing.Size(126, 23);
             this.desciendenMinVueltaField.TabIndex = 8;
+            this.desciendenMinVueltaField.TabStop = false;
             this.desciendenMinVueltaField.UseSystemPasswordChar = false;
             // 
             // materialDivider4
@@ -428,6 +442,7 @@
             this.desciendenMaxIdaField.Depth = 0;
             this.desciendenMaxIdaField.Hint = "Cant. de personas";
             this.desciendenMaxIdaField.Location = new System.Drawing.Point(42, 415);
+            this.desciendenMaxIdaField.MaxLength = 32767;
             this.desciendenMaxIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMaxIdaField.Name = "desciendenMaxIdaField";
             this.desciendenMaxIdaField.PasswordChar = '\0';
@@ -436,6 +451,7 @@
             this.desciendenMaxIdaField.SelectionStart = 0;
             this.desciendenMaxIdaField.Size = new System.Drawing.Size(126, 23);
             this.desciendenMaxIdaField.TabIndex = 7;
+            this.desciendenMaxIdaField.TabStop = false;
             this.desciendenMaxIdaField.UseSystemPasswordChar = false;
             // 
             // materialLabel15
@@ -470,6 +486,7 @@
             this.desciendenMinIdaField.Depth = 0;
             this.desciendenMinIdaField.Hint = "Cant. de personas";
             this.desciendenMinIdaField.Location = new System.Drawing.Point(42, 355);
+            this.desciendenMinIdaField.MaxLength = 32767;
             this.desciendenMinIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMinIdaField.Name = "desciendenMinIdaField";
             this.desciendenMinIdaField.PasswordChar = '\0';
@@ -478,6 +495,7 @@
             this.desciendenMinIdaField.SelectionStart = 0;
             this.desciendenMinIdaField.Size = new System.Drawing.Size(126, 23);
             this.desciendenMinIdaField.TabIndex = 6;
+            this.desciendenMinIdaField.TabStop = false;
             this.desciendenMinIdaField.UseSystemPasswordChar = false;
             // 
             // ListBoxAsignados
@@ -499,8 +517,10 @@
             // 
             // ButtonDesasignar
             // 
+            this.ButtonDesasignar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonDesasignar.Depth = 0;
             this.ButtonDesasignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonDesasignar.Icon = null;
             this.ButtonDesasignar.Location = new System.Drawing.Point(641, 217);
             this.ButtonDesasignar.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonDesasignar.Name = "ButtonDesasignar";
@@ -513,8 +533,10 @@
             // 
             // ButtonAsignar
             // 
+            this.ButtonAsignar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ButtonAsignar.Depth = 0;
             this.ButtonAsignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAsignar.Icon = null;
             this.ButtonAsignar.Location = new System.Drawing.Point(641, 161);
             this.ButtonAsignar.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonAsignar.Name = "ButtonAsignar";
