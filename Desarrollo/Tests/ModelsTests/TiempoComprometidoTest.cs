@@ -8,6 +8,7 @@ using SimuRails.Models;
 using log4net.Config;
 using log4net;
 using System.Reflection;
+using System.ComponentModel;
 
 namespace Tests.ModelsTests
 {
@@ -38,7 +39,7 @@ namespace Tests.ModelsTests
             };
 
             this.log.Info("Iniciando test de tiempo comprometido");
-            simulacion.Ejecutar();
+            simulacion.Ejecutar(new BackgroundWorker());
             this.log.Info("Fin test de tiempo comprometido");
             Assert.IsTrue(true);
         }

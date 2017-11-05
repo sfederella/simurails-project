@@ -1,6 +1,7 @@
 ﻿using SimuRails.Models;
 using SimuRails.Report;
 using SimuRails.Views;
+using SimuRails.Views.Abms;
 using System;
 using System.Windows.Forms;
 using Tests.ModelsTests;
@@ -24,7 +25,7 @@ namespace SimuRails
             ModelMock mo = new ModelMock();
             mo.MockResultados();
             simu.TrazaSimulada = mo.Traza;
-            ReportGraphsForm frm = new ReportGraphsForm(simu);
+            ReportGraphsForm frm = new ReportGraphsForm(new SimulacionesListForm(), simu);
             frm.ShowDialog();
         }
     }
