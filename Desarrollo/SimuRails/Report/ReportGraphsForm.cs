@@ -173,7 +173,7 @@ namespace SimuRails.Report
         {
             foreach (Chart chart in FlowLayOutPanel1.Controls)
             {
-                chart.Width = (GraficoTraza.Size.Width / 2)-6;
+                chart.Width = (int)((GraficoTraza.Size.Width / 2)*0.985);
             }
             int cantRenglones = (int)(Math.Abs((FlowLayOutPanel1.Controls.Count / 2) + 0.5));
             FlowLayOutPanel1.Height = 390 * cantRenglones;
