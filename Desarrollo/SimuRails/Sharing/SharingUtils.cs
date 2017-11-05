@@ -56,7 +56,7 @@ namespace SimuRails.Sharing
                     settings.Converters.Add(new DictionaryJsonConverter());
                     traza = JsonConvert.DeserializeObject<Traza>(json, settings);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Error al abrir el archivo. Verifique que el mismo no está corrupto.");
                 }

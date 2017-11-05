@@ -1,4 +1,5 @@
 ﻿using SimuRails.Models;
+using SimuRails.Views.Abms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -11,18 +12,20 @@ namespace SimuRails.Report
 {
     public partial class ReportGraphsForm : Form
     {
-
+        private SimulacionesListForm form;
         private Simulacion simulacion;
         private Color color = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
 
-        public ReportGraphsForm(Simulacion simu)
+        public ReportGraphsForm(SimulacionesListForm form, Simulacion simulacion)
         {
             InitializeComponent();
-            simulacion = simu;
-            LabelNombreSimulacion.Text = simu.Nombre;
-            LabelDuracion.Text = simu.Duracion.ToString() + " minutos";
+            this.form = form;
+            form.Visible = false;
+            this.simulacion = simulacion;
+            LabelNombreSimulacion.Text = simulacion.Nombre;
+            LabelDuracion.Text = simulacion.Duracion.ToString() + " minutos";
             BindCombo();
-          }
+        }
 
         #region " Buttons "
         private void ButtonVerReporte_Click(object sender, EventArgs e)
@@ -178,5 +181,11 @@ namespace SimuRails.Report
         }
 
         #endregion
+
+        private void ButtonCerrar_Click(object sender, EventArgs e)
+        {
+            form.Visible = true;
+            this.Close();
+        }
     }
 }

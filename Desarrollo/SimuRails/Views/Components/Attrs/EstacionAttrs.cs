@@ -24,6 +24,15 @@ namespace SimuRails.Views.Components.Attrs
             BindingSourceEstacion.DataSource = pEstacion;
             this.pIncidentes = repositorio.Listar<Incidente>();
             BindIncidentes();
+
+            esperandoMinIdaField.IsNumeric = true;
+            esperandoMaxIdaField.IsNumeric = true;
+            esperandoMinVueltaField.IsNumeric = true;
+            esperandoMaxVueltaField.IsNumeric = true;
+            desciendenMinIdaField.IsNumeric = true;
+            desciendenMaxIdaField.IsNumeric = true;
+            desciendenMinVueltaField.IsNumeric = true;
+            desciendenMaxVueltaField.IsNumeric = true;
         }
 
         public bool applyTo(Estacion estacion)

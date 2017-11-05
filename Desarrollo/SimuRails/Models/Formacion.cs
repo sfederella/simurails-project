@@ -23,8 +23,8 @@ namespace SimuRails.Models
         public virtual int DuracionMantenimiento { get; set; }
 
         // No persistentes
-        public virtual int HoraSalida { get; set; }
-        public virtual int HoraPosibleSalida { get; set; }
+        public virtual long HoraSalida { get; set; }
+        public virtual long HoraPosibleSalida { get; set; }
         public virtual int Pasajeros { get; set; }
         public virtual Servicio Servicio { get; set; }
         public virtual Estacion EstacionActual { get; set; }
@@ -59,19 +59,15 @@ namespace SimuRails.Models
             this.EstaEnMantenimiento = false;
         }
 
-        public virtual void ActualizarHoraSalida(int horaSalida)
+        public virtual void ActualizarHoraSalida(long horaSalida)
         {
             Servicio.Formaciones.Remove(this);
             HoraSalida = horaSalida;
             Servicio.Formaciones.Add(this);
         }
 
-        public virtual int InicioRecorrido(int t)
+        public virtual long InicioRecorrido(long t)
         {
-            //TODO : esto no debe ir aca, debe ir en la instanciacion de la formacion
-            DuracionMantenimiento = 120;
-            KilometrosMantenimiento = 100;
-
             int tiempoAtencion = 0;
             int pasajerosAscendidos = 0;
             tiempoIncidentes = 0;
@@ -108,7 +104,7 @@ namespace SimuRails.Models
             return this.EstacionActual.GetTiempoComprometido(SentidoActual);
         }
 
-        public virtual int ArriboEstacion(Tramo tramo, int t)
+        public virtual long ArriboEstacion(Tramo tramo, long t)
         {
             int pasajerosDescendidos = 0;
             int pasajerosAscendidos = 0;

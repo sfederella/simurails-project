@@ -25,8 +25,8 @@ namespace SimuRails.Views.Components
             this.Tramo = tramo;
             this.origenLbl.Text = tramo.EstacionOrigen.Nombre;
             this.destinoLbl.Text = tramo.EstacionDestino.Nombre;
-            this.distanciaLbl.Text = tramo.Distancia.ToString() + " Km";
-            this.tiempoLbl.Text = tramo.TiempoViaje.ToString() + " Min";
+            this.distanciaLbl.Text = tramo.Distancia.ToString() + " km";
+            this.tiempoLbl.Text = tramo.TiempoViaje.ToString() + " min";
             this.handleRemove = handleRemove;
         }
 

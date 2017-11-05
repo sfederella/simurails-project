@@ -32,6 +32,11 @@ namespace SimuRails.Views.Components.Attrs
             bindingSourceTramoEditando.DataSource = pTramoEditando;
             this.dibujarListadoFormaciones();
             this.dibujarListadoTramos();
+
+            materialSingleLineTextField1.IsNumeric = true;
+            materialSingleLineTextField2.IsNumeric = true;
+            materialSingleLineTextField3.IsNumeric = true;
+            materialSingleLineTextField4.IsNumeric = true;
         }
 
         public bool applyTo(Servicio servicio)

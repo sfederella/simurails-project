@@ -31,6 +31,10 @@ namespace SimuRails.Views.Components
             validables.Add(new Validator<Coche>(pCoche, reglaParaAsientos, this.errorAsientosLbl, this.asientosField));
 
             BindingSourceCoche.DataSource = pCoche;
+
+            asientosField.IsNumeric = true;
+            capacidadLegalField.IsNumeric = true;
+            capacidadTotalField.IsNumeric = true;
         }
 
         public bool applyTo(Coche coche)

@@ -85,9 +85,9 @@
             this.materialLabel1.Location = new System.Drawing.Point(270, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(69, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(131, 19);
             this.materialLabel1.TabIndex = 12;
-            this.materialLabel1.Text = "Duración";
+            this.materialLabel1.Text = "Duración (en días)";
             // 
             // seleccion
             // 

@@ -52,6 +52,10 @@ namespace SimuRails.Views.Components.Attrs
             bindingSourceFormacion.DataSource = pFormacion;
             bindingSourceCocheEditando.DataSource = pCocheEditando;
             this.dibujarListado();
+
+            distanciaManteField.IsNumeric = true;
+            tiempoEnManteField.IsNumeric = true;
+            cantidadCocheField.IsNumeric = true;
         }
 
         private void dibujarListado()
