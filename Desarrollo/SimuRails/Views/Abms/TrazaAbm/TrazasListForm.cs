@@ -141,6 +141,7 @@ namespace SimuRails.Views.Abms
                 ImportarTraza(trazaRecuperada);
             }
 
+            //TODO: Recargar los listados de los otros ABM de alguna manera luego de importar.
             using (var repositorio = new Repositorio())
             {
                 dibujarRenglones(repositorio);
