@@ -29,18 +29,17 @@ namespace SimuRails.Views.Components.Attrs
 
         private List<Validable> validablesParaLista = new List<Validable>();
 
-        public FormacionAttr(Formacion formacion, NHibernate.ISession session)
+        public FormacionAttr(Formacion formacion, Repositorio repositorio)
         {
             InitializeComponent();
             pFormacion = formacion;
             validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePresencia(unaFormacion => unaFormacion.Nombre), errorNombreLbl, bindingSourceFormacion));
-            //validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePresencia(unaFormacion => unaFormacion.Nombre), errorNombreLbl, nombreField));
             validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePositivo(unaFormacion => unaFormacion.KilometrosMantenimiento), errorDistanciaLbl, bindingSourceFormacion));
             validables.Add(new Validator<Formacion>(pFormacion, ReglaConcreta<Formacion>.dePositivo(unaFormacion => unaFormacion.DuracionMantenimiento), errorTiempoManteLbl, bindingSourceFormacion));
             validables.Add(new Validator<Formacion>(pFormacion, new ReglaConcreta<Formacion>(unaFormacion => unaFormacion.TiposCoche.Keys.Count > 0, "Debe tener por lo menos un tipo de coche"), errorCochesLbl));
 
             cochesListados = AgrupacionCoche.From(formacion.TiposCoche);
-            var modelos = listaDeModelos(session);
+            var modelos = repositorio.Listar<Coche>();
             modeloCbo.Items.AddRange(modelos.ToArray());
 
             validablesParaLista.Add(new Validator<AgrupacionCoche>(pCocheEditando, ReglaConcreta<AgrupacionCoche>.dePositivo(unaAgrupacionCoche => unaAgrupacionCoche.Cantidad), errorCantidadLbl));
@@ -57,11 +56,6 @@ namespace SimuRails.Views.Components.Attrs
             distanciaManteField.IsNumeric = true;
             tiempoEnManteField.IsNumeric = true;
             cantidadCocheField.IsNumeric = true;
-        }
-
-        private List<Coche> listaDeModelos(ISession session)
-        {
-            return session.Query<Coche>().ToList();
         }
 
         private void dibujarListado()

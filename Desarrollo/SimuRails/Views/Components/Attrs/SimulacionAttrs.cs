@@ -9,13 +9,12 @@ namespace SimuRails.Views.Components.Attrs
     public partial class SimulacionAttrs : UserControl
     {
         private Simulacion pSimulacion;
-        private Repositorio repositorioTrazas = new Repositorio();
-        public SimulacionAttrs(Simulacion simulacion)
+        public SimulacionAttrs(Simulacion simulacion, Repositorio repositorio)
         {
             InitializeComponent();
             pSimulacion = simulacion;
             BindingSourceSimulacion.DataSource = pSimulacion;
-            List<Traza> list = repositorioTrazas.Listar<Traza>();
+            List<Traza> list = repositorio.Listar<Traza>();
             BindingSourceTraza.DataSource = list;
             ComboBoxTraza.listaDatos = list.Select(x => x.Nombre).ToList();
             contadorMinutosText.Text = (simulacion.Duracion * 1440).ToString();

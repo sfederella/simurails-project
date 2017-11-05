@@ -12,7 +12,6 @@ namespace SimuRails.Views.Abms
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private Repositorio repositorioCoche= new Repositorio();
         private List<Control> renglones = new List<Control>();
 
         public CochesListForm(MainForm mainForm, TabPage tabPage)
@@ -24,18 +23,19 @@ namespace SimuRails.Views.Abms
 
         private void CochesListForm_Load(object sender, EventArgs e)
         {
-            this.dibujarRenglones();
-        }
-
-        internal void updateList()
-        {
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         public void addCoche(Coche coche)
         {
-            repositorioCoche.Guardar(coche);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                repositorio.Guardar(coche);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private RenglonDeCoche renglonDe(Coche coche, int indice)
@@ -56,14 +56,17 @@ namespace SimuRails.Views.Abms
 
         private void onCocheRemove(int id)
         {
-            Coche coche = this.findCoche(id);
-            repositorioCoche.Eliminar(coche);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                Coche coche = repositorio.Obtener<Coche>(id);
+                repositorio.Eliminar(coche);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
-        private void dibujarRenglones()
+        public void dibujarRenglones(Repositorio repositorio)
         {
-            var coches = repositorioCoche.Listar<Coche>();
+            var coches = repositorio.Listar<Coche>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
             for (int i = 0; i < coches.Count; i++)
@@ -85,14 +88,12 @@ namespace SimuRails.Views.Abms
 
         public void OnCocheEdit(int cocheId)
         {
-            Coche coche = findCoche(cocheId);
-            this.mainForm.EmbedForm(new EditCocheForm(this, repositorioCoche, coche), tabPage);
+            using (var repositorio = new Repositorio())
+            {
+                Coche coche = repositorio.Obtener<Coche>(cocheId);
+                this.mainForm.EmbedForm(new EditCocheForm(this, coche), tabPage);
+            }
             this.Visible = false;
-        }
-
-        private Coche findCoche(int cocheId)
-        {
-            return repositorioCoche.Obtener<Coche>(cocheId);
         }
 
 

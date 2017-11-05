@@ -12,7 +12,6 @@ namespace SimuRails.Views.Abms
     {
         private MainForm mainForm;
         private TabPage tabPage;
-        private Repositorio repositorioIncidente = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
         public IncidentesListForm()
@@ -29,18 +28,19 @@ namespace SimuRails.Views.Abms
 
         private void IncidentesListForm_Load_1(object sender, EventArgs e)
         {
-            this.dibujarRenglones();
-        }
-
-        internal void updateList()
-        {
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         public void addIncidente(Incidente incidente)
         {
-            repositorioIncidente.Guardar(incidente);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                repositorio.Guardar(incidente);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private RenglonDeIncidente renglonDe(Incidente incidente, int indice)
@@ -61,14 +61,17 @@ namespace SimuRails.Views.Abms
 
         private void onIncidenteRemove(int id)
         {
-            Incidente incidente = this.findIncidente(id);
-            repositorioIncidente.Eliminar(incidente);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                Incidente incidente = repositorio.Obtener<Incidente>(id);
+                repositorio.Eliminar(incidente);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
-        private void dibujarRenglones()
+        public void dibujarRenglones(Repositorio repositorio)
         {
-            var incidentes = repositorioIncidente.Listar<Incidente>();
+            var incidentes = repositorio.Listar<Incidente>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
             for (int i = 0; i < incidentes.Count; i++)
@@ -90,14 +93,13 @@ namespace SimuRails.Views.Abms
 
         public void OnIncidenteEdit(int incidenteId)
         {
-            Incidente incidente = findIncidente(incidenteId);
-            this.mainForm.EmbedForm(new EditIncidenteForm(this, repositorioIncidente, incidente), tabPage);
-            this.Visible = false;
-        }
+            using (var repositorio = new Repositorio())
+            {
+                Incidente incidente = repositorio.Obtener<Incidente>(incidenteId);
+                this.mainForm.EmbedForm(new EditIncidenteForm(this, incidente), tabPage);
+            }
 
-        private Incidente findIncidente(int incidenteId)
-        {
-            return repositorioIncidente.Obtener<Incidente>(incidenteId);
+            this.Visible = false;
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)

@@ -9,13 +9,15 @@ namespace SimuRails.Views.Components.Attrs
 {
     public partial class TrazaAttrs : UserControl
     {
-        private Repositorio repositorioServicios = new Repositorio();
         private Traza pTraza;
-        public TrazaAttrs(Traza traza)
+        private List<Servicio> pServicios;
+
+        public TrazaAttrs(Traza traza, Repositorio repositiorio)
         {
             InitializeComponent();
             pTraza = traza;
             BindingSourceTraza.DataSource = pTraza;
+            pServicios = repositiorio.Listar<Servicio>();
             BindServicios();
         }
 
@@ -33,7 +35,7 @@ namespace SimuRails.Views.Components.Attrs
             BindingSourceServiciosAsignados.DataSource = GetLstServiciosAsignados();
             BindingSourceTraza.SuspendBinding();
             List<Servicio> lst = new List<Servicio>();
-            foreach (Servicio servicio in repositorioServicios.Listar<Servicio>())
+            foreach (Servicio servicio in pServicios)
             {
                 if (!pTraza.Servicios.Any(i => i.Id == servicio.Id))
                 {

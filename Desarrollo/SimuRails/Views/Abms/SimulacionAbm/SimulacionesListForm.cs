@@ -12,7 +12,6 @@ namespace SimuRails.Views.Abms
     {
         internal MainForm mainForm;
         internal TabPage tabPage;
-        private Repositorio repositorioSimulacion = new Repositorio();
         private List<Control> renglones = new List<Control>();
 
         public SimulacionesListForm()
@@ -29,18 +28,20 @@ namespace SimuRails.Views.Abms
 
         private void SimulacionesListForm_Load_1(object sender, EventArgs e)
         {
-            this.dibujarRenglones();
-        }
-
-        internal void updateList()
-        {
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
+                
         }
 
         public void addSimulacion(Simulacion simulacion)
         {
-            repositorioSimulacion.Guardar(simulacion);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                repositorio.Guardar(simulacion);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private RenglonDeSimulacion renglonDe(Simulacion simulacion, int indice)
@@ -61,14 +62,17 @@ namespace SimuRails.Views.Abms
 
         private void onSimulacionRemove(int id)
         {
-            Simulacion simulacion = this.findSimulacion(id);
-            repositorioSimulacion.Eliminar(simulacion);
-            this.dibujarRenglones();
+            using (var repositorio = new Repositorio())
+            {
+                Simulacion simulacion = repositorio.Obtener<Simulacion>(id);
+                repositorio.Eliminar(simulacion);
+                this.dibujarRenglones(repositorio);
+            }
         }
 
-        private void dibujarRenglones()
+        public void dibujarRenglones(Repositorio repositorio)
         {
-            var simulacions = repositorioSimulacion.Listar<Simulacion>();
+            var simulacions = repositorio.Listar<Simulacion>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
             for (int i = 0; i < simulacions.Count; i++)
@@ -90,20 +94,22 @@ namespace SimuRails.Views.Abms
 
         public void OnSimulacionEdit(int simulacionId)
         {
-            Simulacion simulacion = findSimulacion(simulacionId);
-            this.mainForm.EmbedForm(new EditSimulacionForm(this, repositorioSimulacion, simulacion), tabPage);
+            using (var repositorio = new Repositorio())
+            {
+                Simulacion simulacion = repositorio.Obtener<Simulacion>(simulacionId);
+                this.mainForm.EmbedForm(new EditSimulacionForm(this, repositorio, simulacion), tabPage);
+            }
             this.Visible = false;
-        }
-
-        private Simulacion findSimulacion(int simulacionId)
-        {
-            return repositorioSimulacion.Obtener<Simulacion>(simulacionId);
         }
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
-            Simulacion simulacion = new Simulacion();
-            this.mainForm.EmbedForm(new CreateSimulacionForm(this, simulacion), tabPage);
+            using (var repositorio = new Repositorio())
+            {
+                Simulacion simulacion = new Simulacion();
+                this.mainForm.EmbedForm(new CreateSimulacionForm(this, simulacion, repositorio), tabPage);
+            }
+
             this.Visible = false;
         }
     }

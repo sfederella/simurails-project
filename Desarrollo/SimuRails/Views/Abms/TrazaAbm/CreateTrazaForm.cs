@@ -1,4 +1,5 @@
-﻿using SimuRails.Models;
+﻿using SimuRails.DB;
+using SimuRails.Models;
 using SimuRails.Views.Components.Attrs;
 using System;
 using System.Windows.Forms;
@@ -11,10 +12,10 @@ namespace SimuRails.Views.Abms
         private TrazaAttrs attrs;
         private Traza traza;
 
-        public CreateTrazaForm(TrazasListForm listForm, Traza traza)
+        public CreateTrazaForm(TrazasListForm listForm, Traza traza, Repositorio repositiorio)
         {
             InitializeComponent();
-            this.attrs = new TrazaAttrs(traza);
+            this.attrs = new TrazaAttrs(traza, repositiorio);
             this.traza = traza;
             this.listForm = listForm;
         }

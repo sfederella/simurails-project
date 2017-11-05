@@ -1,4 +1,5 @@
-﻿using SimuRails.Models;
+﻿using SimuRails.DB;
+using SimuRails.Models;
 using SimuRails.Views.Components.Attrs;
 using System;
 using System.Windows.Forms;
@@ -11,10 +12,10 @@ namespace SimuRails.Views.Abms
         private ServicioAttrs attrs;
         private Servicio servicio;
 
-        public CreateServicioForm(ServiciosListForm listForm, Servicio servicio)
+        public CreateServicioForm(ServiciosListForm listForm, Servicio servicio, Repositorio repositorio)
         {
             InitializeComponent();
-            this.attrs = new ServicioAttrs(servicio);
+            this.attrs = new ServicioAttrs(servicio, repositorio);
             this.servicio = servicio;
             this.listForm = listForm;
         }

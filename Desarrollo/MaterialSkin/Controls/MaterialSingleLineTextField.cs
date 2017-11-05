@@ -990,7 +990,8 @@ namespace MaterialSkin.Controls
         {
             if (IsNumeric)
             {
-                if (!int.TryParse(Text, out var n))
+                int n;
+                if (!int.TryParse(Text, out n))
                 {
                     Text = "0";
                 }

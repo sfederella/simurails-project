@@ -44,11 +44,9 @@ namespace SimuRails.Views.Abms.FormacionAbm
 
         public void addFormacion(Formacion formacion)
         {
-            using (var session = NHibernateHelper.OpenSession())
-            using (var transaction = session.BeginTransaction())
+            using (var repositorio = new Repositorio())
             {
-                session.SaveOrUpdate(formacion);
-                transaction.Commit();
+                repositorio.GuardarOActualizar(formacion);
             }
 
             this.dibujarRenglones();
@@ -61,49 +59,31 @@ namespace SimuRails.Views.Abms.FormacionAbm
 
         private void onformacionRemove(int id)
         {
-            Formacion formacion = this.findFormacion(id);
-            using (var session = NHibernateHelper.OpenSession())
-            using (var transaction = session.BeginTransaction())
+            using (var repositorio = new Repositorio())
             {
-                session.Delete(formacion);
-                transaction.Commit();
+                Formacion formacion = repositorio.Obtener<Formacion>(id);
+                repositorio.Eliminar(formacion);
             }
             this.dibujarRenglones();
         }
 
         private void dibujarRenglones()
         {
-            List<Formacion> formaciones;
-            using (var session = NHibernateHelper.OpenSession())
+            using (var repositorio = new Repositorio())
             {
-                formaciones = session.Query<Formacion>().ToList();
-            }
-
-            var renglones = formaciones.Select(formacion => this.renglonDe(formacion)).ToList<Control>();
-            this.formacionesList.setearRenglones(renglones);
+                List<Formacion> formaciones = repositorio.Listar<Formacion>();
+                var renglones = formaciones.Select(formacion => this.renglonDe(formacion)).ToList<Control>();
+                this.formacionesList.setearRenglones(renglones);
+            }   
         }
 
         public void OnformacionEdit(int formacionId)
         {
-            using (var session = NHibernateHelper.OpenSession())
+            using (var repositorio = new Repositorio())
             {
-                Formacion formacion = findFormacion(session, formacionId);
-                this.mainForm.EmbedForm(new EditFormacionForm(this, formacion, session), tabPage);
+                Formacion formacion = repositorio.Obtener<Formacion>(formacionId);
+                this.mainForm.EmbedForm(new EditFormacionForm(this, formacion, repositorio), tabPage);
                 this.Visible = false;
-            }
-        }
-
-        private Formacion findFormacion(ISession session, int formacionId)
-        {
-            return session.Get<Formacion>(formacionId);
-        }
-
-        private Formacion findFormacion(int formacionId)
-        {
-            using (var session = NHibernateHelper.OpenSession())
-            {
-                var formacion = session.Get<Formacion>(formacionId);
-                return formacion;
             }
         }
 

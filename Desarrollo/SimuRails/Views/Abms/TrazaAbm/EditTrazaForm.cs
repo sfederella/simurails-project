@@ -11,15 +11,13 @@ namespace SimuRails.Views.Abms
         private TrazasListForm listForm;
         private TrazaAttrs attrs;
         private Traza traza;
-        private Repositorio repositorioTraza;
 
-        public EditTrazaForm(TrazasListForm listForm, Repositorio repositorioTraza, Traza traza)
+        public EditTrazaForm(TrazasListForm listForm, Repositorio repositorio, Traza traza)
         {
             InitializeComponent();
             this.listForm = listForm;
-            this.attrs = new TrazaAttrs(traza);
+            this.attrs = new TrazaAttrs(traza, repositorio);
             this.traza = traza;
-            this.repositorioTraza = repositorioTraza;
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -37,8 +35,12 @@ namespace SimuRails.Views.Abms
         {
             if (this.attrs.applyTo(traza))
             {
-                repositorioTraza.Actualizar(traza);
-                listForm.updateList();
+                using (var repositorio = new Repositorio())
+                {
+                    repositorio.Actualizar(traza);
+                    listForm.dibujarRenglones(repositorio);
+                }
+
                 this.cerrar();
             }
 
