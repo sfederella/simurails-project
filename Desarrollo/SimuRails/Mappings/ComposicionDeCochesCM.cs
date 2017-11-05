@@ -21,7 +21,7 @@ namespace SimuRails.Mappings
             ManyToOne(x => x.Coche, mapping =>
             {
                 mapping.Column("CocheId");
-                mapping.Cascade(Cascade.None);
+                mapping.Cascade(Cascade.Persist);
             });
 
             Property(x => x.VecesRepetido);

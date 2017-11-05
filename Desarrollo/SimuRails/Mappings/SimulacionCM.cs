@@ -16,7 +16,7 @@ namespace SimuRails.Mappings
             ManyToOne(x => x.TrazaSimulada, mapping =>
             {
                 mapping.Column("TrazaId");
-                mapping.Cascade(Cascade.All);
+                mapping.Cascade(Cascade.Persist);
                 mapping.Lazy(LazyRelation.NoLazy);
 
             });

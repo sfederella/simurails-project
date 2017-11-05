@@ -16,7 +16,7 @@ namespace SimuRails.Mappings
             Bag(x => x.Tramos, collectionMapping =>
             {
                 collectionMapping.Table("Tramo");
-                collectionMapping.Cascade(Cascade.All);
+                collectionMapping.Cascade(Cascade.Persist);
                 collectionMapping.Key(k => k.Column("ServicioId"));
             },
             map => map.OneToMany());
@@ -25,7 +25,7 @@ namespace SimuRails.Mappings
                 mapping =>
                 {
                     mapping.Table("DictTiposFormacion");
-                    mapping.Cascade(Cascade.All);
+                    mapping.Cascade(Cascade.Persist);
                     mapping.Key(k => k.Column("ServicioId"));
                 },
                 mapkey =>
@@ -44,7 +44,7 @@ namespace SimuRails.Mappings
                 mapping =>
                 {
                     mapping.Table("DictIda");
-                    mapping.Cascade(Cascade.All);
+                    mapping.Cascade(Cascade.Persist);
                     mapping.Key(k => k.Column("ServicioId"));
                 },
                 mapkey =>
@@ -66,7 +66,7 @@ namespace SimuRails.Mappings
                 mapping =>
                 {
                     mapping.Table("DictVuelta");
-                    mapping.Cascade(Cascade.All);
+                    mapping.Cascade(Cascade.Persist);
                     mapping.Key(k => k.Column("ServicioId"));
                 },
                 mapkey =>
