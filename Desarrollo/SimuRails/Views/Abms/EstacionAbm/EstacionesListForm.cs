@@ -61,12 +61,15 @@ namespace SimuRails.Views.Abms
 
         private void onEstacionRemove(int id)
         {
-            using (var repositorio = new Repositorio())
+            if (MessageBox.Show("¿Está seguro que desea eliminar la estación?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Estacion estacion = repositorio.Obtener<Estacion>(id);
-                repositorio.Eliminar(estacion);
-                this.dibujarRenglones(repositorio);
-            }
+                using (var repositorio = new Repositorio())
+                {
+                    Estacion estacion = repositorio.Obtener<Estacion>(id);
+                    repositorio.Eliminar(estacion);
+                    this.dibujarRenglones(repositorio);
+                }
+            }          
         }
 
         public void dibujarRenglones(Repositorio repositorio)

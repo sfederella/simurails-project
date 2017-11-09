@@ -64,12 +64,15 @@ namespace SimuRails.Views.Abms
 
         private void onTrazaRemove(int id)
         {
-            using (var repositorio = new Repositorio())
+            if (MessageBox.Show("¿Está seguro que desea eliminar la traza?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Traza traza = this.findTraza(id);
-                repositorio.Eliminar(traza);
-                this.dibujarRenglones(repositorio);
-            }
+                using (var repositorio = new Repositorio())
+                {
+                    Traza traza = this.findTraza(id);
+                    repositorio.Eliminar(traza);
+                    this.dibujarRenglones(repositorio);
+                }
+            }              
         }
 
         private void OnTrazaExport(int id)

@@ -62,12 +62,15 @@ namespace SimuRails.Views.Abms
 
         private void onSimulacionRemove(int id)
         {
-            using (var repositorio = new Repositorio())
-            {
-                Simulacion simulacion = repositorio.Obtener<Simulacion>(id);
-                repositorio.Eliminar(simulacion);
-                this.dibujarRenglones(repositorio);
-            }
+             if (MessageBox.Show("¿Está seguro que desea eliminar la simulación?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+             {
+                using (var repositorio = new Repositorio())
+                {
+                    Simulacion simulacion = repositorio.Obtener<Simulacion>(id);
+                    repositorio.Eliminar(simulacion);
+                    this.dibujarRenglones(repositorio);
+                }
+            }                 
         }
 
         public void dibujarRenglones(Repositorio repositorio)

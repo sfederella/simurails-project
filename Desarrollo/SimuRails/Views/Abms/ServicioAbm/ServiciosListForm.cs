@@ -65,13 +65,15 @@ namespace SimuRails.Views.Abms
 
         private void onServicioRemove(int id)
         {
-            using (var repositorioServicio = new Repositorio())
+            if (MessageBox.Show("¿Está seguro que desea eliminar el servicio?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Servicio servicio = repositorioServicio.Obtener<Servicio>(id);
-                repositorioServicio.Eliminar(servicio);
-                this.dibujarRenglones();
+                using (var repositorioServicio = new Repositorio())
+                {
+                    Servicio servicio = repositorioServicio.Obtener<Servicio>(id);
+                    repositorioServicio.Eliminar(servicio);
+                    this.dibujarRenglones();
+                }
             }
-                
         }
 
         private void dibujarRenglones()

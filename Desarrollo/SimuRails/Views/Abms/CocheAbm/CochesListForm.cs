@@ -56,13 +56,17 @@ namespace SimuRails.Views.Abms
 
         private void onCocheRemove(int id)
         {
-            using (var repositorio = new Repositorio())
+            if (MessageBox.Show("¿Está seguro que desea eliminar el coche?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Coche coche = repositorio.Obtener<Coche>(id);
-                repositorio.Eliminar(coche);
-                this.dibujarRenglones(repositorio);
+                using (var repositorio = new Repositorio())
+                {
+                    Coche coche = repositorio.Obtener<Coche>(id);
+                    repositorio.Eliminar(coche);
+                    this.dibujarRenglones(repositorio);
+                }
             }
         }
+          
 
         public void dibujarRenglones(Repositorio repositorio)
         {

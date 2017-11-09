@@ -61,13 +61,16 @@ namespace SimuRails.Views.Abms
 
         private void onIncidenteRemove(int id)
         {
-            using (var repositorio = new Repositorio())
+            if (MessageBox.Show("¿Está seguro que desea eliminar el incidente?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Incidente incidente = repositorio.Obtener<Incidente>(id);
-                repositorio.Eliminar(incidente);
-                this.dibujarRenglones(repositorio);
+                using (var repositorio = new Repositorio())
+                {
+                    Incidente incidente = repositorio.Obtener<Incidente>(id);
+                    repositorio.Eliminar(incidente);
+                    this.dibujarRenglones(repositorio);
+                }
             }
-        }
+         }
 
         public void dibujarRenglones(Repositorio repositorio)
         {
