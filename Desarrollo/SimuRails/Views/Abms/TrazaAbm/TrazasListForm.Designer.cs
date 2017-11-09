@@ -34,6 +34,7 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.seleccion = new MaterialSkin.Controls.MaterialLabel();
             this.ImportarButton = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialRaisedButtonLimpiar = new MaterialSkin.Controls.MaterialRaisedButton();
             this.listPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,12 +119,29 @@
             this.ImportarButton.UseVisualStyleBackColor = true;
             this.ImportarButton.Click += new System.EventHandler(this.ImportarButton_Click);
             // 
+            // materialRaisedButtonLimpiar
+            // 
+            this.materialRaisedButtonLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.materialRaisedButtonLimpiar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialRaisedButtonLimpiar.Depth = 0;
+            this.materialRaisedButtonLimpiar.Icon = null;
+            this.materialRaisedButtonLimpiar.Location = new System.Drawing.Point(70, 461);
+            this.materialRaisedButtonLimpiar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButtonLimpiar.Name = "materialRaisedButtonLimpiar";
+            this.materialRaisedButtonLimpiar.Primary = true;
+            this.materialRaisedButtonLimpiar.Size = new System.Drawing.Size(120, 30);
+            this.materialRaisedButtonLimpiar.TabIndex = 24;
+            this.materialRaisedButtonLimpiar.Text = "LIMPIAR TODO";
+            this.materialRaisedButtonLimpiar.UseVisualStyleBackColor = true;
+            this.materialRaisedButtonLimpiar.Click += new System.EventHandler(this.materialRaisedButtonLimpiar_Click);
+            // 
             // TrazasListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1049, 503);
+            this.Controls.Add(this.materialRaisedButtonLimpiar);
             this.Controls.Add(this.ImportarButton);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.label1);
@@ -146,5 +164,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel seleccion;
         private MaterialSkin.Controls.MaterialRaisedButton ImportarButton;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButtonLimpiar;
     }
 }

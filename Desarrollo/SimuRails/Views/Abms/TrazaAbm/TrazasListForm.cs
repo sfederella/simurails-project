@@ -140,8 +140,7 @@ namespace SimuRails.Views.Abms
             {
                 ImportarTraza(trazaRecuperada);
             }
-
-            //TODO: Recargar los listados de los otros ABM de alguna manera luego de importar.
+                      //TODO: Recargar los listados de los otros ABM de alguna manera luego de importar.
             using (var repositorio = new Repositorio())
             {
                 dibujarRenglones(repositorio);
@@ -321,6 +320,15 @@ namespace SimuRails.Views.Abms
                 session.Persist(trazaRecuperada);
 
                 transaction.Commit();
+            }
+        }
+
+        private void materialRaisedButtonLimpiar_Click(object sender, EventArgs e)
+        {
+            string msg = string.Format("ATENCION: Al limpiar todo se eliminarán todos los elementos que contiene su base de datos.{0}¿Está seguro que desea continuar?", Environment.NewLine);
+            if (MessageBox.Show(msg, "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //METODO ELIMINAR
             }
         }
     }
