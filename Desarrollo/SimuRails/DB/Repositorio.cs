@@ -3,6 +3,7 @@ using NHibernate.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace SimuRails.DB
 {
@@ -55,10 +56,28 @@ namespace SimuRails.DB
 
         public void Eliminar<T>(T objeto)
         {
-            using (var transaction = pSession.BeginTransaction())
+            try
             {
-                pSession.Delete(objeto);
-                transaction.Commit();
+                using (var transaction = pSession.BeginTransaction())
+                {
+                    pSession.Delete(objeto);
+                    transaction.Commit();
+                }
+            }
+            catch (Exception e)
+            {
+                if (e.HResult == -2146232832)
+                {
+                    string msg = string.Format("Este objeto no se puede borrar ya que se encuentra contenido en otra entidad", Environment.NewLine);
+
+                    MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
+                else
+                {
+                    string msg = string.Format("Ha ocurrido un error no identificado. Favor de reiniciar la aplicación y volver a intentar", Environment.NewLine);
+
+                    MessageBox.Show(msg, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                }
             }
         }
 

@@ -16,7 +16,7 @@ namespace SimuRails.Mappings
             Bag(x => x.Tramos, collectionMapping =>
             {
                 collectionMapping.Table("Tramo");
-                collectionMapping.Cascade(Cascade.Persist);
+                collectionMapping.Cascade(Cascade.All | Cascade.DeleteOrphans);
                 collectionMapping.Key(k => k.Column("ServicioId"));
             },
             map => map.OneToMany());
