@@ -331,7 +331,43 @@ namespace SimuRails.Views.Abms
             string msg = string.Format("ATENCION: Al limpiar todo se eliminarán todos los elementos que contiene su base de datos.{0}¿Está seguro que desea continuar?", Environment.NewLine);
             if (MessageBox.Show(msg, "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //METODO ELIMINAR
+                using (var session = NHibernateHelper.OpenSession())
+                using (var transaction = session.BeginTransaction())
+                {
+                    var incidentes = session.Query<Incidente>().ToList();
+                    var estaciones = session.Query<Estacion>().ToList();
+                    var tramos = session.Query<Tramo>().ToList();
+
+                    var coches = session.Query<Coche>().ToList();
+                    var formaciones = session.Query<Formacion>().ToList();
+
+                    var servicios = session.Query<Servicio>().ToList();
+
+                    var trazas = session.Query<Traza>().ToList();
+
+                    foreach (var incidente in incidentes)
+                        session.Delete(incidente);
+
+                    foreach (var tramo in tramos)
+                        session.Delete(tramo);
+
+                    foreach (var coche in coches)
+                        session.Delete(coche);
+
+                    foreach (var estacion in estaciones)
+                        session.Delete(estacion);
+
+                    foreach (var formacion in formaciones)
+                        session.Delete(formacion);
+
+                    foreach (var servicio in servicios)
+                        session.Delete(servicio);
+
+                    foreach (var traza in trazas)
+                        session.Delete(traza);
+
+                    transaction.Commit();
+                }
             }
         }
     }
