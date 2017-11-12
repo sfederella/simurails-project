@@ -76,7 +76,7 @@ namespace SimuRails.Views.Abms
             }
         }
 
-        private void dibujarRenglones()
+        public void dibujarRenglones()
         {
             using (var repositorioServicio = new Repositorio())
             {

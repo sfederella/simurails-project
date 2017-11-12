@@ -13,7 +13,7 @@ namespace SimuRails.Views.Abms
         private MainForm mainForm;
         private TabPage tabPage;
         private List<Control> renglones = new List<Control>();
-
+        
         public CochesListForm(MainForm mainForm, TabPage tabPage)
         {
             InitializeComponent();

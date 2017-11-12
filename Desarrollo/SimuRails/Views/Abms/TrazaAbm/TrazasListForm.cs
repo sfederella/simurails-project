@@ -2,6 +2,7 @@
 using SimuRails.DB;
 using SimuRails.Models;
 using SimuRails.Sharing;
+using SimuRails.Views.Abms.FormacionAbm;
 using SimuRails.Views.Components;
 using System;
 using System.Collections.Generic;
@@ -143,11 +144,14 @@ namespace SimuRails.Views.Abms
             {
                 ImportarTraza(trazaRecuperada);
             }
-                      //TODO: Recargar los listados de los otros ABM de alguna manera luego de importar.
+            
+            //TODO: Recargar los listados de los otros ABM de alguna manera luego de importar.
             using (var repositorio = new Repositorio())
             {
                 dibujarRenglones(repositorio);
             }
+
+            Application.Restart();
         }
 
         private void ImportarTraza(Traza trazaRecuperada)
