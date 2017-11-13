@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SimuRails.Models;
 using SimuRails.DB;
+using SimuRails.Views.Validables;
 
 namespace SimuRails.Views.Components.Attrs
 {
@@ -17,10 +18,23 @@ namespace SimuRails.Views.Components.Attrs
         private Estacion pEstacion;
         private List<Incidente> pIncidentes;
 
+        private List<Validable> validables = new List<Validable>();
+
         public EstacionAttrs(Estacion estacion, Repositorio repositorio)
         {
             InitializeComponent();
             pEstacion = estacion;
+
+            validables.Add(new Validator<Estacion>(pEstacion, ReglaConcreta<Estacion>.dePresencia((unaEstacion=> unaEstacion.Nombre)), this.errorNombreLbl, this.nombreField));
+            validables.Add(new Validator<Estacion>(pEstacion, ReglaCompuesta<Estacion>.minimoMaximoNoNegativos(e => e.PersonasEsperandoMinIda, e => e.PersonasEsperandoMaxIda), 
+                this.errorSubidaIda, this.esperandoMaxIdaField));
+            validables.Add(new Validator<Estacion>(pEstacion, ReglaCompuesta<Estacion>.minimoMaximoNoNegativos(e => e.PersonasEsperandoMinVuelta, e => e.PersonasEsperandoMaxVuelta), 
+                this.errorSubidaVuelta, this.esperandoMaxVueltaField));
+            validables.Add(new Validator<Estacion>(pEstacion, ReglaCompuesta<Estacion>.minimoMaximoNoNegativos(e => e.PersonasDesciendenMinIda, e => e.PersonasDesciendenMaxIda), 
+                this.errorBajadaIda, this.desciendenMaxIdaField));
+            validables.Add(new Validator<Estacion>(pEstacion, ReglaCompuesta<Estacion>.minimoMaximoNoNegativos(e => e.PersonasDesciendenMinVuelta, e => e.PersonasDesciendenMaxVuelta), 
+                this.errorBajadaVuelta, this.desciendenMaxVueltaField));
+
             BindingSourceEstacion.DataSource = pEstacion;
             this.pIncidentes = repositorio.Listar<Incidente>();
             BindIncidentes();
@@ -37,9 +51,8 @@ namespace SimuRails.Views.Components.Attrs
 
         public bool applyTo(Estacion estacion)
         {
-            if (pEstacion.Nombre == null || pEstacion.Nombre == "") { MessageBox.Show("Se debe completar un nombre que identifique a la Estación."); return false; }
-            estacion = pEstacion;
-            return true;
+            validables.ForEach(validable => validable.mostrarError());
+            return validables.TrueForAll(validable => validable.esValido());
         }
 
         #region " Incidentes "

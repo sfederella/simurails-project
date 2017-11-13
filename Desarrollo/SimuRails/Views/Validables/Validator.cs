@@ -9,13 +9,13 @@ namespace SimuRails.Views.Validables
 {
     public class Validator<V> : Validable
     {
-        private V validado;
+        public virtual V Validado { get; set; }
         private Regla<V> regla;
         private Label label;
 
         public Validator(V validado, Regla<V> regla, Label label) 
         {
-            this.validado = validado;
+            this.Validado = validado;
             this.regla = regla;
             this.label = label;
         }
@@ -35,7 +35,7 @@ namespace SimuRails.Views.Validables
             var validez = this.esValido();
             if (!validez)
             {
-                label.Text = regla.mensajePara(validado);  
+                label.Text = regla.mensajePara(Validado);  
             } 
 
             label.Visible = !validez;
@@ -43,7 +43,7 @@ namespace SimuRails.Views.Validables
 
         public Boolean esValido()
         {
-            return regla.esValidaPara(validado);
+            return regla.esValidaPara(Validado);
         }
 
         private void triggerValidacion(object sender, System.EventArgs e)

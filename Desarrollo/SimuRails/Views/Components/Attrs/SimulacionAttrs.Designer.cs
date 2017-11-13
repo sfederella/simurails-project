@@ -41,15 +41,20 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.infoMinutos = new System.Windows.Forms.Label();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.errorNombreLbl = new System.Windows.Forms.Label();
+            this.errorTrazaLbl = new System.Windows.Forms.Label();
+            this.errorDuracionLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceSimulacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).BeginInit();
             this.SuspendLayout();
             // 
             // nombreField
             // 
+            this.nombreField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nombreField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceSimulacion, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
+            this.nombreField.IsNumeric = false;
             this.nombreField.Location = new System.Drawing.Point(33, 42);
             this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -73,11 +78,12 @@
             // 
             // materialLabel1
             // 
+            this.materialLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(29, 78);
+            this.materialLabel1.Location = new System.Drawing.Point(29, 94);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(112, 19);
@@ -86,9 +92,11 @@
             // 
             // duracionField
             // 
+            this.duracionField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.duracionField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceSimulacion, "Duracion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.duracionField.Depth = 0;
             this.duracionField.Hint = "";
+            this.duracionField.IsNumeric = false;
             this.duracionField.Location = new System.Drawing.Point(329, 42);
             this.duracionField.MaxLength = 32767;
             this.duracionField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -105,6 +113,7 @@
             // 
             // materialLabel5
             // 
+            this.materialLabel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
@@ -118,6 +127,7 @@
             // 
             // materialLabel7
             // 
+            this.materialLabel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
@@ -131,6 +141,7 @@
             // 
             // ComboBoxTraza
             // 
+            this.ComboBoxTraza.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ComboBoxTraza.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboBoxTraza.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxTraza.BackColor = System.Drawing.SystemColors.Control;
@@ -142,13 +153,14 @@
             this.ComboBoxTraza.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxTraza.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             this.ComboBoxTraza.FormattingEnabled = true;
-            this.ComboBoxTraza.Location = new System.Drawing.Point(33, 105);
+            this.ComboBoxTraza.Location = new System.Drawing.Point(33, 121);
             this.ComboBoxTraza.Name = "ComboBoxTraza";
             this.ComboBoxTraza.Size = new System.Drawing.Size(270, 25);
             this.ComboBoxTraza.TabIndex = 23;
             // 
             // contadorMinutosText
             // 
+            this.contadorMinutosText.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.contadorMinutosText.AutoSize = true;
             this.contadorMinutosText.Depth = 0;
             this.contadorMinutosText.Font = new System.Drawing.Font("Roboto", 11F);
@@ -162,6 +174,7 @@
             // 
             // materialLabel2
             // 
+            this.materialLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -175,6 +188,7 @@
             // 
             // infoMinutos
             // 
+            this.infoMinutos.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.infoMinutos.BackColor = System.Drawing.Color.Transparent;
             this.infoMinutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infoMinutos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -189,6 +203,7 @@
             // 
             // materialLabel3
             // 
+            this.materialLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
@@ -200,11 +215,53 @@
             this.materialLabel3.TabIndex = 27;
             this.materialLabel3.Text = "días";
             // 
+            // errorNombreLbl
+            // 
+            this.errorNombreLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.errorNombreLbl.AutoSize = true;
+            this.errorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorNombreLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorNombreLbl.Location = new System.Drawing.Point(30, 68);
+            this.errorNombreLbl.Name = "errorNombreLbl";
+            this.errorNombreLbl.Size = new System.Drawing.Size(167, 15);
+            this.errorNombreLbl.TabIndex = 50;
+            this.errorNombreLbl.Text = "Este campo es requerido";
+            this.errorNombreLbl.Visible = false;
+            // 
+            // errorTrazaLbl
+            // 
+            this.errorTrazaLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.errorTrazaLbl.AutoSize = true;
+            this.errorTrazaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorTrazaLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorTrazaLbl.Location = new System.Drawing.Point(30, 149);
+            this.errorTrazaLbl.Name = "errorTrazaLbl";
+            this.errorTrazaLbl.Size = new System.Drawing.Size(167, 15);
+            this.errorTrazaLbl.TabIndex = 51;
+            this.errorTrazaLbl.Text = "Este campo es requerido";
+            this.errorTrazaLbl.Visible = false;
+            // 
+            // errorDuracionLbl
+            // 
+            this.errorDuracionLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.errorDuracionLbl.AutoSize = true;
+            this.errorDuracionLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorDuracionLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorDuracionLbl.Location = new System.Drawing.Point(326, 70);
+            this.errorDuracionLbl.Name = "errorDuracionLbl";
+            this.errorDuracionLbl.Size = new System.Drawing.Size(128, 14);
+            this.errorDuracionLbl.TabIndex = 79;
+            this.errorDuracionLbl.Text = "Debe ser mayor a 0";
+            this.errorDuracionLbl.Visible = false;
+            // 
             // SimulacionAttrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.errorDuracionLbl);
+            this.Controls.Add(this.errorTrazaLbl);
+            this.Controls.Add(this.errorNombreLbl);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.infoMinutos);
             this.Controls.Add(this.materialLabel2);
@@ -238,5 +295,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private System.Windows.Forms.Label infoMinutos;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.Label errorNombreLbl;
+        private System.Windows.Forms.Label errorTrazaLbl;
+        private System.Windows.Forms.Label errorDuracionLbl;
     }
 }

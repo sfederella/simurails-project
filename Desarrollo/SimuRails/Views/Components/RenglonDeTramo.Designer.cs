@@ -42,12 +42,13 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(530, 10);
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(662, 10);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
             this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(65, 36);
+            this.materialFlatButton1.Size = new System.Drawing.Size(74, 36);
             this.materialFlatButton1.TabIndex = 38;
             this.materialFlatButton1.Text = "Borrar";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
@@ -59,7 +60,7 @@
             this.destinoLbl.Depth = 0;
             this.destinoLbl.Font = new System.Drawing.Font("Roboto", 11F);
             this.destinoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.destinoLbl.Location = new System.Drawing.Point(122, 18);
+            this.destinoLbl.Location = new System.Drawing.Point(175, 18);
             this.destinoLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.destinoLbl.Name = "destinoLbl";
             this.destinoLbl.Size = new System.Drawing.Size(108, 19);
@@ -88,7 +89,7 @@
             this.materialDivider1.Location = new System.Drawing.Point(0, 1);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(600, 2);
+            this.materialDivider1.Size = new System.Drawing.Size(732, 2);
             this.materialDivider1.TabIndex = 35;
             this.materialDivider1.Text = "materialDivider1";
             // 
@@ -98,7 +99,7 @@
             this.distanciaLbl.Depth = 0;
             this.distanciaLbl.Font = new System.Drawing.Font("Roboto", 11F);
             this.distanciaLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.distanciaLbl.Location = new System.Drawing.Point(245, 18);
+            this.distanciaLbl.Location = new System.Drawing.Point(360, 18);
             this.distanciaLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.distanciaLbl.Name = "distanciaLbl";
             this.distanciaLbl.Size = new System.Drawing.Size(108, 19);
@@ -111,7 +112,7 @@
             this.tiempoLbl.Depth = 0;
             this.tiempoLbl.Font = new System.Drawing.Font("Roboto", 11F);
             this.tiempoLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tiempoLbl.Location = new System.Drawing.Point(359, 18);
+            this.tiempoLbl.Location = new System.Drawing.Point(506, 18);
             this.tiempoLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.tiempoLbl.Name = "tiempoLbl";
             this.tiempoLbl.Size = new System.Drawing.Size(108, 19);
@@ -129,7 +130,7 @@
             this.Controls.Add(this.origenLbl);
             this.Controls.Add(this.materialDivider1);
             this.Name = "RenglonDeTramo";
-            this.Size = new System.Drawing.Size(599, 47);
+            this.Size = new System.Drawing.Size(731, 47);
             this.ResumeLayout(false);
             this.PerformLayout();
 

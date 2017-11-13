@@ -10,6 +10,15 @@ namespace SimuRails.Views.Validables
     {
         private List<Regla<V>> subReglas = new List<Regla<V>>();
 
+        public static ReglaCompuesta<V> minimoMaximoNoNegativos(Func<V, int> extractorMinimo, Func<V, int> extractorMaximo)
+        {
+            return new ReglaCompuesta<V>(new List<Regla<V>>
+            {
+                ReglaConcreta<V>.noNegativos(extractorMinimo, extractorMaximo),
+                ReglaConcreta<V>.minimoMaximo(extractorMinimo, extractorMaximo)
+            });
+        }
+
         public ReglaCompuesta(List<Regla<V>> subReglas)
         {
             this.subReglas = subReglas;

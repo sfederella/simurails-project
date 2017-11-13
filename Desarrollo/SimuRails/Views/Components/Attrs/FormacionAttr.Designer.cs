@@ -60,6 +60,7 @@
             // 
             // materialLabel7
             // 
+            this.materialLabel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
@@ -73,6 +74,7 @@
             // 
             // materialLabel6
             // 
+            this.materialLabel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
@@ -86,6 +88,7 @@
             // 
             // materialLabel5
             // 
+            this.materialLabel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
@@ -99,6 +102,7 @@
             // 
             // materialLabel2
             // 
+            this.materialLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -112,8 +116,7 @@
             // 
             // materialDivider1
             // 
-            this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
             this.materialDivider1.Location = new System.Drawing.Point(4, 126);
@@ -125,9 +128,11 @@
             // 
             // tiempoEnManteField
             // 
+            this.tiempoEnManteField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tiempoEnManteField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceFormacion, "DuracionMantenimiento", true));
             this.tiempoEnManteField.Depth = 0;
             this.tiempoEnManteField.Hint = "Min";
+            this.tiempoEnManteField.IsNumeric = false;
             this.tiempoEnManteField.Location = new System.Drawing.Point(626, 68);
             this.tiempoEnManteField.MaxLength = 32767;
             this.tiempoEnManteField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -147,9 +152,11 @@
             // 
             // distanciaManteField
             // 
+            this.distanciaManteField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.distanciaManteField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceFormacion, "KilometrosMantenimiento", true));
             this.distanciaManteField.Depth = 0;
             this.distanciaManteField.Hint = "Kms";
+            this.distanciaManteField.IsNumeric = false;
             this.distanciaManteField.Location = new System.Drawing.Point(357, 68);
             this.distanciaManteField.MaxLength = 32767;
             this.distanciaManteField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -165,9 +172,11 @@
             // 
             // nombreField
             // 
+            this.nombreField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nombreField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceFormacion, "Nombre", true));
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
+            this.nombreField.IsNumeric = false;
             this.nombreField.Location = new System.Drawing.Point(20, 68);
             this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -183,9 +192,11 @@
             // 
             // cantidadCocheField
             // 
+            this.cantidadCocheField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cantidadCocheField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCocheEditando, "Cantidad", true));
             this.cantidadCocheField.Depth = 0;
             this.cantidadCocheField.Hint = "";
+            this.cantidadCocheField.IsNumeric = false;
             this.cantidadCocheField.Location = new System.Drawing.Point(330, 205);
             this.cantidadCocheField.MaxLength = 32767;
             this.cantidadCocheField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -205,6 +216,7 @@
             // 
             // materialLabel3
             // 
+            this.materialLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
@@ -218,6 +230,7 @@
             // 
             // materialLabel4
             // 
+            this.materialLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
@@ -231,6 +244,7 @@
             // 
             // agregarBtn
             // 
+            this.agregarBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.agregarBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.agregarBtn.Depth = 0;
             this.agregarBtn.Icon = null;
@@ -246,6 +260,7 @@
             // 
             // modeloCbo
             // 
+            this.modeloCbo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.modeloCbo.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.bindingSourceCocheEditando, "Coche", true));
             this.modeloCbo.FormattingEnabled = true;
             this.modeloCbo.Location = new System.Drawing.Point(41, 205);
@@ -255,6 +270,7 @@
             // 
             // errorNombreLbl
             // 
+            this.errorNombreLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorNombreLbl.AutoSize = true;
             this.errorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorNombreLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -267,6 +283,7 @@
             // 
             // errorDistanciaLbl
             // 
+            this.errorDistanciaLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorDistanciaLbl.AutoSize = true;
             this.errorDistanciaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorDistanciaLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -279,6 +296,7 @@
             // 
             // errorTiempoManteLbl
             // 
+            this.errorTiempoManteLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorTiempoManteLbl.AutoSize = true;
             this.errorTiempoManteLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorTiempoManteLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -291,6 +309,7 @@
             // 
             // errorModeloLbl
             // 
+            this.errorModeloLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorModeloLbl.AutoSize = true;
             this.errorModeloLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorModeloLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -303,6 +322,7 @@
             // 
             // errorCantidadLbl
             // 
+            this.errorCantidadLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorCantidadLbl.AutoSize = true;
             this.errorCantidadLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorCantidadLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -315,6 +335,7 @@
             // 
             // errorCochesLbl
             // 
+            this.errorCochesLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorCochesLbl.AutoSize = true;
             this.errorCochesLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorCochesLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -327,6 +348,7 @@
             // 
             // materialLabel1
             // 
+            this.materialLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
@@ -340,6 +362,7 @@
             // 
             // materialLabel8
             // 
+            this.materialLabel8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
@@ -353,6 +376,7 @@
             // 
             // materialLabel9
             // 
+            this.materialLabel9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel9.AutoSize = true;
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
@@ -366,6 +390,7 @@
             // 
             // listadoCoches
             // 
+            this.listadoCoches.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.listadoCoches.BackColor = System.Drawing.SystemColors.Window;
             this.listadoCoches.Location = new System.Drawing.Point(20, 269);
             this.listadoCoches.Name = "listadoCoches";
