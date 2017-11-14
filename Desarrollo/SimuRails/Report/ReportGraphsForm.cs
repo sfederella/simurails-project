@@ -63,6 +63,7 @@ namespace SimuRails.Report
             GraficoTraza.Titles[0].Text = itm.Nombre;
             GraficoTraza.ChartAreas[0].AxisY.Title = msgAxisY;
             GraficoTraza.Visible = true;
+            GraficoTraza.DataBind();
 
             //Esto es una negrda pero funciona al menos si hay 2
             this.Width++;

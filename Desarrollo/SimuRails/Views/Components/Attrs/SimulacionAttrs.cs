@@ -3,16 +3,24 @@ using SimuRails.Models;
 using SimuRails.DB;
 using System.Collections.Generic;
 using System.Linq;
+using SimuRails.Views.Validables;
 
 namespace SimuRails.Views.Components.Attrs
 {
     public partial class SimulacionAttrs : UserControl
     {
         private Simulacion pSimulacion;
+        private List<Validable> validables = new List<Validable>();
+
         public SimulacionAttrs(Simulacion simulacion, Repositorio repositorio)
         {
             InitializeComponent();
             pSimulacion = simulacion;
+
+            validables.Add(new Validator<Simulacion>(pSimulacion, ReglaConcreta<Simulacion>.dePresencia((s => s.Nombre)), this.errorNombreLbl, this.nombreField));
+            validables.Add(new Validator<Simulacion>(pSimulacion, ReglaConcreta<Simulacion>.dePresencia((s => s.TrazaSimulada)), this.errorTrazaLbl, this.ComboBoxTraza));
+            validables.Add(new Validator<Simulacion>(pSimulacion, ReglaConcreta<Simulacion>.dePositivo((s => s.Duracion)), this.errorDuracionLbl, this.duracionField));
+
             BindingSourceSimulacion.DataSource = pSimulacion;
             List<Traza> list = repositorio.Listar<Traza>();
             BindingSourceTraza.DataSource = list;
@@ -23,11 +31,15 @@ namespace SimuRails.Views.Components.Attrs
 
         public bool applyTo(Simulacion simulacion)
         {
-            if (pSimulacion.Nombre == null || pSimulacion.Nombre == "") { MessageBox.Show("Se debe completar un nombre que identifique a la simulación."); return false; }
-            pSimulacion.TrazaSimulada = (Traza)ComboBoxTraza.SelectedItem;
-            if (pSimulacion.TrazaSimulada == null ) { MessageBox.Show("Se debe establecer la traza a simular."); return false; }
-            simulacion = pSimulacion;
-            return true;
+            validables.ForEach(validable => validable.mostrarError());
+            var validez = validables.TrueForAll(validable => validable.esValido());
+
+            if(validez)
+            {
+                pSimulacion.TrazaSimulada = (Traza)ComboBoxTraza.SelectedItem;
+            }
+
+            return validez;
         }
 
         private void duracionField_KeyUp(object sender, KeyEventArgs e)

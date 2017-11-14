@@ -34,15 +34,12 @@
             this.esperandoMinIdaField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.BindingSourceEstacion = new System.Windows.Forms.BindingSource(this.components);
             this.nombreField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.esperandoMaxIdaField = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.EsMantenimientoCheck = new MaterialSkin.Controls.MaterialCheckBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             this.esperandoMaxVueltaField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
@@ -67,6 +64,15 @@
             this.materialLabel17 = new MaterialSkin.Controls.MaterialLabel();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.BindingSourceIncidentesDisponibles = new System.Windows.Forms.BindingSource(this.components);
+            this.errorNombreLbl = new System.Windows.Forms.Label();
+            this.errorSubidaIda = new System.Windows.Forms.Label();
+            this.errorSubidaVuelta = new System.Windows.Forms.Label();
+            this.errorBajadaIda = new System.Windows.Forms.Label();
+            this.errorBajadaVuelta = new System.Windows.Forms.Label();
+            this.materialLabel18 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel19 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel20 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel21 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceEstacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesAsignados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesDisponibles)).BeginInit();
@@ -91,7 +97,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(36, 145);
+            this.materialLabel3.Location = new System.Drawing.Point(16, 189);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(59, 19);
@@ -102,8 +108,9 @@
             // 
             this.esperandoMinIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMinIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMinIdaField.Depth = 0;
-            this.esperandoMinIdaField.Hint = "Cant. de personas";
-            this.esperandoMinIdaField.Location = new System.Drawing.Point(40, 167);
+            this.esperandoMinIdaField.Hint = "";
+            this.esperandoMinIdaField.IsNumeric = false;
+            this.esperandoMinIdaField.Location = new System.Drawing.Point(20, 211);
             this.esperandoMinIdaField.MaxLength = 32767;
             this.esperandoMinIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMinIdaField.Name = "esperandoMinIdaField";
@@ -111,7 +118,7 @@
             this.esperandoMinIdaField.SelectedText = "";
             this.esperandoMinIdaField.SelectionLength = 0;
             this.esperandoMinIdaField.SelectionStart = 0;
-            this.esperandoMinIdaField.Size = new System.Drawing.Size(126, 23);
+            this.esperandoMinIdaField.Size = new System.Drawing.Size(80, 23);
             this.esperandoMinIdaField.TabIndex = 2;
             this.esperandoMinIdaField.TabStop = false;
             this.esperandoMinIdaField.UseSystemPasswordChar = false;
@@ -125,6 +132,7 @@
             this.nombreField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
+            this.nombreField.IsNumeric = false;
             this.nombreField.Location = new System.Drawing.Point(20, 42);
             this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -138,26 +146,13 @@
             this.nombreField.TabStop = false;
             this.nombreField.UseSystemPasswordChar = false;
             // 
-            // materialDivider1
-            // 
-            this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(4, 71);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(953, 2);
-            this.materialDivider1.TabIndex = 31;
-            this.materialDivider1.Text = "materialDivider1";
-            // 
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(35, 85);
+            this.materialLabel2.Location = new System.Drawing.Point(17, 110);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(308, 19);
@@ -170,7 +165,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(36, 205);
+            this.materialLabel1.Location = new System.Drawing.Point(165, 189);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(62, 19);
@@ -181,8 +176,9 @@
             // 
             this.esperandoMaxIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMaxIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMaxIdaField.Depth = 0;
-            this.esperandoMaxIdaField.Hint = "Cant. de personas";
-            this.esperandoMaxIdaField.Location = new System.Drawing.Point(40, 227);
+            this.esperandoMaxIdaField.Hint = "";
+            this.esperandoMaxIdaField.IsNumeric = false;
+            this.esperandoMaxIdaField.Location = new System.Drawing.Point(169, 211);
             this.esperandoMaxIdaField.MaxLength = 32767;
             this.esperandoMaxIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMaxIdaField.Name = "esperandoMaxIdaField";
@@ -190,23 +186,10 @@
             this.esperandoMaxIdaField.SelectedText = "";
             this.esperandoMaxIdaField.SelectionLength = 0;
             this.esperandoMaxIdaField.SelectionStart = 0;
-            this.esperandoMaxIdaField.Size = new System.Drawing.Size(126, 23);
+            this.esperandoMaxIdaField.Size = new System.Drawing.Size(80, 23);
             this.esperandoMaxIdaField.TabIndex = 3;
             this.esperandoMaxIdaField.TabStop = false;
             this.esperandoMaxIdaField.UseSystemPasswordChar = false;
-            // 
-            // materialDivider2
-            // 
-            this.materialDivider2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider2.Depth = 0;
-            this.materialDivider2.Location = new System.Drawing.Point(382, 71);
-            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider2.Name = "materialDivider2";
-            this.materialDivider2.Size = new System.Drawing.Size(2, 412);
-            this.materialDivider2.TabIndex = 42;
-            this.materialDivider2.Text = "materialDivider2";
             // 
             // EsMantenimientoCheck
             // 
@@ -231,7 +214,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(76, 114);
+            this.materialLabel5.Location = new System.Drawing.Point(18, 158);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(29, 19);
@@ -244,23 +227,12 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(247, 114);
+            this.materialLabel6.Location = new System.Drawing.Point(316, 158);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(52, 19);
             this.materialLabel6.TabIndex = 48;
             this.materialLabel6.Text = "Vuelta";
-            // 
-            // materialDivider3
-            // 
-            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider3.Depth = 0;
-            this.materialDivider3.Location = new System.Drawing.Point(198, 114);
-            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider3.Name = "materialDivider3";
-            this.materialDivider3.Size = new System.Drawing.Size(2, 135);
-            this.materialDivider3.TabIndex = 49;
-            this.materialDivider3.Text = "materialDivider3";
             // 
             // materialLabel8
             // 
@@ -268,7 +240,7 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(215, 205);
+            this.materialLabel8.Location = new System.Drawing.Point(467, 189);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(62, 19);
@@ -279,8 +251,9 @@
             // 
             this.esperandoMaxVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMaxVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMaxVueltaField.Depth = 0;
-            this.esperandoMaxVueltaField.Hint = "Cant. de personas";
-            this.esperandoMaxVueltaField.Location = new System.Drawing.Point(219, 227);
+            this.esperandoMaxVueltaField.Hint = "";
+            this.esperandoMaxVueltaField.IsNumeric = false;
+            this.esperandoMaxVueltaField.Location = new System.Drawing.Point(471, 211);
             this.esperandoMaxVueltaField.MaxLength = 32767;
             this.esperandoMaxVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMaxVueltaField.Name = "esperandoMaxVueltaField";
@@ -288,7 +261,7 @@
             this.esperandoMaxVueltaField.SelectedText = "";
             this.esperandoMaxVueltaField.SelectionLength = 0;
             this.esperandoMaxVueltaField.SelectionStart = 0;
-            this.esperandoMaxVueltaField.Size = new System.Drawing.Size(126, 23);
+            this.esperandoMaxVueltaField.Size = new System.Drawing.Size(80, 23);
             this.esperandoMaxVueltaField.TabIndex = 5;
             this.esperandoMaxVueltaField.TabStop = false;
             this.esperandoMaxVueltaField.UseSystemPasswordChar = false;
@@ -299,7 +272,7 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(215, 145);
+            this.materialLabel9.Location = new System.Drawing.Point(316, 189);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(59, 19);
@@ -310,8 +283,9 @@
             // 
             this.esperandoMinVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasEsperandoMinVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.esperandoMinVueltaField.Depth = 0;
-            this.esperandoMinVueltaField.Hint = "Cant. de personas";
-            this.esperandoMinVueltaField.Location = new System.Drawing.Point(219, 167);
+            this.esperandoMinVueltaField.Hint = "";
+            this.esperandoMinVueltaField.IsNumeric = false;
+            this.esperandoMinVueltaField.Location = new System.Drawing.Point(320, 211);
             this.esperandoMinVueltaField.MaxLength = 32767;
             this.esperandoMinVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.esperandoMinVueltaField.Name = "esperandoMinVueltaField";
@@ -319,7 +293,7 @@
             this.esperandoMinVueltaField.SelectedText = "";
             this.esperandoMinVueltaField.SelectionLength = 0;
             this.esperandoMinVueltaField.SelectionStart = 0;
-            this.esperandoMinVueltaField.Size = new System.Drawing.Size(126, 23);
+            this.esperandoMinVueltaField.Size = new System.Drawing.Size(80, 23);
             this.esperandoMinVueltaField.TabIndex = 4;
             this.esperandoMinVueltaField.TabStop = false;
             this.esperandoMinVueltaField.UseSystemPasswordChar = false;
@@ -330,7 +304,7 @@
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel10.Location = new System.Drawing.Point(217, 393);
+            this.materialLabel10.Location = new System.Drawing.Point(1154, 189);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
             this.materialLabel10.Size = new System.Drawing.Size(62, 19);
@@ -341,8 +315,9 @@
             // 
             this.desciendenMaxVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMaxVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMaxVueltaField.Depth = 0;
-            this.desciendenMaxVueltaField.Hint = "Cant. de personas";
-            this.desciendenMaxVueltaField.Location = new System.Drawing.Point(221, 415);
+            this.desciendenMaxVueltaField.Hint = "";
+            this.desciendenMaxVueltaField.IsNumeric = false;
+            this.desciendenMaxVueltaField.Location = new System.Drawing.Point(1158, 211);
             this.desciendenMaxVueltaField.MaxLength = 32767;
             this.desciendenMaxVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMaxVueltaField.Name = "desciendenMaxVueltaField";
@@ -350,7 +325,7 @@
             this.desciendenMaxVueltaField.SelectedText = "";
             this.desciendenMaxVueltaField.SelectionLength = 0;
             this.desciendenMaxVueltaField.SelectionStart = 0;
-            this.desciendenMaxVueltaField.Size = new System.Drawing.Size(126, 23);
+            this.desciendenMaxVueltaField.Size = new System.Drawing.Size(80, 23);
             this.desciendenMaxVueltaField.TabIndex = 9;
             this.desciendenMaxVueltaField.TabStop = false;
             this.desciendenMaxVueltaField.UseSystemPasswordChar = false;
@@ -361,7 +336,7 @@
             this.materialLabel11.Depth = 0;
             this.materialLabel11.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel11.Location = new System.Drawing.Point(217, 333);
+            this.materialLabel11.Location = new System.Drawing.Point(993, 189);
             this.materialLabel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel11.Name = "materialLabel11";
             this.materialLabel11.Size = new System.Drawing.Size(59, 19);
@@ -372,8 +347,9 @@
             // 
             this.desciendenMinVueltaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMinVuelta", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMinVueltaField.Depth = 0;
-            this.desciendenMinVueltaField.Hint = "Cant. de personas";
-            this.desciendenMinVueltaField.Location = new System.Drawing.Point(221, 355);
+            this.desciendenMinVueltaField.Hint = "";
+            this.desciendenMinVueltaField.IsNumeric = false;
+            this.desciendenMinVueltaField.Location = new System.Drawing.Point(997, 211);
             this.desciendenMinVueltaField.MaxLength = 32767;
             this.desciendenMinVueltaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMinVueltaField.Name = "desciendenMinVueltaField";
@@ -381,7 +357,7 @@
             this.desciendenMinVueltaField.SelectedText = "";
             this.desciendenMinVueltaField.SelectionLength = 0;
             this.desciendenMinVueltaField.SelectionStart = 0;
-            this.desciendenMinVueltaField.Size = new System.Drawing.Size(126, 23);
+            this.desciendenMinVueltaField.Size = new System.Drawing.Size(80, 23);
             this.desciendenMinVueltaField.TabIndex = 8;
             this.desciendenMinVueltaField.TabStop = false;
             this.desciendenMinVueltaField.UseSystemPasswordChar = false;
@@ -390,10 +366,10 @@
             // 
             this.materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider4.Depth = 0;
-            this.materialDivider4.Location = new System.Drawing.Point(200, 302);
+            this.materialDivider4.Location = new System.Drawing.Point(623, 92);
             this.materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider4.Name = "materialDivider4";
-            this.materialDivider4.Size = new System.Drawing.Size(2, 135);
+            this.materialDivider4.Size = new System.Drawing.Size(2, 158);
             this.materialDivider4.TabIndex = 61;
             this.materialDivider4.Text = "materialDivider4";
             // 
@@ -403,7 +379,7 @@
             this.materialLabel12.Depth = 0;
             this.materialLabel12.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel12.Location = new System.Drawing.Point(249, 302);
+            this.materialLabel12.Location = new System.Drawing.Point(993, 158);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
             this.materialLabel12.Size = new System.Drawing.Size(52, 19);
@@ -416,7 +392,7 @@
             this.materialLabel13.Depth = 0;
             this.materialLabel13.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel13.Location = new System.Drawing.Point(78, 302);
+            this.materialLabel13.Location = new System.Drawing.Point(671, 158);
             this.materialLabel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel13.Name = "materialLabel13";
             this.materialLabel13.Size = new System.Drawing.Size(29, 19);
@@ -429,7 +405,7 @@
             this.materialLabel14.Depth = 0;
             this.materialLabel14.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel14.Location = new System.Drawing.Point(38, 393);
+            this.materialLabel14.Location = new System.Drawing.Point(831, 189);
             this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
             this.materialLabel14.Size = new System.Drawing.Size(62, 19);
@@ -440,8 +416,9 @@
             // 
             this.desciendenMaxIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMaxIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMaxIdaField.Depth = 0;
-            this.desciendenMaxIdaField.Hint = "Cant. de personas";
-            this.desciendenMaxIdaField.Location = new System.Drawing.Point(42, 415);
+            this.desciendenMaxIdaField.Hint = "";
+            this.desciendenMaxIdaField.IsNumeric = false;
+            this.desciendenMaxIdaField.Location = new System.Drawing.Point(835, 211);
             this.desciendenMaxIdaField.MaxLength = 32767;
             this.desciendenMaxIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMaxIdaField.Name = "desciendenMaxIdaField";
@@ -449,7 +426,7 @@
             this.desciendenMaxIdaField.SelectedText = "";
             this.desciendenMaxIdaField.SelectionLength = 0;
             this.desciendenMaxIdaField.SelectionStart = 0;
-            this.desciendenMaxIdaField.Size = new System.Drawing.Size(126, 23);
+            this.desciendenMaxIdaField.Size = new System.Drawing.Size(80, 23);
             this.desciendenMaxIdaField.TabIndex = 7;
             this.desciendenMaxIdaField.TabStop = false;
             this.desciendenMaxIdaField.UseSystemPasswordChar = false;
@@ -460,7 +437,7 @@
             this.materialLabel15.Depth = 0;
             this.materialLabel15.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel15.Location = new System.Drawing.Point(38, 333);
+            this.materialLabel15.Location = new System.Drawing.Point(671, 189);
             this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel15.Name = "materialLabel15";
             this.materialLabel15.Size = new System.Drawing.Size(59, 19);
@@ -473,7 +450,7 @@
             this.materialLabel16.Depth = 0;
             this.materialLabel16.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel16.Location = new System.Drawing.Point(27, 273);
+            this.materialLabel16.Location = new System.Drawing.Point(671, 110);
             this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel16.Name = "materialLabel16";
             this.materialLabel16.Size = new System.Drawing.Size(331, 19);
@@ -484,8 +461,9 @@
             // 
             this.desciendenMinIdaField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceEstacion, "PersonasDesciendenMinIda", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.desciendenMinIdaField.Depth = 0;
-            this.desciendenMinIdaField.Hint = "Cant. de personas";
-            this.desciendenMinIdaField.Location = new System.Drawing.Point(42, 355);
+            this.desciendenMinIdaField.Hint = "";
+            this.desciendenMinIdaField.IsNumeric = false;
+            this.desciendenMinIdaField.Location = new System.Drawing.Point(675, 211);
             this.desciendenMinIdaField.MaxLength = 32767;
             this.desciendenMinIdaField.MouseState = MaterialSkin.MouseState.HOVER;
             this.desciendenMinIdaField.Name = "desciendenMinIdaField";
@@ -493,7 +471,7 @@
             this.desciendenMinIdaField.SelectedText = "";
             this.desciendenMinIdaField.SelectionLength = 0;
             this.desciendenMinIdaField.SelectionStart = 0;
-            this.desciendenMinIdaField.Size = new System.Drawing.Size(126, 23);
+            this.desciendenMinIdaField.Size = new System.Drawing.Size(80, 23);
             this.desciendenMinIdaField.TabIndex = 6;
             this.desciendenMinIdaField.TabStop = false;
             this.desciendenMinIdaField.UseSystemPasswordChar = false;
@@ -505,9 +483,9 @@
             this.ListBoxAsignados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListBoxAsignados.FormattingEnabled = true;
             this.ListBoxAsignados.ItemHeight = 18;
-            this.ListBoxAsignados.Location = new System.Drawing.Point(711, 107);
+            this.ListBoxAsignados.Location = new System.Drawing.Point(675, 363);
             this.ListBoxAsignados.Name = "ListBoxAsignados";
-            this.ListBoxAsignados.Size = new System.Drawing.Size(241, 202);
+            this.ListBoxAsignados.Size = new System.Drawing.Size(296, 130);
             this.ListBoxAsignados.TabIndex = 71;
             this.ListBoxAsignados.ValueMember = "Clave";
             // 
@@ -521,7 +499,7 @@
             this.ButtonDesasignar.Depth = 0;
             this.ButtonDesasignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonDesasignar.Icon = null;
-            this.ButtonDesasignar.Location = new System.Drawing.Point(641, 217);
+            this.ButtonDesasignar.Location = new System.Drawing.Point(595, 438);
             this.ButtonDesasignar.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonDesasignar.Name = "ButtonDesasignar";
             this.ButtonDesasignar.Primary = true;
@@ -537,7 +515,7 @@
             this.ButtonAsignar.Depth = 0;
             this.ButtonAsignar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAsignar.Icon = null;
-            this.ButtonAsignar.Location = new System.Drawing.Point(641, 161);
+            this.ButtonAsignar.Location = new System.Drawing.Point(595, 400);
             this.ButtonAsignar.MouseState = MaterialSkin.MouseState.HOVER;
             this.ButtonAsignar.Name = "ButtonAsignar";
             this.ButtonAsignar.Primary = true;
@@ -553,7 +531,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(707, 85);
+            this.materialLabel4.Location = new System.Drawing.Point(671, 341);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(153, 19);
@@ -566,7 +544,7 @@
             this.materialLabel17.Depth = 0;
             this.materialLabel17.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel17.Location = new System.Drawing.Point(390, 85);
+            this.materialLabel17.Location = new System.Drawing.Point(276, 341);
             this.materialLabel17.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel17.Name = "materialLabel17";
             this.materialLabel17.Size = new System.Drawing.Size(161, 19);
@@ -580,9 +558,9 @@
             this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 18;
-            this.listBox1.Location = new System.Drawing.Point(394, 107);
+            this.listBox1.Location = new System.Drawing.Point(280, 363);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(241, 202);
+            this.listBox1.Size = new System.Drawing.Size(296, 130);
             this.listBox1.TabIndex = 68;
             this.listBox1.ValueMember = "Id";
             // 
@@ -590,11 +568,132 @@
             // 
             this.BindingSourceIncidentesDisponibles.DataSource = typeof(SimuRails.Models.Incidente);
             // 
+            // errorNombreLbl
+            // 
+            this.errorNombreLbl.AutoSize = true;
+            this.errorNombreLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorNombreLbl.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorNombreLbl.Location = new System.Drawing.Point(19, 68);
+            this.errorNombreLbl.Name = "errorNombreLbl";
+            this.errorNombreLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorNombreLbl.TabIndex = 72;
+            this.errorNombreLbl.Text = "Este campo es requerido";
+            this.errorNombreLbl.Visible = false;
+            // 
+            // errorSubidaIda
+            // 
+            this.errorSubidaIda.AutoSize = true;
+            this.errorSubidaIda.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorSubidaIda.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorSubidaIda.Location = new System.Drawing.Point(17, 246);
+            this.errorSubidaIda.Name = "errorSubidaIda";
+            this.errorSubidaIda.Size = new System.Drawing.Size(192, 14);
+            this.errorSubidaIda.TabIndex = 73;
+            this.errorSubidaIda.Text = "Este campo debe ser positivo";
+            this.errorSubidaIda.Visible = false;
+            // 
+            // errorSubidaVuelta
+            // 
+            this.errorSubidaVuelta.AutoSize = true;
+            this.errorSubidaVuelta.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorSubidaVuelta.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorSubidaVuelta.Location = new System.Drawing.Point(317, 246);
+            this.errorSubidaVuelta.Name = "errorSubidaVuelta";
+            this.errorSubidaVuelta.Size = new System.Drawing.Size(192, 14);
+            this.errorSubidaVuelta.TabIndex = 74;
+            this.errorSubidaVuelta.Text = "Este campo debe ser positivo";
+            this.errorSubidaVuelta.Visible = false;
+            // 
+            // errorBajadaIda
+            // 
+            this.errorBajadaIda.AutoSize = true;
+            this.errorBajadaIda.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorBajadaIda.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorBajadaIda.Location = new System.Drawing.Point(672, 246);
+            this.errorBajadaIda.Name = "errorBajadaIda";
+            this.errorBajadaIda.Size = new System.Drawing.Size(192, 14);
+            this.errorBajadaIda.TabIndex = 75;
+            this.errorBajadaIda.Text = "Este campo debe ser positivo";
+            this.errorBajadaIda.Visible = false;
+            // 
+            // errorBajadaVuelta
+            // 
+            this.errorBajadaVuelta.AutoSize = true;
+            this.errorBajadaVuelta.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorBajadaVuelta.ForeColor = System.Drawing.Color.DarkRed;
+            this.errorBajadaVuelta.Location = new System.Drawing.Point(994, 246);
+            this.errorBajadaVuelta.Name = "errorBajadaVuelta";
+            this.errorBajadaVuelta.Size = new System.Drawing.Size(192, 14);
+            this.errorBajadaVuelta.TabIndex = 76;
+            this.errorBajadaVuelta.Text = "Este campo debe ser positivo";
+            this.errorBajadaVuelta.Visible = false;
+            // 
+            // materialLabel18
+            // 
+            this.materialLabel18.AutoSize = true;
+            this.materialLabel18.Depth = 0;
+            this.materialLabel18.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel18.Location = new System.Drawing.Point(115, 211);
+            this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel18.Name = "materialLabel18";
+            this.materialLabel18.Size = new System.Drawing.Size(29, 19);
+            this.materialLabel18.TabIndex = 77;
+            this.materialLabel18.Text = "<->";
+            // 
+            // materialLabel19
+            // 
+            this.materialLabel19.AutoSize = true;
+            this.materialLabel19.Depth = 0;
+            this.materialLabel19.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel19.Location = new System.Drawing.Point(421, 211);
+            this.materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel19.Name = "materialLabel19";
+            this.materialLabel19.Size = new System.Drawing.Size(29, 19);
+            this.materialLabel19.TabIndex = 78;
+            this.materialLabel19.Text = "<->";
+            // 
+            // materialLabel20
+            // 
+            this.materialLabel20.AutoSize = true;
+            this.materialLabel20.Depth = 0;
+            this.materialLabel20.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel20.Location = new System.Drawing.Point(779, 211);
+            this.materialLabel20.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel20.Name = "materialLabel20";
+            this.materialLabel20.Size = new System.Drawing.Size(29, 19);
+            this.materialLabel20.TabIndex = 79;
+            this.materialLabel20.Text = "<->";
+            // 
+            // materialLabel21
+            // 
+            this.materialLabel21.AutoSize = true;
+            this.materialLabel21.Depth = 0;
+            this.materialLabel21.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel21.Location = new System.Drawing.Point(1104, 211);
+            this.materialLabel21.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel21.Name = "materialLabel21";
+            this.materialLabel21.Size = new System.Drawing.Size(29, 19);
+            this.materialLabel21.TabIndex = 80;
+            this.materialLabel21.Text = "<->";
+            // 
             // EstacionAttrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.materialLabel21);
+            this.Controls.Add(this.materialLabel20);
+            this.Controls.Add(this.materialLabel19);
+            this.Controls.Add(this.materialLabel18);
+            this.Controls.Add(this.errorBajadaVuelta);
+            this.Controls.Add(this.errorBajadaIda);
+            this.Controls.Add(this.errorSubidaVuelta);
+            this.Controls.Add(this.errorSubidaIda);
+            this.Controls.Add(this.errorNombreLbl);
             this.Controls.Add(this.ListBoxAsignados);
             this.Controls.Add(this.ButtonDesasignar);
             this.Controls.Add(this.ButtonAsignar);
@@ -617,21 +716,18 @@
             this.Controls.Add(this.esperandoMaxVueltaField);
             this.Controls.Add(this.materialLabel9);
             this.Controls.Add(this.esperandoMinVueltaField);
-            this.Controls.Add(this.materialDivider3);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.EsMantenimientoCheck);
-            this.Controls.Add(this.materialDivider2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.esperandoMaxIdaField);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
-            this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.esperandoMinIdaField);
             this.Controls.Add(this.nombreField);
             this.Name = "EstacionAttrs";
-            this.Size = new System.Drawing.Size(957, 482);
+            this.Size = new System.Drawing.Size(1314, 593);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceEstacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesAsignados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidentesDisponibles)).EndInit();
@@ -646,15 +742,12 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialSingleLineTextField esperandoMinIdaField;
         private MaterialSkin.Controls.MaterialSingleLineTextField nombreField;
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField esperandoMaxIdaField;
-        private MaterialSkin.Controls.MaterialDivider materialDivider2;
         private MaterialSkin.Controls.MaterialCheckBox EsMantenimientoCheck;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
-        private MaterialSkin.Controls.MaterialDivider materialDivider3;
         private MaterialSkin.Controls.MaterialLabel materialLabel8;
         private MaterialSkin.Controls.MaterialSingleLineTextField esperandoMaxVueltaField;
         private MaterialSkin.Controls.MaterialLabel materialLabel9;
@@ -680,5 +773,14 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.BindingSource BindingSourceIncidentesDisponibles;
         private System.Windows.Forms.BindingSource BindingSourceIncidentesAsignados;
+        private System.Windows.Forms.Label errorNombreLbl;
+        private System.Windows.Forms.Label errorSubidaIda;
+        private System.Windows.Forms.Label errorSubidaVuelta;
+        private System.Windows.Forms.Label errorBajadaIda;
+        private System.Windows.Forms.Label errorBajadaVuelta;
+        private MaterialSkin.Controls.MaterialLabel materialLabel18;
+        private MaterialSkin.Controls.MaterialLabel materialLabel19;
+        private MaterialSkin.Controls.MaterialLabel materialLabel20;
+        private MaterialSkin.Controls.MaterialLabel materialLabel21;
     }
 }

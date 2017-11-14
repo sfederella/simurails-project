@@ -4,6 +4,7 @@ using SimuRails.Models;
 using System.Collections.Generic;
 using SimuRails.DB;
 using System.Linq;
+using SimuRails.Views.Validables;
 
 namespace SimuRails.Views.Components.Attrs
 {
@@ -11,11 +12,16 @@ namespace SimuRails.Views.Components.Attrs
     {
         private Traza pTraza;
         private List<Servicio> pServicios;
+        private List<Validable> validables = new List<Validable>();
 
         public TrazaAttrs(Traza traza, Repositorio repositiorio)
         {
             InitializeComponent();
             pTraza = traza;
+
+            validables.Add(new Validator<Traza>(pTraza, ReglaConcreta<Traza>.dePresencia((s => s.Nombre)), this.errorNombreLbl, this.nombreField));
+            validables.Add(new Validator<Traza>(pTraza, new ReglaConcreta<Traza>((s => s.Servicios.Count > 0), "Debe haber al menos un servicio asignado"), this.errorServiciosLbl));
+
             BindingSourceTraza.DataSource = pTraza;
             pServicios = repositiorio.Listar<Servicio>();
             BindServicios();
@@ -23,10 +29,8 @@ namespace SimuRails.Views.Components.Attrs
 
         public bool applyTo(Traza traza)
         {
-            if (pTraza.Nombre == null || pTraza.Nombre == "") { MessageBox.Show("Se debe completar un nombre que identifique a la Traza."); return false; }
-            if (pTraza.Servicios.Count == 0) { MessageBox.Show("La traza debe incluir al menos un servicio."); return false; }
-            traza = pTraza;
-            return true;
+            validables.ForEach(validable => validable.mostrarError());
+            return validables.TrueForAll(validable => validable.esValido());
           }
 
         #region " Servicios "
@@ -51,6 +55,7 @@ namespace SimuRails.Views.Components.Attrs
             {
                 pTraza.Servicios.Add((Servicio)BindingSourceServiciosDisponibles.Current);
                 BindServicios();
+                errorServiciosLbl.Visible = false;
             }
         }
 
@@ -69,5 +74,10 @@ namespace SimuRails.Views.Components.Attrs
             return (from x in pTraza.Servicios select new KeyValue(x.Id, x.Nombre)).ToList();
         }
         #endregion
+
+        private void TrazaAttrs_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
