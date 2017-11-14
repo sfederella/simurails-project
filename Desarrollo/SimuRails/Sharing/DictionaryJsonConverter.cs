@@ -5,16 +5,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NHibernate.Collection.Generic;
+using NHibernate.Collection;
+using SimuRails.Models;
 
 namespace SimuRails.Sharing
 {
     public class DictionaryJsonConverter : JsonConverter
     {
-        //TODO: Este me parece que no se ejecuta cuando hace el exportar
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var dictionary = (IDictionary)value;
+            if (value.GetType().Name == "PersistentGenericMap`2")
+            {
+                Type[] types = value.GetType().GetGenericArguments();
+                if (types[0].Name == "Int32" && types[1].Name == "Boolean") {
+                    var dictionary = ((PersistentGenericMap<int, bool>)value).ToDictionary(x => x.Key, x => x.Value);
+                    ConvertKeyValue(writer, (IDictionary)dictionary, serializer);
+                }
+                else if (types[0].Name == "Formacion" && types[1].Name == "Int32")
+                {
+                    var dictionary = ((PersistentGenericMap<Formacion, Int32>)value).ToDictionary(x => x.Key, x => x.Value);
+                    ConvertKeyValue(writer, (IDictionary)dictionary, serializer);
+                }
+                else if (types[0].Name == "Coche" && types[1].Name == "Int32")
+                {
+                    var dictionary = ((PersistentGenericMap<Coche, Int32>)value).ToDictionary(x => x.Key, x => x.Value);
+                    ConvertKeyValue(writer, (IDictionary)dictionary, serializer);
+                }
+            }
+            else
+            {
+                ConvertKeyValue(writer, (IDictionary)value, serializer);
+            }
 
+        }
+
+        private void ConvertKeyValue(JsonWriter writer, IDictionary dictionary, JsonSerializer serializer)
+        {
             writer.WriteStartArray();
 
             foreach (var key in dictionary.Keys)
@@ -66,7 +93,13 @@ namespace SimuRails.Sharing
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType.IsGenericType && (objectType.GetGenericTypeDefinition() == typeof(IDictionary<,>) || objectType.GetGenericTypeDefinition() == typeof(Dictionary<,>));
+            if (objectType.IsGenericType)
+            {
+                bool isDictionary = objectType.GetGenericTypeDefinition() == typeof(IDictionary<,>) || objectType.GetGenericTypeDefinition() == typeof(Dictionary<,>);
+                bool isNhibernateMap = objectType.GetGenericTypeDefinition() == typeof(PersistentGenericMap<,>);
+                return isDictionary || isNhibernateMap;
+            }
+            return false;
         }
 
         private void AddObjectToDictionary(JsonReader reader, IDictionary result, JsonSerializer serializer, Type keyType, Type valueType)
@@ -96,4 +129,5 @@ namespace SimuRails.Sharing
             }
         }
     }
+
 }
