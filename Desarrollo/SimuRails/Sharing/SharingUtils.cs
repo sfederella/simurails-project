@@ -28,13 +28,28 @@ namespace SimuRails.Sharing
                     ContractResolver = new NHibernateContractResolver()
                 };
                 settings.Converters.Add(new DictionaryJsonConverter());
+
+                //Dejo comentadas cosas que fui probando
+                //settings.Formatting = Formatting.Indented; //para que se guarde ya identado
+
                 string json = JsonConvert.SerializeObject(traza, settings);
+
+                //string jsonDeTiposFormaciones = JsonConvert.SerializeObject(traza.Servicios.SelectMany(x => x.TiposFormacion), settings);
+
+                //foreach (var servicio in traza.Servicios)
+                //{
+                //    foreach (var dictTipoFormacion in servicio.TiposFormacion)
+                //    {
+                //        var reemplazo = JsonConvert.SerializeObject(dictTipoFormacion, settings
+                //        //acá quizá reemplazar en el json original de alguna forma que sea fiable.
+                //    }
+                //}
+
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
                 {
                     sw.WriteLine(json);
                 }
             }
-
         }
 
         public static Traza Importar()

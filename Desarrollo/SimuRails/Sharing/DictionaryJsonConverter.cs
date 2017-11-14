@@ -10,6 +10,7 @@ namespace SimuRails.Sharing
 {
     public class DictionaryJsonConverter : JsonConverter
     {
+        //TODO: Este me parece que no se ejecuta cuando hace el exportar
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var dictionary = (IDictionary)value;
