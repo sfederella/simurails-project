@@ -366,6 +366,8 @@ namespace SimuRails.Views.Abms
 
                     transaction.Commit();
                 }
+
+                Application.Restart();
             }
         }
     }
