@@ -144,7 +144,9 @@ namespace SimuRails.Views.Abms
             {
                 ImportarTraza(trazaRecuperada);
             }
-            
+
+            string msg = string.Format("SimuRails necesita reiniciarse para recargar los datos.");
+            MessageBox.Show(msg, "Confirmación");
             Application.Restart();
         }
 
@@ -343,6 +345,8 @@ namespace SimuRails.Views.Abms
 
                     var trazas = session.Query<Traza>().ToList();
 
+                    var simulaciones = session.Query<Simulacion>().ToList();
+
                     foreach (var incidente in incidentes)
                         session.Delete(incidente);
 
@@ -363,6 +367,9 @@ namespace SimuRails.Views.Abms
 
                     foreach (var traza in trazas)
                         session.Delete(traza);
+
+                    foreach (var simulacion in simulaciones)
+                        session.Delete(simulacion);
 
                     transaction.Commit();
                 }
