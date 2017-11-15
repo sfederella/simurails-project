@@ -67,12 +67,12 @@
             this.listPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listPanel.AutoSize = true;
+            this.listPanel.AutoScroll = true;
             this.listPanel.Controls.Add(this.materialLabel1);
             this.listPanel.Controls.Add(this.seleccion);
             this.listPanel.Location = new System.Drawing.Point(70, 64);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(914, 361);
+            this.listPanel.Size = new System.Drawing.Size(933, 361);
             this.listPanel.TabIndex = 20;
             // 
             // materialLabel1
@@ -105,6 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1049, 503);
             this.Controls.Add(this.materialRaisedButton1);
