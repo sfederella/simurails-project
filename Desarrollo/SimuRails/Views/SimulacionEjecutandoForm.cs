@@ -2,6 +2,7 @@
 using SimuRails.Models;
 using SimuRails.Report;
 using SimuRails.Views.Abms;
+using System;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -56,7 +57,7 @@ namespace SimuRails.Views
             }
             else if (e.Error != null)
             {
-                MessageBox.Show("Error: " + e.Error.Message);
+                MessageBox.Show("Ocurrió un problema al ejecutar la simulación. Por favor intente nuevamente.");
                 form.Visible = true;
             } else
             {

@@ -382,6 +382,12 @@
     <Compile Include="Views\Components\RenglonListaVacia.Designer.cs">
       <DependentUpon>RenglonListaVacia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\MaterialMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MaterialMessageBox.Designer.cs">
+      <DependentUpon>MaterialMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SobreNosotrosForm.cs">
       <SubType>Form</SubType>
     </Compile>

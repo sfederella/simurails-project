@@ -82,6 +82,7 @@ namespace SimuRails.Views.Abms
             {
                 var trazaAExportar = repositorio.Obtener<Traza>(id);
                 SharingUtils.Exportar(trazaAExportar);
+                MessageBox.Show("La exportación ha finalizado con éxito.", "Exportación finalizada");
             }
 
         }
@@ -145,8 +146,7 @@ namespace SimuRails.Views.Abms
                 ImportarTraza(trazaRecuperada);
             }
 
-            string msg = string.Format("SimuRails necesita reiniciarse para recargar los datos.");
-            MessageBox.Show(msg, "Alerta");
+            MessageBox.Show("SimuRails necesita reiniciarse para recargar los datos.", "Alerta");
             Application.Restart();
         }
 
