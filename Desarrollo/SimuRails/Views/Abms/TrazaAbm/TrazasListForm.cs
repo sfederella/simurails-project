@@ -326,7 +326,7 @@ namespace SimuRails.Views.Abms
 
         private void materialRaisedButtonLimpiar_Click(object sender, EventArgs e)
         {
-            string msg = string.Format("ATENCION: Al limpiar todo se eliminarán todos los elementos que contiene su base de datos.{0}¿Está seguro que desea continuar?", Environment.NewLine);
+            string msg = string.Format("ATENCION: Se eliminará toda la información del sistema y se REINICIARA la aplicación.{0}¿Está seguro que desea continuar?", Environment.NewLine);
             if (MessageBox.Show(msg, "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 using (var session = NHibernateHelper.OpenSession())
