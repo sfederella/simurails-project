@@ -293,7 +293,7 @@
             this.FlowLayOutPanel1.Location = new System.Drawing.Point(0, 0);
             this.FlowLayOutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.FlowLayOutPanel1.Name = "FlowLayOutPanel1";
-            this.FlowLayOutPanel1.Size = new System.Drawing.Size(1174, 380);
+            this.FlowLayOutPanel1.Size = new System.Drawing.Size(1157, 380);
             this.FlowLayOutPanel1.TabIndex = 4;
             // 
             // toolTip1
@@ -330,6 +330,8 @@
             chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             chartArea2.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             chartArea2.AxisX2.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.Maximum = 100D;
+            chartArea2.AxisY.Minimum = 0D;
             chartArea2.AxisY.Title = "Cant Pasajeros";
             chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             chartArea2.AxisY.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
@@ -402,7 +404,7 @@
             this.PanelGraphsEstaciones.Controls.Add(this.FlowLayOutPanel1);
             this.PanelGraphsEstaciones.Location = new System.Drawing.Point(0, 380);
             this.PanelGraphsEstaciones.Name = "PanelGraphsEstaciones";
-            this.PanelGraphsEstaciones.Size = new System.Drawing.Size(1123, 381);
+            this.PanelGraphsEstaciones.Size = new System.Drawing.Size(1106, 381);
             this.PanelGraphsEstaciones.TabIndex = 3;
             // 
             // ReportGraphsForm

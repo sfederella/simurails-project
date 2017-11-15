@@ -47,11 +47,6 @@ namespace SimuRails.Views.Components.Attrs
             //long dias = duracionField.Text != "" ? long.Parse(duracionField.Text) : 0;
             contadorMinutosText.Text = (pSimulacion.Duracion * 1440).ToString();
         }
-
-        private void infoMinutos_Click(object sender, System.EventArgs e)
-        {
-            MessageBox.Show("La simulación maneja minutos como unidad de tiempo.");
-        }
         
     }
 }

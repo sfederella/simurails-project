@@ -44,6 +44,7 @@
             this.errorNombreLbl = new System.Windows.Forms.Label();
             this.errorTrazaLbl = new System.Windows.Forms.Label();
             this.errorDuracionLbl = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceSimulacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceTraza)).BeginInit();
             this.SuspendLayout();
@@ -199,7 +200,8 @@
             this.infoMinutos.Size = new System.Drawing.Size(24, 23);
             this.infoMinutos.TabIndex = 26;
             this.infoMinutos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.infoMinutos.Click += new System.EventHandler(this.infoMinutos_Click);
+            this.toolTip1.SetToolTip(this.infoMinutos, "La simulación maneja minutos como unidad de tiempo.");
+
             // 
             // materialLabel3
             // 
@@ -245,14 +247,20 @@
             // 
             this.errorDuracionLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorDuracionLbl.AutoSize = true;
-            this.errorDuracionLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorDuracionLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorDuracionLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorDuracionLbl.Location = new System.Drawing.Point(326, 70);
             this.errorDuracionLbl.Name = "errorDuracionLbl";
-            this.errorDuracionLbl.Size = new System.Drawing.Size(128, 14);
+            this.errorDuracionLbl.Size = new System.Drawing.Size(132, 15);
             this.errorDuracionLbl.TabIndex = 79;
             this.errorDuracionLbl.Text = "Debe ser mayor a 0";
             this.errorDuracionLbl.Visible = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 250;
+            this.toolTip1.ReshowDelay = 100;
             // 
             // SimulacionAttrs
             // 
@@ -298,5 +306,6 @@
         private System.Windows.Forms.Label errorNombreLbl;
         private System.Windows.Forms.Label errorTrazaLbl;
         private System.Windows.Forms.Label errorDuracionLbl;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
