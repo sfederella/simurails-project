@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.modeloField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.BindingSourceCoche = new System.Windows.Forms.BindingSource(this.components);
             this.locomotoraCheck = new MaterialSkin.Controls.MaterialCheckBox();
             this.capacidadLegalField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.capacidadTotalField = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -44,16 +45,18 @@
             this.errorAsientosLbl = new System.Windows.Forms.Label();
             this.errorMaximaLbl = new System.Windows.Forms.Label();
             this.errorLegalLbl = new System.Windows.Forms.Label();
-            this.BindingSourceCoche = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceCoche)).BeginInit();
             this.SuspendLayout();
             // 
             // modeloField
             // 
+            this.modeloField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.modeloField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "Modelo", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.modeloField.Depth = 0;
             this.modeloField.Hint = "";
+            this.modeloField.IsNumeric = false;
             this.modeloField.Location = new System.Drawing.Point(21, 42);
+            this.modeloField.MaxLength = 32767;
             this.modeloField.MouseState = MaterialSkin.MouseState.HOVER;
             this.modeloField.Name = "modeloField";
             this.modeloField.PasswordChar = '\0';
@@ -62,10 +65,16 @@
             this.modeloField.SelectionStart = 0;
             this.modeloField.Size = new System.Drawing.Size(270, 23);
             this.modeloField.TabIndex = 0;
+            this.modeloField.TabStop = false;
             this.modeloField.UseSystemPasswordChar = false;
+            // 
+            // BindingSourceCoche
+            // 
+            this.BindingSourceCoche.DataSource = typeof(SimuRails.Models.Coche);
             // 
             // locomotoraCheck
             // 
+            this.locomotoraCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.locomotoraCheck.AutoSize = true;
             this.locomotoraCheck.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.BindingSourceCoche, "EsLocomotora", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.locomotoraCheck.Depth = 0;
@@ -83,10 +92,13 @@
             // 
             // capacidadLegalField
             // 
+            this.capacidadLegalField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.capacidadLegalField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "MaximoLegalPasajeros", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.capacidadLegalField.Depth = 0;
             this.capacidadLegalField.Hint = "Personas";
+            this.capacidadLegalField.IsNumeric = false;
             this.capacidadLegalField.Location = new System.Drawing.Point(292, 173);
+            this.capacidadLegalField.MaxLength = 32767;
             this.capacidadLegalField.MouseState = MaterialSkin.MouseState.HOVER;
             this.capacidadLegalField.Name = "capacidadLegalField";
             this.capacidadLegalField.PasswordChar = '\0';
@@ -95,14 +107,18 @@
             this.capacidadLegalField.SelectionStart = 0;
             this.capacidadLegalField.Size = new System.Drawing.Size(148, 23);
             this.capacidadLegalField.TabIndex = 5;
+            this.capacidadLegalField.TabStop = false;
             this.capacidadLegalField.UseSystemPasswordChar = false;
             // 
             // capacidadTotalField
             // 
+            this.capacidadTotalField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.capacidadTotalField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "CapacidadMaximaPasajeros", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.capacidadTotalField.Depth = 0;
             this.capacidadTotalField.Hint = "Personas";
+            this.capacidadTotalField.IsNumeric = false;
             this.capacidadTotalField.Location = new System.Drawing.Point(569, 173);
+            this.capacidadTotalField.MaxLength = 32767;
             this.capacidadTotalField.MouseState = MaterialSkin.MouseState.HOVER;
             this.capacidadTotalField.Name = "capacidadTotalField";
             this.capacidadTotalField.PasswordChar = '\0';
@@ -111,12 +127,12 @@
             this.capacidadTotalField.SelectionStart = 0;
             this.capacidadTotalField.Size = new System.Drawing.Size(148, 23);
             this.capacidadTotalField.TabIndex = 6;
+            this.capacidadTotalField.TabStop = false;
             this.capacidadTotalField.UseSystemPasswordChar = false;
             // 
             // materialDivider1
             // 
-            this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
             this.materialDivider1.Location = new System.Drawing.Point(0, 99);
@@ -128,6 +144,7 @@
             // 
             // materialLabel2
             // 
+            this.materialLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -141,6 +158,7 @@
             // 
             // materialLabel3
             // 
+            this.materialLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
@@ -154,6 +172,7 @@
             // 
             // materialLabel4
             // 
+            this.materialLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
@@ -167,6 +186,7 @@
             // 
             // materialLabel7
             // 
+            this.materialLabel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
@@ -180,6 +200,7 @@
             // 
             // materialLabel8
             // 
+            this.materialLabel8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel8.AutoSize = true;
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
@@ -193,10 +214,13 @@
             // 
             // asientosField
             // 
+            this.asientosField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.asientosField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceCoche, "CantidadAsientos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.asientosField.Depth = 0;
             this.asientosField.Hint = "Asientos";
+            this.asientosField.IsNumeric = false;
             this.asientosField.Location = new System.Drawing.Point(29, 173);
+            this.asientosField.MaxLength = 32767;
             this.asientosField.MouseState = MaterialSkin.MouseState.HOVER;
             this.asientosField.Name = "asientosField";
             this.asientosField.PasswordChar = '\0';
@@ -205,59 +229,60 @@
             this.asientosField.SelectionStart = 0;
             this.asientosField.Size = new System.Drawing.Size(148, 23);
             this.asientosField.TabIndex = 7;
+            this.asientosField.TabStop = false;
             this.asientosField.UseSystemPasswordChar = false;
             // 
             // errorModeloLbl
             // 
+            this.errorModeloLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorModeloLbl.AutoSize = true;
-            this.errorModeloLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorModeloLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorModeloLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorModeloLbl.Location = new System.Drawing.Point(18, 68);
             this.errorModeloLbl.Name = "errorModeloLbl";
-            this.errorModeloLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorModeloLbl.Size = new System.Drawing.Size(167, 15);
             this.errorModeloLbl.TabIndex = 26;
             this.errorModeloLbl.Text = "Este campo es requerido";
             this.errorModeloLbl.Visible = false;
             // 
             // errorAsientosLbl
             // 
+            this.errorAsientosLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorAsientosLbl.AutoSize = true;
-            this.errorAsientosLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorAsientosLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorAsientosLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorAsientosLbl.Location = new System.Drawing.Point(26, 199);
             this.errorAsientosLbl.Name = "errorAsientosLbl";
-            this.errorAsientosLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorAsientosLbl.Size = new System.Drawing.Size(167, 15);
             this.errorAsientosLbl.TabIndex = 31;
             this.errorAsientosLbl.Text = "Este campo es requerido";
             this.errorAsientosLbl.Visible = false;
             // 
             // errorMaximaLbl
             // 
+            this.errorMaximaLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorMaximaLbl.AutoSize = true;
-            this.errorMaximaLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorMaximaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorMaximaLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorMaximaLbl.Location = new System.Drawing.Point(566, 199);
             this.errorMaximaLbl.Name = "errorMaximaLbl";
-            this.errorMaximaLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorMaximaLbl.Size = new System.Drawing.Size(167, 15);
             this.errorMaximaLbl.TabIndex = 32;
             this.errorMaximaLbl.Text = "Este campo es requerido";
             this.errorMaximaLbl.Visible = false;
             // 
             // errorLegalLbl
             // 
+            this.errorLegalLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorLegalLbl.AutoSize = true;
-            this.errorLegalLbl.Font = new System.Drawing.Font("Roboto Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorLegalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLegalLbl.ForeColor = System.Drawing.Color.DarkRed;
             this.errorLegalLbl.Location = new System.Drawing.Point(289, 199);
             this.errorLegalLbl.Name = "errorLegalLbl";
-            this.errorLegalLbl.Size = new System.Drawing.Size(162, 14);
+            this.errorLegalLbl.Size = new System.Drawing.Size(167, 15);
             this.errorLegalLbl.TabIndex = 33;
             this.errorLegalLbl.Text = "Este campo es requerido";
             this.errorLegalLbl.Visible = false;
-            // 
-            // BindingSourceCoche
-            // 
-            this.BindingSourceCoche.DataSource = typeof(SimuRails.Models.Coche);
             // 
             // CocheAttrs
             // 

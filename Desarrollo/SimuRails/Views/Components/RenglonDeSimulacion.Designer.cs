@@ -95,12 +95,13 @@
             this.materialFlatButton2.AutoSize = true;
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton2.Depth = 0;
+            this.materialFlatButton2.Icon = null;
             this.materialFlatButton2.Location = new System.Drawing.Point(774, 10);
             this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton2.Name = "materialFlatButton2";
             this.materialFlatButton2.Primary = false;
-            this.materialFlatButton2.Size = new System.Drawing.Size(59, 36);
+            this.materialFlatButton2.Size = new System.Drawing.Size(68, 36);
             this.materialFlatButton2.TabIndex = 27;
             this.materialFlatButton2.Text = "Editar";
             this.materialFlatButton2.UseVisualStyleBackColor = true;
@@ -112,12 +113,13 @@
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Location = new System.Drawing.Point(841, 10);
+            this.materialFlatButton1.Icon = null;
+            this.materialFlatButton1.Location = new System.Drawing.Point(841, 11);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
             this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(65, 36);
+            this.materialFlatButton1.Size = new System.Drawing.Size(74, 36);
             this.materialFlatButton1.TabIndex = 26;
             this.materialFlatButton1.Text = "Borrar";
             this.materialFlatButton1.UseVisualStyleBackColor = true;
@@ -126,12 +128,15 @@
             // materialRaisedButton1
             // 
             this.materialRaisedButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialRaisedButton1.AutoSize = true;
+            this.materialRaisedButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton1.Depth = 0;
-            this.materialRaisedButton1.Location = new System.Drawing.Point(912, 15);
+            this.materialRaisedButton1.Icon = null;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(922, 10);
             this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton1.Name = "materialRaisedButton1";
             this.materialRaisedButton1.Primary = true;
-            this.materialRaisedButton1.Size = new System.Drawing.Size(88, 25);
+            this.materialRaisedButton1.Size = new System.Drawing.Size(79, 36);
             this.materialRaisedButton1.TabIndex = 28;
             this.materialRaisedButton1.Text = "SIMULAR";
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
