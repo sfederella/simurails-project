@@ -20,7 +20,7 @@ namespace SimuRails.Sharing
                 Type[] types = value.GetType().GetGenericArguments();
                 if (types[0].Name == "Int32" && types[1].Name == "Boolean") {
                     var dictionary = ((PersistentGenericMap<int, bool>)value).ToDictionary(x => x.Key, x => x.Value);
-                    ConvertKeyValue(writer, (IDictionary)dictionary, serializer);
+                    ConvertDictionary(writer, (IDictionary)dictionary, serializer);
                 }
                 else if (types[0].Name == "Formacion" && types[1].Name == "Int32")
                 {
@@ -38,6 +38,17 @@ namespace SimuRails.Sharing
                 ConvertKeyValue(writer, (IDictionary)value, serializer);
             }
 
+        }
+
+        private void ConvertDictionary(JsonWriter writer, IDictionary dictionary, JsonSerializer serializer)
+        {
+            writer.WriteStartObject();
+            foreach (var key in dictionary.Keys)
+            {
+                writer.WritePropertyName(key.ToString());
+                serializer.Serialize(writer, dictionary[key]);
+            }
+            writer.WriteEndObject();
         }
 
         private void ConvertKeyValue(JsonWriter writer, IDictionary dictionary, JsonSerializer serializer)

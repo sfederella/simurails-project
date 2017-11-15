@@ -29,21 +29,7 @@ namespace SimuRails.Sharing
                 };
                 settings.Converters.Add(new DictionaryJsonConverter());
 
-                //Dejo comentadas cosas que fui probando
-                //settings.Formatting = Formatting.Indented; //para que se guarde ya identado
-
                 string json = JsonConvert.SerializeObject(traza, settings);
-
-                //string jsonDeTiposFormaciones = JsonConvert.SerializeObject(traza.Servicios.SelectMany(x => x.TiposFormacion), settings);
-
-                //foreach (var servicio in traza.Servicios)
-                //{
-                //    foreach (var dictTipoFormacion in servicio.TiposFormacion)
-                //    {
-                //        var reemplazo = JsonConvert.SerializeObject(dictTipoFormacion, settings
-                //        //acá quizá reemplazar en el json original de alguna forma que sea fiable.
-                //    }
-                //}
 
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
                 {
@@ -71,7 +57,7 @@ namespace SimuRails.Sharing
                     settings.Converters.Add(new DictionaryJsonConverter());
                     traza = JsonConvert.DeserializeObject<Traza>(json, settings);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     MessageBox.Show("Error al abrir el archivo. Verifique que el mismo no está corrupto.");
                 }
