@@ -146,7 +146,7 @@ namespace SimuRails.Views.Abms
             }
 
             string msg = string.Format("SimuRails necesita reiniciarse para recargar los datos.");
-            MessageBox.Show(msg, "Confirmación");
+            MessageBox.Show(msg, "Alerta");
             Application.Restart();
         }
 
