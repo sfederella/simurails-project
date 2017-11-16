@@ -34,7 +34,7 @@ namespace SimuRails.Views.Abms.FormacionAbm
 
         private void FormacionListForm_Load(object sender, EventArgs e)
         {
-            this.dibujarRenglones();
+            
         }
 
         internal void updateList()
@@ -68,6 +68,11 @@ namespace SimuRails.Views.Abms.FormacionAbm
                 }
                 this.dibujarRenglones();
             }              
+        }
+
+        internal void onTabEnter(object sender, EventArgs e)
+        {
+            this.dibujarRenglones();
         }
 
         public void dibujarRenglones()

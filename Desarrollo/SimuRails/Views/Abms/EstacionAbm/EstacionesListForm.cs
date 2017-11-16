@@ -59,6 +59,14 @@ namespace SimuRails.Views.Abms
             renglones.Add(renglon);
         }
 
+        internal void onTabEnter(object sender, EventArgs e)
+        {
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
+        }
+
         private void onEstacionRemove(int id)
         {
             if (MessageBox.Show("¿Está seguro que desea eliminar la estación?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)

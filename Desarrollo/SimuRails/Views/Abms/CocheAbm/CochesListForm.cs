@@ -13,7 +13,7 @@ namespace SimuRails.Views.Abms
         private MainForm mainForm;
         private TabPage tabPage;
         private List<Control> renglones = new List<Control>();
-        
+
         public CochesListForm(MainForm mainForm, TabPage tabPage)
         {
             InitializeComponent();
@@ -23,10 +23,7 @@ namespace SimuRails.Views.Abms
 
         private void CochesListForm_Load(object sender, EventArgs e)
         {
-            using (var repositorio = new Repositorio())
-            {
-                this.dibujarRenglones(repositorio);
-            }
+
         }
 
         public void addCoche(Coche coche)
@@ -66,7 +63,14 @@ namespace SimuRails.Views.Abms
                 }
             }
         }
-          
+
+        internal void onTabEnter(object sender, EventArgs e)
+        {
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
+        }
 
         public void dibujarRenglones(Repositorio repositorio)
         {
@@ -78,7 +82,7 @@ namespace SimuRails.Views.Abms
                 renglones.Add(this.renglonDe(coches.ElementAt(i), i));
 
             }
-            if(coches.Count == 0)
+            if (coches.Count == 0)
             {
                 this.incluirEnLista(0, new RenglonListaVacia());
             }
@@ -99,7 +103,6 @@ namespace SimuRails.Views.Abms
             }
             this.Visible = false;
         }
-
 
         private void materialRaisedButton1_Click(object sender, EventArgs e)
         {
