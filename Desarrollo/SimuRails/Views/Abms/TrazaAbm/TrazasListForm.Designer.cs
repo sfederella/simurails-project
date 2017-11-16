@@ -69,7 +69,7 @@
             this.listPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listPanel.AutoSize = true;
+            this.listPanel.AutoScroll = true;
             this.listPanel.Controls.Add(this.materialLabel1);
             this.listPanel.Controls.Add(this.seleccion);
             this.listPanel.Location = new System.Drawing.Point(70, 64);

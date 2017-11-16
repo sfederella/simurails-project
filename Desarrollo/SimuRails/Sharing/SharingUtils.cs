@@ -28,13 +28,14 @@ namespace SimuRails.Sharing
                     ContractResolver = new NHibernateContractResolver()
                 };
                 settings.Converters.Add(new DictionaryJsonConverter());
+
                 string json = JsonConvert.SerializeObject(traza, settings);
+
                 using (StreamWriter sw = new StreamWriter(savefile.FileName))
                 {
                     sw.WriteLine(json);
                 }
             }
-
         }
 
         public static Traza Importar()
@@ -56,7 +57,7 @@ namespace SimuRails.Sharing
                     settings.Converters.Add(new DictionaryJsonConverter());
                     traza = JsonConvert.DeserializeObject<Traza>(json, settings);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     MessageBox.Show("Error al abrir el archivo. Verifique que el mismo no está corrupto.");
                 }

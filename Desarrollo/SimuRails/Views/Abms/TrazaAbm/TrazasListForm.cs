@@ -54,7 +54,7 @@ namespace SimuRails.Views.Abms
         private void incluirEnLista(int indice, Control renglon)
         {
             renglon.Location = new System.Drawing.Point(5, 25 + indice * 50);
-            renglon.Width = this.listPanel.Width;
+            renglon.Width = this.listPanel.Width-5;
             renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
             this.listPanel.Controls.Add(renglon);
             renglones.Add(renglon);
@@ -87,6 +87,7 @@ namespace SimuRails.Views.Abms
             {
                 var trazaAExportar = repositorio.Obtener<Traza>(id);
                 SharingUtils.Exportar(trazaAExportar);
+                MessageBox.Show("La exportación ha finalizado con éxito.", "Exportación finalizada");
             }
 
         }
@@ -149,7 +150,8 @@ namespace SimuRails.Views.Abms
             {
                 ImportarTraza(trazaRecuperada);
             }
-            
+
+            MessageBox.Show("SimuRails necesita reiniciarse para recargar los datos.", "Alerta");
             Application.Restart();
         }
 
@@ -331,7 +333,7 @@ namespace SimuRails.Views.Abms
 
         private void materialRaisedButtonLimpiar_Click(object sender, EventArgs e)
         {
-            string msg = string.Format("ATENCION: Al limpiar todo se eliminarán todos los elementos que contiene su base de datos.{0}¿Está seguro que desea continuar?", Environment.NewLine);
+            string msg = string.Format("ATENCION: Se eliminará toda la información del sistema y se REINICIARA la aplicación.{0}¿Está seguro que desea continuar?", Environment.NewLine);
             if (MessageBox.Show(msg, "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 using (var session = NHibernateHelper.OpenSession())
@@ -347,6 +349,8 @@ namespace SimuRails.Views.Abms
                     var servicios = session.Query<Servicio>().ToList();
 
                     var trazas = session.Query<Traza>().ToList();
+
+                    var simulaciones = session.Query<Simulacion>().ToList();
 
                     foreach (var incidente in incidentes)
                         session.Delete(incidente);
@@ -369,8 +373,13 @@ namespace SimuRails.Views.Abms
                     foreach (var traza in trazas)
                         session.Delete(traza);
 
+                    foreach (var simulacion in simulaciones)
+                        session.Delete(simulacion);
+
                     transaction.Commit();
                 }
+
+                Application.Restart();
             }
         }
     }

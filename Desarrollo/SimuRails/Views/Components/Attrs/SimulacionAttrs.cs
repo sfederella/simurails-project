@@ -25,6 +25,10 @@ namespace SimuRails.Views.Components.Attrs
             List<Traza> list = repositorio.Listar<Traza>();
             BindingSourceTraza.DataSource = list;
             ComboBoxTraza.listaDatos = list.Select(x => x.Nombre).ToList();
+            if(pSimulacion.TrazaSimulada==null && list.Count>0)
+            {
+                pSimulacion.TrazaSimulada = list[0];
+            }
             contadorMinutosText.Text = (simulacion.Duracion * 1440).ToString();
             duracionField.IsNumeric = true;
         }
@@ -46,11 +50,6 @@ namespace SimuRails.Views.Components.Attrs
         {
             //long dias = duracionField.Text != "" ? long.Parse(duracionField.Text) : 0;
             contadorMinutosText.Text = (pSimulacion.Duracion * 1440).ToString();
-        }
-
-        private void infoMinutos_Click(object sender, System.EventArgs e)
-        {
-            MessageBox.Show("La simulación maneja minutos como unidad de tiempo.");
         }
         
     }

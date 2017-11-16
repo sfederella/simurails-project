@@ -34,6 +34,7 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.demoraField = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.BindingSourceIncidente = new System.Windows.Forms.BindingSource(this.components);
             this.probabilidadField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.nombreField = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.descripcionField = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -44,12 +45,12 @@
             this.errorDemoraLbl = new System.Windows.Forms.Label();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.BindingSourceIncidente = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BindingSourceIncidente)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel7
             // 
+            this.materialLabel7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel7.AutoSize = true;
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
@@ -63,6 +64,7 @@
             // 
             // materialLabel4
             // 
+            this.materialLabel4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
@@ -76,6 +78,7 @@
             // 
             // materialLabel3
             // 
+            this.materialLabel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
@@ -89,6 +92,7 @@
             // 
             // materialLabel1
             // 
+            this.materialLabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
@@ -102,9 +106,11 @@
             // 
             // demoraField
             // 
+            this.demoraField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.demoraField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "TiempoDemora", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.demoraField.Depth = 0;
             this.demoraField.Hint = "";
+            this.demoraField.IsNumeric = false;
             this.demoraField.Location = new System.Drawing.Point(324, 252);
             this.demoraField.MaxLength = 32767;
             this.demoraField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -118,11 +124,17 @@
             this.demoraField.TabStop = false;
             this.demoraField.UseSystemPasswordChar = false;
             // 
+            // BindingSourceIncidente
+            // 
+            this.BindingSourceIncidente.DataSource = typeof(SimuRails.Models.Incidente);
+            // 
             // probabilidadField
             // 
+            this.probabilidadField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.probabilidadField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "ProbabilidadDeOcurrencia", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, null, "N0"));
             this.probabilidadField.Depth = 0;
             this.probabilidadField.Hint = "";
+            this.probabilidadField.IsNumeric = false;
             this.probabilidadField.Location = new System.Drawing.Point(33, 251);
             this.probabilidadField.MaxLength = 32767;
             this.probabilidadField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -138,9 +150,11 @@
             // 
             // nombreField
             // 
+            this.nombreField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.nombreField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "Nombre", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.nombreField.Depth = 0;
             this.nombreField.Hint = "";
+            this.nombreField.IsNumeric = false;
             this.nombreField.Location = new System.Drawing.Point(20, 42);
             this.nombreField.MaxLength = 32767;
             this.nombreField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -156,9 +170,11 @@
             // 
             // descripcionField
             // 
+            this.descripcionField.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.descripcionField.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.BindingSourceIncidente, "Descripcion", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.descripcionField.Depth = 0;
             this.descripcionField.Hint = "";
+            this.descripcionField.IsNumeric = false;
             this.descripcionField.Location = new System.Drawing.Point(20, 115);
             this.descripcionField.MaxLength = 32767;
             this.descripcionField.MouseState = MaterialSkin.MouseState.HOVER;
@@ -174,8 +190,7 @@
             // 
             // materialDivider1
             // 
-            this.materialDivider1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
             this.materialDivider1.Location = new System.Drawing.Point(2, 172);
@@ -187,6 +202,7 @@
             // 
             // materialLabel2
             // 
+            this.materialLabel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
@@ -200,6 +216,7 @@
             // 
             // errorNombreLbl
             // 
+            this.errorNombreLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorNombreLbl.AutoSize = true;
             this.errorNombreLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorNombreLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -212,6 +229,7 @@
             // 
             // errorOcurrenciaLbl
             // 
+            this.errorOcurrenciaLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorOcurrenciaLbl.AutoSize = true;
             this.errorOcurrenciaLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorOcurrenciaLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -224,6 +242,7 @@
             // 
             // errorDemoraLbl
             // 
+            this.errorDemoraLbl.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.errorDemoraLbl.AutoSize = true;
             this.errorDemoraLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorDemoraLbl.ForeColor = System.Drawing.Color.DarkRed;
@@ -236,6 +255,7 @@
             // 
             // materialLabel5
             // 
+            this.materialLabel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel5.AutoSize = true;
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
@@ -249,6 +269,7 @@
             // 
             // materialLabel6
             // 
+            this.materialLabel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.materialLabel6.AutoSize = true;
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
@@ -259,10 +280,6 @@
             this.materialLabel6.Size = new System.Drawing.Size(64, 19);
             this.materialLabel6.TabIndex = 43;
             this.materialLabel6.Text = "minutos";
-            // 
-            // BindingSourceIncidente
-            // 
-            this.BindingSourceIncidente.DataSource = typeof(SimuRails.Models.Incidente);
             // 
             // IncidenteAttrs
             // 

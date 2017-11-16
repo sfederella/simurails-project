@@ -45,7 +45,7 @@ namespace SimuRails.Views.Abms
         private void incluirEnLista(int indice, Control renglon)
         {
             renglon.Location = new System.Drawing.Point(5, 25 + indice * 50);
-            renglon.Width = this.listPanel.Width;
+            renglon.Width = this.listPanel.Width-5;
             renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
             this.listPanel.Controls.Add(renglon);
             renglones.Add(renglon);

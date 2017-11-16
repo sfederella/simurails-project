@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.item1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.subitem1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.item2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,40 +42,8 @@
             this.tabEstaciones = new System.Windows.Forms.TabPage();
             this.tabIncidentes = new System.Windows.Forms.TabPage();
             this.materialTabSelector = new MaterialSkin.Controls.MaterialTabSelector();
-            this.materialContextMenuStrip1.SuspendLayout();
             this.mainMaterialTabControl.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // materialContextMenuStrip1
-            // 
-            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStrip1.Depth = 0;
-            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.item1ToolStripMenuItem,
-            this.item2ToolStripMenuItem});
-            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(108, 48);
-            // 
-            // item1ToolStripMenuItem
-            // 
-            this.item1ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.subitem1ToolStripMenuItem});
-            this.item1ToolStripMenuItem.Name = "item1ToolStripMenuItem";
-            this.item1ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.item1ToolStripMenuItem.Text = "Item 1";
-            // 
-            // subitem1ToolStripMenuItem
-            // 
-            this.subitem1ToolStripMenuItem.Name = "subitem1ToolStripMenuItem";
-            this.subitem1ToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.subitem1ToolStripMenuItem.Text = "Subitem 1";
-            // 
-            // item2ToolStripMenuItem
-            // 
-            this.item2ToolStripMenuItem.Name = "item2ToolStripMenuItem";
-            this.item2ToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.item2ToolStripMenuItem.Text = "Item2";
             // 
             // label2
             // 
@@ -232,7 +196,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1163, 548);
-            this.ContextMenuStrip = this.materialContextMenuStrip1;
             this.Controls.Add(this.mainMaterialTabControl);
             this.Controls.Add(this.mainMaterialTabSelector2);
             this.Controls.Add(this.label2);
@@ -243,18 +206,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SimuRails";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.materialContextMenuStrip1.ResumeLayout(false);
             this.mainMaterialTabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem item1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem subitem1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem item2ToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label2;
