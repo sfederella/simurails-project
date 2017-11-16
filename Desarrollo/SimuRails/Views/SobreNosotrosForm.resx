@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Como estudiantes en Ingeniería en Sistemas de Información de la UTN, sabemos la importancia de que  las  herramientas  necesarias  estén  al  alcance  de  aquellas  personas  que quieren crecer en su  formación.  Esto  fue  lo  que  impulsó  el  desarrollo  de  SimuRails,  que  se  ofrece  como  una herramienta gratuita quedando abierta a colaboraciones y mejoras.  </value>
+  </data>
 </root>

@@ -117,6 +117,11 @@
     <Compile Include="MyComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Report\ReportGraphsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -571,14 +576,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Views\LandingInfo.resx">
       <DependentUpon>LandingInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -625,13 +625,16 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Logo.ico" />
+    <Content Include="Resources\ic_help_white.png" />
+    <Content Include="Resources\ic_help_white_18dp.png" />
     <Content Include="Resources\ic_info_outline_black_18dp.png" />
+    <Content Include="Resources\ic_info_white.png" />
+    <Content Include="Resources\ic_info_white_18pt.png" />
+    <Content Include="Resources\Logo.png" />
     <Content Include="Resources\spinner.gif" />
     <Content Include="SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\signo-de-interrogacion.png" />
-    <None Include="Resources\usuario-hombre.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">

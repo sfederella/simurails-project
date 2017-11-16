@@ -51,9 +51,9 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Image = global::SimuRails.Properties.Resources.signo_de_interrogacion;
+            this.label2.Image = global::SimuRails.Properties.Resources.ic_help_white_18dp;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(1097, 38);
+            this.label2.Location = new System.Drawing.Point(1102, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 23);
             this.label2.TabIndex = 6;
@@ -67,14 +67,14 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label1.Image = global::SimuRails.Properties.Resources.usuario_hombre;
+            this.label1.Image = global::SimuRails.Properties.Resources.ic_info_white_18pt;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(1127, 38);
+            this.label1.Location = new System.Drawing.Point(1128, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 23);
             this.label1.TabIndex = 5;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toolTip1.SetToolTip(this.label1, "Sobre nosotros");
+            this.toolTip1.SetToolTip(this.label1, "Información");
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // mainMaterialTabSelector2
