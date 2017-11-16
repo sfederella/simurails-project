@@ -76,7 +76,7 @@ namespace SimuRails.Views
             }
             catch
             {
-                MessageBox.Show("No se puede acceder al Manual de Usuario.", "Error de Apertura");
+                MaterialMessageBox.Show("Error de Apertura", "No se puede acceder al Manual de Usuario.");
             }         
         }
     }

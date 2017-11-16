@@ -59,7 +59,7 @@ namespace SimuRails.Views.Abms.FormacionAbm
 
         private void onformacionRemove(int id)
         {
-            if (MessageBox.Show("¿Está seguro que desea eliminar la formación?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MaterialMessageBoxConfirmation.Show("Confirmación", "¿Está seguro que desea eliminar la formación?") == DialogResult.Yes)
             {
                 using (var repositorio = new Repositorio())
                 {

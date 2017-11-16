@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SimuRails.Models;
+using SimuRails.Views;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -57,9 +58,9 @@ namespace SimuRails.Sharing
                     settings.Converters.Add(new DictionaryJsonConverter());
                     traza = JsonConvert.DeserializeObject<Traza>(json, settings);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    MessageBox.Show("Error al abrir el archivo. Verifique que el mismo no está corrupto.");
+                    MaterialMessageBox.Show("Error","Error al abrir el archivo. Verifique que el mismo no está corrupto.");
                 }
             }
 

@@ -49,7 +49,7 @@ namespace SimuRails.Views.Abms.ServicioAbm
             }
             if (!IsSorted(Programacion))
             {
-                MessageBox.Show("La programación no se encuentra ordenada. Se ordenará automáticamente.");
+                MaterialMessageBox.Show("Error", "La programación no se encuentra ordenada. Se ordenará automáticamente.");
                 Programacion.Sort();
             }
             this.DialogResult = DialogResult.OK;
@@ -86,7 +86,7 @@ namespace SimuRails.Views.Abms.ServicioAbm
                     }
                     catch
                     {
-                        MessageBox.Show("La fila nro " + i + " del excel tiene un formato inválido.");
+                        MaterialMessageBox.Show("Error", "La fila nro " + i + " del excel tiene un formato inválido.");
                         horariosGridView.Rows.Clear();
                         break;
                     }
@@ -107,7 +107,7 @@ namespace SimuRails.Views.Abms.ServicioAbm
             else if (!EsHorarioValido(value))
             {
                 cellWithError = horariosGridView.CurrentCell;
-                MessageBox.Show("Formato inválido.");
+                MaterialMessageBox.Show("Error", "Formato inválido.");
                 horariosGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = false;
             }
         }

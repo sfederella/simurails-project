@@ -38,17 +38,19 @@ namespace SimuRails.Views.Abms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(30, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 26);
+            this.label1.Size = new System.Drawing.Size(82, 29);
             this.label1.TabIndex = 19;
             this.label1.Text = "Coche";
             // 
             // materialRaisedButton2
             // 
             this.materialRaisedButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialRaisedButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Icon = null;
             this.materialRaisedButton2.Location = new System.Drawing.Point(832, 399);
             this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialRaisedButton2.Name = "materialRaisedButton2";
@@ -65,12 +67,13 @@ namespace SimuRails.Views.Abms
             this.materialFlatButton1.AutoSize = true;
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton1.Depth = 0;
+            this.materialFlatButton1.Icon = null;
             this.materialFlatButton1.Location = new System.Drawing.Point(732, 396);
             this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialFlatButton1.Name = "materialFlatButton1";
             this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(82, 36);
+            this.materialFlatButton1.Size = new System.Drawing.Size(91, 36);
             this.materialFlatButton1.TabIndex = 22;
             this.materialFlatButton1.Text = "Cancelar";
             this.materialFlatButton1.UseVisualStyleBackColor = true;

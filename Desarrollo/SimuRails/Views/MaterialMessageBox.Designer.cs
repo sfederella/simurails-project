@@ -44,18 +44,19 @@
             this.label.Size = new System.Drawing.Size(440, 74);
             this.label.TabIndex = 0;
             this.label.Text = "Label";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // aceptarBtn
             // 
             this.aceptarBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.aceptarBtn.Depth = 0;
             this.aceptarBtn.Icon = null;
-            this.aceptarBtn.Location = new System.Drawing.Point(344, 157);
+            this.aceptarBtn.Location = new System.Drawing.Point(356, 157);
             this.aceptarBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.aceptarBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.aceptarBtn.Name = "aceptarBtn";
             this.aceptarBtn.Primary = false;
-            this.aceptarBtn.Size = new System.Drawing.Size(108, 33);
+            this.aceptarBtn.Size = new System.Drawing.Size(96, 33);
             this.aceptarBtn.TabIndex = 1;
             this.aceptarBtn.Text = "Aceptar";
             this.aceptarBtn.UseVisualStyleBackColor = true;
@@ -69,6 +70,7 @@
             this.Controls.Add(this.aceptarBtn);
             this.Controls.Add(this.label);
             this.Name = "MaterialMessageBox";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Alerta";
             this.ResumeLayout(false);
 

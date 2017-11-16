@@ -70,7 +70,7 @@ namespace SimuRails.Views.Abms
 
         private void onServicioRemove(int id)
         {
-            if (MessageBox.Show("¿Está seguro que desea eliminar el servicio?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MaterialMessageBoxConfirmation.Show("Confirmación", "¿Está seguro que desea eliminar el servicio?") == DialogResult.Yes)
             {
                 using (var repositorioServicio = new Repositorio())
                 {

@@ -38,7 +38,7 @@ namespace SimuRails.Views.Abms
                 using (var repositorio = new Repositorio())
                 {
                     repositorio.Actualizar(traza);
-                    listForm.dibujarRenglones(repositorio);
+                    listForm.dibujarRenglones();
                 }
 
                 this.cerrar();

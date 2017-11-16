@@ -66,7 +66,7 @@ namespace SimuRails.Views.Abms
 
         private void onIncidenteRemove(int id)
         {
-            if (MessageBox.Show("¿Está seguro que desea eliminar el incidente?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MaterialMessageBoxConfirmation.Show("Confirmación", "¿Está seguro que desea eliminar el incidente?") == DialogResult.Yes)
             {
                 using (var repositorio = new Repositorio())
                 {

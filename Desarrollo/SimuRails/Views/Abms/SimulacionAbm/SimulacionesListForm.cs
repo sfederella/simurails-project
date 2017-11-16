@@ -66,7 +66,7 @@ namespace SimuRails.Views.Abms
 
         private void onSimulacionRemove(int id)
         {
-             if (MessageBox.Show("¿Está seguro que desea eliminar la simulación?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+             if (MaterialMessageBoxConfirmation.Show("Confirmación", "¿Está seguro que desea eliminar la simulación?") == DialogResult.Yes)
              {
                 using (var repositorio = new Repositorio())
                 {

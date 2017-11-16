@@ -53,7 +53,7 @@ namespace SimuRails.Views.Abms
 
         private void onCocheRemove(int id)
         {
-            if (MessageBox.Show("¿Está seguro que desea eliminar el coche?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MaterialMessageBoxConfirmation.Show("Confirmación","¿Está seguro que desea eliminar el coche?") == DialogResult.Yes)
             {
                 using (var repositorio = new Repositorio())
                 {

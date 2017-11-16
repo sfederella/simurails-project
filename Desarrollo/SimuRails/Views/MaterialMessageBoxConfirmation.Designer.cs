@@ -45,18 +45,19 @@
             this.label.Size = new System.Drawing.Size(440, 74);
             this.label.TabIndex = 0;
             this.label.Text = "Label";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siBtn
             // 
             this.siBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.siBtn.Depth = 0;
             this.siBtn.Icon = null;
-            this.siBtn.Location = new System.Drawing.Point(344, 157);
+            this.siBtn.Location = new System.Drawing.Point(374, 157);
             this.siBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.siBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.siBtn.Name = "siBtn";
             this.siBtn.Primary = false;
-            this.siBtn.Size = new System.Drawing.Size(108, 33);
+            this.siBtn.Size = new System.Drawing.Size(77, 33);
             this.siBtn.TabIndex = 1;
             this.siBtn.Text = "Si";
             this.siBtn.UseVisualStyleBackColor = true;
@@ -67,12 +68,12 @@
             this.noBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.noBtn.Depth = 0;
             this.noBtn.Icon = null;
-            this.noBtn.Location = new System.Drawing.Point(228, 157);
+            this.noBtn.Location = new System.Drawing.Point(289, 157);
             this.noBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.noBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.noBtn.Name = "noBtn";
             this.noBtn.Primary = false;
-            this.noBtn.Size = new System.Drawing.Size(108, 33);
+            this.noBtn.Size = new System.Drawing.Size(77, 33);
             this.noBtn.TabIndex = 2;
             this.noBtn.Text = "No";
             this.noBtn.UseVisualStyleBackColor = true;
@@ -87,6 +88,7 @@
             this.Controls.Add(this.siBtn);
             this.Controls.Add(this.label);
             this.Name = "MaterialMessageBoxConfirmation";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Confirmación";
             this.ResumeLayout(false);
 

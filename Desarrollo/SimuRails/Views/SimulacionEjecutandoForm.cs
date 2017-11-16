@@ -57,7 +57,7 @@ namespace SimuRails.Views
             }
             else if (e.Error != null)
             {
-                MessageBox.Show("Ocurrió un problema al ejecutar la simulación. Por favor intente nuevamente.");
+                MaterialMessageBox.Show("Error", "Ocurrió un problema al ejecutar la simulación. Por favor intente nuevamente.");
                 form.Visible = true;
             } else
             {

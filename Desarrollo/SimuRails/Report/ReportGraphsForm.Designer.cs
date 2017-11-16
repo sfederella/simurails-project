@@ -183,7 +183,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             this.label2.Location = new System.Drawing.Point(0, 9);
             this.label2.Name = "label2";
@@ -196,22 +196,22 @@
             // 
             this.LabelDuracion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelDuracion.AutoSize = true;
-            this.LabelDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDuracion.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDuracion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             this.LabelDuracion.Location = new System.Drawing.Point(821, 42);
             this.LabelDuracion.Name = "LabelDuracion";
-            this.LabelDuracion.Size = new System.Drawing.Size(68, 18);
+            this.LabelDuracion.Size = new System.Drawing.Size(72, 20);
             this.LabelDuracion.TabIndex = 11;
             this.LabelDuracion.Text = "Duracion";
             // 
             // LabelNombreSimulacion
             // 
             this.LabelNombreSimulacion.AutoSize = true;
-            this.LabelNombreSimulacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelNombreSimulacion.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelNombreSimulacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             this.LabelNombreSimulacion.Location = new System.Drawing.Point(169, 42);
             this.LabelNombreSimulacion.Name = "LabelNombreSimulacion";
-            this.LabelNombreSimulacion.Size = new System.Drawing.Size(135, 18);
+            this.LabelNombreSimulacion.Size = new System.Drawing.Size(144, 20);
             this.LabelNombreSimulacion.TabIndex = 10;
             this.LabelNombreSimulacion.Text = "NombreSimulacion";
             // 
@@ -279,11 +279,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
-            this.label1.Location = new System.Drawing.Point(4, 9);
+            this.label1.Location = new System.Drawing.Point(4, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 22);
+            this.label1.Size = new System.Drawing.Size(190, 24);
             this.label1.TabIndex = 11;
             this.label1.Text = "Reportes disponibles";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

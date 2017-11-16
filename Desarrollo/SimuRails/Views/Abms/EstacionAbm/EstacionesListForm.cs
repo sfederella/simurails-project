@@ -69,7 +69,7 @@ namespace SimuRails.Views.Abms
 
         private void onEstacionRemove(int id)
         {
-            if (MessageBox.Show("¿Está seguro que desea eliminar la estación?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MaterialMessageBoxConfirmation.Show("Confirmación", "¿Está seguro que desea eliminar la estación?") == DialogResult.Yes)
             {
                 using (var repositorio = new Repositorio())
                 {

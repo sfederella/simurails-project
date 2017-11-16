@@ -39,7 +39,7 @@ namespace SimuRails.Views.Abms
             using (var repositorio = new Repositorio())
             {
                 repositorio.Guardar(Traza);
-                this.dibujarRenglones(repositorio);
+                this.dibujarRenglones();
             }
                 
         }
@@ -61,22 +61,19 @@ namespace SimuRails.Views.Abms
         }
 
         internal void onTabEnter(object sender, EventArgs e)
-        {
-            using (var repositorio = new Repositorio())
-            {
-                this.dibujarRenglones(repositorio);
-            }
+        {      
+            this.dibujarRenglones();
         }
 
         private void onTrazaRemove(int id)
         {
-            if (MessageBox.Show("¿Está seguro que desea eliminar la traza?", "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MaterialMessageBoxConfirmation.Show("Confirmación", "¿Está seguro que desea eliminar la traza?") == DialogResult.Yes)
             {
                 using (var repositorio = new Repositorio())
                 {
                     Traza traza = this.findTraza(id);
                     repositorio.Eliminar(traza);
-                    this.dibujarRenglones(repositorio);
+                    this.dibujarRenglones();
                 }
             }              
         }
@@ -87,24 +84,27 @@ namespace SimuRails.Views.Abms
             {
                 var trazaAExportar = repositorio.Obtener<Traza>(id);
                 SharingUtils.Exportar(trazaAExportar);
-                MessageBox.Show("La exportación ha finalizado con éxito.", "Exportación finalizada");
+                MaterialMessageBox.Show("Exportación finalizada", "La exportación ha finalizado con éxito.");
             }
 
         }
 
-        public void dibujarRenglones(Repositorio repositorio)
+        public void dibujarRenglones()
         {
-            var trazas = repositorio.Listar<Traza>();
-
-            renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
-            for (int i = 0; i < trazas.Count; i++)
+            using (var repositorio = new Repositorio())
             {
-                renglones.Add(this.renglonDe(trazas.ElementAt(i), i));
+                var trazas = repositorio.Listar<Traza>();
 
-            }
-            if (trazas.Count == 0)
-            {
-                this.incluirEnLista(0, new RenglonListaVacia());
+                renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
+                for (int i = 0; i < trazas.Count; i++)
+                {
+                    renglones.Add(this.renglonDe(trazas.ElementAt(i), i));
+
+                }
+                if (trazas.Count == 0)
+                {
+                    this.incluirEnLista(0, new RenglonListaVacia());
+                }
             }
         }
 
@@ -151,8 +151,8 @@ namespace SimuRails.Views.Abms
                 ImportarTraza(trazaRecuperada);
             }
 
-            MessageBox.Show("SimuRails necesita reiniciarse para recargar los datos.", "Alerta");
-            Application.Restart();
+            MaterialMessageBox.Show("Importación finalizada", "La importación ha finalizado con éxito.");
+            dibujarRenglones();
         }
 
         private void ImportarTraza(Traza trazaRecuperada)
@@ -333,8 +333,8 @@ namespace SimuRails.Views.Abms
 
         private void materialRaisedButtonLimpiar_Click(object sender, EventArgs e)
         {
-            string msg = string.Format("ATENCION: Se eliminará toda la información del sistema y se REINICIARA la aplicación.{0}¿Está seguro que desea continuar?", Environment.NewLine);
-            if (MessageBox.Show(msg, "Confirmación", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            string msg = string.Format("Se eliminará toda la información del sistema.{0}¿Está seguro que desea continuar?", Environment.NewLine);
+            if (MaterialMessageBoxConfirmation.Show("Atención", msg) == DialogResult.Yes)
             {
                 using (var session = NHibernateHelper.OpenSession())
                 using (var transaction = session.BeginTransaction())
@@ -379,7 +379,7 @@ namespace SimuRails.Views.Abms
                     transaction.Commit();
                 }
 
-                Application.Restart();
+                dibujarRenglones();
             }
         }
     }

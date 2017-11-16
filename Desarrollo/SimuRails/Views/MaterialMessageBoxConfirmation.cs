@@ -32,13 +32,13 @@ namespace SimuRails.Views
 
         private void noBtn_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.No;
             Close();
         }
 
         private void siBtn_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
+            this.DialogResult = DialogResult.Yes;
             Close();
         }
     }
