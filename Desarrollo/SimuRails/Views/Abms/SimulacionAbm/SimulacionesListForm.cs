@@ -28,7 +28,10 @@ namespace SimuRails.Views.Abms
 
         private void SimulacionesListForm_Load_1(object sender, EventArgs e)
         {
-               
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         public void addSimulacion(Simulacion simulacion)
