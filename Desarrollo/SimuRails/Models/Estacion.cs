@@ -37,16 +37,24 @@ namespace SimuRails.Models
         public virtual ResultadoEstacion ResultadoIda { get; set; }
         public virtual ResultadoEstacion ResultadoVuelta { get; set; }
 
-        public virtual int PasajerosAscendidos(Formacion formacion, long t)
+        public virtual int PasajerosAscendidos(Formacion formacion, long t, int pasajerosDescendidos)
         {
-            if(formacion.SentidoActual == Sentido.IDA)
+            int pasajerosAscendidos;
+
+            if (formacion.SentidoActual == Sentido.IDA)
             {
-                return FDP.Normal(PersonasEsperandoMinIda, PersonasEsperandoMaxIda);
+                pasajerosAscendidos = FDP.Normal(PersonasEsperandoMinIda, PersonasEsperandoMaxIda);
             } 
             else
             {
-                return FDP.Normal(PersonasEsperandoMinVuelta, PersonasEsperandoMaxVuelta);
+                pasajerosAscendidos = FDP.Normal(PersonasEsperandoMinVuelta, PersonasEsperandoMaxVuelta);
             }
+
+            if (formacion.Pasajeros - pasajerosDescendidos + pasajerosAscendidos > formacion.GetCapacidadReal())
+            {
+                return formacion.Pasajeros - pasajerosDescendidos + pasajerosAscendidos - formacion.GetCapacidadReal();
+            }
+            return pasajerosAscendidos;
         }
 
         public virtual int PasajerosDescendidos(Formacion formacion, long t)

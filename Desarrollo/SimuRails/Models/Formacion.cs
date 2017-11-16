@@ -85,7 +85,7 @@ namespace SimuRails.Models
                     tiempoIncidentes += incidente.TiempoDemora;
                 }
 
-                    pasajerosAscendidos = tramo.EstacionOrigen.PasajerosAscendidos(this, t);
+                    pasajerosAscendidos = tramo.EstacionOrigen.PasajerosAscendidos(this, t, 0);
                     this.Pasajeros = pasajerosAscendidos;
 
                     tiempoAtencion = tramo.EstacionOrigen.GetTiempoAtencion(this, pasajerosAscendidos);
@@ -167,7 +167,7 @@ namespace SimuRails.Models
                     this.PasoPorMantenimiento = true;
                 }
 
-                pasajerosAscendidos = tramo.EstacionDestino.PasajerosAscendidos(this, t);
+                pasajerosAscendidos = tramo.EstacionDestino.PasajerosAscendidos(this, t, pasajerosDescendidos);
 
                 tiempoAtencion = tramo.EstacionDestino.GetTiempoAtencion(this, pasajerosAscendidos + pasajerosDescendidos);
 

@@ -56,11 +56,6 @@ namespace SimuRails.Resources
         {
             string servicio = formacion.Servicio.Nombre;
 
-            if (formacion.EstacionActual.Equals(formacion.Servicio.Hasta))
-            {
-                return servicio.Split('-')[1] + " - " + servicio.Split('-')[0];
-            }
-
             return servicio;
         }
 
