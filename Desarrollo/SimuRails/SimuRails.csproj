@@ -420,6 +420,7 @@
     <Compile Include="Views\SimulacionEjecutandoForm.Designer.cs">
       <DependentUpon>SimulacionEjecutandoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TabContent.cs" />
     <Compile Include="Views\Validables\Regla.cs" />
     <Compile Include="Views\Validables\ReglaCompuesta.cs" />
     <Compile Include="Views\Validables\ReglaConcreta.cs" />

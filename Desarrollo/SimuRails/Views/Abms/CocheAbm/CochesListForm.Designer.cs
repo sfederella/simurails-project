@@ -128,7 +128,6 @@
             this.Controls.Add(this.listPanel);
             this.Name = "CochesListForm";
             this.Text = "CochesListForm";
-            this.Load += new System.EventHandler(this.CochesListForm_Load);
             this.listPanel.ResumeLayout(false);
             this.listPanel.PerformLayout();
             this.ResumeLayout(false);

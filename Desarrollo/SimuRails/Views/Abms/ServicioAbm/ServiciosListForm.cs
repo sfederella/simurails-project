@@ -30,7 +30,7 @@ namespace SimuRails.Views.Abms
 
         private void ServiciosListForm_Load_1(object sender, EventArgs e)
         {
-            this.dibujarRenglones();
+           
         }
 
         internal void updateList()
@@ -61,6 +61,11 @@ namespace SimuRails.Views.Abms
             renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
             this.listPanel.Controls.Add(renglon);
             renglones.Add(renglon);
+        }
+
+        internal void onTabEnter(object sender, EventArgs e)
+        {
+            this.dibujarRenglones();
         }
 
         private void onServicioRemove(int id)

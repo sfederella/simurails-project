@@ -28,10 +28,7 @@ namespace SimuRails.Views.Abms
 
         private void IncidentesListForm_Load_1(object sender, EventArgs e)
         {
-            using (var repositorio = new Repositorio())
-            {
-                this.dibujarRenglones(repositorio);
-            }
+
         }
 
         public void addIncidente(Incidente incidente)
@@ -57,6 +54,14 @@ namespace SimuRails.Views.Abms
             renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
             this.listPanel.Controls.Add(renglon);
             renglones.Add(renglon);
+        }
+
+        internal void onTabEnter(object sender, EventArgs e)
+        {
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private void onIncidenteRemove(int id)

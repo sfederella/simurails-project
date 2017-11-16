@@ -2,6 +2,7 @@
 using MaterialSkin.Controls;
 using SimuRails.Views.Abms;
 using SimuRails.Views.Abms.FormacionAbm;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -24,14 +25,22 @@ namespace SimuRails.Views
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
+            var simuForm = new SimulacionesListForm(this, tabSimulacion);
+            var serviForm = new ServiciosListForm(this, tabServicios);
+            var estaForm = new EstacionesListForm(this, tabEstaciones);
+            var cocheForm = new CochesListForm(this, tabCoches);
+            var inciForm = new IncidentesListForm(this, tabIncidentes);
+            var trazaForm = new TrazasListForm(this, tabTrazas);
+            var formaForm = new FormacionListForm(this, tabFormaciones);
+
             // Embeber formularios en los tabs respectivos
-            EmbedForm(new SimulacionesListForm(this, tabSimulacion), tabSimulacion);
-            EmbedForm(new ServiciosListForm(this,tabServicios), tabServicios);
-            EmbedForm(new EstacionesListForm(this, tabEstaciones), tabEstaciones);
-            EmbedForm(new CochesListForm(this, tabCoches), tabCoches);
-            EmbedForm(new IncidentesListForm(this, tabIncidentes), tabIncidentes);
-            EmbedForm(new TrazasListForm(this, tabTrazas), tabTrazas);
-            EmbedForm(new FormacionListForm(this, tabFormaciones), tabFormaciones);
+            EmbedForm(simuForm, tabSimulacion, simuForm.onTabEnter);
+            EmbedForm(serviForm, tabServicios, serviForm.onTabEnter);
+            EmbedForm(estaForm, tabEstaciones, estaForm.onTabEnter);
+            EmbedForm(cocheForm, tabCoches, cocheForm.onTabEnter);
+            EmbedForm(inciForm, tabIncidentes, inciForm.onTabEnter);
+            EmbedForm(trazaForm, tabTrazas, trazaForm.onTabEnter);
+            EmbedForm(formaForm, tabFormaciones, formaForm.onTabEnter);
         }
         
         public void EmbedForm(Form form, TabPage tabPage)
@@ -42,6 +51,13 @@ namespace SimuRails.Views
             form.Dock = DockStyle.Fill;
             tabPage.Controls.Add(form);
         }
+
+        public void EmbedForm(Form form, TabPage tabPage, EventHandler handlerOnEnter)
+        {
+            this.EmbedForm(form, tabPage);
+            tabPage.Enter += handlerOnEnter;
+        }
+
         private void label1_Click(object sender, System.EventArgs e)
         {
             SobreNosotrosForm frm = new SobreNosotrosForm();

@@ -28,11 +28,7 @@ namespace SimuRails.Views.Abms
 
         private void SimulacionesListForm_Load_1(object sender, EventArgs e)
         {
-            using (var repositorio = new Repositorio())
-            {
-                this.dibujarRenglones(repositorio);
-            }
-                
+               
         }
 
         public void addSimulacion(Simulacion simulacion)
@@ -49,6 +45,14 @@ namespace SimuRails.Views.Abms
             var renglon = new RenglonDeSimulacion(simulacion, this.OnSimulacionEdit, this.onSimulacionRemove,this);
             this.incluirEnLista(indice, renglon);
             return renglon;
+        }
+
+        internal void onTabEnter(object sender, EventArgs e)
+        {
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private void incluirEnLista(int indice, Control renglon)

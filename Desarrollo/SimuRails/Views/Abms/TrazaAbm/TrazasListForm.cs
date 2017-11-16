@@ -31,10 +31,7 @@ namespace SimuRails.Views.Abms
 
         private void TrazasListForm_Load_1(object sender, EventArgs e)
         {
-            using (var repositorio = new Repositorio())
-            {
-                this.dibujarRenglones(repositorio);
-            }
+
         }
 
         public void addTraza(Traza Traza)
@@ -61,6 +58,14 @@ namespace SimuRails.Views.Abms
             renglon.Anchor = (AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top);
             this.listPanel.Controls.Add(renglon);
             renglones.Add(renglon);
+        }
+
+        internal void onTabEnter(object sender, EventArgs e)
+        {
+            using (var repositorio = new Repositorio())
+            {
+                this.dibujarRenglones(repositorio);
+            }
         }
 
         private void onTrazaRemove(int id)
