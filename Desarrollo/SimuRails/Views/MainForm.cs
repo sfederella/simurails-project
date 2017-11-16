@@ -55,7 +55,11 @@ namespace SimuRails.Views
         public void EmbedForm(Form form, TabPage tabPage, EventHandler handlerOnEnter)
         {
             this.EmbedForm(form, tabPage);
-            tabPage.Enter += handlerOnEnter;
+            form.VisibleChanged += new EventHandler(delegate (Object sender, EventArgs a)
+            {
+                if (form.Visible)
+                    handlerOnEnter.Invoke(sender, a);
+            });
         }
 
         private void label1_Click(object sender, System.EventArgs e)

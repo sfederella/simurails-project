@@ -28,10 +28,12 @@ namespace SimuRails.Views.Abms
 
         private void SimulacionesListForm_Load_1(object sender, EventArgs e)
         {
+            /*
             using (var repositorio = new Repositorio())
             {
                 this.dibujarRenglones(repositorio);
             }
+            */
         }
 
         public void addSimulacion(Simulacion simulacion)
@@ -85,6 +87,7 @@ namespace SimuRails.Views.Abms
             var simulacions = repositorio.Listar<Simulacion>();
 
             renglones.ForEach(unRenglon => this.removeRenglon(unRenglon));
+            renglones = new List<Control>();
             for (int i = 0; i < simulacions.Count; i++)
             {
                 renglones.Add(this.renglonDe(simulacions.ElementAt(i), i));
@@ -98,7 +101,6 @@ namespace SimuRails.Views.Abms
 
         private void removeRenglon(Control unRenglon)
         {
-            this.Controls.Remove(unRenglon);
             unRenglon.Dispose();
         }
 
