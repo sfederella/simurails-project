@@ -24,6 +24,7 @@ Para instalar la aplicación hay que bajarse el siguiente [.rar](Resources/SimuR
 <p align="center">
   <img src="https://raw.githubusercontent.com/sfederella/simurails-project/master/Resources/Demo-Instalacion.gif" alt="Instalación">
 </p>
+
 Para probar el software se puede importar la siguiente [traza de ejemplo.](Resources/Mitre.sr)
 
 ### Documentación
