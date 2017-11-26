@@ -20,10 +20,11 @@ La aplicación fue construida como una aplicación monocapa desktop, ya que fue 
 
 ### Instalación
 
-Para instalar la aplicación hay que bajarse el siguiente .rar <insertar enlace a drive>, descomprimirlo y ejecutar el instalador. Luego de finalizar la instalación, se podrá iniciar la aplicación mediante el acceso directo creado en el escritorio o mediante el menú de windows, en la carpeta UTN Frba, SimuRails.
-Para probar el software se puede importar la siguiente [traza de ejemplo.](www.link.a.la.traza.)
-
-<insertar gif>
+Para instalar la aplicación hay que bajarse el siguiente [.rar](Resources/SimuRails.rar), descomprimirlo y ejecutar el instalador. Luego de finalizar la instalación, se podrá iniciar la aplicación mediante el acceso directo creado en el escritorio o mediante el menú de windows, en la carpeta UTN Frba, SimuRails.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sfederella/simurails-project/master/Resources/Demo-Instalacion.gif" alt="Instalación">
+</p>
+Para probar el software se puede importar la siguiente [traza de ejemplo.](Resources/Mitre.sr)
 
 ### Documentación
 
