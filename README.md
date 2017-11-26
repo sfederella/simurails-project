@@ -29,8 +29,9 @@ Para probar el software se puede importar la siguiente [traza de ejemplo.](Resou
 
 ### Documentación
 
-En el siguiente enlace de drive, se puede acceder a toda la documentación elaborada acerca del software: <insertar drive>
-El manual de usuario puede accederse desde la app
+En el siguiente [enlace de drive](https://drive.google.com/open?id=1uFGxndXmMdQaY7s8U493HFD7IpUHGFpx), se puede acceder a toda la documentación elaborada acerca del software.
+
+El manual de usuario puede accederse desde la aplicación.
 <p align="center">
   <img src="https://raw.githubusercontent.com/sfederella/simurails-project/master/Resources/Demo-Manual.gif" alt="Manual">
 </p>
