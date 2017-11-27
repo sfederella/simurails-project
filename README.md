@@ -16,7 +16,7 @@ Entonces ¿qué hace SimuRails? Permite modelar escenarios basados en la realida
 
 ### ¿Cómo está hecho?
 
-La aplicación fue construida como una aplicación monocapa desktop, ya que fue diseñada para que pueda ser portable e independiente de internet. Posee una base de datos SQLite embebida que está incluida en el instalador. Fue construida en C# y para el frontend se utilizó el framework Material Design. La decisión de utilizar C# se justifica en que la primera versión de la aplicación fue realizada en el año 2015 por otro equipo de desarrollo y dicha versión se puede acceder [aquí.](https://github.com/jonathanvgms/ffccsimulacion)
+La aplicación fue construida como una aplicación monocapa desktop, ya que fue diseñada para que pueda ser portable e independiente de internet. Posee una base de datos SQLite embebida que está incluida en el instalador. Fue construida en C# y para el frontend se utilizó [MaterialSkin for .NET WinForms](https://github.com/IgnaceMaes/MaterialSkin). La decisión de utilizar C# se justifica en que la primera versión de la aplicación fue realizada en el año 2015 por otro equipo de desarrollo y dicha versión se puede acceder [aquí.](https://github.com/jonathanvgms/ffccsimulacion)
 
 ### Instalación
 
@@ -39,9 +39,13 @@ El manual de usuario puede accederse desde la aplicación.
 ### Aspectos a mejorar
 
 Dentro de puntos que quedaron fuera del alcance, los siguientes son los que a nuestro criterio deberían ser corregidos para que la aplicación pueda dar el salto de calidad requerido para que pueda ser utilizado a nivel profesional:
+#### Puntos a corregir
 + Ajustar el modelo para que las funciones de densidad de probabilidad (a partir de ahora fdp) que definen la cantidad de personas que están esperando en cada estación sean dependientes de la hora del día. Actualmente están desglosadas por estación, pero se mantiene la misma función para las 24 horas del día, lo cual no se condiciona con la realidad (horas pico).
 + Ajustar el modelo para que las fpd mencionadas en el punto anterior tengan una correlación entre sí. Por ejemplo: si una formación arriba a la estación a la hora 12:00:00 y la fdp determina que hay 50 personas esperando en el andén y todas suben a la formación, y 10 segundos después de partir (12:00:10) llega una nueva formación a la estación, la fdp no debería volver a dar como resultado un número cercano a 50 personas esperando por subir, sino uno considerablemente menor.
+#### Mejoras posibles
 + Agregar al modelo pasos de nivel, que conceptualmente funcionan igual que estaciones pero que no pueden ascender ni descender pasajeros y donde el tiempo de atención de la formación es 0.
++ Agregar al modelo los costos asociados al funcionamiento de los trenes, mantenimientos e incidentes.
++ Poder customizar desde la herramienta las fdp tiene cada evento, permitiendo ingresar tanto la función como sus parámetros.
 
 ### Agradecimientos
 
